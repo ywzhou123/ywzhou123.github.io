@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Vue生态圈</title>
+      <link href="/2020/04/17/vue%E7%94%9F%E6%80%81%E5%9C%88/"/>
+      <url>/2020/04/17/vue%E7%94%9F%E6%80%81%E5%9C%88/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><h2 id="VUE-开发框架"><a href="#VUE-开发框架" class="headerlink" title="VUE 开发框架"></a>VUE 开发框架</h2><p>vue<br>    <a href="https://cn.vuejs.org/v2/guide/index.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/index.html</a><br>    是一套用于构建用户界面的渐进式框架。</p><h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p>vue-router<br>    <a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">https://router.vuejs.org/zh/</a><br>    介绍<br>        路由管理器。<br>        它和 Vue.js 的核心深度集成，<br>        让构建单页面应用变得易如反掌。<br>    功能<br>        嵌套的路由/视图表<br>        模块化的、基于组件的路由配置<br>        路由参数、查询、通配符<br>        基于 Vue.js 过渡系统的视图过渡效果<br>        细粒度的导航控制<br>        带有自动激活的 CSS class 的链接<br>        HTML5 历史模式或 hash 模式，在 IE9 中自动降级<br>        自定义的滚动条行为</p><h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>vuex<br>    专为 Vue.js 应用程序开发的状态管理模式。<br>    <a href="https://vuex.vuejs.org/zh/" target="_blank" rel="noopener">https://vuex.vuejs.org/zh/</a></p><h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><p>axios<br>    数据请求工具，类似fetch，返回Promise函数<br>    <a href="https://www.npmjs.com/package/axios" target="_blank" rel="noopener">https://www.npmjs.com/package/axios</a><br>    <a href="https://www.jianshu.com/p/7a9fbcbb1114" target="_blank" rel="noopener">https://www.jianshu.com/p/7a9fbcbb1114</a><br>    <a href="https://www.cnblogs.com/nogodie/p/9853660.html" target="_blank" rel="noopener">https://www.cnblogs.com/nogodie/p/9853660.html</a></p><h3 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h3><p>webpack4<br>    打包工具<br>    <a href="https://webpack.docschina.org/guides/" target="_blank" rel="noopener">https://webpack.docschina.org/guides/</a><br>vue-devtools<br>    开发工具<br>awesome<br>    工具链集合<br>    有打印、导航、存储、认证、IDE、等几百项第三方插件库<br>    <a href="https://github.com/vuejs/awesome-vue#libraries--plugins" target="_blank" rel="noopener">https://github.com/vuejs/awesome-vue#libraries--plugins</a><br>apiCloud<br>    线上api数据库，定制APP<br>    <a href="https://www.apicloud.com" target="_blank" rel="noopener">https://www.apicloud.com</a></p><h2 id="跨平台框架"><a href="#跨平台框架" class="headerlink" title="跨平台框架"></a>跨平台框架</h2><p>weex<br>    跨平台开发框架，ios/android/web<br>    <a href="http://weex.apache.org/cn/guide/" target="_blank" rel="noopener">http://weex.apache.org/cn/guide/</a><br>weex-ui<br>    起源于阿里内部的一个 Weex 上层 Ui 组件库<br>    <a href="https://alibaba.github.io/weex-ui/#/cn/weex-ui-report" target="_blank" rel="noopener">https://alibaba.github.io/weex-ui/#/cn/weex-ui-report</a><br>wepy<br>    类vue 小程序/h5 不支持vuex<br>mpvue<br>    美团开发的基于vue的跨平台框架，小程序/h5, 支持vuex<br>    mpvue-router-patach<br>        以便在mpvue小程序中能使用vue-router的写法<br>    vuex-persistedstate<br>        vuex数据持久化，解决F5刷新后数据丢失</p><h2 id="移动端UI库"><a href="#移动端UI库" class="headerlink" title="移动端UI库"></a>移动端UI库</h2><p>mintUI<br>    饿了么开发的基于vue app端<br>vonic<br>    app端 简约<br>vux<br>    微信小程序 app端 个人开发<br>iViewWeapp<br>    iView的app版<br>cube-UI<br>    滴滴开发的 app端</p><h2 id="PC端UI库"><a href="#PC端UI库" class="headerlink" title="PC端UI库"></a>PC端UI库</h2><p>Element<br>    饿了么开发的 pc端<br>iView<br>    基于vue的中后台<br>vuetify<br>    github start 15k<br>vue-strap<br>    基于vue的bootstrap<br>at-ui<br>    基于antd pc端<br>vue-admin<br>    管理后台</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2020/04/17/hello-world/"/>
+      <url>/2020/04/17/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
