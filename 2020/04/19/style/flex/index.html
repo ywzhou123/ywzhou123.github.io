@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>flex布局 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">flex布局</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/style/flex/">2020-04-19</a></span><span class="p-category"><i class="fa fa-folder"></i><a href="/categories/Style/">Style</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><h3 id="display-flex"><a href="#display-flex" class="headerlink" title="display: flex;"></a>display: flex;</h3><h3 id="flex-direction-row"><a href="#flex-direction-row" class="headerlink" title="flex-direction: row;"></a>flex-direction: row;</h3><p>​    //决定主轴的方向<br>​    // row默认 主轴为水平方向，起点在左端。<br>​    // row-reverse 主轴为水平方向，起点在右端<br>​    // column 主轴为垂直方向，起点在上沿<br>​    // column-reverse 主轴为垂直方向，起点在下沿</p>
+<h3 id="flex-wrap-wrap"><a href="#flex-wrap-wrap" class="headerlink" title="flex-wrap: wrap;"></a>flex-wrap: wrap;</h3><p>​    // 如果一条轴线排不下，如何换行<br>​    // nowrap默认 不换行<br>​    // wrap 换行，第一行在上方<br>​    // wrap-reverse 换行，第一行在下方</p>
+<h3 id="flex-flow-column-nowrap"><a href="#flex-flow-column-nowrap" class="headerlink" title="flex-flow: column nowrap;"></a>flex-flow: column nowrap;</h3><p>​     // 是flex-direction属性和flex-wrap属性的简写形式<br>​    // row nowrap 默认</p>
+<h3 id="justify-content-flex-start"><a href="#justify-content-flex-start" class="headerlink" title="justify-content: flex-start;"></a>justify-content: flex-start;</h3><p>​    // 具体对齐方式与轴的方向有关<br>​    // flex-start 默认,左对齐<br>​    // flex-end 右对齐<br>​    // center  居中<br>​    // space-between 两端对齐，项目之间的间隔都相等<br>​    // space-around 每个项目两侧的间隔相等;项目之间的间隔比项目与边框的间隔大一倍</p>
+<h3 id="align-items-stretch"><a href="#align-items-stretch" class="headerlink" title="align-items: stretch;"></a>align-items: stretch;</h3><p>​    // 定义项目在交叉轴上如何对齐<br>​    // stretch 默认,如果项目未设置高度或设为auto，将占满整个容器的高度<br>​    // flex-start 交叉轴的起点对齐<br>​    // flex-end 交叉轴的终点对齐<br>​    // center 交叉轴的中点对齐<br>​    // baseline 项目的第一行文字的基线对齐</p>
+<h3 id="align-content-flex-end"><a href="#align-content-flex-end" class="headerlink" title="align-content: flex-end;"></a>align-content: flex-end;</h3><p>​     // 定义了多根轴线的对齐方式,如果项目只有一根轴线，该属性不起作用<br>​    // flex-start 与交叉轴的起点对齐<br>​    // flex-end 与交叉轴的终点对齐<br>​    // center 与交叉轴的中点对齐<br>​    // stretch默认 轴线占满整个交叉轴<br>​    // space-between 与交叉轴两端对齐，轴线之间的间隔平均分布<br>​    // space-around 每根轴线两侧的间隔都相等,轴线之间的间隔比轴线与边框的间隔大一倍</p>
+<h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h2><h3 id="order-1"><a href="#order-1" class="headerlink" title="order: 1;"></a>order: 1;</h3><p>​    // 定义项目的排列顺序<br>​    // 数值越小，排列越靠前，默认为0</p>
+<h3 id="flex-grow-0"><a href="#flex-grow-0" class="headerlink" title="flex-grow: 0;"></a>flex-grow: 0;</h3><p>​    // 定义项目的放大比例<br>​    // 默认为0，即如果存在剩余空间，也不放大</p>
+<h3 id="flex-shrink-1"><a href="#flex-shrink-1" class="headerlink" title="flex-shrink: 1;"></a>flex-shrink: 1;</h3><p>​    // 定义了项目的缩小比例<br>​    // 默认为1，即如果空间不足，该项目将缩小<br>​    // 设为0表示空间不足时该项目不缩小</p>
+<h3 id="flex-basis-auto"><a href="#flex-basis-auto" class="headerlink" title="flex-basis: auto;"></a>flex-basis: auto;</h3><p>​    // 定义了在分配多余空间之前，项目占据的主轴空间<br>​    // <length> | auto</p>
+<h3 id="flex-0-1-auto"><a href="#flex-0-1-auto" class="headerlink" title="flex: 0 1 auto;"></a>flex: 0 1 auto;</h3><p>​    // flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto<br>​    // 快捷值：auto (1 1 auto) || none (0 0 auto)</p>
+<h3 id="align-self-flex-end"><a href="#align-self-flex-end" class="headerlink" title="align-self: flex-end;"></a>align-self: flex-end;</h3><p>​    // 允许单个项目有与其他项目不一样的对齐方式，覆盖align-items<br>​    // auto默认<br>​    // flex-start<br>​    // flex-end<br>​    // center<br>​    // baseline<br>​    // stretch</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code class="css">.box {
+    display: flex;
+}</code></pre>
+<p>行内元素 </p>
+<pre><code class="css">.box {
+    display: inline-flex;
+}</code></pre>
+<p>三点色子</p>
+<pre><code>.box {
+    display: flex;
+}</code></pre><pre><code>.item:nth-child(2) {
+    align-self: center;
+}</code></pre><pre><code>.item:nth-child(3) {
+    align-self: flex-end;
+}</code></pre></div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/flex/">flex</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#容器属性"><span class="toc-number">1.</span> <span class="toc-text">容器属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#display-flex"><span class="toc-number">1.1.</span> <span class="toc-text">display: flex;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-direction-row"><span class="toc-number">1.2.</span> <span class="toc-text">flex-direction: row;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-wrap-wrap"><span class="toc-number">1.3.</span> <span class="toc-text">flex-wrap: wrap;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-flow-column-nowrap"><span class="toc-number">1.4.</span> <span class="toc-text">flex-flow: column nowrap;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#justify-content-flex-start"><span class="toc-number">1.5.</span> <span class="toc-text">justify-content: flex-start;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-items-stretch"><span class="toc-number">1.6.</span> <span class="toc-text">align-items: stretch;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-content-flex-end"><span class="toc-number">1.7.</span> <span class="toc-text">align-content: flex-end;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目属性"><span class="toc-number">2.</span> <span class="toc-text">项目属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#order-1"><span class="toc-number">2.1.</span> <span class="toc-text">order: 1;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-grow-0"><span class="toc-number">2.2.</span> <span class="toc-text">flex-grow: 0;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-shrink-1"><span class="toc-number">2.3.</span> <span class="toc-text">flex-shrink: 1;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-basis-auto"><span class="toc-number">2.4.</span> <span class="toc-text">flex-basis: auto;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-0-1-auto"><span class="toc-number">2.5.</span> <span class="toc-text">flex: 0 1 auto;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-self-flex-end"><span class="toc-number">2.6.</span> <span class="toc-text">align-self: flex-end;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例"><span class="toc-number">3.</span> <span class="toc-text">示例</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/browser/%E5%AD%98%E5%82%A8/">&lt; 浏览器存储</a><a class="next" href="/2020/04/19/html/%E5%B1%9E%E6%80%A7/">html 属性 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

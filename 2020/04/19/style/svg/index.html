@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>Svg 基础语法 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">Svg 基础语法</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/style/svg/">2020-04-19</a></span><span class="p-category"><i class="fa fa-folder"></i><a href="/categories/Style/">Style</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="一、SVG基础"><a href="#一、SVG基础" class="headerlink" title="一、SVG基础"></a>一、SVG基础</h1><h2 id="1、基本图形"><a href="#1、基本图形" class="headerlink" title="1、基本图形"></a>1、基本图形</h2><h3 id="lt-rect-gt-矩形"><a href="#lt-rect-gt-矩形" class="headerlink" title="&lt;rect&gt;   矩形"></a><code>&lt;rect&gt;</code>   矩形</h3><p>x,y,width,height,rx,ry 起点位置和宽高，以及圆角半径</p>
+<h3 id="lt-circle-gt-圆形"><a href="#lt-circle-gt-圆形" class="headerlink" title="&lt;circle&gt; 圆形"></a><code>&lt;circle&gt;</code> 圆形</h3><p>cx, cy, r 圆心的坐标和半径</p>
+<h3 id="lt-ellipse-gt-椭圆"><a href="#lt-ellipse-gt-椭圆" class="headerlink" title="&lt;ellipse&gt; 椭圆"></a><code>&lt;ellipse&gt;</code> 椭圆</h3><p>cx, cy, rx ry</p>
+<h3 id="lt-line-gt-直线"><a href="#lt-line-gt-直线" class="headerlink" title="&lt;line&gt; 直线"></a><code>&lt;line&gt;</code> 直线</h3><p>x1,y1,x2,y2</p>
+<h3 id="lt-polyline-gt-折线"><a href="#lt-polyline-gt-折线" class="headerlink" title="&lt;polyline&gt; 折线"></a><code>&lt;polyline&gt;</code> 折线</h3><p>points=”x1 y1 x2 y2 x3 y3”</p>
+<h3 id="lt-polygon-gt-多边形"><a href="#lt-polygon-gt-多边形" class="headerlink" title="&lt;polygon&gt;多边形"></a><code>&lt;polygon&gt;</code>多边形</h3><p>points=”x1 y1 x2 y2 x3 y3”</p>
+<h2 id="2、基本属性"><a href="#2、基本属性" class="headerlink" title="2、基本属性"></a>2、基本属性</h2><h3 id="填充"><a href="#填充" class="headerlink" title="填充"></a>填充</h3><p>fill=”#FFB3AE”</p>
+<h3 id="描边"><a href="#描边" class="headerlink" title="描边"></a>描边</h3><p>stroke=”#971817”</p>
+<h3 id="描边宽度"><a href="#描边宽度" class="headerlink" title="描边宽度"></a>描边宽度</h3><p>stroke-width=”10”</p>
+<h3 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h3><p>transform=”rotate(30)”</p>
+<h2 id="3、svg使用方式"><a href="#3、svg使用方式" class="headerlink" title="3、svg使用方式"></a>3、svg使用方式</h2><p>img标签<br>svg标签<br>css背景</p>
+<h2 id="4、基本操作API"><a href="#4、基本操作API" class="headerlink" title="4、基本操作API"></a>4、基本操作API</h2><h3 id="创建图形"><a href="#创建图形" class="headerlink" title="创建图形"></a>创建图形</h3><p>documentcreateElementNS(ns, tagName)</p>
+<h3 id="添加图形"><a href="#添加图形" class="headerlink" title="添加图形"></a>添加图形</h3><p>element.appendChild(childElement)</p>
+<h3 id="操作属性"><a href="#操作属性" class="headerlink" title="操作属性"></a>操作属性</h3><p>element.setAttribute(name, value)<br>element.getAttribute(name)</p>
+<h1 id="二、坐标"><a href="#二、坐标" class="headerlink" title="二、坐标"></a>二、坐标</h1><h2 id="1、世界、视野、视窗"><a href="#1、世界、视野、视窗" class="headerlink" title="1、世界、视野、视窗"></a>1、世界、视野、视窗</h2><p>世界是无穷大的<br>视野：观察图形的大小<br>viewbox＝”0 0 400 300”<br>preserveAspectRatio=”xMidYMid meet”<br>对齐方式和包含方式<br>视窗：svg的大小，浏览器中的大小<br>width=”800”<br>height=”600”</p>
+<h2 id="2、图形分组"><a href="#2、图形分组" class="headerlink" title="2、图形分组"></a>2、图形分组</h2><p><code>&lt;g&gt;</code>创建分组<br>可以设置属性进行继承<br>可以嵌套使用</p>
+<h2 id="2、坐标系统"><a href="#2、坐标系统" class="headerlink" title="2、坐标系统"></a>2、坐标系统</h2><p>坐标：x轴从左到右，y轴从上到下，角度顺时针方向，<br>原点(0,0)在左上角<br>坐标系：<br>用户坐标系<br>自身坐标系<br>前驱坐标系<br>参考坐标系</p>
+<h2 id="3、tansform属性"><a href="#3、tansform属性" class="headerlink" title="3、tansform属性"></a>3、tansform属性</h2><p>rotate(deg) 旋转<br>translate(x, y) 移动<br>scale(sx, sy) 放大缩小<br>matrix(a,b,c,d,e,f)</p>
+<h1 id="三、颜色"><a href="#三、颜色" class="headerlink" title="三、颜色"></a>三、颜色</h1><h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><p>RGB(red[0-255], green[0-255], bule[0-255])</p>
+<p>HSL(h[0,359], s%, l%)<br>三个分量分别表示颜色、饱和度和亮度<br><a href="http://paletton.com" target="_blank" rel="noopener">http://paletton.com</a></p>
+<h2 id="透明度"><a href="#透明度" class="headerlink" title="透明度"></a>透明度</h2><p>rgba<br>hsla<br>opacity</p>
+<pre><code class="html">&lt;rect fill=&quot;rgba(255,0,0)&quot; opacity=&quot;0.5&quot;/&gt;
+&lt;rect stroke=&quot;hsla(0, 50%, 60%)&quot; /&gt;</code></pre>
+<h1 id="四、-渐变"><a href="#四、-渐变" class="headerlink" title="四、 渐变"></a>四、 渐变</h1><h2 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h2><p>使用linearGradient和stop标签，定义方向和关键点位置及颜色<br>gradientUnits属性设置盒子类型，默认objectBoundingBox，userSpaceOnUse表示世界坐标系<br>默认从左上角(0%)到右下角(100%)</p>
+<pre><code class="html">&lt;svg xmlns=&quot;http://www.w3.org/200/svg&quot;&gt;
+  &lt;defs&gt;
+    &lt;linearGradient
+      id=&quot;grad1&quot; 
+      gradientUnits=&quot;objectBoundingBox&quot;
+      x1=&quot;0&quot;
+      y1=&quot;0&quot;
+      x2=&quot;1&quot;
+      y2=&quot;1&quot;
+    &lt;/&gt;
+      &lt;stop offset=&quot;0&quot; stop-color=&quot;#1497FC&quot; /&gt;
+      &lt;stop offset=&quot;0&quot; stop-color=&quot;#1497FC&quot; /&gt;
+      &lt;stop offset=&quot;0&quot; stop-color=&quot;#1497FC&quot; /&gt;
+    &lt;/linearGradient&gt;
+  &lt;/defs&gt;
+  &lt;rect x=&quot;100&quot; y=&quot;100&quot; fill=&quot;url(#grad1)&quot; width=&quot;200&quot; height=&quot;150&quot; /&gt;
+&lt;/svg&gt;</code></pre>
+<p>画一个宽200高150的矩形<br>linearGradient定义渐变色，xy的值0表示最左和最上，1表示最右和最下，使用userSpaceOnUse可以使用具体数值表示<br>stop定义关键点位置，offset=[0-1] 0 表示最左上角，0.5表示中间位置，1表示最右下角位置</p>
+<h2 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h2><pre><code class="html">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+  &lt;defs&gt;
+    &lt;radialGradient id=&quot;grad3&quot; cx=&quot;0.5&quot; cy=&quot;0.5&quot; r=&quot;0.7&quot; fx=&quot;0.5&quot; fy=&quot;0.5&quot;&gt;
+      &lt;stop offset=&quot;0&quot; stop-color=&quot;rgb(20,151,252)&quot; /&gt;
+      &lt;stop offset=&quot;0.5&quot; stop-color=&quot;rgb(164,105,190)&quot; /&gt;
+      &lt;stop offset=&quot;1&quot; stop-color=&quot;rgb(255,140,0)&quot; /&gt;
+    &lt;/radialGradient&gt;
+  &lt;/defs&gt;
+  &lt;rect x=&quot;100&quot; y=&quot;100&quot; fill=&quot;url(#grad3)&quot; width=&quot;200&quot; height=&quot;200&quot; /&gt;
+  &lt;circle cx=&quot;500&quot; cy=&quot;200&quot; r=&quot;100&quot; fill=&quot;url(#grad3)&quot; /&gt;
+&lt;/svg&gt;</code></pre>
+<h2 id="笔刷"><a href="#笔刷" class="headerlink" title="笔刷"></a>笔刷</h2><pre><code>&lt;pattern&gt;
+  &lt;circle&gt;
+  &lt;polygon&gt;
+&lt;/polygon&gt;</code></pre><h1 id="五、Path"><a href="#五、Path" class="headerlink" title="五、Path"></a>五、Path</h1><p><a href="http://www.w3.org/TR/SVG11/paths.html" target="_blank" rel="noopener">http://www.w3.org/TR/SVG11/paths.html</a></p>
+<pre><code class="html">&lt;path d=&quot;M0,0 L10,20 C30 -10,40,20,100,100&quot; stoke=&quot;red&quot;/&gt;</code></pre>
+<p>命令 含义</p>
+<ul>
+<li>M/m (x,y)+  移动到当前位置</li>
+<li>L/l (x,y)+  画线段到指定位置</li>
+<li>Hh (x)+ 画水平线到指定的x坐标</li>
+<li>V/v(x)+ 画垂直线到指定的y坐标</li>
+<li>Z/Z 闭合当前路径（结尾）</li>
+<li>C/c (x1,y1,x2,y2,x,y)+  画三次贝赛尔曲线到指定位置</li>
+<li>S/s (x2,y2,x,y)+光滑地画三次贝赛尔曲线到指定位置</li>
+<li>Q/q (x1,y1,x,y)+画二次贝赛尔曲线到指定位置</li>
+<li>T/t(x,y)+   光滑地画二次贝赛尔曲线到指定位置</li>
+<li>A/a (rx,ry,xr,laf,sf,x,y)   画弧线到指定位置</li>
+</ul>
+<blockquote>
+<p>注意：<br>大写表示绝对位置，小写为相对位置<br>上一命令结束位置就是下一命令开始的位置<br>命令可以重复参数表示重复执行同一命令</p>
+</blockquote>
+<h3 id="弧线-A-a-rx-ry-xr-laf-sf-x-y"><a href="#弧线-A-a-rx-ry-xr-laf-sf-x-y" class="headerlink" title="弧线 A/a (rx,ry,xr,laf,sf,x,y)"></a>弧线 A/a (rx,ry,xr,laf,sf,x,y)</h3><p>rx 弧线所在椭圆的x半轴长<br>ry 弧线所在椭圆的y半轴长<br>xr 长轴角度<br>laf 是否选择弧长较长的那一段弧<br>sf  是否选择逆时针方向的那一段弧<br>x,y 终点位置</p>
+<h1 id="六、鼠标事件"><a href="#六、鼠标事件" class="headerlink" title="六、鼠标事件"></a>六、鼠标事件</h1><h2 id="1、SMIL方式"><a href="#1、SMIL方式" class="headerlink" title="1、SMIL方式"></a>1、SMIL方式</h2><p>单击后触发一个动画效果，此例中被改变的是“fill”属性，由红变蓝，中间没有渐变的过程，一次到位。</p>
+<pre><code class="html">&lt;svg&gt;
+  &lt;rect x=&quot;15&quot; y=&quot;15&quot; width=&quot;40&quot; height=&quot;40&quot; fill=&quot;red&quot;&gt;
+      &lt;set attributeName=&quot;fill&quot; to=&quot;blue&quot; begin=&quot;click&quot;/&gt;
+  &lt;/rect&gt;
+&lt;/svg&gt;</code></pre>
+<h2 id="2、Attributes方式"><a href="#2、Attributes方式" class="headerlink" title="2、Attributes方式"></a>2、Attributes方式</h2><p>事件属性在u处，“onclick”事件调用的是“changeColor”函数，参数是“evt”</p>
+<pre><code class="html">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;
+xmlns:xlink=http://www.w3.org/1999/xlink
+xmlns:a3=&quot;http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/&quot;
+a3:scriptImplementation=&quot;Adobe&quot;&gt;
+  &lt;script type=&quot;text/ecmascript&quot; a3:scriptImplementation=&quot;Adobe&quot;&gt;
+    &lt;![CDATA[
+    function changeColor(evt) {
+      var rect = evt.target;
+        rect.setAttributeNS(null, &quot;fill&quot;, &quot;blue&quot;)
+      }
+  ]]&gt;
+  &lt;/script&gt;
+  &lt;rect x=&quot;5&quot; y=&quot;5&quot; width=&quot;40&quot; height=&quot;40&quot; fill=&quot;red&quot;
+  οnclick= &quot;changeColor(evt)&quot;/&gt; u
+&lt;/svg&gt;</code></pre>
+<pre><code class="html">&lt;svg&gt;
+
+  &lt;use xlink:href=&quot;#Longmendiao&quot; transform=&quot;translate(30,60)  scale(0.5)&quot; onclick=&quot;btnClickA()&quot;&gt;&lt;/use&gt;
+
+  &lt;script&gt;
+  function btnClickA() {
+      alert(&quot;Hello&quot;);
+  }
+  &lt;/script&gt;
+
+&lt;/svg&gt;</code></pre>
+<h2 id="3、JavaScript-SMIL方式"><a href="#3、JavaScript-SMIL方式" class="headerlink" title="3、JavaScript+SMIL方式"></a>3、JavaScript+SMIL方式</h2><pre><code class="html">&lt;svg οnlοad=&quot;makeShape(evt)&quot;&gt;
+&lt;script&gt;&lt;![CDATA[
+  var svgns = &quot;http://www.w3.org/2000/svg&quot;;u
+  function makeShape(evt) {
+    svgDoc = evt.target.ownerDocument;
+    var rect = svgDoc.createElementNS(svgns, &quot;rect&quot;);
+    rect.setAttributeNS(null, &quot;x&quot;, &quot;5&quot;);
+    rect.setAttributeNS(null, &quot;y&quot;, &quot;5&quot;);
+    rect.setAttributeNS(null, &quot;width&quot;, &quot;40&quot;);
+    rect.setAttributeNS(null, &quot;height&quot;, &quot;40&quot;);
+    rect.setAttributeNS(null, &quot;fill&quot;, &quot;red&quot;);
+    var set = svgDoc.createElementNS(svgns, &quot;set&quot;);
+    set.setAttributeNS(null, &quot;attributeName&quot;, &quot;fill&quot;);
+    set.setAttributeNS(null, &quot;to&quot;, &quot;blue&quot;);
+    set.setAttributeNS(null, &quot;begin&quot;, &quot;click&quot;);
+    rect.appendChild(set);
+    svgDoc.rootElement.appendChild(rect);
+  }
+]]&gt;&lt;/script&gt;
+&lt;/svg&gt;</code></pre>
+<h2 id="4、EventListener方式"><a href="#4、EventListener方式" class="headerlink" title="4、EventListener方式"></a>4、EventListener方式</h2><pre><code class="html">&lt;svg οnlοad=&quot;makeShape(evt)&quot;&gt;
+&lt;script&gt;&lt;![CDATA[
+  var svgns = &quot;http://www.w3.org/2000/svg&quot;;
+  function makeShape(evt) {
+    if ( window.svgDocument == null )
+    svgDoc = evt.target.ownerDocument;
+    var rect = svgDoc.createElementNS(svgns, &quot;rect&quot;);
+    rect.setAttributeNS(null, &quot;x&quot;, 15);
+    rect.setAttributeNS(null, &quot;y&quot;, 15);
+    rect.setAttributeNS(null, &quot;width&quot;, 40);
+    rect.setAttributeNS(null, &quot;height&quot;, 40);
+    rect.setAttributeNS(null, &quot;fill&quot;, &quot;red&quot;);
+    rect.addEventListener(&quot;click&quot;, changeColor, false); u
+    svgDoc.documentElement.appendChild(rect);
+  }
+  function changeColor(evt) {
+      var target = evt.target;
+      target.setAttributeNS(null, &quot;fill&quot;, &quot;blue&quot;);
+  }
+]]&gt;&lt;/script&gt;
+&lt;/svg&gt;</code></pre>
+<h1 id="七、动态添加元素和事件"><a href="#七、动态添加元素和事件" class="headerlink" title="七、动态添加元素和事件"></a>七、动态添加元素和事件</h1><p><a href="https://www.cnblogs.com/lovellll/p/10208207.html" target="_blank" rel="noopener">https://www.cnblogs.com/lovellll/p/10208207.html</a></p>
+<pre><code class="js">var svg = document.createElementNS(&quot;http://www.w3.org/2000/svg&quot;, &quot;svg&quot;);
+svg.setAttribute(&quot;width&quot;, &quot;800&quot;);
+svg.setAttribute(&quot;height&quot;, &quot;500&quot;);
+svg.addEventListener(&quot;load&quot;, function() {
+    alert(&quot;loaded&quot;);
+});
+document.body.appendChild(svg);
+
+var r = document.createElementNS(&quot;http://www.w3.org/2000/svg&quot;, &quot;rect&quot;);
+r.setAttribute(&quot;fill&quot;, &quot;#120045&quot;);
+r.setAttribute(&quot;x&quot;, &quot;1&quot;);
+r.setAttribute(&quot;y&quot;, &quot;1&quot;);
+r.setAttribute(&quot;width&quot;, &quot;50%&quot;);
+r.setAttribute(&quot;height&quot;, &quot;50%&quot;);
+r.addEventListener(&quot;click&quot;, function() {
+    alert(&quot;clicked&quot;);
+});
+svg.appendChild(r);</code></pre>
+</div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/svg/">svg</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、SVG基础"><span class="toc-number">1.</span> <span class="toc-text">一、SVG基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、基本图形"><span class="toc-number">1.1.</span> <span class="toc-text">1、基本图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-rect-gt-矩形"><span class="toc-number">1.1.1.</span> <span class="toc-text">&lt;rect&gt;   矩形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-circle-gt-圆形"><span class="toc-number">1.1.2.</span> <span class="toc-text">&lt;circle&gt; 圆形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-ellipse-gt-椭圆"><span class="toc-number">1.1.3.</span> <span class="toc-text">&lt;ellipse&gt; 椭圆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-line-gt-直线"><span class="toc-number">1.1.4.</span> <span class="toc-text">&lt;line&gt; 直线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-polyline-gt-折线"><span class="toc-number">1.1.5.</span> <span class="toc-text">&lt;polyline&gt; 折线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-polygon-gt-多边形"><span class="toc-number">1.1.6.</span> <span class="toc-text">&lt;polygon&gt;多边形</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、基本属性"><span class="toc-number">1.2.</span> <span class="toc-text">2、基本属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#填充"><span class="toc-number">1.2.1.</span> <span class="toc-text">填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#描边"><span class="toc-number">1.2.2.</span> <span class="toc-text">描边</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#描边宽度"><span class="toc-number">1.2.3.</span> <span class="toc-text">描边宽度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变形"><span class="toc-number">1.2.4.</span> <span class="toc-text">变形</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、svg使用方式"><span class="toc-number">1.3.</span> <span class="toc-text">3、svg使用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、基本操作API"><span class="toc-number">1.4.</span> <span class="toc-text">4、基本操作API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建图形"><span class="toc-number">1.4.1.</span> <span class="toc-text">创建图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加图形"><span class="toc-number">1.4.2.</span> <span class="toc-text">添加图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作属性"><span class="toc-number">1.4.3.</span> <span class="toc-text">操作属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、坐标"><span class="toc-number">2.</span> <span class="toc-text">二、坐标</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、世界、视野、视窗"><span class="toc-number">2.1.</span> <span class="toc-text">1、世界、视野、视窗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、图形分组"><span class="toc-number">2.2.</span> <span class="toc-text">2、图形分组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、坐标系统"><span class="toc-number">2.3.</span> <span class="toc-text">2、坐标系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、tansform属性"><span class="toc-number">2.4.</span> <span class="toc-text">3、tansform属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、颜色"><span class="toc-number">3.</span> <span class="toc-text">三、颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色"><span class="toc-number">3.1.</span> <span class="toc-text">颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#透明度"><span class="toc-number">3.2.</span> <span class="toc-text">透明度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、-渐变"><span class="toc-number">4.</span> <span class="toc-text">四、 渐变</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性渐变"><span class="toc-number">4.1.</span> <span class="toc-text">线性渐变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#径向渐变"><span class="toc-number">4.2.</span> <span class="toc-text">径向渐变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#笔刷"><span class="toc-number">4.3.</span> <span class="toc-text">笔刷</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、Path"><span class="toc-number">5.</span> <span class="toc-text">五、Path</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#弧线-A-a-rx-ry-xr-laf-sf-x-y"><span class="toc-number">5.0.1.</span> <span class="toc-text">弧线 A&#x2F;a (rx,ry,xr,laf,sf,x,y)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、鼠标事件"><span class="toc-number">6.</span> <span class="toc-text">六、鼠标事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、SMIL方式"><span class="toc-number">6.1.</span> <span class="toc-text">1、SMIL方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、Attributes方式"><span class="toc-number">6.2.</span> <span class="toc-text">2、Attributes方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、JavaScript-SMIL方式"><span class="toc-number">6.3.</span> <span class="toc-text">3、JavaScript+SMIL方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、EventListener方式"><span class="toc-number">6.4.</span> <span class="toc-text">4、EventListener方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、动态添加元素和事件"><span class="toc-number">7.</span> <span class="toc-text">七、动态添加元素和事件</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/html/dtd/">&lt; html 文档类型定义</a><a class="next" href="/2020/04/19/web/vue/lifecycle/">Vue 生命周期 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

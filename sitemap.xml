@@ -2,9 +2,261 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ywzhou123.github.io/2020/04/17/vue%E7%94%9F%E6%80%81%E5%9C%88/</loc>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
     
-    <lastmod>2020-04-17T13:44:03.512Z</lastmod>
+    <lastmod>2020-04-19T10:19:06.169Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/%E9%97%AD%E5%8C%85/</loc>
+    
+    <lastmod>2020-04-19T10:18:40.191Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/%E8%B7%A8%E5%9F%9F/</loc>
+    
+    <lastmod>2020-04-19T10:17:13.709Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/%E6%A8%A1%E5%9D%97%E5%8C%96/</loc>
+    
+    <lastmod>2020-04-19T10:15:50.648Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</loc>
+    
+    <lastmod>2020-04-19T10:14:58.462Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD/</loc>
+    
+    <lastmod>2020-04-19T10:14:13.334Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/%E5%8F%98%E9%87%8F/</loc>
+    
+    <lastmod>2020-04-19T10:13:49.359Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
+    
+    <lastmod>2020-04-19T10:11:50.436Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/this%E5%AF%B9%E8%B1%A1/</loc>
+    
+    <lastmod>2020-04-19T10:09:26.661Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/new%E5%AF%B9%E8%B1%A1/</loc>
+    
+    <lastmod>2020-04-19T10:08:26.327Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/es6%E8%AF%AD%E6%B3%95/</loc>
+    
+    <lastmod>2020-04-19T10:02:59.255Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/es%E8%A7%A3%E6%9E%84%E6%96%B9%E6%B3%95/</loc>
+    
+    <lastmod>2020-04-19T10:02:13.887Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/es%E6%89%A9%E5%B1%95%E6%96%B9%E6%B3%95/</loc>
+    
+    <lastmod>2020-04-19T10:01:31.646Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/javascript/es%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    
+    <lastmod>2020-04-19T10:01:11.873Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/browser/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/</loc>
+    
+    <lastmod>2020-04-19T09:59:42.847Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/browser/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</loc>
+    
+    <lastmod>2020-04-19T09:59:20.311Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/browser/%E5%AE%89%E5%85%A8%E6%80%A7/</loc>
+    
+    <lastmod>2020-04-19T09:59:03.411Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/browser/%E5%85%BC%E5%AE%B9%E6%80%A7/</loc>
+    
+    <lastmod>2020-04-19T09:58:43.657Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/browser/%E5%86%85%E6%A0%B8/</loc>
+    
+    <lastmod>2020-04-19T09:58:10.793Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/browser/%E5%AD%98%E5%82%A8/</loc>
+    
+    <lastmod>2020-04-19T09:58:07.402Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/style/flex/</loc>
+    
+    <lastmod>2020-04-19T09:53:13.771Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/style/svg/</loc>
+    
+    <lastmod>2020-04-19T09:49:42.888Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/html/%E5%B1%9E%E6%80%A7/</loc>
+    
+    <lastmod>2020-04-19T09:40:57.962Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/html/%E4%BA%8B%E4%BB%B6/</loc>
+    
+    <lastmod>2020-04-19T09:40:33.180Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/html/html5/</loc>
+    
+    <lastmod>2020-04-19T09:40:14.883Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/html/html/</loc>
+    
+    <lastmod>2020-04-19T09:39:47.832Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/html/dtd/</loc>
+    
+    <lastmod>2020-04-19T09:38:42.511Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/17/web/vue/%E7%94%9F%E6%80%81%E5%9C%88/</loc>
+    
+    <lastmod>2020-04-19T09:30:01.791Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/vue/lifecycle/</loc>
+    
+    <lastmod>2020-04-19T09:10:41.977Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/vue/template/</loc>
+    
+    <lastmod>2020-04-19T08:55:40.468Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/vue/options/</loc>
+    
+    <lastmod>2020-04-19T08:41:33.872Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/vue/api/</loc>
+    
+    <lastmod>2020-04-19T08:06:09.681Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/vue/component/</loc>
+    
+    <lastmod>2020-04-19T08:05:13.977Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/2020/04/19/web/vue/config/</loc>
+    
+    <lastmod>2020-04-19T08:04:31.500Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/tags/</loc>
+    
+    <lastmod>2020-04-19T04:59:30.278Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/categories/</loc>
+    
+    <lastmod>2020-04-19T04:59:24.487Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ywzhou123.github.io/about/</loc>
+    
+    <lastmod>2020-04-19T04:50:11.224Z</lastmod>
     
   </url>
   

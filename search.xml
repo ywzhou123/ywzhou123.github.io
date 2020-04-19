@@ -4,17 +4,710 @@
   
     
     <entry>
-      <title>Vue生态圈</title>
-      <link href="/2020/04/17/vue%E7%94%9F%E6%80%81%E5%9C%88/"/>
-      <url>/2020/04/17/vue%E7%94%9F%E6%80%81%E5%9C%88/</url>
+      <title>es6语法</title>
+      <link href="/2020/04/19/web/javascript/%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD/"/>
+      <url>/2020/04/19/web/javascript/%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD/</url>
       
-        <content type="html"><![CDATA[<a id="more"></a><h2 id="VUE-开发框架"><a href="#VUE-开发框架" class="headerlink" title="VUE 开发框架"></a>VUE 开发框架</h2><p>vue<br>    <a href="https://cn.vuejs.org/v2/guide/index.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/index.html</a><br>    是一套用于构建用户界面的渐进式框架。</p><h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p>vue-router<br>    <a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">https://router.vuejs.org/zh/</a><br>    介绍<br>        路由管理器。<br>        它和 Vue.js 的核心深度集成，<br>        让构建单页面应用变得易如反掌。<br>    功能<br>        嵌套的路由/视图表<br>        模块化的、基于组件的路由配置<br>        路由参数、查询、通配符<br>        基于 Vue.js 过渡系统的视图过渡效果<br>        细粒度的导航控制<br>        带有自动激活的 CSS class 的链接<br>        HTML5 历史模式或 hash 模式，在 IE9 中自动降级<br>        自定义的滚动条行为</p><h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>vuex<br>    专为 Vue.js 应用程序开发的状态管理模式。<br>    <a href="https://vuex.vuejs.org/zh/" target="_blank" rel="noopener">https://vuex.vuejs.org/zh/</a></p><h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><p>axios<br>    数据请求工具，类似fetch，返回Promise函数<br>    <a href="https://www.npmjs.com/package/axios" target="_blank" rel="noopener">https://www.npmjs.com/package/axios</a><br>    <a href="https://www.jianshu.com/p/7a9fbcbb1114" target="_blank" rel="noopener">https://www.jianshu.com/p/7a9fbcbb1114</a><br>    <a href="https://www.cnblogs.com/nogodie/p/9853660.html" target="_blank" rel="noopener">https://www.cnblogs.com/nogodie/p/9853660.html</a></p><h3 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h3><p>webpack4<br>    打包工具<br>    <a href="https://webpack.docschina.org/guides/" target="_blank" rel="noopener">https://webpack.docschina.org/guides/</a><br>vue-devtools<br>    开发工具<br>awesome<br>    工具链集合<br>    有打印、导航、存储、认证、IDE、等几百项第三方插件库<br>    <a href="https://github.com/vuejs/awesome-vue#libraries--plugins" target="_blank" rel="noopener">https://github.com/vuejs/awesome-vue#libraries--plugins</a><br>apiCloud<br>    线上api数据库，定制APP<br>    <a href="https://www.apicloud.com" target="_blank" rel="noopener">https://www.apicloud.com</a></p><h2 id="跨平台框架"><a href="#跨平台框架" class="headerlink" title="跨平台框架"></a>跨平台框架</h2><p>weex<br>    跨平台开发框架，ios/android/web<br>    <a href="http://weex.apache.org/cn/guide/" target="_blank" rel="noopener">http://weex.apache.org/cn/guide/</a><br>weex-ui<br>    起源于阿里内部的一个 Weex 上层 Ui 组件库<br>    <a href="https://alibaba.github.io/weex-ui/#/cn/weex-ui-report" target="_blank" rel="noopener">https://alibaba.github.io/weex-ui/#/cn/weex-ui-report</a><br>wepy<br>    类vue 小程序/h5 不支持vuex<br>mpvue<br>    美团开发的基于vue的跨平台框架，小程序/h5, 支持vuex<br>    mpvue-router-patach<br>        以便在mpvue小程序中能使用vue-router的写法<br>    vuex-persistedstate<br>        vuex数据持久化，解决F5刷新后数据丢失</p><h2 id="移动端UI库"><a href="#移动端UI库" class="headerlink" title="移动端UI库"></a>移动端UI库</h2><p>mintUI<br>    饿了么开发的基于vue app端<br>vonic<br>    app端 简约<br>vux<br>    微信小程序 app端 个人开发<br>iViewWeapp<br>    iView的app版<br>cube-UI<br>    滴滴开发的 app端</p><h2 id="PC端UI库"><a href="#PC端UI库" class="headerlink" title="PC端UI库"></a>PC端UI库</h2><p>Element<br>    饿了么开发的 pc端<br>iView<br>    基于vue的中后台<br>vuetify<br>    github start 15k<br>vue-strap<br>    基于vue的bootstrap<br>at-ui<br>    基于antd pc端<br>vue-admin<br>    管理后台</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h1><h2 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h2><p>只支持IE</p><h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><p>创建script，插入到DOM中，加载完毕后callBack</p><h2 id="动态创建DOM方式"><a href="#动态创建DOM方式" class="headerlink" title="动态创建DOM方式"></a>动态创建DOM方式</h2><h2 id="按需异步载入js"><a href="#按需异步载入js" class="headerlink" title="按需异步载入js"></a>按需异步载入js</h2>]]></content>
       
+      
+      <categories>
+          
+          <category> js </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>跨域</title>
+      <link href="/2020/04/19/web/javascript/%E8%B7%A8%E5%9F%9F/"/>
+      <url>/2020/04/19/web/javascript/%E8%B7%A8%E5%9F%9F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、同源策略"><a href="#一、同源策略" class="headerlink" title="一、同源策略"></a>一、同源策略</h1><p>协议，域名，端口相同，同源策略是一种安全协议。<br>同源策略是客户端脚本（尤其是Javascript）的重要的安全度量标准。<br>目的是防止某个文档或脚本从多个不同源装载。</p><h1 id="二、请求方法"><a href="#二、请求方法" class="headerlink" title="二、请求方法"></a>二、请求方法</h1><p>ajax<br>fetch<br>axios<br>fly</p><h1 id="三、什么是跨域"><a href="#三、什么是跨域" class="headerlink" title="三、什么是跨域"></a>三、什么是跨域</h1><p>发送请求url的协议、域名、端口三者之间任意一与当前页面地址不同即为跨域。<br>即不满足同源策略时。</p><h1 id="四、-解决方案"><a href="#四、-解决方案" class="headerlink" title="四、 解决方案"></a>四、 解决方案</h1><h2 id="1、jsonp"><a href="#1、jsonp" class="headerlink" title="1、jsonp"></a>1、jsonp</h2><p>无法发送post请求，确定jsonp的请求是否失败并不容易</p><pre><code class="html">&lt;script&gt;$.ajax({    url:&quot;http://localhost:3000/users/userlist&quot;,    type:&quot;get&quot;,    dataType:&quot;jsonp&quot;,    success:function(e){        console.log(e);    }});&lt;/script&gt;</code></pre><h2 id="2、iframe-hash"><a href="#2、iframe-hash" class="headerlink" title="2、iframe (#hash)"></a>2、iframe (#hash)</h2><h2 id="3、window-name"><a href="#3、window-name" class="headerlink" title="3、window.name"></a>3、window.name</h2><h2 id="4、window-postMessage-h5"><a href="#4、window-postMessage-h5" class="headerlink" title="4、window.postMessage (h5)"></a>4、window.postMessage (h5)</h2><p>window.postMessage 的功能是允许程序员跨域在两个窗口/frames间发送数据信息。基本上，它就像是跨域的AJAX，但不是浏览器跟服务器之间交互，而是在两个客户端之间通信。</p><p><a href="https://www.html5tricks.com/html5-window-postmessage.html" target="_blank" rel="noopener">H5使用postMessage</a></p><pre><code class="html">&lt;script&gt;function run(){    var frm=document.getElementById(&quot;frm&quot;);    frm.contentWindow.postMessage(&quot;跨域请求信息：智学无忧IT教育&quot;,&quot;http://localhost:3000&quot;);    }&lt;/script&gt;</code></pre><pre><code class="js">// 父页面：增加一个postMessage来监听消息window.addEventListener(&#39;message&#39;, this.postMessageListener)/** iframe页面：关闭窗口 */close(removeTask, message){    let params = {        close: true,        removeData: removeTask,        message: message    }    parent.postMessage(, &#39;*&#39;)}</code></pre><h2 id="5、cors-fetch"><a href="#5、cors-fetch" class="headerlink" title="5、cors (fetch)"></a>5、cors (fetch)</h2><h2 id="6、Proxy"><a href="#6、Proxy" class="headerlink" title="6、Proxy"></a>6、Proxy</h2><p>通过 nginx 等web服务代理</p><p>Access-Control-Allow-Orign</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> js </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>面向对象</title>
+      <link href="/2020/04/19/web/javascript/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+      <url>/2020/04/19/web/javascript/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、对象概念"><a href="#一、对象概念" class="headerlink" title="一、对象概念"></a>一、对象概念</h1><h2 id="1-1、对象"><a href="#1-1、对象" class="headerlink" title="1.1、对象"></a>1.1、对象</h2><h2 id="1-2-基本特征"><a href="#1-2-基本特征" class="headerlink" title="1.2 基本特征"></a>1.2 基本特征</h2><h3 id="1-2-1、封装"><a href="#1-2-1、封装" class="headerlink" title="1.2.1、封装"></a>1.2.1、封装</h3><p>封装最好理解了。封装是面向对象的特征之一，是对象和类概念的主要特性。封装，也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。</p><h3 id="1-2-2、继承"><a href="#1-2-2、继承" class="headerlink" title="1.2.2、继承"></a>1.2.2、继承</h3><p>继承是指这样一种能力：它可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。通过继承创建的新类称为“子类”或“派生类”，被继承的类称为“基类”、“父类”或“超类”。<br>要实现继承，可以通过“继承”（Inheritance）和“组合”（Composition）来实现。</p><h3 id="1-2-3、多态性"><a href="#1-2-3、多态性" class="headerlink" title="1.2.3、多态性"></a>1.2.3、多态性</h3><p>多态性（polymorphisn）是允许你将父对象设置成为和一个或更多的他的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作。简单的说，就是一句话：允许将子类类型的指针赋值给父类类型的指针。<br>实现多态，有两种方式，覆盖和重载。覆盖和重载的区别在于，覆盖在运行时决定，重载是在编译时决定。并且覆盖和重载的机制不同，例如在 Java 中，重载方法的签名必须不同于原先方法的，但对于覆盖签名必须相同。</p><h1 id="二、如何创建对象"><a href="#二、如何创建对象" class="headerlink" title="二、如何创建对象"></a>二、如何创建对象</h1><h2 id="2-1、字面量方式"><a href="#2-1、字面量方式" class="headerlink" title="2.1、字面量方式"></a>2.1、字面量方式</h2><p>var obj = {}<br>obj.attr1 = 123;</p><h2 id="2-2、嵌入式字面量"><a href="#2-2、嵌入式字面量" class="headerlink" title="2.2、嵌入式字面量"></a>2.2、嵌入式字面量</h2><p>var obj = {<br>attr1 : 123,<br>}</p><h2 id="2-3、构造函数方式"><a href="#2-3、构造函数方式" class="headerlink" title="2.3、构造函数方式"></a>2.3、构造函数方式</h2><p>new Person()</p><h2 id="2-4、原型方式"><a href="#2-4、原型方式" class="headerlink" title="2.4、原型方式"></a>2.4、原型方式</h2><p>function Person(){}<br>Person.prototype.say = function(){…};</p><h2 id="2-5、构造函数-原型"><a href="#2-5、构造函数-原型" class="headerlink" title="2.5、构造函数+原型"></a>2.5、构造函数+原型</h2><p>function Person(name,age){<br>this.name = name;<br>this.age = age;<br>}<br>Person.prototype.say = function(){<br>console.log(“My name is “+this.name+”. I’m “+this.age+” years old.”);<br>}<br>var p1 = new Person(‘Peter’,20);</p><h2 id="2-6、Object-create"><a href="#2-6、Object-create" class="headerlink" title="2.6、Object.create()"></a>2.6、Object.create()</h2><p>ES5提供</p><h1 id="三、面向对象"><a href="#三、面向对象" class="headerlink" title="三、面向对象"></a>三、面向对象</h1><p>基本特征<br>封闭、继承、多态</p><h2 id="1、类的声明"><a href="#1、类的声明" class="headerlink" title="1、类的声明"></a>1、类的声明</h2><pre><code class="javascript">// ES5function Animal() {this.name = &#39;name&#39;}// ES6class Animal2 {constructor(){this.name = &#39;name&#39;}}</code></pre><h2 id="2、类的继承"><a href="#2、类的继承" class="headerlink" title="2、类的继承"></a>2、类的继承</h2><h3 id="借助构造函数实现继承"><a href="#借助构造函数实现继承" class="headerlink" title="借助构造函数实现继承"></a>借助构造函数实现继承</h3><pre><code class="javascript">function Parent1(){this.name = &#39;parent1&#39;}Parent1.prototype.say=function(){}function Child1(){Parent1.call(this)//将Parent1的this指向Child1实例化后的实例//但无法继承Parent1上原型对象上的方法saythis.type = &#39;child1&#39;}new Child1()</code></pre><h3 id="借助原型链继承"><a href="#借助原型链继承" class="headerlink" title="借助原型链继承"></a>借助原型链继承</h3><p>可以继承Parent2上原型对象上的方法</p><pre><code class="javascript">function Parent2 () {this.name = &#39;parent2&#39;}function Child2 () {this.type = &#39;child2&#39;}Child2.prototype = new Parent2()new Child2()</code></pre><blockquote><p>缺点：实例化两个对象，一个改变，另一个也跟着变</p></blockquote><h3 id="组合方式（推荐）"><a href="#组合方式（推荐）" class="headerlink" title="组合方式（推荐）"></a>组合方式（推荐）</h3><p>解决以上两种方式的缺点</p><pre><code class="javascript">function Parent3(){this.name = &#39;parent3&#39;}function Child3(){Parent3.call(this)this.type=&#39;child3&#39;}//Child3.prototype = new Parent3() //Parent3的构造函数会执行两次//Child3.prototype = Parent3.prototype //instanceof无法区分实例是父的还是子的//Child3.prototype = Object.create(Parent3.prototype) //隔离了父子的原型对象Child3.prototype.constructor = Child3 //设置自己的构造器，否则实例还是指向父</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> js </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>es6语法</title>
+      <link href="/2020/04/19/web/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+      <url>/2020/04/19/web/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、类型"><a href="#一、类型" class="headerlink" title="一、类型"></a>一、类型</h1><h2 id="1、基本类型（栈）"><a href="#1、基本类型（栈）" class="headerlink" title="1、基本类型（栈）"></a>1、基本类型（栈）</h2><pre><code class="js">numberstringbooleanundefinednull</code></pre><p>无法给基本类型的对象添加属性和方法<br>基本类型对象的比较是值比较<br>存储在栈内存中的</p><h2 id="2、引用类型（堆）"><a href="#2、引用类型（堆）" class="headerlink" title="2、引用类型（堆）"></a>2、引用类型（堆）</h2><pre><code class="js">objectarrayfunctiondate</code></pre><p>引用类型对象的比较是引用比较<br>存储在栈内存中的一个堆内存地址</p><h1 id="二、类型判断"><a href="#二、类型判断" class="headerlink" title="二、类型判断"></a>二、类型判断</h1><h2 id="1、typeof"><a href="#1、typeof" class="headerlink" title="1、typeof"></a>1、typeof</h2><p>number<br>boolean<br>string<br>function<br>object<br>undefined</p><blockquote><p>局限性:<br>对于 Array,Null 等特殊对象<br>一律返回 object</p></blockquote><pre><code class="js">typeof null// Object</code></pre><blockquote><p>但null不是Object的一个实例<br>这是js的局限性</p></blockquote><h2 id="2、instanceof"><a href="#2、instanceof" class="headerlink" title="2、instanceof"></a>2、instanceof</h2><p>用于判断一个变量是否属于某个对象的实例</p><pre><code class="js">var a = new Array();alert(a instanceof Array); // truealert(a instanceof Object) // true Array 是 object 的子类function test(){};var a = new test();alert(a instanceof test) // true</code></pre><h1 id="三、类型转换"><a href="#三、类型转换" class="headerlink" title="三、类型转换"></a>三、类型转换</h1><h2 id="1、显式转换"><a href="#1、显式转换" class="headerlink" title="1、显式转换"></a>1、显式转换</h2><h3 id="Number"><a href="#Number" class="headerlink" title="Number()"></a>Number()</h3><p>数值 转为数值<br>字符串 不可转为数值时为NaN，空转为0<br>true 转为1<br>false 转为0<br>undefined 转为NaN<br>null 转为0<br>Object 转为NaN<br>valueOf {a:1}<br>返回基础类型 调用Number()<br>返回复合 toString ‘[object object]’<br>返回基础类型 调用Number() NaN<br>返回复合 报错</p><h3 id="String"><a href="#String" class="headerlink" title="String()"></a>String()</h3><p>数值 转为字符串<br>字符串 转为字符串<br>true 转为1<br>false 转为0<br>undefined ‘undefined’<br>null 转为’null’<br>object 转为’[object object]’<br>先调toString<br>再调valueOf</p><h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean()"></a>Boolean()</h3><p>以下都转为false<br>undefined<br>null<br>+-0<br>NaN<br>‘’<br>其他都是true，包括{} []</p><h2 id="2、隐式转换"><a href="#2、隐式转换" class="headerlink" title="2、隐式转换"></a>2、隐式转换</h2><pre><code class="js">[]+[]    &#39;&#39;[]+{}    &quot;[object Object]&quot;{}+[]    0{}+{}    &quot;[object Object][object Object]&quot;true+true    21 + {a:1}    &quot;1[object Object]&quot;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> js </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>原型链</title>
+      <link href="/2020/04/19/web/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+      <url>/2020/04/19/web/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、创建对象方法"><a href="#一、创建对象方法" class="headerlink" title="一、创建对象方法"></a>一、创建对象方法</h1><h2 id="1、字面量"><a href="#1、字面量" class="headerlink" title="1、字面量"></a>1、字面量</h2><pre><code class="js">var a={}a.attr1=1var b={name:2}var c=new Object({name:c}) 显示的构造函数</code></pre><h2 id="2、构造函数"><a href="#2、构造函数" class="headerlink" title="2、构造函数"></a>2、构造函数</h2><pre><code class="javascript">var M=function (name){    this.name=name;}var o3=new M(&#39;o3&#39;)</code></pre><h2 id="3、create函数（ES5"><a href="#3、create函数（ES5" class="headerlink" title="3、create函数（ES5)"></a>3、create函数（ES5)</h2><pre><code class="javascript">var p ={name:&#39;P&#39;}var o4=Object.create(p)o4.name返回{}// o4本身没有name属性，只能通过原型链找到o4.__proto__.name</code></pre><h2 id="4、组合式-构造函数-原型"><a href="#4、组合式-构造函数-原型" class="headerlink" title="4、组合式 构造函数+原型"></a>4、组合式 构造函数+原型</h2><pre><code class="javascript">function Person(name,age){    this.name = name;    this.age = age;}Person.prototype.say = function(){    console.log(&quot;My name is &quot;+this.name+&quot;. I&#39;m &quot;+this.age+&quot; years old.&quot;);}var p1 = new Person(&#39;Peter&#39;,20);</code></pre><h1 id="二、原型对象"><a href="#二、原型对象" class="headerlink" title="二、原型对象"></a>二、原型对象</h1><p><code>__proto__</code></p><h1 id="三、构造函数"><a href="#三、构造函数" class="headerlink" title="三、构造函数"></a>三、构造函数</h1><p>prototype属性    -&gt; 原型对象<br>constructor构造器    -&gt; 原型对象<br>使用new创建实例</p><h1 id="四、实例"><a href="#四、实例" class="headerlink" title="四、实例"></a>四、实例</h1><p>通过new构造函数生成<br><code>__proto__</code>    -&gt; 上级原型</p><h1 id="五、原型链"><a href="#五、原型链" class="headerlink" title="五、原型链"></a>五、原型链</h1><p>通过原型链向上找原型对象</p><h1 id="六、instanceof原理"><a href="#六、instanceof原理" class="headerlink" title="六、instanceof原理"></a>六、instanceof原理</h1><blockquote><p>判断一个对象是否属于某个类</p></blockquote><h2 id="1、实例-instanceof-构造函数"><a href="#1、实例-instanceof-构造函数" class="headerlink" title="1、实例 instanceof 构造函数"></a>1、实例 instanceof 构造函数</h2><p>实际是判断实例的<strong>proto</strong>和构造函数的prototype是否指向同一个引用</p><pre><code class="js">o3 instanceof M trueo3 instanceof Object true</code></pre><h2 id="2、原因"><a href="#2、原因" class="headerlink" title="2、原因"></a>2、原因</h2><pre><code class="js">o3.__proto__===M.prototype trueM.prototype.__proto__===Object.prototype true</code></pre><h2 id="3、通过原型属性上的构造器判断是谁的实例"><a href="#3、通过原型属性上的构造器判断是谁的实例" class="headerlink" title="3、通过原型属性上的构造器判断是谁的实例"></a>3、通过原型属性上的构造器判断是谁的实例</h2><pre><code class="js">o3.__proto__.constructor===M trueo3.__proto__.constructor===Object false</code></pre><h1 id="七、new"><a href="#七、new" class="headerlink" title="七、new"></a>七、new</h1><p>新对象被创建，继承构造函数foo的prototype<br>foo被执行，参数被传入，同时上下文this被指定为这个新实例<br>new工作原理：</p><pre><code class="javascript">var new2 = function(func){    var o=Object.create(func.prototype);    var k = func.call(o) // call转移上下文this    if(typeof k === &#39;object&#39;){        return k    } else{        return o    }}o6=new2(M)o6 instanceof M // trueo6 instanceof Object // trueo6.__proto__===M.prototype // true</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> js </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>变量</title>
+      <link href="/2020/04/19/web/javascript/%E5%8F%98%E9%87%8F/"/>
+      <url>/2020/04/19/web/javascript/%E5%8F%98%E9%87%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1、如何声明变量"><a href="#1、如何声明变量" class="headerlink" title="1、如何声明变量"></a>1、如何声明变量</h1><p>var 关键字</p><ul><li>兼容性好</li></ul><p>const 关键字</p><ul><li>ES6语法，只读</li></ul><p>let 关键字</p><ul><li>ES6语法，可读写</li></ul><blockquote><p>注意<br>函数内部如果不对变量进行var声明，<br>实际上是在外面先var声明了一个全局变量，函数内再附值。</p></blockquote><h1 id="2、变量的作用域"><a href="#2、变量的作用域" class="headerlink" title="2、变量的作用域"></a>2、变量的作用域</h1><p>变量分为<strong>全局变量</strong>和<strong>局部变量</strong><br>函数内部可以读取函数外部的全局变量<br>在函数外部无法读取函数内的局部变量</p><h1 id="3、什么是变量提升"><a href="#3、什么是变量提升" class="headerlink" title="3、什么是变量提升"></a>3、什么是变量提升</h1><p>根据作用域链的规则，底层作用域没有声明的变量，会向上一级找，<br>找到就返回，没找到就一直找，<br>直到window的变量，没有就返回undefined。</p><pre><code class="javascript">var x = 10;function x(){};console.log(x); // 10</code></pre><p>实际上被解释为:</p><pre><code class="javascript">var x;function x(){};x = 10;console.log(x); // 10</code></pre><h1 id="4、垃圾回收"><a href="#4、垃圾回收" class="headerlink" title="4、垃圾回收"></a>4、垃圾回收</h1><p>垃圾收集器会定期（周期性）找出那些不在继续使用的变量，然后释放其内存。</p><pre><code class="js">function fn1() {    var obj = {name: &#39;hanzichi&#39;, age: 10};}function fn2() {    var obj = {name:&#39;hanzichi&#39;, age: 10};    return obj;}var a = fn1(); // 内部变量obj没有被引用，执行完后就回收var b = fn2(); // 内部变量obj被b引用，不会被回收</code></pre><h1 id="5、内存泄露"><a href="#5、内存泄露" class="headerlink" title="5、内存泄露"></a>5、内存泄露</h1><p>一块被分配的内存既不能使用，又不能回收，直到浏览器进程结束.</p><pre><code class="html">&lt;div id=&quot;myDiv&quot;&gt;    &lt;input type=&quot;button&quot; value=&quot;Click me&quot; id=&quot;myBtn&quot;&gt;    &lt;/div&gt;    &lt;script type=&quot;text/javascript&quot;&gt;    var btn = document.getElementById(&quot;myBtn&quot;);    btn.onclick = function(){        btn.onclick = null; // 解决：在input元素被替换之前，解绑事件        document.getElementById(&quot;myDiv&quot;).innerHTML = &quot;Processing...&quot;;    }    &lt;/script&gt;&lt;/div&gt;</code></pre><blockquote><p>元素绑定的事件仍没被移除，IE中不会作出恰当处理，造成内存泄露。</p></blockquote><pre><code class="js">function bindEvent(){    var obj=document.createElement(&quot;XXX&quot;);    obj.onclick=function(){        //Even if it&#39;s a empty function    }    obj=null; // 解决：手动处理}</code></pre><blockquote><p>由于是函数内定义函数，并且内部函数–事件回调的引用外暴了，形成了闭包。<br>闭包可以维持函数内局部变量，使其得不到释放。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> js </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>模块化</title>
+      <link href="/2020/04/19/web/javascript/%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+      <url>/2020/04/19/web/javascript/%E6%A8%A1%E5%9D%97%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<h1 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h1><p>模块化开发就是封装细节，提供使用接口，彼此之间互不影响，每个模块都是实现某一特定的功能。模块化开发的基础就是函数</p><h1 id="模块化封装方法"><a href="#模块化封装方法" class="headerlink" title="模块化封装方法"></a>模块化封装方法</h1><h2 id="1、函数"><a href="#1、函数" class="headerlink" title="1、函数"></a>1、函数</h2><p>就是普通的function<br>缺点：<br>“污染”了全局变量<br>变量名冲突<br>模块之间无直接关系</p><h2 id="2、对象"><a href="#2、对象" class="headerlink" title="2、对象"></a>2、对象</h2><p>所有的模块成员都放到这个对象里面</p><pre><code class="js">varobj = {    age : 0,    func1 : function (){        //...    },    func2 : function (){        //...    }};</code></pre><p>变量可以被外面随意改变而导致不安全</p><h2 id="3、闭包-立即执行函数-IIFE"><a href="#3、闭包-立即执行函数-IIFE" class="headerlink" title="3、闭包 立即执行函数 IIFE"></a>3、闭包 立即执行函数 IIFE</h2><p>立即执行函数<br>不暴露私有成员<br>外部代码无法读取内部变量。</p><pre><code class="js">var oj= (function(){　　　  var _age= 0;　　　　var func1= function(){　　　　　　//...　　　　};　　　　var func2= function(){　　　　　　//...　　　　};　　　　return {　　　　　　m1 : func1,　　　　　　m2 : func2　　　　};})();</code></pre><h2 id="4、放大模式"><a href="#4、放大模式" class="headerlink" title="4、放大模式"></a>4、放大模式</h2><p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块</p><pre><code class="js">var obj =(function (mod){　　　　mod.func3= function () {　　　　　　//...　　　　};　　　　returnmod;//方便方法连续调用})(obj);</code></pre><p>为obj模块添加了一个新方法func3 ()，然后返回新的obj模块，方便方法连续调用。</p><h2 id="5、宽放大模式"><a href="#5、宽放大模式" class="headerlink" title="5、宽放大模式"></a>5、宽放大模式</h2><p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上面的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用”宽放大模式”。</p><pre><code class="js">　　var obj =( function (mod){　　　　//...　　　　returnmod;　　})(window.obj|| {});//确保对象不为空</code></pre><h2 id="6、输入全局变量"><a href="#6、输入全局变量" class="headerlink" title="6、输入全局变量"></a>6、输入全局变量</h2><p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p><pre><code class="js">(function(window, undefined ) {……})(window );</code></pre><p>这是jQuery框架的源码，将window对象作为参数传入，这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。</p><blockquote><p>目前，通行的JavaScript模块规范共有两种：CommonJS和AMD</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> js </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>闭包</title>
+      <link href="/2020/04/19/web/javascript/%E9%97%AD%E5%8C%85/"/>
+      <url>/2020/04/19/web/javascript/%E9%97%AD%E5%8C%85/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、什么是闭包"><a href="#一、什么是闭包" class="headerlink" title="一、什么是闭包"></a>一、什么是闭包</h1><p>闭包就是一个函数引用另外一个函数的变量，<br>因为变量被引用着所以不会被回收，<br>因此可以用来封装一个私有变量。</p><p>当一个函数的返回值是另外一个函数，<br>而返回的那个函数如果调用了其父函数内部的其它变量，<br>如果返回的这个函数在外部被执行，就产生了闭包。</p><pre><code class="javascript">function f1(){　　　　var n=999;　function f2(){　　　　　　alert(n++);　　　　}　　　　return f2;　　}　　var result=f1();　　result(); // 999　　nAdd();　　result(); // 1000</code></pre><p>在外部调用result函数，可以不断怎家内部的n值，实际上函数f1中的局部变量n一直保存在内存中，并没有在f1调用后被自动清除。<br>原因: f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。</p><h2 id="三、示例"><a href="#三、示例" class="headerlink" title="三、示例"></a>三、示例</h2><pre><code class="js">(function(x){delete x;alert(x);})(1+5);</code></pre><p>函数参数无法delete删除<br>delete只能删除通过for in访问的属性<br>删除失败也不会报错，所以代码运行会弹出“1”</p><pre><code class="js">var count=10; //全局作用域 标记为flag1function add(){    var count=0; //函数全局作用域 标记为flag2    return function(){ // 这就是s        count+=1; //函数的内部作用域，内部没有定义，变量提升，向上查找到flag2标记的count，打印0+1        alert(count);    }}var s = add()s();//输出1s();//输出2</code></pre><h1 id="四、作用"><a href="#四、作用" class="headerlink" title="四、作用"></a>四、作用</h1><h2 id="1、读取函数内部的变量"><a href="#1、读取函数内部的变量" class="headerlink" title="1、读取函数内部的变量"></a>1、读取函数内部的变量</h2><h2 id="2、使变量的值始终保持在内存中"><a href="#2、使变量的值始终保持在内存中" class="headerlink" title="2、使变量的值始终保持在内存中"></a>2、使变量的值始终保持在内存中</h2><h2 id="3、用闭包模拟私有方法"><a href="#3、用闭包模拟私有方法" class="headerlink" title="3、用闭包模拟私有方法"></a>3、用闭包模拟私有方法</h2><p>下面的示例展现了如何使用闭包来定义公共函数，且其可以访问私有函数和变量。这个方式也称为 模块模式（module pattern）：</p><pre><code class="javascript">var Counter = (function() {    var privateCounter = 0;    function changeBy(val) {        privateCounter += val;    }    return {        increment: function() {            changeBy(1);        },        decrement: function() {            changeBy(-1);        },        value: function() {            return privateCounter;        }    }})();alert(Counter.value()); /* 提示 0 */Counter.increment();Counter.increment();alert(Counter.value()); /* 提示 2 */Counter.decrement();alert(Counter.value()); /* 提示 1 */</code></pre><h2 id="4、在循环中创建闭包"><a href="#4、在循环中创建闭包" class="headerlink" title="4、在循环中创建闭包"></a>4、在循环中创建闭包</h2><pre><code class="javascript">function showHelp(help) {    document.getElementById(&#39;help&#39;).innerHTML = help;}function makeHelpCallback(help) {    return function() {        showHelp(help);    };}function setupHelp() {var helpText = [    {&#39;id&#39;: &#39;email&#39;, &#39;help&#39;: &#39;Your e-mail address&#39;},    {&#39;id&#39;: &#39;name&#39;, &#39;help&#39;: &#39;Your full name&#39;},    {&#39;id&#39;: &#39;age&#39;, &#39;help&#39;: &#39;Your age (you must be over 16)&#39;}];for (var i = 0; i &lt; helpText.length; i++) {    var item = helpText[i];    document.getElementById(item.id).onfocus = makeHelpCallback(item.help);    }}setupHelp();</code></pre><h1 id="六、注意"><a href="#六、注意" class="headerlink" title="六、注意"></a>六、注意</h1><p>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</p><blockquote><p>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> js </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>es6语法</title>
+      <link href="/2020/04/19/web/javascript/this%E5%AF%B9%E8%B1%A1/"/>
+      <url>/2020/04/19/web/javascript/this%E5%AF%B9%E8%B1%A1/</url>
+      
+        <content type="html"><![CDATA[<p>随着函数使用场合不同，this的值会发生变化<br>this指的是调用函数的那个对象</p><p>this的指向<br>this表示当前对象，this的指向是根据调用的上下文来决定的，默认指向window对象</p><h2 id="1、全局作用域下，this指向window"><a href="#1、全局作用域下，this指向window" class="headerlink" title="1、全局作用域下，this指向window"></a>1、全局作用域下，this指向window</h2><pre><code class="js">function func(){    console.log(this) ;//this指向的还是window对象}func();</code></pre><h2 id="2、对象函数调用，哪个对象调用就指向哪个对象"><a href="#2、对象函数调用，哪个对象调用就指向哪个对象" class="headerlink" title="2、对象函数调用，哪个对象调用就指向哪个对象"></a>2、对象函数调用，哪个对象调用就指向哪个对象</h2><pre><code class="html">&lt;input type=&quot;button&quot;id=&quot;btnOK&quot; value=&quot;OK&quot;&gt;&lt;script&gt;varbtnOK=document.getElementById(&quot;btnOK&quot;);btnOK.onclick=function(){    console.log(this);//this指向的是btnOK对象}&lt;/script&gt;</code></pre><h2 id="3、使用-new-实例化对象，在构造函数中的this指向实例化对象。"><a href="#3、使用-new-实例化对象，在构造函数中的this指向实例化对象。" class="headerlink" title="3、使用 new 实例化对象，在构造函数中的this指向实例化对象。"></a>3、使用 new 实例化对象，在构造函数中的this指向实例化对象。</h2><pre><code class="js">var Show=function(){    this.myName=&quot;Mr.Cao&quot;; //这里的this指向的是obj对象}var obj=new Show();</code></pre><h2 id="4、使用call或apply改变this的指向"><a href="#4、使用call或apply改变this的指向" class="headerlink" title="4、使用call或apply改变this的指向"></a>4、使用call或apply改变this的指向</h2><pre><code class="js">var Go=function(){    this.address=&quot;深圳&quot;;}var Show=function(){    console.log(this.address);//输出 深圳}var go=new Go();Show.call(go);//改变Show方法的this指向go对象</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> js </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>new操作符做了啥？</title>
+      <link href="/2020/04/19/web/javascript/new%E5%AF%B9%E8%B1%A1/"/>
+      <url>/2020/04/19/web/javascript/new%E5%AF%B9%E8%B1%A1/</url>
+      
+        <content type="html"><![CDATA[<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><pre><code class="js">var obj = {};</code></pre><p>创建一个空对象<br>this 变量引用该对象</p><h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><pre><code class="js">obj.__proto__ = Base.prototype;</code></pre><p>属性和方法被加入到 this 引用的对象中</p><h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><pre><code class="js">Base.call(obj);</code></pre><p>新创建的对象由 this 所引用<br>最后隐式的返回 this</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Js </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> new </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>es6语法</title>
+      <link href="/2020/04/19/web/javascript/es6%E8%AF%AD%E6%B3%95/"/>
+      <url>/2020/04/19/web/javascript/es6%E8%AF%AD%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>es解构方法</title>
+      <link href="/2020/04/19/web/javascript/es%E8%A7%A3%E6%9E%84%E6%96%B9%E6%B3%95/"/>
+      <url>/2020/04/19/web/javascript/es%E8%A7%A3%E6%9E%84%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>es扩展方法</title>
+      <link href="/2020/04/19/web/javascript/es%E6%89%A9%E5%B1%95%E6%96%B9%E6%B3%95/"/>
+      <url>/2020/04/19/web/javascript/es%E6%89%A9%E5%B1%95%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>es数据结构</title>
+      <link href="/2020/04/19/web/javascript/es%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <url>/2020/04/19/web/javascript/es%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器通讯协议</title>
+      <link href="/2020/04/19/web/browser/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2020/04/19/web/browser/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器性能忧化</title>
+      <link href="/2020/04/19/web/browser/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+      <url>/2020/04/19/web/browser/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器安全性</title>
+      <link href="/2020/04/19/web/browser/%E5%AE%89%E5%85%A8%E6%80%A7/"/>
+      <url>/2020/04/19/web/browser/%E5%AE%89%E5%85%A8%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器兼容性</title>
+      <link href="/2020/04/19/web/browser/%E5%85%BC%E5%AE%B9%E6%80%A7/"/>
+      <url>/2020/04/19/web/browser/%E5%85%BC%E5%AE%B9%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器内核及兼容性</title>
+      <link href="/2020/04/19/web/browser/%E5%86%85%E6%A0%B8/"/>
+      <url>/2020/04/19/web/browser/%E5%86%85%E6%A0%B8/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器存储</title>
+      <link href="/2020/04/19/web/browser/%E5%AD%98%E5%82%A8/"/>
+      <url>/2020/04/19/web/browser/%E5%AD%98%E5%82%A8/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>flex布局</title>
+      <link href="/2020/04/19/style/flex/"/>
+      <url>/2020/04/19/style/flex/</url>
+      
+        <content type="html"><![CDATA[<h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><h3 id="display-flex"><a href="#display-flex" class="headerlink" title="display: flex;"></a>display: flex;</h3><h3 id="flex-direction-row"><a href="#flex-direction-row" class="headerlink" title="flex-direction: row;"></a>flex-direction: row;</h3><p>​    //决定主轴的方向<br>​    // row默认 主轴为水平方向，起点在左端。<br>​    // row-reverse 主轴为水平方向，起点在右端<br>​    // column 主轴为垂直方向，起点在上沿<br>​    // column-reverse 主轴为垂直方向，起点在下沿</p><h3 id="flex-wrap-wrap"><a href="#flex-wrap-wrap" class="headerlink" title="flex-wrap: wrap;"></a>flex-wrap: wrap;</h3><p>​    // 如果一条轴线排不下，如何换行<br>​    // nowrap默认 不换行<br>​    // wrap 换行，第一行在上方<br>​    // wrap-reverse 换行，第一行在下方</p><h3 id="flex-flow-column-nowrap"><a href="#flex-flow-column-nowrap" class="headerlink" title="flex-flow: column nowrap;"></a>flex-flow: column nowrap;</h3><p>​     // 是flex-direction属性和flex-wrap属性的简写形式<br>​    // row nowrap 默认</p><h3 id="justify-content-flex-start"><a href="#justify-content-flex-start" class="headerlink" title="justify-content: flex-start;"></a>justify-content: flex-start;</h3><p>​    // 具体对齐方式与轴的方向有关<br>​    // flex-start 默认,左对齐<br>​    // flex-end 右对齐<br>​    // center  居中<br>​    // space-between 两端对齐，项目之间的间隔都相等<br>​    // space-around 每个项目两侧的间隔相等;项目之间的间隔比项目与边框的间隔大一倍</p><h3 id="align-items-stretch"><a href="#align-items-stretch" class="headerlink" title="align-items: stretch;"></a>align-items: stretch;</h3><p>​    // 定义项目在交叉轴上如何对齐<br>​    // stretch 默认,如果项目未设置高度或设为auto，将占满整个容器的高度<br>​    // flex-start 交叉轴的起点对齐<br>​    // flex-end 交叉轴的终点对齐<br>​    // center 交叉轴的中点对齐<br>​    // baseline 项目的第一行文字的基线对齐</p><h3 id="align-content-flex-end"><a href="#align-content-flex-end" class="headerlink" title="align-content: flex-end;"></a>align-content: flex-end;</h3><p>​     // 定义了多根轴线的对齐方式,如果项目只有一根轴线，该属性不起作用<br>​    // flex-start 与交叉轴的起点对齐<br>​    // flex-end 与交叉轴的终点对齐<br>​    // center 与交叉轴的中点对齐<br>​    // stretch默认 轴线占满整个交叉轴<br>​    // space-between 与交叉轴两端对齐，轴线之间的间隔平均分布<br>​    // space-around 每根轴线两侧的间隔都相等,轴线之间的间隔比轴线与边框的间隔大一倍</p><h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h2><h3 id="order-1"><a href="#order-1" class="headerlink" title="order: 1;"></a>order: 1;</h3><p>​    // 定义项目的排列顺序<br>​    // 数值越小，排列越靠前，默认为0</p><h3 id="flex-grow-0"><a href="#flex-grow-0" class="headerlink" title="flex-grow: 0;"></a>flex-grow: 0;</h3><p>​    // 定义项目的放大比例<br>​    // 默认为0，即如果存在剩余空间，也不放大</p><h3 id="flex-shrink-1"><a href="#flex-shrink-1" class="headerlink" title="flex-shrink: 1;"></a>flex-shrink: 1;</h3><p>​    // 定义了项目的缩小比例<br>​    // 默认为1，即如果空间不足，该项目将缩小<br>​    // 设为0表示空间不足时该项目不缩小</p><h3 id="flex-basis-auto"><a href="#flex-basis-auto" class="headerlink" title="flex-basis: auto;"></a>flex-basis: auto;</h3><p>​    // 定义了在分配多余空间之前，项目占据的主轴空间<br>​    // <length> | auto</p><h3 id="flex-0-1-auto"><a href="#flex-0-1-auto" class="headerlink" title="flex: 0 1 auto;"></a>flex: 0 1 auto;</h3><p>​    // flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto<br>​    // 快捷值：auto (1 1 auto) || none (0 0 auto)</p><h3 id="align-self-flex-end"><a href="#align-self-flex-end" class="headerlink" title="align-self: flex-end;"></a>align-self: flex-end;</h3><p>​    // 允许单个项目有与其他项目不一样的对齐方式，覆盖align-items<br>​    // auto默认<br>​    // flex-start<br>​    // flex-end<br>​    // center<br>​    // baseline<br>​    // stretch</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code class="css">.box {    display: flex;}</code></pre><p>行内元素 </p><pre><code class="css">.box {    display: inline-flex;}</code></pre><p>三点色子</p><pre><code>.box {    display: flex;}</code></pre><pre><code>.item:nth-child(2) {    align-self: center;}</code></pre><pre><code>.item:nth-child(3) {    align-self: flex-end;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Style </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> flex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>html 属性</title>
+      <link href="/2020/04/19/html/%E5%B1%9E%E6%80%A7/"/>
+      <url>/2020/04/19/html/%E5%B1%9E%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="html-全局属性"><a href="#html-全局属性" class="headerlink" title="html 全局属性"></a>html 全局属性</h1><pre><code>idclass    样式类style    内联样式title    鼠标覆盖时提示内容lang    内容的语言    一般写在&lt;html&gt;    en-US    en    zhtabindex    tab 键次序</code></pre><h1 id="html5-全局属性"><a href="#html5-全局属性" class="headerlink" title="html5 全局属性"></a>html5 全局属性</h1><pre><code>contenteditable    内容是否可编辑contextmenu    上下文菜单    点击元素时显示data-*    存储私有定制数据draggable    是否可拖动dropzone    在拖动被拖动数据时是否进行复制、移动或链接hiddentranslate    是否应该翻译元素内容</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Html </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>html 事件</title>
+      <link href="/2020/04/19/html/%E4%BA%8B%E4%BB%B6/"/>
+      <url>/2020/04/19/html/%E4%BA%8B%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="html-事件属性"><a href="#html-事件属性" class="headerlink" title="html 事件属性"></a>html 事件属性</h1><h2 id="window"><a href="#window" class="headerlink" title="window"></a>window</h2><pre><code>    应用到 &lt;body&gt; 标签    onload        页面结束加载之后</code></pre><h2 id="form"><a href="#form" class="headerlink" title="form"></a>form</h2><pre><code>    onblur        失去焦点时    onchange        值被改变时    onfocus        获得焦点时    onselect        文本被选中后    onsubmit        提交表单时</code></pre><h2 id="Keyboard"><a href="#Keyboard" class="headerlink" title="Keyboard"></a>Keyboard</h2><pre><code>    onkeypress        敲击按钮时    onkeydown        按下按键时    onkeyup        释放按键时</code></pre><h2 id="Mouse"><a href="#Mouse" class="headerlink" title="Mouse"></a>Mouse</h2><pre><code>    onclick        鼠标点击时    ondblclick        鼠标双击时    onmousedown        元素上按下鼠标按钮时    onmousemove        鼠标指针移动到元素上时    onmouseover        鼠标指针移动到元素上时    onmouseout        鼠标指针移出元素时    onmouseup        在元素上释放鼠标按钮时</code></pre><h1 id="html5-事件属性"><a href="#html5-事件属性" class="headerlink" title="html5 事件属性"></a>html5 事件属性</h1><h2 id="window-1"><a href="#window-1" class="headerlink" title="window"></a>window</h2><pre><code>    应用到 &lt;body&gt; 标签    onresize        浏览器窗口被调整大小时</code></pre><h2 id="form-1"><a href="#form-1" class="headerlink" title="form"></a>form</h2><pre><code>    onformchange        表单改变时    onforminput        表单获得用户输入时    oninput        元素获得用户输入时    oninvalid        元素无效时</code></pre><h2 id="Mouse-1"><a href="#Mouse-1" class="headerlink" title="Mouse"></a>Mouse</h2><pre><code>    ondrag        被拖动时    ondragstart        在拖动操作开端    ondragend        在拖动操作末端    ondragenter        已被拖动到有效拖放区域时    ondragleave        离开有效拖放目标时    ondragover        在有效拖放目标上正在被拖动时    ondrop        被拖元素正在被拖放时    onmousewheel        鼠标滚轮正在被滚动时    onscroll        元素滚动条被滚动时</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Html </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>html5 标签</title>
+      <link href="/2020/04/19/html/html5/"/>
+      <url>/2020/04/19/html/html5/</url>
+      
+        <content type="html"><![CDATA[<p><a href="http://www.w3school.com.cn/html5/index.asp" target="_blank" rel="noopener">w3school</a></p><h1 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h1><pre><code>&lt;header&gt;    页眉&lt;footer&gt;    页脚&lt;section&gt;    文档中的节&lt;article&gt;    独立的自包含文章&lt;nav&gt;    导航链接的容器&lt;aside&gt;    侧栏&lt;details&gt;    可查看或隐藏的额外细节    &lt;summary&gt;         details 元素的标题</code></pre><h1 id="内联元素"><a href="#内联元素" class="headerlink" title="内联元素"></a>内联元素</h1><pre><code>&lt;bdi&gt;    文本方向&lt;figure&gt;    自包含内容，比如图示、图表、照片、代码清单等    &lt;figcaption&gt;        &lt;figure&gt; 元素的标题&lt;mark&gt;    重要或强调的内容&lt;main&gt;    文档的主内容&lt;menuitem&gt;    从弹出菜单调用的命令/菜单项目&lt;meter&gt;    已知范围（尺度）内的标量测量&lt;progress&gt;    进度&lt;time&gt;    日期/时间&lt;wbr&gt;    折行</code></pre><h1 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h1><h2 id=""><a href="#" class="headerlink" title=""></a><datalist></h2><pre><code>    为 &lt;input&gt; 元素规定预定义选项列表        &lt;input list=&quot;browsers&quot;&gt;        &lt;datalist id=&quot;browsers&quot;&gt;            &lt;option value=&quot;Internet Explorer&quot;&gt;            &lt;option value=&quot;Firefox&quot;&gt;            &lt;option value=&quot;Chrome&quot;&gt;            &lt;option value=&quot;Opera&quot;&gt;            &lt;option value=&quot;Safari&quot;&gt;        &lt;/datalist&gt; </code></pre><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><keygen></h2><pre><code>    键对生成器字段</code></pre><h2 id="-2"><a href="#-2" class="headerlink" title=""></a><output></h2><pre><code>    计算结果</code></pre><h2 id="-3"><a href="#-3" class="headerlink" title=""></a><input></h2><pre><code>     type属性        color            IE不支持        email            IE9 及更早版本不支持        date            Firefox 或者 Internet Explorer 11 以及更早版本不支持        time            Firefox 或者 Internet Explorer 11 以及更早版本不支持        datetime            Chrome、Firefox 或 Internet Explorer 不支持        datetime-local            Firefox 或者 Internet Explorer 不支持        week            IE不支持        month            Firefox 或者 Internet Explorer 11 以及更早版本不支持        number             IE9及更早版本不支持        range            IE9 及早期版本不支持        search            与text相似        tel            只有 Safari 8 支持        url            IE9 及其更早版本不支持    输入限制        disabled        min        max        maxlength            最大字符数        pattern            输入值的正则表达式        readonly        required        size            宽度（以字符计）        step            合法数字间隔        value            默认值</code></pre><h1 id="图象"><a href="#图象" class="headerlink" title="图象"></a>图象</h1><h2 id="-4"><a href="#-4" class="headerlink" title=""></a><canvas></h2><pre><code>    使用 JavaScript 的图像绘制    矩形        &lt;script type=&quot;text/javascript&quot;&gt;</code></pre><p>var c=document.getElementById(“myCanvas”);<br>var cxt=c.getContext(“2d”);<br>cxt.fillStyle=”#FF0000”;<br>cxt.fillRect(0,0,150,75);<br></script><br>        圆形<br>            cxt.beginPath();<br>cxt.arc(70,18,15,0,Math.PI*2,true);<br>cxt.closePath();<br>cxt.fill();<br>        渐变<br>            var grd=cxt.createLinearGradient(0,0,175,50);<br>grd.addColorStop(0,”#FF0000”);<br>grd.addColorStop(1,”#00FF00”);<br>cxt.fillStyle=grd;<br>cxt.fillRect(0,0,175,50);<br>        图像<br>            var img=new Image()<br>img.src=”flower.png”<br>cxt.drawImage(img,0,0);</p><h2 id="-5"><a href="#-5" class="headerlink" title=""></a><svg></h2><pre><code>    介绍        可伸缩矢量图形        使用 XML 格式定义图形        改变尺寸质量不会有损失    示例        &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; height=&quot;190&quot;&gt;</code></pre><p>  <polygon points="100,10 40,180 190,60 10,60 160,180"  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" /><br></svg><br>    对比<br>        Canvas<br>            依赖分辨率<br>            不支持事件处理器<br>            弱的文本渲染能力<br>            能够以 .png 或 .jpg 格式保存结果图像<br>            最适合图像密集型的游戏，其中的许多对象会被频繁重绘<br>        SVG<br>            不依赖分辨率<br>            支持事件处理器<br>            最适合带有大型渲染区域的应用程序（比如谷歌地图）<br>            复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）<br>            不适合游戏应用</p><h1 id="媒体"><a href="#媒体" class="headerlink" title="媒体"></a>媒体</h1><h2 id="-6"><a href="#-6" class="headerlink" title=""></a><video></h2><h3 id="视频格式"><a href="#视频格式" class="headerlink" title="视频格式"></a>视频格式</h3><pre><code>        Ogg            IE saifar 不支持        MPEG4            Firefox 不支持        WebM            IE saifar 不支持</code></pre><h3 id="标签属性"><a href="#标签属性" class="headerlink" title="标签属性"></a>标签属性</h3><pre><code>        autoplay            就绪后马上播放        controls            显示控件        height        width        src        preload            页面加载时进行加载，并预备播放        loop            是否循环播放        currentTime</code></pre><h3 id="document-getElementById-“video1”"><a href="#document-getElementById-“video1”" class="headerlink" title="document.getElementById(“video1”)"></a>document.getElementById(“video1”)</h3><pre><code>        属性            currentTime                当前播放时间            ended                是否结束            paused                是否暂停            muted                是否静音            seeking            volume            height            width            videoWidth            videoHeight        方法            play()                播放            pause()                暂停            load()                加载        监听            videoEl.addEventListener(&quot;timeupdate&quot;, function(){})</code></pre><h3 id="最优方案"><a href="#最优方案" class="headerlink" title="最优方案"></a>最优方案</h3><pre><code>        &lt;video width=&quot;320&quot; height=&quot;240&quot; controls=&quot;controls&quot;&gt;            &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot; /&gt;            &lt;source src=&quot;movie.ogg&quot; type=&quot;video/ogg&quot; /&gt;            &lt;source src=&quot;movie.webm&quot; type=&quot;video/webm&quot; /&gt;            &lt;object data=&quot;movie.mp4&quot; width=&quot;320&quot; height=&quot;240&quot;&gt;                &lt;embed src=&quot;movie.swf&quot; width=&quot;320&quot; height=&quot;240&quot; /&gt;            &lt;/object&gt;            您的浏览器不支持 video 标签。        &lt;/video&gt;</code></pre><h2 id="-7"><a href="#-7" class="headerlink" title=""></a><audio></h2><pre><code>    音频    最优方案        &lt;audio controls=&quot;controls&quot; height=&quot;100&quot; width=&quot;100&quot;&gt;            &lt;source src=&quot;song.mp3&quot; type=&quot;audio/mp3&quot; /&gt;            &lt;source src=&quot;song.ogg&quot; type=&quot;audio/ogg&quot; /&gt;            &lt;embed height=&quot;100&quot; width=&quot;100&quot; src=&quot;song.mp3&quot; /&gt;        &lt;/audio&gt;</code></pre><h2 id="-8"><a href="#-8" class="headerlink" title=""></a><source></h2><pre><code>    &lt;video&gt; 和 &lt;audio&gt; 的来源</code></pre><h2 id="-9"><a href="#-9" class="headerlink" title=""></a><track></h2><pre><code>    &lt;video&gt; 和 &lt;audio&gt; 的轨道</code></pre><h2 id="-10"><a href="#-10" class="headerlink" title=""></a><embed></h2><pre><code>    外部应用程序的容器（比如插件）</code></pre><h2 id="-11"><a href="#-11" class="headerlink" title=""></a><object></h2><pre><code>    支持 HTML 助手（插件）    比如使用 Flash 来播放 SWF 视频</code></pre><p>#API</p><h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><pre><code>    Internet Explorer 9、Firefox、Chrome、Safari 以及 Opera 支持地理定位    示例        &lt;script&gt;            var x=document.getElementById(&quot;demo&quot;);            function getLocation()            {            if (navigator.geolocation)                {                navigator.geolocation.getCurrentPosition(showPosition);                }            else{x.innerHTML=&quot;Geolocation is not supported by this browser.&quot;;}            }            function showPosition(position)            {            x.innerHTML=&quot;Latitude: &quot; + position.coords.latitude +            &quot;&lt;br /&gt;Longitude: &quot; + position.coords.longitude;            }        &lt;/script&gt;</code></pre><h2 id="拖放"><a href="#拖放" class="headerlink" title="拖放"></a>拖放</h2><pre><code>    IE9以下不支持    被放区域元素事件        ondrop        ondragover    拖动对象        draggable        ondragstart</code></pre><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><pre><code>    Local Storage 本地存储        介绍            IE8以下不支持                if (typeof(Storage) !== &quot;undefined&quot;)             限制5MB            同源可用            永远保存在客户端        localStorage            setItem()            getItem()            removeItem()    Session Storage 会话存储        介绍            关闭浏览器时清空        sessionStorage            setItem()            getItem()            removeItem()</code></pre><h2 id="应用缓存"><a href="#应用缓存" class="headerlink" title="应用缓存"></a>应用缓存</h2><pre><code>    介绍        IE10以下不支持        离线浏览        已缓存资源加载得更快        减少服务器负载     manifest 属性        &lt;html manifest=&quot;demo.appcache&quot;&gt;    Manifest 文件        MIME-type            &quot;text/cache-manifest&quot;            在 web 服务器上进行配置        示例            CACHE MANIFEST            # 2012-02-21 v1.0.0            /theme.css            /logo.gif            /main.js            NETWORK:            login.asp            FALLBACK:            /html/ /offline.html                CACHE MANIFEST                     首次下载后进行缓存                NETWORK                    需要与服务器的连接，且不会被缓存                FALLBACK                    当页面无法访问时的回退页面（比如 404 页面）</code></pre><h2 id="Worker"><a href="#Worker" class="headerlink" title="Worker"></a>Worker</h2><pre><code>    介绍        IE10以下不支持            if (typeof(Worker) !== &quot;undefined&quot;)         运行在后台的 JavaScript，不会影响页面的性能。    示例        w = new Worker(&quot;demo_workers.js&quot;);        w.onmessage = function(event){            document.getElementById(&quot;result&quot;).innerHTML = event.data;        };</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>html 标签</title>
+      <link href="/2020/04/19/html/html/"/>
+      <url>/2020/04/19/html/html/</url>
+      
+        <content type="html"><![CDATA[<p><a href="http://www.w3school.com.cn/html/index.asp" target="_blank" rel="noopener">w3school</a></p><h1 id="主体结构"><a href="#主体结构" class="headerlink" title="主体结构"></a>主体结构</h1><h2 id=""><a href="#" class="headerlink" title=""></a><html></h2><pre><code>    描述整个网页</code></pre><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><head></h2><pre><code>    头部信息    &lt;style&gt;        内部样式表    &lt;link&gt;        外部样式表        rel            与链接文档之间的关系            stylesheet        type            文档的 MIME 类型。            text/css        href            mystyle.css    &lt;meta&gt;        元数据        charset            utf-8        name            viewport            把 content 属性连接到某个名称        content            width=device-width, initial-scale=1        http-equiv             把 content 属性连接到一个 HTTP 头部    &lt;title&gt;        标题    &lt;base&gt;        为页面上的所有链接规定默认地址或默认目标        href        target</code></pre><h2 id="-2"><a href="#-2" class="headerlink" title=""></a><script></h2><pre><code>    js脚本</code></pre><h2 id="-3"><a href="#-3" class="headerlink" title=""></a><noscript></h2><pre><code>    浏览器不支持 JavaScript 时显示内容</code></pre><h2 id="-4"><a href="#-4" class="headerlink" title=""></a><body></h2><pre><code>    主体，可见区域</code></pre><h1 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h1><h2 id="代码相关"><a href="#代码相关" class="headerlink" title="代码相关"></a>代码相关</h2><pre><code>    &lt;pre&gt;        代码格式化</code></pre><h2 id="引用相关"><a href="#引用相关" class="headerlink" title="引用相关"></a>引用相关</h2><pre><code>    &lt;address&gt;        地址信息</code></pre><h2 id="列表相关"><a href="#列表相关" class="headerlink" title="列表相关"></a>列表相关</h2><pre><code>    &lt;ul&gt;        无序列表        type            disc                黑圆点            circle                白圆点            square                黑方块    &lt;ol&gt;        有序列表        type            默认123顺序            a            A            I            i    &lt;li&gt;        列表项    &lt;dl&gt;        定义列表    &lt;dt&gt;        定义项目    &lt;dd&gt;        定义的描述</code></pre><h2 id="表单相关"><a href="#表单相关" class="headerlink" title="表单相关"></a>表单相关</h2><pre><code>    &lt;form&gt;        子元素            &lt;label&gt;            &lt;input&gt;                type                    text                    password                    checkbox                    radio                    reset                    submit                    hidden            &lt;select&gt;                &lt;option&gt;            &lt;textarea&gt;                rows                cols            &lt;fieldset&gt;                组合表单中的相关数据                &lt;legend&gt;                    框上的说明文字            &lt;button&gt;                type                    button                    submit        属性            action            method            accept-charset                字符集            autocomplete                是否自动完成表单            enctype                数据的编码                application/x-www-form-urlencoded            novalidate                不验证表单            target</code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><pre><code>    &lt;h1&gt; ~ &lt;h6&gt;        标题    &lt;p&gt;        段落    &lt;table&gt;        表格        &lt;caption&gt;            标题        &lt;thead&gt;            页尾            valign                垂直对齐            align                水平对齐        &lt;tbody&gt;            主体            valign                垂直对齐            align                水平对齐        &lt;tfoot&gt;            页脚            valign                垂直对齐            align                水平对齐        &lt;col&gt;            为表格中一个或多个列定义属性值            align                水平对齐            char                根据哪个字符来对齐与 col 元素相关的内容            charoff                第一个对齐字符的偏移量            span                横跨的列数            valign                垂直对齐            width        &lt;colgroup&gt;            用于对表格中的列进行组合，以便对其进行格式化        &lt;tr&gt;            行            每行不同数量的单元格可以实现单元格合并            &lt;th&gt;                表头，加粗                子主题 2                rowspan                    跨列            &lt;td&gt;                单元格                rowspan                    跨列        属性            frame                box                    四周带线                above                    上边带线                below                    下边带线                hsides                    上下两边带线                vsides                    左右两边带线            cellpadding                单元格内边距            border    &lt;hr /&gt;        水平线    &lt;div&gt;    &lt;iframe&gt;        在网页内显示网页        指定name，可在&lt;a&gt;中跳转iframe</code></pre><h1 id="内联元素"><a href="#内联元素" class="headerlink" title="内联元素"></a>内联元素</h1><h2 id="文本相关"><a href="#文本相关" class="headerlink" title="文本相关"></a>文本相关</h2><pre><code>    &lt;b&gt;        加粗    &lt;strong&gt;        加粗    &lt;em&gt;        强调    &lt;i&gt;        斜体    &lt;big&gt;        大号字    &lt;small&gt;        小号字    &lt;sup&gt;        上标    &lt;sub&gt;        下标    &lt;ins&gt;        下划线    &lt;del&gt;        删除线</code></pre><h2 id="代码相关-1"><a href="#代码相关-1" class="headerlink" title="代码相关"></a>代码相关</h2><pre><code>    &lt;code&gt;        显示单行代码    &lt;kbd&gt;        键盘输入字    &lt;tt&gt;        打字机字    &lt;samp&gt;        样本字    &lt;var&gt;        变量字        与 &lt;pre&gt; 及 &lt;code&gt; 标签配合使用</code></pre><h2 id="引用相关-1"><a href="#引用相关-1" class="headerlink" title="引用相关"></a>引用相关</h2><pre><code>    &lt;abbr&gt;        缩写    &lt;acronym&gt;        首字母缩写        HTML5 中不支持 &lt;acronym&gt; 标签。请使用 &lt;abbr&gt; 标签    &lt;bdo&gt;        文字方向        dir            ltr                从左向右            rtl                从右向左    &lt;blockquote&gt;        长引用        前后添加了换行，并增加了外边距。    &lt;q&gt;        短引用        自动加双引号    &lt;cite&gt;        引用、引证        如书籍或杂志的标题    &lt;dfn&gt;        项目</code></pre><h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><h3 id="-5"><a href="#-5" class="headerlink" title=""></a><span></h3><h3 id="-6"><a href="#-6" class="headerlink" title=""></a><a></h3><pre><code>        href            http://domain.com                跳转外链            /index.html                跳转到本地域名页面            #someid                跳转到锚点，id属性或name属性            mailto:someone@microsoft.com?cc=someoneelse@microsoft.com&amp;bcc=andsomeoneelse2@microsoft.com            &amp;subject=Summer%20Party&amp;body=party!&quot;                邮件        target            _blank                新窗口打开            _top            _parent            _self</code></pre><h3 id="-7"><a href="#-7" class="headerlink" title=""></a><img></h3><pre><code>        src            本地路径或网络路径        alt            最好加上，显示不出图片时显示的内容        width            最好加上，图片加载前就会先预留位置        height            最好加上，图片加载前就会先预留位置</code></pre><h3 id="-8"><a href="#-8" class="headerlink" title=""></a><map></h3><pre><code>        &lt;area&gt;            带有可点击区域的图像映射            shape                rect                    矩形                circle                    圆形                poly            coords                可点击区域坐标                &quot;129,161,10&quot;                    圆形                &quot;0,0,110,260&quot;                    矩形            href            target</code></pre><h3 id="-9"><a href="#-9" class="headerlink" title=""></a><td></h3><pre><code>        表格单元格</code></pre><p>#空元素</p><h2 id="-10"><a href="#-10" class="headerlink" title=""></a><br /></h2><pre><code>    换行</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Html </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>html 文档类型定义</title>
+      <link href="/2020/04/19/html/dtd/"/>
+      <url>/2020/04/19/html/dtd/</url>
+      
+        <content type="html"><![CDATA[<h1 id="doc-type-define"><a href="#doc-type-define" class="headerlink" title="doc type define"></a>doc type define</h1><pre><code>文档类型定义</code></pre><h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><pre><code>1991</code></pre><h1 id="HTML-1"><a href="#HTML-1" class="headerlink" title="HTML+"></a>HTML+</h1><pre><code>1993</code></pre><h1 id="HTML-2-0"><a href="#HTML-2-0" class="headerlink" title="HTML 2.0"></a>HTML 2.0</h1><pre><code>1995</code></pre><h1 id="HTML-3-2"><a href="#HTML-3-2" class="headerlink" title="HTML 3.2"></a>HTML 3.2</h1><pre><code>1997</code></pre><h1 id="HTML-4-01"><a href="#HTML-4-01" class="headerlink" title="HTML 4.01"></a>HTML 4.01</h1><pre><code>1999&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot;     &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</code></pre><h1 id="XHTML-1-0"><a href="#XHTML-1-0" class="headerlink" title="XHTML 1.0"></a>XHTML 1.0</h1><pre><code>2000</code></pre><h1 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h1><pre><code>2012&lt;!DOCTYPE html&gt;</code></pre><h1 id="XHTML5"><a href="#XHTML5" class="headerlink" title="XHTML5"></a>XHTML5</h1><pre><code>2013</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Html </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Svg 基础语法</title>
+      <link href="/2020/04/19/style/svg/"/>
+      <url>/2020/04/19/style/svg/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、SVG基础"><a href="#一、SVG基础" class="headerlink" title="一、SVG基础"></a>一、SVG基础</h1><h2 id="1、基本图形"><a href="#1、基本图形" class="headerlink" title="1、基本图形"></a>1、基本图形</h2><h3 id="lt-rect-gt-矩形"><a href="#lt-rect-gt-矩形" class="headerlink" title="&lt;rect&gt;   矩形"></a><code>&lt;rect&gt;</code>   矩形</h3><p>x,y,width,height,rx,ry 起点位置和宽高，以及圆角半径</p><h3 id="lt-circle-gt-圆形"><a href="#lt-circle-gt-圆形" class="headerlink" title="&lt;circle&gt; 圆形"></a><code>&lt;circle&gt;</code> 圆形</h3><p>cx, cy, r 圆心的坐标和半径</p><h3 id="lt-ellipse-gt-椭圆"><a href="#lt-ellipse-gt-椭圆" class="headerlink" title="&lt;ellipse&gt; 椭圆"></a><code>&lt;ellipse&gt;</code> 椭圆</h3><p>cx, cy, rx ry</p><h3 id="lt-line-gt-直线"><a href="#lt-line-gt-直线" class="headerlink" title="&lt;line&gt; 直线"></a><code>&lt;line&gt;</code> 直线</h3><p>x1,y1,x2,y2</p><h3 id="lt-polyline-gt-折线"><a href="#lt-polyline-gt-折线" class="headerlink" title="&lt;polyline&gt; 折线"></a><code>&lt;polyline&gt;</code> 折线</h3><p>points=”x1 y1 x2 y2 x3 y3”</p><h3 id="lt-polygon-gt-多边形"><a href="#lt-polygon-gt-多边形" class="headerlink" title="&lt;polygon&gt;多边形"></a><code>&lt;polygon&gt;</code>多边形</h3><p>points=”x1 y1 x2 y2 x3 y3”</p><h2 id="2、基本属性"><a href="#2、基本属性" class="headerlink" title="2、基本属性"></a>2、基本属性</h2><h3 id="填充"><a href="#填充" class="headerlink" title="填充"></a>填充</h3><p>fill=”#FFB3AE”</p><h3 id="描边"><a href="#描边" class="headerlink" title="描边"></a>描边</h3><p>stroke=”#971817”</p><h3 id="描边宽度"><a href="#描边宽度" class="headerlink" title="描边宽度"></a>描边宽度</h3><p>stroke-width=”10”</p><h3 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h3><p>transform=”rotate(30)”</p><h2 id="3、svg使用方式"><a href="#3、svg使用方式" class="headerlink" title="3、svg使用方式"></a>3、svg使用方式</h2><p>img标签<br>svg标签<br>css背景</p><h2 id="4、基本操作API"><a href="#4、基本操作API" class="headerlink" title="4、基本操作API"></a>4、基本操作API</h2><h3 id="创建图形"><a href="#创建图形" class="headerlink" title="创建图形"></a>创建图形</h3><p>documentcreateElementNS(ns, tagName)</p><h3 id="添加图形"><a href="#添加图形" class="headerlink" title="添加图形"></a>添加图形</h3><p>element.appendChild(childElement)</p><h3 id="操作属性"><a href="#操作属性" class="headerlink" title="操作属性"></a>操作属性</h3><p>element.setAttribute(name, value)<br>element.getAttribute(name)</p><h1 id="二、坐标"><a href="#二、坐标" class="headerlink" title="二、坐标"></a>二、坐标</h1><h2 id="1、世界、视野、视窗"><a href="#1、世界、视野、视窗" class="headerlink" title="1、世界、视野、视窗"></a>1、世界、视野、视窗</h2><p>世界是无穷大的<br>视野：观察图形的大小<br>viewbox＝”0 0 400 300”<br>preserveAspectRatio=”xMidYMid meet”<br>对齐方式和包含方式<br>视窗：svg的大小，浏览器中的大小<br>width=”800”<br>height=”600”</p><h2 id="2、图形分组"><a href="#2、图形分组" class="headerlink" title="2、图形分组"></a>2、图形分组</h2><p><code>&lt;g&gt;</code>创建分组<br>可以设置属性进行继承<br>可以嵌套使用</p><h2 id="2、坐标系统"><a href="#2、坐标系统" class="headerlink" title="2、坐标系统"></a>2、坐标系统</h2><p>坐标：x轴从左到右，y轴从上到下，角度顺时针方向，<br>原点(0,0)在左上角<br>坐标系：<br>用户坐标系<br>自身坐标系<br>前驱坐标系<br>参考坐标系</p><h2 id="3、tansform属性"><a href="#3、tansform属性" class="headerlink" title="3、tansform属性"></a>3、tansform属性</h2><p>rotate(deg) 旋转<br>translate(x, y) 移动<br>scale(sx, sy) 放大缩小<br>matrix(a,b,c,d,e,f)</p><h1 id="三、颜色"><a href="#三、颜色" class="headerlink" title="三、颜色"></a>三、颜色</h1><h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><p>RGB(red[0-255], green[0-255], bule[0-255])</p><p>HSL(h[0,359], s%, l%)<br>三个分量分别表示颜色、饱和度和亮度<br><a href="http://paletton.com" target="_blank" rel="noopener">http://paletton.com</a></p><h2 id="透明度"><a href="#透明度" class="headerlink" title="透明度"></a>透明度</h2><p>rgba<br>hsla<br>opacity</p><pre><code class="html">&lt;rect fill=&quot;rgba(255,0,0)&quot; opacity=&quot;0.5&quot;/&gt;&lt;rect stroke=&quot;hsla(0, 50%, 60%)&quot; /&gt;</code></pre><h1 id="四、-渐变"><a href="#四、-渐变" class="headerlink" title="四、 渐变"></a>四、 渐变</h1><h2 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h2><p>使用linearGradient和stop标签，定义方向和关键点位置及颜色<br>gradientUnits属性设置盒子类型，默认objectBoundingBox，userSpaceOnUse表示世界坐标系<br>默认从左上角(0%)到右下角(100%)</p><pre><code class="html">&lt;svg xmlns=&quot;http://www.w3.org/200/svg&quot;&gt;  &lt;defs&gt;    &lt;linearGradient      id=&quot;grad1&quot;       gradientUnits=&quot;objectBoundingBox&quot;      x1=&quot;0&quot;      y1=&quot;0&quot;      x2=&quot;1&quot;      y2=&quot;1&quot;    &lt;/&gt;      &lt;stop offset=&quot;0&quot; stop-color=&quot;#1497FC&quot; /&gt;      &lt;stop offset=&quot;0&quot; stop-color=&quot;#1497FC&quot; /&gt;      &lt;stop offset=&quot;0&quot; stop-color=&quot;#1497FC&quot; /&gt;    &lt;/linearGradient&gt;  &lt;/defs&gt;  &lt;rect x=&quot;100&quot; y=&quot;100&quot; fill=&quot;url(#grad1)&quot; width=&quot;200&quot; height=&quot;150&quot; /&gt;&lt;/svg&gt;</code></pre><p>画一个宽200高150的矩形<br>linearGradient定义渐变色，xy的值0表示最左和最上，1表示最右和最下，使用userSpaceOnUse可以使用具体数值表示<br>stop定义关键点位置，offset=[0-1] 0 表示最左上角，0.5表示中间位置，1表示最右下角位置</p><h2 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h2><pre><code class="html">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;  &lt;defs&gt;    &lt;radialGradient id=&quot;grad3&quot; cx=&quot;0.5&quot; cy=&quot;0.5&quot; r=&quot;0.7&quot; fx=&quot;0.5&quot; fy=&quot;0.5&quot;&gt;      &lt;stop offset=&quot;0&quot; stop-color=&quot;rgb(20,151,252)&quot; /&gt;      &lt;stop offset=&quot;0.5&quot; stop-color=&quot;rgb(164,105,190)&quot; /&gt;      &lt;stop offset=&quot;1&quot; stop-color=&quot;rgb(255,140,0)&quot; /&gt;    &lt;/radialGradient&gt;  &lt;/defs&gt;  &lt;rect x=&quot;100&quot; y=&quot;100&quot; fill=&quot;url(#grad3)&quot; width=&quot;200&quot; height=&quot;200&quot; /&gt;  &lt;circle cx=&quot;500&quot; cy=&quot;200&quot; r=&quot;100&quot; fill=&quot;url(#grad3)&quot; /&gt;&lt;/svg&gt;</code></pre><h2 id="笔刷"><a href="#笔刷" class="headerlink" title="笔刷"></a>笔刷</h2><pre><code>&lt;pattern&gt;  &lt;circle&gt;  &lt;polygon&gt;&lt;/polygon&gt;</code></pre><h1 id="五、Path"><a href="#五、Path" class="headerlink" title="五、Path"></a>五、Path</h1><p><a href="http://www.w3.org/TR/SVG11/paths.html" target="_blank" rel="noopener">http://www.w3.org/TR/SVG11/paths.html</a></p><pre><code class="html">&lt;path d=&quot;M0,0 L10,20 C30 -10,40,20,100,100&quot; stoke=&quot;red&quot;/&gt;</code></pre><p>命令 含义</p><ul><li>M/m (x,y)+  移动到当前位置</li><li>L/l (x,y)+  画线段到指定位置</li><li>Hh (x)+ 画水平线到指定的x坐标</li><li>V/v(x)+ 画垂直线到指定的y坐标</li><li>Z/Z 闭合当前路径（结尾）</li><li>C/c (x1,y1,x2,y2,x,y)+  画三次贝赛尔曲线到指定位置</li><li>S/s (x2,y2,x,y)+光滑地画三次贝赛尔曲线到指定位置</li><li>Q/q (x1,y1,x,y)+画二次贝赛尔曲线到指定位置</li><li>T/t(x,y)+   光滑地画二次贝赛尔曲线到指定位置</li><li>A/a (rx,ry,xr,laf,sf,x,y)   画弧线到指定位置</li></ul><blockquote><p>注意：<br>大写表示绝对位置，小写为相对位置<br>上一命令结束位置就是下一命令开始的位置<br>命令可以重复参数表示重复执行同一命令</p></blockquote><h3 id="弧线-A-a-rx-ry-xr-laf-sf-x-y"><a href="#弧线-A-a-rx-ry-xr-laf-sf-x-y" class="headerlink" title="弧线 A/a (rx,ry,xr,laf,sf,x,y)"></a>弧线 A/a (rx,ry,xr,laf,sf,x,y)</h3><p>rx 弧线所在椭圆的x半轴长<br>ry 弧线所在椭圆的y半轴长<br>xr 长轴角度<br>laf 是否选择弧长较长的那一段弧<br>sf  是否选择逆时针方向的那一段弧<br>x,y 终点位置</p><h1 id="六、鼠标事件"><a href="#六、鼠标事件" class="headerlink" title="六、鼠标事件"></a>六、鼠标事件</h1><h2 id="1、SMIL方式"><a href="#1、SMIL方式" class="headerlink" title="1、SMIL方式"></a>1、SMIL方式</h2><p>单击后触发一个动画效果，此例中被改变的是“fill”属性，由红变蓝，中间没有渐变的过程，一次到位。</p><pre><code class="html">&lt;svg&gt;  &lt;rect x=&quot;15&quot; y=&quot;15&quot; width=&quot;40&quot; height=&quot;40&quot; fill=&quot;red&quot;&gt;      &lt;set attributeName=&quot;fill&quot; to=&quot;blue&quot; begin=&quot;click&quot;/&gt;  &lt;/rect&gt;&lt;/svg&gt;</code></pre><h2 id="2、Attributes方式"><a href="#2、Attributes方式" class="headerlink" title="2、Attributes方式"></a>2、Attributes方式</h2><p>事件属性在u处，“onclick”事件调用的是“changeColor”函数，参数是“evt”</p><pre><code class="html">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;xmlns:xlink=http://www.w3.org/1999/xlinkxmlns:a3=&quot;http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/&quot;a3:scriptImplementation=&quot;Adobe&quot;&gt;  &lt;script type=&quot;text/ecmascript&quot; a3:scriptImplementation=&quot;Adobe&quot;&gt;    &lt;![CDATA[    function changeColor(evt) {      var rect = evt.target;        rect.setAttributeNS(null, &quot;fill&quot;, &quot;blue&quot;)      }  ]]&gt;  &lt;/script&gt;  &lt;rect x=&quot;5&quot; y=&quot;5&quot; width=&quot;40&quot; height=&quot;40&quot; fill=&quot;red&quot;  οnclick= &quot;changeColor(evt)&quot;/&gt; u&lt;/svg&gt;</code></pre><pre><code class="html">&lt;svg&gt;  &lt;use xlink:href=&quot;#Longmendiao&quot; transform=&quot;translate(30,60)  scale(0.5)&quot; onclick=&quot;btnClickA()&quot;&gt;&lt;/use&gt;  &lt;script&gt;  function btnClickA() {      alert(&quot;Hello&quot;);  }  &lt;/script&gt;&lt;/svg&gt;</code></pre><h2 id="3、JavaScript-SMIL方式"><a href="#3、JavaScript-SMIL方式" class="headerlink" title="3、JavaScript+SMIL方式"></a>3、JavaScript+SMIL方式</h2><pre><code class="html">&lt;svg οnlοad=&quot;makeShape(evt)&quot;&gt;&lt;script&gt;&lt;![CDATA[  var svgns = &quot;http://www.w3.org/2000/svg&quot;;u  function makeShape(evt) {    svgDoc = evt.target.ownerDocument;    var rect = svgDoc.createElementNS(svgns, &quot;rect&quot;);    rect.setAttributeNS(null, &quot;x&quot;, &quot;5&quot;);    rect.setAttributeNS(null, &quot;y&quot;, &quot;5&quot;);    rect.setAttributeNS(null, &quot;width&quot;, &quot;40&quot;);    rect.setAttributeNS(null, &quot;height&quot;, &quot;40&quot;);    rect.setAttributeNS(null, &quot;fill&quot;, &quot;red&quot;);    var set = svgDoc.createElementNS(svgns, &quot;set&quot;);    set.setAttributeNS(null, &quot;attributeName&quot;, &quot;fill&quot;);    set.setAttributeNS(null, &quot;to&quot;, &quot;blue&quot;);    set.setAttributeNS(null, &quot;begin&quot;, &quot;click&quot;);    rect.appendChild(set);    svgDoc.rootElement.appendChild(rect);  }]]&gt;&lt;/script&gt;&lt;/svg&gt;</code></pre><h2 id="4、EventListener方式"><a href="#4、EventListener方式" class="headerlink" title="4、EventListener方式"></a>4、EventListener方式</h2><pre><code class="html">&lt;svg οnlοad=&quot;makeShape(evt)&quot;&gt;&lt;script&gt;&lt;![CDATA[  var svgns = &quot;http://www.w3.org/2000/svg&quot;;  function makeShape(evt) {    if ( window.svgDocument == null )    svgDoc = evt.target.ownerDocument;    var rect = svgDoc.createElementNS(svgns, &quot;rect&quot;);    rect.setAttributeNS(null, &quot;x&quot;, 15);    rect.setAttributeNS(null, &quot;y&quot;, 15);    rect.setAttributeNS(null, &quot;width&quot;, 40);    rect.setAttributeNS(null, &quot;height&quot;, 40);    rect.setAttributeNS(null, &quot;fill&quot;, &quot;red&quot;);    rect.addEventListener(&quot;click&quot;, changeColor, false); u    svgDoc.documentElement.appendChild(rect);  }  function changeColor(evt) {      var target = evt.target;      target.setAttributeNS(null, &quot;fill&quot;, &quot;blue&quot;);  }]]&gt;&lt;/script&gt;&lt;/svg&gt;</code></pre><h1 id="七、动态添加元素和事件"><a href="#七、动态添加元素和事件" class="headerlink" title="七、动态添加元素和事件"></a>七、动态添加元素和事件</h1><p><a href="https://www.cnblogs.com/lovellll/p/10208207.html" target="_blank" rel="noopener">https://www.cnblogs.com/lovellll/p/10208207.html</a></p><pre><code class="js">var svg = document.createElementNS(&quot;http://www.w3.org/2000/svg&quot;, &quot;svg&quot;);svg.setAttribute(&quot;width&quot;, &quot;800&quot;);svg.setAttribute(&quot;height&quot;, &quot;500&quot;);svg.addEventListener(&quot;load&quot;, function() {    alert(&quot;loaded&quot;);});document.body.appendChild(svg);var r = document.createElementNS(&quot;http://www.w3.org/2000/svg&quot;, &quot;rect&quot;);r.setAttribute(&quot;fill&quot;, &quot;#120045&quot;);r.setAttribute(&quot;x&quot;, &quot;1&quot;);r.setAttribute(&quot;y&quot;, &quot;1&quot;);r.setAttribute(&quot;width&quot;, &quot;50%&quot;);r.setAttribute(&quot;height&quot;, &quot;50%&quot;);r.addEventListener(&quot;click&quot;, function() {    alert(&quot;clicked&quot;);});svg.appendChild(r);</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Style </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> svg </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue 生命周期</title>
+      <link href="/2020/04/19/web/vue/lifecycle/"/>
+      <url>/2020/04/19/web/vue/lifecycle/</url>
+      
+        <content type="html"><![CDATA[<p>所有的生命周期钩子自动绑定 <code>this</code> 上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着<strong>你不能使用箭头函数来定义一个生命周期方法</strong> (例如 <code>created: () =&gt; this.fetchTodos()</code>)。这是因为箭头函数绑定了父上下文，因此 <code>this</code> 与你期待的 Vue 实例不同，<code>this.fetchTodos</code> 的行为未定义。</p><a id="more"></a><p><img src="../../../images/vue_life.png" alt=""></p><h2 id="beforeCreate："><a href="#beforeCreate：" class="headerlink" title="beforeCreate："></a>beforeCreate：</h2><p>​    在实例初始化之后，*<em>数据观测(data observer) *</em> 和 event/watcher事件配置 之前被调用，<br>​    注意是 之前，此时data、watcher、methods统统滴没有。<br>​    这个时候的vue实例还什么都没有，<br>​    但是<code>$route</code>对象是存在的，可以根据路由信息进行重定向之类的操作。</p><h2 id="created："><a href="#created：" class="headerlink" title="created："></a>created：</h2><p>​    在实例已经创建完成之后被调用。<br>​    在这一步，实例已完成以下配置：<br>​        数据观测(data observer) ，<br>​        属性和方法的运算，<br>​        watch/event 事件回调。<br>​    然而，挂载阶段还没开始，$el属性目前不可见。<br>​    此时 this.$data 可以访问，<br>​    watcher、events、methods也出现了，<br>​    若根据后台接口动态改变data和methods的场景下，可以使用。</p><h2 id="beforeMount："><a href="#beforeMount：" class="headerlink" title="beforeMount："></a>beforeMount：</h2><p>​    在挂载开始之前被调用，相关的 render 函数 首次被调用。<br>​    但是render正在执行中，此时DOM还是无法操作的。<br>​    我打印了此时的vue实例对象，相比于created生命周期，<br>​    此时只是多了一个$el的属性，然而其值为undefined。<br>​    使用场景我上文已经提到了，页面渲染时所需要的数据，应尽量在这之前完成赋值。</p><h2 id="mounted："><a href="#mounted：" class="headerlink" title="mounted："></a>mounted：</h2><p>​    在挂载之后被调用。<br>​    在这一步 创建<code>vm.$el</code>并替换el，并挂载到实例上。</p><blockquote><p>（官方文档中的 “如果root实例挂载了一个文档内元素，当mounted被调用时<code>vm.$el</code>也在文档内” 这句话存疑）</p></blockquote><p>​     此时元素已经渲染完成了，依赖于DOM的代码就放在这里吧~比如监听DOM事件。</p><h2 id="beforeUpdate："><a href="#beforeUpdate：" class="headerlink" title="beforeUpdate："></a>beforeUpdate：</h2><p>   <code>$vm.data</code>更新之后，虚拟DOM重新渲染 和打补丁之前被调用。<br>    你可以在这个钩子中进一步地修改<code>$vm.data</code>，这不会触发附加的重渲染过程。</p><h2 id="updated："><a href="#updated：" class="headerlink" title="updated："></a>updated：</h2><p>​    虚拟DOM重新渲染 和打补丁之后被调用。<br>​    当这个钩子被调用时，组件DOM的data已经更新，<br>​    所以你现在可以执行依赖于DOM的操作。<br>​    但是不要在此时修改data，否则会继续触发<code>beforeUpdate</code>、<code>updated</code>这两个生命周期，进入死循环！</p><h2 id="beforeDestroy："><a href="#beforeDestroy：" class="headerlink" title="beforeDestroy："></a>beforeDestroy：</h2><p>​    实例被销毁之前调用。在这一步，实例仍然完全可用。<br>​    实例要被销毁了，赶在被销毁之前搞点事情吧哈哈~</p><h2 id="destroyed："><a href="#destroyed：" class="headerlink" title="destroyed："></a>destroyed：</h2><p>​    Vue实例销毁后调用。<br>​    此时，Vue实例指示的所有东西已经解绑定，<br>​    所有的事件监听器都已经被移除，<br>​    所有的子实例也已经被销毁。<br>​    这时候能做的事情已经不多了，<br>​    只能加点儿提示toast之类的东西吧。</p><blockquote><p>注：beforeMount、mounted、beforeUpdate、updated、beforeDestroy、destroyed这几个钩子函数，<br>在服务器端渲染期间不被调用。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
       
       
         <tags>
             
             <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue Template 标签指令及属性</title>
+      <link href="/2020/04/19/web/vue/template/"/>
+      <url>/2020/04/19/web/vue/template/</url>
+      
+        <content type="html"><![CDATA[<h2 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h2><p>更新元素的 textContent。</p><pre><code class="vue">    &lt;span v-text=&quot;msg&quot;&gt;&lt;/span&gt;    &lt;span&gt;{{msg}}&lt;/span&gt;</code></pre><h2 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h2><p>更新元素的 innerHTML 。<br>在网站上动态渲染任意 HTML 是非常危险的，因为容易导致 XSS 攻击</p><pre><code class="vue">&lt;div v-html=&quot;html&quot;&gt;&lt;/div&gt;</code></pre><h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h2><p>切换元素的 display CSS 属性<br>当条件变化时该指令触发过渡效果。</p><h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h2><p>根据表达式的值的真假条件渲染元素。<br>当条件变化时该指令触发过渡效果。</p><pre><code class="vue">&lt;div v-if=&quot;Math.random() &gt; 0.5&quot;&gt;    Now you see me&lt;/div&gt;&lt;div v-else&gt;    Now you don&#39;t&lt;/div&gt;</code></pre><h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h2><p>基于源数据多次渲染元素或模板块。<br>作用在<code>&lt;template&gt;</code>标签上时，key属性只能写在子标签上</p><pre><code class="vue">&lt;div v-for=&quot;(item, index) in items&quot;  :key=&quot;item.id&quot;&gt;&lt;/div&gt;&lt;div v-for=&quot;(val, key) in object&quot;&gt;&lt;/div&gt;&lt;div v-for=&quot;(val, key, index) in object&quot;&gt;&lt;/div&gt;</code></pre><h2 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h2><p>缩写：@<br>绑定事件监听器。</p><ul><li>.stop - 调用 event.stopPropagation()。</li><li>.prevent - 调用 event.preventDefault()。</li><li>.capture - 添加事件侦听器时使用 capture 模式。</li><li>.self - 只当事件是从侦听器绑定的元素本身触发时才触发回调。</li><li>.{keyCode | keyAlias} - 只当事件是从特定键触发时才触发回调。</li><li>.native - 监听组件根元素的原生事件。</li><li>.once - 只触发一次回调。</li><li>.left - (2.2.0) 只当点击鼠标左键时触发。</li><li>.right - (2.2.0) 只当点击鼠标右键时触发。</li><li>.middle - (2.2.0) 只当点击鼠标中键时触发。</li><li>.passive - (2.3.0) 以 { passive: true } 模式添加侦听器</li></ul><p>在监听原生 DOM 事件时，方法以事件为唯一的参数。</p><pre><code class="vue">    &lt;!-- 方法处理器 --&gt;    &lt;button v-on:click=&quot;doThis&quot;&gt;&lt;/button&gt;    &lt;!-- 内联语句 --&gt;    &lt;button v-on:click=&quot;doThat(&#39;hello&#39;, $event)&quot;&gt;&lt;/button&gt;    &lt;!-- 缩写 --&gt;    &lt;button @click=&quot;doThis&quot;&gt;&lt;/button&gt;    &lt;!-- 停止冒泡 --&gt;    &lt;button @click.stop=&quot;doThis&quot;&gt;&lt;/button&gt;    &lt;!-- 阻止默认行为 --&gt;    &lt;button @click.prevent=&quot;doThis&quot;&gt;&lt;/button&gt;    &lt;!-- 阻止默认行为，没有表达式 --&gt;    &lt;form @submit.prevent&gt;&lt;/form&gt;    &lt;!--  串联修饰符 --&gt;    &lt;button @click.stop.prevent=&quot;doThis&quot;&gt;&lt;/button&gt;    &lt;!-- 键修饰符，键别名 --&gt;    &lt;input @keyup.enter=&quot;onEnter&quot;&gt;    &lt;!-- 键修饰符，键代码 --&gt;    &lt;input @keyup.13=&quot;onEnter&quot;&gt;    &lt;!-- 点击回调只会触发一次 --&gt;    &lt;button v-on:click.once=&quot;doThis&quot;&gt;&lt;/button&gt;    &lt;!-- 对象语法 (2.4.0+) --&gt;    &lt;button v-on=&quot;{ mousedown: doThis, mouseup: doThat }&quot;&gt;&lt;/button&gt;在子组件上监听自定义事件    &lt;my-component @my-event=&quot;handleThis&quot;&gt;&lt;/my-component&gt;    &lt;!-- 内联语句 --&gt;    &lt;my-component @my-event=&quot;handleThis(123, $event)&quot;&gt;&lt;/my-component&gt;    &lt;!-- 组件中的原生事件 --&gt;    &lt;my-component @click.native=&quot;onClick&quot;&gt;&lt;/my-component&gt;</code></pre><h2 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h2><p>缩写：:<br>动态地绑定一个或多个特性</p><ul><li><p>.prop - 被用于绑定 DOM 属性 (property)。(差别在哪里？)</p></li><li><p>.camel - (2.1.0+) 将 kebab-case 特性名转换为 camelCase. (从 2.1.0 开始支持)</p></li><li><p>.sync (2.3.0+) 语法糖，会扩展成一个更新父组件绑定值的 v-on 侦听器。</p><pre><code class="vue">      &lt;!-- 绑定一个属性 --&gt;      &lt;img v-bind:src=&quot;imageSrc&quot;&gt;      &lt;!-- 内联字符串拼接 --&gt;      &lt;img :src=&quot;&#39;/path/to/images/&#39; + fileName&quot;&gt;      &lt;!-- class 绑定 --&gt;      &lt;div :class=&quot;{ red: isRed }&quot;&gt;&lt;/div&gt;      &lt;div :class=&quot;[classA, classB]&quot;&gt;&lt;/div&gt;      &lt;div :class=&quot;[classA, { classB: isB, classC: isC }]&quot;&gt;      &lt;!-- style 绑定 --&gt;      &lt;div :style=&quot;{ fontSize: size + &#39;px&#39; }&quot;&gt;&lt;/div&gt;      &lt;div :style=&quot;[styleObjectA, styleObjectB]&quot;&gt;&lt;/div&gt;      &lt;!-- 绑定一个有属性的对象 --&gt;      &lt;div v-bind=&quot;{ id: someProp, &#39;other-attr&#39;: otherProp }&quot;&gt;&lt;/div&gt;      &lt;!-- 通过 prop 修饰符绑定 DOM 属性 --&gt;      &lt;div v-bind:text-content.prop=&quot;text&quot;&gt;&lt;/div&gt;      &lt;!-- prop 绑定。“prop”必须在 my-component 中声明。--&gt;      &lt;my-component :prop=&quot;someThing&quot;&gt;&lt;/my-component&gt;      &lt;!-- 通过 $props 将父组件的 props 一起传给子组件 --&gt;      &lt;child-component v-bind=&quot;$props&quot;&gt;&lt;/child-component&gt;      &lt;!-- XLink --&gt;      &lt;svg&gt;&lt;a :xlink:special=&quot;foo&quot;&gt;&lt;/a&gt;&lt;/svg&gt;      &lt;svg :view-box.camel=&quot;viewBox&quot;&gt;&lt;/svg&gt;</code></pre></li></ul><h2 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h2><p>在表单控件或者组件上创建双向绑定。<br>限制<code>&lt;input&gt;&lt;select&gt;&lt;textarea&gt;</code>components</p><ul><li>.lazy - 取代 input 监听 change 事件, 即在输入框失焦时change值</li><li>.number - 输入字符串转为有效的数字</li><li>.trim - 输入首尾空格过滤</li></ul><p>使用model自定义value和input，</p><pre><code class="js">        const component = {            model: {                prop: &#39;value1&#39;,                event:&#39;change&#39;            },            props:[&#39;value1&#39;]            methods:{                handleInput(e){                    this.$emit(&#39;change&#39;, e.target.value)                }            }        }</code></pre><h2 id="v-pre"><a href="#v-pre" class="headerlink" title="v-pre"></a>v-pre</h2><p>跳过这个元素和它的子元素的编译过程。<br>跳过大量没有指令的节点会加快编译。</p><pre><code class="vue">&lt;span v-pre&gt;{{ this will not be compiled }}&lt;/span&gt;</code></pre><h2 id="v-cloak"><a href="#v-cloak" class="headerlink" title="v-cloak"></a>v-cloak</h2><p>这个指令保持在元素上直到关联实例结束编译。<br>基本用不到。</p><h2 id="v-once"><a href="#v-once" class="headerlink" title="v-once"></a>v-once</h2><p>只渲染元素和组件一次。<br>适用于静态组件，不会再去对比dom是否需要更新它。</p><pre><code class="vue">    &lt;!-- 单个元素 --&gt;    &lt;span v-once&gt;This will never change: {{msg}}&lt;/span&gt;    &lt;!-- 有子元素 --&gt;    &lt;div v-once&gt;        &lt;h1&gt;comment&lt;/h1&gt;        &lt;p&gt;{{msg}}&lt;/p&gt;    &lt;/div&gt;    &lt;!-- 组件 --&gt;    &lt;my-component v-once :comment=&quot;msg&quot;&gt;&lt;/my-component&gt;    &lt;!-- `v-for` 指令--&gt;    &lt;ul&gt;        &lt;li v-for=&quot;i in list&quot; v-once&gt;{{i}}&lt;/li&gt;    &lt;/ul&gt;</code></pre><h2 id="key"><a href="#key" class="headerlink" title="key"></a>key</h2><p>主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。</p><pre><code class="vue">    &lt;ul&gt;        &lt;li v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;...&lt;/li&gt;    &lt;/ul&gt;</code></pre><p>可以用于强制替换元素/组件而不是重复使用它。</p><pre><code class="vue">    &lt;transition&gt;        &lt;span :key=&quot;text&quot;&gt;{{ text }}&lt;/span&gt;    &lt;/transition&gt;</code></pre><p>当 text 发生改变时，<code>&lt;span&gt;</code> 会随时被更新，因此会触发过渡。</p><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>给元素或子组件注册引用信息。<br>注册在父组件的 $refs 对象上。</p><pre><code class="vue">    &lt;!-- `vm.$refs.p` will be the DOM node --&gt;    &lt;p ref=&quot;p&quot;&gt;hello&lt;/p&gt;        &lt;!-- `vm.$refs.child` will be the child component instance --&gt;        &lt;child-component ref=&quot;child&quot;&gt;&lt;/child-component&gt;</code></pre><h2 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h2><p>用于标记往哪个具名插槽中插入子组件内容。</p><h2 id="slot-scope"><a href="#slot-scope" class="headerlink" title="slot-scope"></a>slot-scope</h2><p>用于将元素或组件表示为作用域插槽。<br>不支持动态绑定。</p><h2 id="is"><a href="#is" class="headerlink" title="is"></a>is</h2><p>用于动态组件且基于 DOM 内模板的限制来工作。</p><pre><code class="vue">    &lt;!-- 当 `currentView` 改变时，组件也跟着改变 --&gt;    &lt;component v-bind:is=&quot;currentView&quot;&gt;&lt;/component&gt;        &lt;!-- 这样做是有必要的，因为 `&lt;my-row&gt;` 放在一个 --&gt;        &lt;!-- `&lt;table&gt;` 内可能无效且被放置到外面 --&gt;        &lt;table&gt;            &lt;tr is=&quot;my-row&quot;&gt;&lt;/tr&gt;        &lt;/table&gt;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue 选项</title>
+      <link href="/2020/04/19/web/vue/options/"/>
+      <url>/2020/04/19/web/vue/options/</url>
+      
+        <content type="html"><![CDATA[<h1 id="选项-数据"><a href="#选项-数据" class="headerlink" title="选项 数据"></a>选项 数据</h1><h2 id="data"><a href="#data" class="headerlink" title="data"></a>data</h2><p>​        实例接受 object<br>​        组件的定义只接受 function<br>​        可以通过 <code>vm.$data</code>访问原始数据对象<br>​        访问 <code>vm.a</code>等价于访问 <code>vm.$data.a</code>， 不能是_a或$开头的</p><pre><code class="js">        var data = { a: 1 }                // 直接创建一个实例        var vm = new Vue({            data: data        })        vm.a // =&gt; 1        vm.$data === data // =&gt; true        // Vue.extend() 中 data 必须是函数        var Component = Vue.extend({            data: function () {                return { a: 1 }            }        })</code></pre><h2 id="props属性"><a href="#props属性" class="headerlink" title="props属性"></a>props属性</h2><p>数组或对象，用于接收来自父组件的数据。</p><pre><code class="js">            // 简单语法            Vue.component(&#39;props-demo-simple&#39;, {                props: [&#39;size&#39;, &#39;myMessage&#39;]            })            // 对象语法，提供校验            Vue.component(&#39;props-demo-advanced&#39;, {                props: {                    // 检测类型                    height: Number,                    // 检测类型 + 其他验证                    age: {                        type: Number,                        default: 0,                        required: true,                        validator: function (value) {                            return value &gt;= 0                        }                    }                }            })</code></pre><h2 id="propsData属性"><a href="#propsData属性" class="headerlink" title="propsData属性"></a>propsData属性</h2><ul><li><p>创建实例时传递 props。主要作用是方便测试。</p></li><li><p>只用于 new 创建的实例中</p><pre><code class="js">          var Comp = Vue.extend({              props: [&#39;msg&#39;],              template: &#39;&lt;div&gt;{{ msg }}&lt;/div&gt;&#39;          })          var vm = new Comp({              propsData: {                  msg: &#39;hello&#39;              }          })</code></pre></li></ul><h2 id="computed计算"><a href="#computed计算" class="headerlink" title="computed计算"></a>computed计算</h2><p>计算属性的结果会被缓存，除非依赖的响应式属性变化才会重新计算。</p><pre><code class="js">            var vm = new Vue({                data: { a: 1 },                computed: {                    // 仅读取                    aDouble: function () {                        return this.a * 2                    },                    // 读取和设置                    aPlus: {                        get: function () {                            return this.a + 1                        },                        set: function (v) {                            this.a = v - 1                        }                    }                }            })            vm.aPlus   // =&gt; 2            vm.aPlus = 3            vm.a       // =&gt; 2            vm.aDouble // =&gt; 4</code></pre><h2 id="methods方法"><a href="#methods方法" class="headerlink" title="methods方法"></a>methods方法</h2><ul><li>可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。</li><li>不应该使用箭头函数来定义 method 函数<pre><code class="js">          var vm = new Vue({              data: { a: 1 },              methods: {                  plus: function () {                      this.a++                  }              }          })          vm.plus()          vm.a // 2</code></pre></li></ul><h2 id="watch监听"><a href="#watch监听" class="headerlink" title="watch监听"></a>watch监听</h2><ul><li>一个对象，键是需要观察的表达式，值是对应回调函数。</li><li>值也可以是方法名，或者包含选项的对象。</li><li>不应该使用箭头函数来定义 watcher 函数<pre><code class="js">          var vm = new Vue({              data: {                  a: 1,                  b: 2,                  c: 3,                  d: 4,                  e: {                      f: {                          g: 5                      }                  }              },              watch: {                  a: function (val, oldVal) {                      console.log(&#39;new: %s, old: %s&#39;, val, oldVal)                  },                  // 方法名                  b: &#39;someMethod&#39;,                  // 深度 watcher                  c: {                      handler: function (val, oldVal) { /* ... */ },                      deep: true                  },                  // 该回调将会在侦听开始之后被立即调用                  d: {                      handler: function (val, oldVal) { /* ... */ },                      immediate: true                  },                  e: [                      function handle1 (val, oldVal) { /* ... */ },                      function handle2 (val, oldVal) { /* ... */ }                  ],                  // watch vm.e.f&#39;s value: {g: 5}                  &#39;e.f&#39;: function (val, oldVal) { /* ... */ }              }          })          vm.a = 2 // =&gt; new: 2, old: 1</code></pre></li></ul><h1 id="DOM元素"><a href="#DOM元素" class="headerlink" title="DOM元素"></a>DOM元素</h1><h2 id="el"><a href="#el" class="headerlink" title="el"></a>el</h2><p>提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标。<br>只在由 new 创建的实例中遵守。<br>元素可以用 vm.$el 访问。</p><h2 id="template"><a href="#template" class="headerlink" title="template"></a>template</h2><p>一个字符串模板作为 Vue 实例的标识使用。模板将会 替换 挂载的元素。</p><h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><p>字符串模板的代替方案<br>该渲染函数接收一个 createElement 方法作为第一个参数用来创建 VNode。<br>templateu将失效</p><pre><code class="js">            template =  `                &lt;comp-one ref=&#39;comp&#39;&gt;                    &lt;span ref=&#39;span&#39;&gt;{{value}}&lt;/span&gt;                &lt;/comp-one&gt;            `</code></pre><p>相当于</p><pre><code class="js">            render(createElement){                return createElement( //根节点                    &#39;comp-one&#39;,                      {                        ref: &#39;comp&#39;,                        // props: {                        //     props1: this.value                        // },                        // on: {                        //     click: this.handleClick                        // }                    },                     [                        //多个子节点                        createElement(&#39;span&#39;,{                            ref:&#39;span&#39;，                            // slot: &#39;header&#39;,                            // domProps:{                            //     innerHTML: &#39;&lt;span&gt;aaa&lt;/span&gt;&#39;                            // },                            // attrs:{                            //     id:&#39;test-id&#39;                            // }                        }),                        this.value                    ]                )            }</code></pre><h2 id="renderError"><a href="#renderError" class="headerlink" title="renderError"></a>renderError</h2><p>当 render 函数遭遇错误时，提供另外一种渲染输出。</p><pre><code class="js">            new Vue({                render (h) {                    throw new Error(&#39;oops&#39;)                },                renderError (h, err) {                    return h(&#39;pre&#39;, { style: { color: &#39;red&#39; }}, err.stack)                }            }).$mount(&#39;#app&#39;)</code></pre><h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><p>不能使用箭头函数来定义一个生命周期方法</p><h2 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h2><p>在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。</p><h2 id="created"><a href="#created" class="headerlink" title="created"></a>created</h2><p>在实例创建完成后被立即调用。<br>完成了 数据观测，属性和方法的运算，watch/event 事件回调。<br>但未挂载到$el上</p><h2 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h2><p>在挂载开始之前被调用，render首次调用<br>该钩子在服务器端渲染期间不被调用。</p><h2 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h2><p>el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。<br>该钩子在服务器端渲染期间不被调用。<br>你希望等到整个视图都渲染完毕, 可以用 vm.$nextTick</p><pre><code class="js">            mounted: function () {                this.$nextTick(function () {                    // Code that will run only after the                    // entire view has been rendered                })            }</code></pre><h2 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h2><p>数据更新时调用<br>该钩子在服务器端渲染期间不被调用</p><h2 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h2><p>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。<br>该钩子在服务器端渲染期间不被调用。<br>你希望等到整个视图都渲染完毕, 可以用 vm.$nextTick</p><pre><code class="js">            updated: function () {                this.$nextTick(function () {                    // Code that will run only after the                    // entire view has been re-rendered                })            }</code></pre><h2 id="activated"><a href="#activated" class="headerlink" title="activated"></a>activated</h2><p>keep-alive 组件激活时调用。<br>该钩子在服务器端渲染期间不被调用。</p><h2 id="deactivated"><a href="#deactivated" class="headerlink" title="deactivated"></a>deactivated</h2><p>keep-alive 组件停用时调用。<br>该钩子在服务器端渲染期间不被调用。</p><h2 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy"></a>beforeDestroy</h2><p>实例销毁之前调用。在这一步，实例仍然完全可用。<br>该钩子在服务器端渲染期间不被调用。</p><h2 id="destroyed"><a href="#destroyed" class="headerlink" title="destroyed"></a>destroyed</h2><p>Vue 实例销毁后调用。<br>该钩子在服务器端渲染期间不被调用。</p><h2 id="errorCaptured"><a href="#errorCaptured" class="headerlink" title="errorCaptured"></a>errorCaptured</h2><p>(err: Error, vm: Component, info: string) =&gt; ?boolean<br>当捕获一个来自子孙组件的错误时被调用。<br>返回 false 以阻止该错误继续向上传播。</p><h1 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h1><h2 id="directives"><a href="#directives" class="headerlink" title="directives"></a>directives</h2><p>自定义指令表</p><h2 id="filters"><a href="#filters" class="headerlink" title="filters"></a>filters</h2><p>过滤器表</p><h2 id="components"><a href="#components" class="headerlink" title="components"></a>components</h2><p>可用组件表</p><h1 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h1><h2 id="parent"><a href="#parent" class="headerlink" title="parent"></a>parent</h2><p>指定父实例，建立父子关系。<br>子实例可以用 this.$parent 访问父实例，<br>子实例被推入父实例的 $children 数组中。<br>更推荐用 props 和 events 实现父子组件通信</p><h2 id="mixins"><a href="#mixins" class="headerlink" title="mixins"></a>mixins</h2><p>混入对象的数组。</p><pre><code class="js">            var mixin = {                created: function () { console.log(1) }            }            var vm = new Vue({                created: function () { console.log(2) },                mixins: [mixin]            })            // =&gt; 1            // =&gt; 2</code></pre><h2 id="extends"><a href="#extends" class="headerlink" title="extends"></a>extends</h2><p>扩展另一个组件</p><pre><code class="js">            var CompA = { ... }            // 在没有调用 `Vue.extend` 时候继承 CompA            var CompB = {                extends: CompA,                ...            }</code></pre><h2 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide / inject"></a>provide / inject</h2><p>上下文关系，类似于context<br>不推荐直接用于应用程序代码中。</p><pre><code class="js">            // 父级组件提供 &#39;foo&#39;            var Provider = {                provide: {                    foo: &#39;bar&#39;                },                // ...            }            // 子组件注入 &#39;foo&#39;, 但不是响应式的            var Child = {                inject: [&#39;foo&#39;],                created () {                    console.log(this.foo) // =&gt; &quot;bar&quot;                }                // ...            }</code></pre><p>使用get()方法使用provide传递的值会响应到子孙后代</p><pre><code class="js">            new Vue=({                provide(){                    const data = {}                    Object.defineProperty(data, &#39;value&#39;, {                        get:()=&gt;this.value,                        enumerable: true                    })                    return data                }            })</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> vue options </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>VueConfig全局配置</title>
+      <link href="/2020/04/19/web/vue/config/"/>
+      <url>/2020/04/19/web/vue/config/</url>
+      
+        <content type="html"><![CDATA[<h2 id="silent"><a href="#silent" class="headerlink" title="silent"></a>silent</h2><p>​        boolean<br>​        日志与警告</p><a id="more"></a><h2 id="optionMergeStrategies"><a href="#optionMergeStrategies" class="headerlink" title="optionMergeStrategies"></a>optionMergeStrategies</h2><p>​        { [key: string]: Function }<br>​        自定义合并策略的选项</p><h2 id="devtools"><a href="#devtools" class="headerlink" title="devtools"></a>devtools</h2><p>​        boolean<br>​        是否允许 vue-devtools 检查代码</p><h2 id="errorHandler"><a href="#errorHandler" class="headerlink" title="errorHandler"></a>errorHandler</h2><p>​        Function (err, vm, info)<br>​        指定组件的渲染和观察期间未捕获错误的处理函数</p><pre><code class="js">import Vue from &#39;vue&#39;Vue.config.errorHandler = function(err, vm, info) {  Vue.nextTick(() =&gt; {    if (process.env.NODE_ENV === &#39;development&#39;) {      console.group(&#39;&gt;&gt;&gt;&gt;&gt;&gt; 错误信息 &gt;&gt;&gt;&gt;&gt;&gt;&#39;)      console.log(info)      console.groupEnd()      console.group(&#39;&gt;&gt;&gt;&gt;&gt;&gt; Vue 实例 &gt;&gt;&gt;&gt;&gt;&gt;&#39;)      console.log(vm)      console.groupEnd()      console.group(&#39;&gt;&gt;&gt;&gt;&gt;&gt; Error &gt;&gt;&gt;&gt;&gt;&gt;&#39;)      console.log(err)      console.groupEnd()    }  })}</code></pre><h2 id="warnHandler"><a href="#warnHandler" class="headerlink" title="warnHandler"></a>warnHandler</h2><p>​        Function (msg, vm, trace)<br>​        为 Vue 的运行时警告赋予一个自定义处理函数</p><h2 id="ignoredElements"><a href="#ignoredElements" class="headerlink" title="ignoredElements"></a>ignoredElements</h2><p>​        Array&lt;string | RegExp&gt;<br>​        须使 Vue 忽略在 Vue 之外的自定义元素</p><h2 id="keyCodes"><a href="#keyCodes" class="headerlink" title="keyCodes"></a>keyCodes</h2><p>​        { [key: string]: number | Array<number> }<br>​        给 v-on 自定义键位别名</p><h2 id="performance"><a href="#performance" class="headerlink" title="performance"></a>performance</h2><p>​        boolean<br>​        启用对组件初始化、编译、渲染和打补丁的性能追踪</p><h2 id="productionTip"><a href="#productionTip" class="headerlink" title="productionTip"></a>productionTip</h2><p>​        阻止 vue 在启动时生成生产提示</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue组件</title>
+      <link href="/2020/04/19/web/vue/component/"/>
+      <url>/2020/04/19/web/vue/component/</url>
+      
+        <content type="html"><![CDATA[<h2 id="内置的组件"><a href="#内置的组件" class="headerlink" title="内置的组件"></a>内置的组件</h2><h3 id="lt-component-gt-lt-component-gt"><a href="#lt-component-gt-lt-component-gt" class="headerlink" title="&lt;component&gt;&lt;/component&gt;"></a><code>&lt;component&gt;&lt;/component&gt;</code></h3><p>渲染一个“元组件”为动态组件。<br>依 is 的值，来决定哪个组件被渲染。</p><a id="more"></a><pre><code class="vue">&lt;!-- 动态组件由 vm 实例的属性值 `componentId` 控制 --&gt;&lt;component :is=&quot;componentId&quot;&gt;&lt;/component&gt;&lt;!-- 也能够渲染注册过的组件或 prop 传入的组件 --&gt;&lt;component :is=&quot;$options.components.child&quot;&gt;&lt;/component&gt;</code></pre><h3 id="lt-transition-gt-lt-transition-gt"><a href="#lt-transition-gt-lt-transition-gt" class="headerlink" title="&lt;transition&gt;&lt;/transition&gt;"></a><code>&lt;transition&gt;&lt;/transition&gt;</code></h3><p>作为单个元素/组件的过渡效果。</p><h4 id="Props："><a href="#Props：" class="headerlink" title="Props："></a>Props：</h4><ul><li>name - string，用于自动生成 CSS 过渡类名。例如：name: ‘fade’ 将自动拓展为.fade-enter，.fade-enter-active等。默认类名为 “v”</li><li>appear - boolean，是否在初始渲染时使用过渡。默认为 false。</li><li>css - boolean，是否使用 CSS 过渡类。默认为 true。如果设置为 false，将只通过组件事件触发注册的 JavaScript 钩子。</li><li>type - string，指定过渡事件类型，侦听过渡何时结束。有效值为 “transition” 和 “animation”。默认 Vue.js 将自动检测出持续时间长的为过渡事件类型。</li><li>mode - string，控制离开/进入的过渡时间序列。有效的模式有 “out-in” 和 “in-out”；默认同时生效。</li><li>enter-class - string</li><li>leave-class - string</li><li>appear-class - string</li><li>enter-to-class - string</li><li>leave-to-class - string</li><li>appear-to-class - string</li><li>enter-active-class - string</li><li>leave-active-class - string</li><li>appear-active-class - string</li><li><h4 id="事件："><a href="#事件：" class="headerlink" title="事件："></a>事件：</h4></li><li>before-enter</li><li>before-leave</li><li>before-appear</li><li>enter</li><li>leave</li><li>appear</li><li>after-enter</li><li>after-leave</li><li>after-appear</li><li>enter-cancelled</li><li>leave-cancelled (v-show only)</li><li>appear-cancelled</li></ul><pre><code class="vue">        &lt;!-- 简单元素 --&gt;        &lt;transition&gt;            &lt;div v-if=&quot;ok&quot;&gt;toggled content&lt;/div&gt;        &lt;/transition&gt;        &lt;!-- 动态组件 --&gt;        &lt;transition name=&quot;fade&quot; mode=&quot;out-in&quot; appear&gt;            &lt;component :is=&quot;view&quot;&gt;&lt;/component&gt;        &lt;/transition&gt;        &lt;!-- 事件钩子 --&gt;        &lt;div id=&quot;transition-demo&quot;&gt;            &lt;transition @after-enter=&quot;transitionComplete&quot;&gt;                &lt;div v-show=&quot;ok&quot;&gt;toggled content&lt;/div&gt;            &lt;/transition&gt;        &lt;/div&gt;        new Vue({            ...            methods: {                transitionComplete: function (el) {                    // 传入 &#39;el&#39; 这个 DOM 元素作为参数。                }            }            ...        }).$mount(&#39;#transition-demo&#39;)</code></pre><h3 id="lt-transition-group-gt-lt-transition-group-gt"><a href="#lt-transition-group-gt-lt-transition-group-gt" class="headerlink" title="&lt;transition-group&gt;&lt;/transition-group&gt;"></a><code>&lt;transition-group&gt;&lt;/transition-group&gt;</code></h3><p>作为多个元素/组件的过渡效果。<br>是一个抽象组件</p><h4 id="Props：-1"><a href="#Props：-1" class="headerlink" title="Props："></a>Props：</h4><ul><li>tag - string，默认为 span</li><li>move-class - 覆盖移动过渡期间应用的 CSS 类。</li><li>除了 mode，其他特性和 <transition> 相同。</li></ul><h3 id="lt-keep-alive-gt-lt-keep-alive-gt"><a href="#lt-keep-alive-gt-lt-keep-alive-gt" class="headerlink" title="&lt;keep-alive&gt;&lt;/keep-alive&gt;"></a><code>&lt;keep-alive&gt;&lt;/keep-alive&gt;</code></h3><p>包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。<br>主要用于保留组件状态或避免重新渲染。<br>是一个抽象组件<br>在其中有 v-for 则不会工作。 </p><pre><code class="vue">&lt;!-- 基本 --&gt;&lt;keep-alive&gt;    &lt;component :is=&quot;view&quot;&gt;&lt;/component&gt;&lt;/keep-alive&gt;&lt;!-- 多个条件判断的子组件 --&gt;&lt;keep-alive&gt;  &lt;comp-a v-if=&quot;a &gt; 1&quot;&gt;&lt;/comp-a&gt;  &lt;comp-b v-else&gt;&lt;/comp-b&gt;&lt;/keep-alive&gt;&lt;!-- 和 `&lt;transition&gt;` 一起使用 --&gt;&lt;transition&gt;  &lt;keep-alive&gt;      &lt;component :is=&quot;view&quot;&gt;&lt;/component&gt;  &lt;/keep-alive&gt;&lt;/transition&gt;   </code></pre><h4 id="Props：-2"><a href="#Props：-2" class="headerlink" title="Props："></a>Props：</h4><ul><li>include - 字符串或正则表达式。只有名称匹配的组件会被缓存。</li><li>exclude - 字符串或正则表达式。任何名称匹配的组件都不会被缓存。</li><li>max - 数字。最多可以缓存多少组件实例。<pre><code class="vue">&lt;!-- 逗号分隔字符串 --&gt;&lt;keep-alive include=&quot;a,b&quot;&gt;  &lt;component :is=&quot;view&quot;&gt;&lt;/component&gt;&lt;/keep-alive&gt;</code></pre></li></ul><!-- 正则表达式 (使用 `v-bind`) --><keep-alive :include="/a|b/">    <component :is="view"></component></keep-alive><!-- 数组 (使用 `v-bind`) --><keep-alive :include="['a', 'b']">    <component :is="view"></component></keep-alive>  <keep-alive :max="10">    <component :is="view"></component></keep-alive>```<h3 id="lt-slot-gt-lt-slot-gt"><a href="#lt-slot-gt-lt-slot-gt" class="headerlink" title="&lt;slot&gt;&lt;/slot&gt;"></a><code>&lt;slot&gt;&lt;/slot&gt;</code></h3><ul><li><p>作为组件模板之中的内容分发插槽。</p></li><li><p><code>&lt;slot&gt;</code> 元素自身将被替换。</p><pre><code class="vue">  // &lt;base-layout&gt;组件      &lt;div class=&quot;container&quot;&gt;          &lt;header&gt;              &lt;slot name=&quot;header&quot;&gt;&lt;/slot&gt;          &lt;/header&gt;          &lt;main&gt;              &lt;slot&gt;&lt;/slot&gt;          &lt;/main&gt;          &lt;footer&gt;              &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;          &lt;/footer&gt;      &lt;/div&gt;</code></pre><pre><code class="vue">      //引用base-layout组件进行插入      &lt;base-layout&gt;          &lt;template slot=&quot;header&quot;&gt;              &lt;h1&gt;Here might be a page title&lt;/h1&gt;          &lt;/template&gt;          &lt;p&gt;A paragraph for the main content.&lt;/p&gt;          &lt;p&gt;And another one.&lt;/p&gt;          &lt;template slot=&quot;footer&quot;&gt;              &lt;p&gt;Here&#39;s some contact info&lt;/p&gt;          &lt;/template&gt;      &lt;/base-layout&gt;</code></pre></li><li><p>slot-scope作用域插槽, 调取引用组件内部的数据</p><pre><code class="vue">      //todo-list组件      &lt;ul&gt;          &lt;li              v-for=&quot;todo in todos&quot;              v-bind:key=&quot;todo.id&quot;          &gt;              &lt;!-- 我们为每个 todo 准备了一个插槽，--&gt;              &lt;!-- 将 `todo` 对象作为一个插槽的 prop 传入。--&gt;              &lt;slot v-bind:todo=&quot;todo&quot;&gt;              &lt;!-- 回退的内容 --&gt;              {{ todo.text }}              &lt;/slot&gt;          &lt;/li&gt;      &lt;/ul&gt;</code></pre></li></ul><pre><code class="vue">        //引用todo-list        &lt;todo-list v-bind:todos=&quot;todos&quot;&gt;            &lt;!-- 将 `slotProps` 定义为插槽作用域的名字 --&gt;            &lt;template slot-scope=&quot;slotProps&quot;&gt;                &lt;!-- 也可以用解构方法 &lt;template slot-scope=&quot;{ todo }&quot;&gt; --&gt;                &lt;!-- 为待办项自定义一个模板，--&gt;                &lt;!-- 通过 `slotProps` 定制每个待办项。--&gt;                &lt;span v-if=&quot;slotProps.todo.isComplete&quot;&gt;✓&lt;/span&gt;                {{ slotProps.todo.text }}            &lt;/template&gt;        &lt;/todo-list&gt;</code></pre><pre><code class="vue">        const component = {            template:`                &lt;div&gt;                    &lt;slot value=&#39;123&#39; abc=&#39;456&#39;&gt;&lt;/slot&gt;                &lt;/div&gt;            `,        }        new Vue({            el: &#39;#root&#39;,            components:{                CompOne: component            },            data:{                value: &#39;000&#39;            },            template:  `                &lt;div&gt;                    &lt;comp-one&gt;                        &lt;span slot-scope=&quot;props&quot;&gt;{{props.value}} {{props.abc}} {{value}}&lt;/span&gt;                    &lt;/comp-one&gt;                &lt;/div&gt;            `        })</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> component </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue Api</title>
+      <link href="/2020/04/19/web/vue/api/"/>
+      <url>/2020/04/19/web/vue/api/</url>
+      
+        <content type="html"><![CDATA[<h2 id="全局API"><a href="#全局API" class="headerlink" title="全局API"></a>全局API</h2><h3 id="Vue-extend-options"><a href="#Vue-extend-options" class="headerlink" title="Vue.extend( options )"></a>Vue.extend( options )</h3><p>继承，使用基础 Vue 构造器，创建一个“子类”。</p><a id="more"></a><pre><code class="vue">  // 创建构造器  var Profile = Vue.extend({    template: &#39;&lt;p&gt;{{firstName}} {{lastName}} aka {{alias}}&lt;/p&gt;&#39;,    data: function () {      return {        firstName: &#39;Walter&#39;,        lastName: &#39;White&#39;,        alias: &#39;Heisenberg&#39;      }    }  })  // 创建 Profile 实例，并挂载到一个元素上。  new Profile().$mount(&#39;#mount-point&#39;)</code></pre><ul><li>可以传入vue选项，传props用propsData，选项会合并，</li><li>但生命周期方法都会被调用</li></ul><h3 id="Vue-nextTick-callback-context"><a href="#Vue-nextTick-callback-context" class="headerlink" title="Vue.nextTick( [callback, context] )"></a>Vue.nextTick( [callback, context] )</h3><ul><li>在下次 DOM 更新循环结束之后执行延迟回调。</li><li>在修改数据之后立即使用这个方法，获取更新后的 DOM。</li></ul><pre><code class="vue">  // 修改数据  vm.msg = &#39;Hello&#39;  // DOM 还没有更新  Vue.nextTick(function () {      // DOM 更新了  })  // 作为一个 Promise 使用 (2.1.0 起新增，详见接下来的提示)  Vue.nextTick()  .then(function () {      // DOM 更新了  })</code></pre><h3 id="Vue-set-target-key-value"><a href="#Vue-set-target-key-value" class="headerlink" title="Vue.set( target, key, value )"></a>Vue.set( target, key, value )</h3><blockquote><p>向响应式对象中添加一个属性，并确保这个新属性同样是响应式的，且触发视图更新。</p></blockquote><h3 id="Vue-delete-target-key"><a href="#Vue-delete-target-key" class="headerlink" title="Vue.delete( target, key )"></a>Vue.delete( target, key )</h3><blockquote><p>删除对象的属性。</p></blockquote><h3 id="Vue-directive-id-definition"><a href="#Vue-directive-id-definition" class="headerlink" title="Vue.directive( id, [definition] )"></a>Vue.directive( id, [definition] )</h3><blockquote><p>注册或获取全局指令。</p></blockquote><pre><code class="vue">  // 注册  Vue.directive(&#39;my-directive&#39;, {    bind: function () {},    inserted: function () {},    update: function () {},    componentUpdated: function () {},    unbind: function () {}  })  // 注册 (指令函数)  Vue.directive(&#39;my-directive&#39;, function () {      // 这里将会被 `bind` 和 `update` 调用  })  // getter，返回已注册的指令  var myDirective = Vue.directive(&#39;my-directive&#39;)</code></pre><h3 id="Vue-filter-id-definition"><a href="#Vue-filter-id-definition" class="headerlink" title="Vue.filter( id, [definition] )"></a>Vue.filter( id, [definition] )</h3><blockquote><p>注册或获取全局过滤器。</p></blockquote><pre><code class="vue">  // 注册  Vue.filter(&#39;my-filter&#39;, function (value) {      // 返回处理后的值  })  // getter，返回已注册的过滤器  var myFilter = Vue.filter(&#39;my-filter&#39;)</code></pre><h3 id="Vue-component-id-definition"><a href="#Vue-component-id-definition" class="headerlink" title="Vue.component( id, [definition] )"></a>Vue.component( id, [definition] )</h3><blockquote><p>注册或获取全局组件。</p></blockquote><pre><code class="vue">  // 注册组件，传入一个扩展过的构造器  Vue.component(&#39;my-component&#39;, Vue.extend({ /* ... */ }))  // 注册组件，传入一个选项对象 (自动调用 Vue.extend)  Vue.component(&#39;my-component&#39;, { /* ... */ })  // 获取注册的组件 (始终返回构造器)  var MyComponent = Vue.component(&#39;my-component&#39;)</code></pre><h3 id="Vue-use-plugin"><a href="#Vue-use-plugin" class="headerlink" title="Vue.use( plugin )"></a>Vue.use( plugin )</h3><blockquote><p>安装 Vue.js 插件。如果插件是一个对象，必须提供 install 方法。<br>需要在调用 new Vue() 之前被调用。</p></blockquote><h3 id="Vue-mixin-mixin"><a href="#Vue-mixin-mixin" class="headerlink" title="Vue.mixin( mixin )"></a>Vue.mixin( mixin )</h3><blockquote><p>全局注册一个混入，影响注册之后所有创建的每个 Vue 实例。<br>不推荐在应用代码中使用。</p></blockquote><h3 id="Vue-compile-template"><a href="#Vue-compile-template" class="headerlink" title="Vue.compile( template )"></a>Vue.compile( template )</h3><blockquote><p>在 render 函数中编译模板字符串。只在独立构建时有效</p></blockquote><pre><code class="vue">  var res = Vue.compile(&#39;&lt;div&gt;&lt;span&gt;{{ msg }}&lt;/span&gt;&lt;/div&gt;&#39;)  new Vue({      data: {      msg: &#39;hello&#39;    },    render: res.render,    staticRenderFns: res.staticRenderFns  })</code></pre><h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>在组件内部，this指向vm实例</p><h3 id="vm-data"><a href="#vm-data" class="headerlink" title="vm.$data"></a>vm.$data</h3><p>观察的数据对象</p><h3 id="vm-props"><a href="#vm-props" class="headerlink" title="vm.$props"></a>vm.$props</h3><p>接收到的 props 对象</p><h3 id="vm-el"><a href="#vm-el" class="headerlink" title="vm.$el"></a>vm.$el</h3><p>使用的根 DOM 元素</p><h3 id="vm-options"><a href="#vm-options" class="headerlink" title="vm.$options"></a>vm.$options</h3><p>初始化选项</p><h3 id="vm-parent"><a href="#vm-parent" class="headerlink" title="vm.$parent"></a>vm.$parent</h3><p>父实例，有的话</p><h3 id="vm-root"><a href="#vm-root" class="headerlink" title="vm.$root"></a>vm.$root</h3><p>根 Vue 实例，通常是<code>&lt;APP/&gt;</code></p><h3 id="vm-children"><a href="#vm-children" class="headerlink" title="vm.$children"></a>vm.$children</h3><p>直接子组件<br>不保证顺序，也不是响应式的</p><h3 id="vm-slots"><a href="#vm-slots" class="headerlink" title="vm.$slots"></a>vm.$slots</h3><p>用来访问被插槽分发的内容。<br>每个具名插槽 有其相应的属性<br>default 属性包括了所有没有被包含在具名插槽中的节点。</p><h3 id="vm-scopedSlots"><a href="#vm-scopedSlots" class="headerlink" title="vm.$scopedSlots"></a>vm.$scopedSlots</h3><p>用来访问作用域插槽。</p><h3 id="vm-refs"><a href="#vm-refs" class="headerlink" title="vm.$refs"></a>vm.$refs</h3><p>一个对象，持有注册过 ref 特性 的所有 DOM 元素和组件实例<br>子组件引用</p><h3 id="vm-isServer"><a href="#vm-isServer" class="headerlink" title="vm.$isServer"></a>vm.$isServer</h3><p>是否运行于服务器<br>服务端渲染</p><h3 id="vm-attrs"><a href="#vm-attrs" class="headerlink" title="vm.$attrs"></a>vm.$attrs</h3><p>包含了父作用域中不作为 prop 被识别 (且获取) 的特性绑定 (class 和 style 除外)。<br>可以通过 v-bind=”$attrs” 传入内部组件</p><h3 id="vm-listeners"><a href="#vm-listeners" class="headerlink" title="vm.$listeners"></a>vm.$listeners</h3><p>包含了父作用域中的 (不含 .native 修饰器的) v-on 事件监听器。<br>可以通过 v-on=”$listeners” 传入内部组件</p><h2 id="实例方法-数据"><a href="#实例方法-数据" class="headerlink" title="实例方法 / 数据"></a>实例方法 / 数据</h2><h3 id="vm-watch"><a href="#vm-watch" class="headerlink" title="vm.$watch"></a>vm.$watch</h3><blockquote><p>观察 Vue 实例变化的一个表达式或计算属性函数。</p></blockquote><pre><code>// 键路径var unwatch = vm.$watch(&#39;a.b.c&#39;, function (newVal, oldVal) {    // 做点什么    },{    deep: true,    immediate: true    })// 函数var unwatch = vm.$watch(  function () {      return this.a + this.b  },  function (newVal, oldVal) {      // 做点什么  }}</code></pre><ul><li>unwatch()     返回一个取消观察函数，用来停止触发回调</li><li>deep             为了发现对象内部值的变化</li><li>immediate     将立即以表达式的当前值触发回调</li><li><h3 id="vm-set"><a href="#vm-set" class="headerlink" title="vm.$set"></a>vm.$set</h3>  全局 Vue.set 的别名<pre><code class="vue">  vm.$set(vm.obj,&#39;a&#39;,&#39;123&#39;)</code></pre><h3 id="vm-delete"><a href="#vm-delete" class="headerlink" title="vm.$delete"></a>vm.$delete</h3>  全局 Vue.delete 的别名</li></ul><h2 id="实例方法-事件"><a href="#实例方法-事件" class="headerlink" title="实例方法 / 事件"></a>实例方法 / 事件</h2><h3 id="vm-on"><a href="#vm-on" class="headerlink" title="vm.$on"></a>vm.$on</h3><p>监听当前实例上的自定义事件。<br>可以由vm.$emit触发。</p><pre><code class="vue">vm.$on(&#39;test&#39;, function (msg) {    console.log(msg)})vm.$emit(&#39;test&#39;, &#39;hi&#39;)// =&gt; &quot;hi&quot;</code></pre><h3 id="vm-once"><a href="#vm-once" class="headerlink" title="vm.$once"></a>vm.$once</h3><p>监听一个自定义事件，但是只触发一次<br>触发之后移除</p><h3 id="vm-off"><a href="#vm-off" class="headerlink" title="vm.$off"></a>vm.$off</h3><p>移除自定义事件监听器。<br>如果没有提供参数，则移除所有的事件监听器</p><h3 id="vm-emit"><a href="#vm-emit" class="headerlink" title="vm.$emit"></a>vm.$emit</h3><p>触发当前实例上的事件</p><pre><code class="vue">  &lt;button v-on:click=&quot;$emit(&#39;welcome&#39;)&quot;&gt;  vm.$emit(&#39;welcome&#39;, &#39;hello&#39;)</code></pre><h2 id="实例方法-生命周期"><a href="#实例方法-生命周期" class="headerlink" title="实例方法 / 生命周期"></a>实例方法 / 生命周期</h2><h3 id="vm-mount"><a href="#vm-mount" class="headerlink" title="vm.$mount"></a>vm.$mount</h3><p>实例未挂载时可以手动地挂载一个未挂载的实例</p><pre><code class="vue">var MyComponent = Vue.extend({    template: &#39;&lt;div&gt;Hello!&lt;/div&gt;&#39;})// 创建并挂载到 #app (会替换 #app)new MyComponent().$mount(&#39;#app&#39;)</code></pre><h3 id="vm-forceUpdate"><a href="#vm-forceUpdate" class="headerlink" title="vm.$forceUpdate"></a>vm.$forceUpdate</h3><p>强制更新<br>仅仅影响实例本身和插入插槽内容的子组件，而不是所有子组件。</p><h3 id="vm-nextTick"><a href="#vm-nextTick" class="headerlink" title="vm.$nextTick"></a>vm.$nextTick</h3><p>将回调延迟到下次 DOM 更新循环之后执行。</p><pre><code class="vue">new Vue({  // ...  methods: {    // ...    example: function () {      // 修改数据      this.message = &#39;changed&#39;      // DOM 还没有更新      this.$nextTick(function () {        // DOM 现在更新了        // `this` 绑定到当前实例        this.doSomethingElse()      })    }  }})</code></pre><h3 id="vm-destroy"><a href="#vm-destroy" class="headerlink" title="vm.$destroy"></a>vm.$destroy</h3><p>完全销毁一个实例。<br>触发 beforeDestroy 和 destroyed 的钩子。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> vue api </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue生态圈</title>
+      <link href="/2020/04/17/web/vue/%E7%94%9F%E6%80%81%E5%9C%88/"/>
+      <url>/2020/04/17/web/vue/%E7%94%9F%E6%80%81%E5%9C%88/</url>
+      
+        <content type="html"><![CDATA[<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a><a href="https://cn.vuejs.org/v2/guide/index.html" target="_blank" rel="noopener">vue</a></h2><p>是一套用于构建用户界面的渐进式框架。</p><h2 id="vue-cli3"><a href="#vue-cli3" class="headerlink" title="vue-cli3"></a><a href="https://cli.vuejs.org/zh/guide/" target="_blank" rel="noopener">vue-cli3</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统</p><pre><code class="bash">npm install -g @vue/clivue create hello-worldcd hello-worldnpm installnpm run serve</code></pre><h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a><a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">vue-router</a></h2><ul><li>介绍<pre><code>    路由管理器。    它和 Vue.js 的核心深度集成，    让构建单页面应用变得易如反掌。</code></pre></li><li>功能<pre><code>    嵌套的路由/视图表    模块化的、基于组件的路由配置    路由参数、查询、通配符    基于 Vue.js 过渡系统的视图过渡效果    细粒度的导航控制    带有自动激活的 CSS class 的链接    HTML5 历史模式或 hash 模式，在 IE9 中自动降级    自定义的滚动条行为</code></pre></li></ul><h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a><a href="https://vuex.vuejs.org/zh/" target="_blank" rel="noopener">vuex</a></h2><p>​    专为 Vue.js 应用程序开发的状态管理模式。<br>​    </p><h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><p>​    数据请求工具，类似fetch，返回Promise函数<br>​    <a href="https://www.npmjs.com/package/axios" target="_blank" rel="noopener">https://www.npmjs.com/package/axios</a><br>​    <a href="https://www.jianshu.com/p/7a9fbcbb1114" target="_blank" rel="noopener">https://www.jianshu.com/p/7a9fbcbb1114</a><br>​    <a href="https://www.cnblogs.com/nogodie/p/9853660.html" target="_blank" rel="noopener">https://www.cnblogs.com/nogodie/p/9853660.html</a></p><h3 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h3><h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a><a href="https://webpack.docschina.org/guides/" target="_blank" rel="noopener">webpack</a></h3><p>​    打包工具<br>​    </p><h3 id="vue-devtools"><a href="#vue-devtools" class="headerlink" title="vue-devtools"></a><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></h3><p>​    开发工具</p><h3 id="awesome"><a href="#awesome" class="headerlink" title="awesome"></a><a href="https://github.com/vuejs/awesome-vue#libraries--plugins" target="_blank" rel="noopener">awesome</a></h3><p>​    工具链集合<br>​    有打印、导航、存储、认证、IDE、等几百项第三方插件库</p><h3 id="apiCloud"><a href="#apiCloud" class="headerlink" title="apiCloud"></a><a href="https://www.apicloud.com" target="_blank" rel="noopener">apiCloud</a></h3><p>​    线上api数据库，定制APP</p><h2 id="跨平台框架"><a href="#跨平台框架" class="headerlink" title="跨平台框架"></a>跨平台框架</h2><h3 id="weex"><a href="#weex" class="headerlink" title="weex"></a><a href="http://weex.apache.org/cn/guide/" target="_blank" rel="noopener">weex</a></h3><p>​    跨平台开发框架，ios/android/web</p><h3 id="weex-ui"><a href="#weex-ui" class="headerlink" title="weex-ui"></a><a href="https://alibaba.github.io/weex-ui/#/cn/weex-ui-report" target="_blank" rel="noopener">weex-ui</a></h3><p>​    起源于阿里内部的一个 Weex 上层 Ui 组件库</p><h3 id="wepy"><a href="#wepy" class="headerlink" title="wepy"></a>wepy</h3><p>​    类vue 小程序/h5 不支持vuex</p><h3 id="mpvue"><a href="#mpvue" class="headerlink" title="mpvue"></a>mpvue</h3><p>​    美团开发的基于vue的跨平台框架，小程序/h5, 支持vuex<br>​    mpvue-router-patach<br>​        以便在mpvue小程序中能使用vue-router的写法<br>​    vuex-persistedstate<br>​        vuex数据持久化，解决F5刷新后数据丢失</p><h2 id="移动端UI库"><a href="#移动端UI库" class="headerlink" title="移动端UI库"></a>移动端UI库</h2><h3 id="mintUI"><a href="#mintUI" class="headerlink" title="mintUI"></a>mintUI</h3><p>​    饿了么开发的基于vue app端</p><h3 id="vonic"><a href="#vonic" class="headerlink" title="vonic"></a>vonic</h3><p>​    app端 简约</p><h3 id="vux"><a href="#vux" class="headerlink" title="vux"></a>vux</h3><p>​    微信小程序 app端 个人开发</p><h3 id="iViewWeapp"><a href="#iViewWeapp" class="headerlink" title="iViewWeapp"></a>iViewWeapp</h3><p>​    iView的app版</p><h3 id="cube-UI"><a href="#cube-UI" class="headerlink" title="cube-UI"></a>cube-UI</h3><p>​    滴滴开发的 app端</p><h2 id="PC端UI库"><a href="#PC端UI库" class="headerlink" title="PC端UI库"></a>PC端UI库</h2><h3 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h3><p>​    饿了么开发的 pc端</p><h3 id="iView"><a href="#iView" class="headerlink" title="iView"></a>iView</h3><p>​    基于vue的中后台</p><h3 id="vuetify"><a href="#vuetify" class="headerlink" title="vuetify"></a>vuetify</h3><p>​    github start 15k</p><h3 id="vue-strap"><a href="#vue-strap" class="headerlink" title="vue-strap"></a>vue-strap</h3><p>​    基于vue的bootstrap</p><h3 id="at-ui"><a href="#at-ui" class="headerlink" title="at-ui"></a>at-ui</h3><p>​    基于antd pc端</p><h3 id="vue-admin"><a href="#vue-admin" class="headerlink" title="vue-admin"></a>vue-admin</h3><p>​    管理后台</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> vuex </tag>
+            
+            <tag> vue-router </tag>
+            
+            <tag> axios </tag>
             
         </tags>
       

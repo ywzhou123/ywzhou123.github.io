@@ -1,0 +1,524 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>html 标签 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">html 标签</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/html/html/">2020-04-19</a></span><span class="p-category"><i class="fa fa-folder"></i><a href="/categories/Html/">Html</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><p><a href="http://www.w3school.com.cn/html/index.asp" target="_blank" rel="noopener">w3school</a></p>
+<h1 id="主体结构"><a href="#主体结构" class="headerlink" title="主体结构"></a>主体结构</h1><h2 id=""><a href="#" class="headerlink" title=""></a><html></h2><pre><code>    描述整个网页</code></pre><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><head></h2><pre><code>    头部信息
+    &lt;style&gt;
+        内部样式表
+    &lt;link&gt;
+        外部样式表
+        rel
+            与链接文档之间的关系
+            stylesheet
+        type
+            文档的 MIME 类型。
+            text/css
+        href
+            mystyle.css
+    &lt;meta&gt;
+        元数据
+        charset
+            utf-8
+        name
+            viewport
+            把 content 属性连接到某个名称
+        content
+            width=device-width, initial-scale=1
+        http-equiv 
+            把 content 属性连接到一个 HTTP 头部
+    &lt;title&gt;
+        标题
+    &lt;base&gt;
+        为页面上的所有链接规定默认地址或默认目标
+        href
+        target</code></pre><h2 id="-2"><a href="#-2" class="headerlink" title=""></a><script></h2><pre><code>    js脚本</code></pre><h2 id="-3"><a href="#-3" class="headerlink" title=""></a><noscript></h2><pre><code>    浏览器不支持 JavaScript 时显示内容</code></pre><h2 id="-4"><a href="#-4" class="headerlink" title=""></a><body></h2><pre><code>    主体，可见区域</code></pre><h1 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h1><h2 id="代码相关"><a href="#代码相关" class="headerlink" title="代码相关"></a>代码相关</h2><pre><code>    &lt;pre&gt;
+        代码格式化</code></pre><h2 id="引用相关"><a href="#引用相关" class="headerlink" title="引用相关"></a>引用相关</h2><pre><code>    &lt;address&gt;
+        地址信息</code></pre><h2 id="列表相关"><a href="#列表相关" class="headerlink" title="列表相关"></a>列表相关</h2><pre><code>    &lt;ul&gt;
+        无序列表
+        type
+            disc
+                黑圆点
+            circle
+                白圆点
+            square
+                黑方块
+    &lt;ol&gt;
+        有序列表
+        type
+            默认123顺序
+            a
+            A
+            I
+            i
+    &lt;li&gt;
+        列表项
+    &lt;dl&gt;
+        定义列表
+    &lt;dt&gt;
+        定义项目
+    &lt;dd&gt;
+        定义的描述</code></pre><h2 id="表单相关"><a href="#表单相关" class="headerlink" title="表单相关"></a>表单相关</h2><pre><code>    &lt;form&gt;
+        子元素
+            &lt;label&gt;
+            &lt;input&gt;
+                type
+                    text
+                    password
+                    checkbox
+                    radio
+                    reset
+                    submit
+                    hidden
+            &lt;select&gt;
+                &lt;option&gt;
+            &lt;textarea&gt;
+                rows
+                cols
+            &lt;fieldset&gt;
+                组合表单中的相关数据
+                &lt;legend&gt;
+                    框上的说明文字
+            &lt;button&gt;
+                type
+                    button
+                    submit
+        属性
+            action
+            method
+            accept-charset
+                字符集
+            autocomplete
+                是否自动完成表单
+            enctype
+                数据的编码
+                application/x-www-form-urlencoded
+            novalidate
+                不验证表单
+            target</code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><pre><code>    &lt;h1&gt; ~ &lt;h6&gt;
+        标题
+    &lt;p&gt;
+        段落
+    &lt;table&gt;
+        表格
+        &lt;caption&gt;
+            标题
+        &lt;thead&gt;
+            页尾
+            valign
+                垂直对齐
+            align
+                水平对齐
+        &lt;tbody&gt;
+            主体
+            valign
+                垂直对齐
+            align
+                水平对齐
+        &lt;tfoot&gt;
+            页脚
+            valign
+                垂直对齐
+            align
+                水平对齐
+        &lt;col&gt;
+            为表格中一个或多个列定义属性值
+            align
+                水平对齐
+            char
+                根据哪个字符来对齐与 col 元素相关的内容
+            charoff
+                第一个对齐字符的偏移量
+            span
+                横跨的列数
+            valign
+                垂直对齐
+            width
+        &lt;colgroup&gt;
+            用于对表格中的列进行组合，以便对其进行格式化
+        &lt;tr&gt;
+            行
+            每行不同数量的单元格可以实现单元格合并
+            &lt;th&gt;
+                表头，加粗
+                子主题 2
+                rowspan
+                    跨列
+            &lt;td&gt;
+                单元格
+                rowspan
+                    跨列
+        属性
+            frame
+                box
+                    四周带线
+                above
+                    上边带线
+                below
+                    下边带线
+                hsides
+                    上下两边带线
+                vsides
+                    左右两边带线
+            cellpadding
+                单元格内边距
+            border
+    &lt;hr /&gt;
+        水平线
+    &lt;div&gt;
+    &lt;iframe&gt;
+        在网页内显示网页
+        指定name，可在&lt;a&gt;中跳转iframe</code></pre><h1 id="内联元素"><a href="#内联元素" class="headerlink" title="内联元素"></a>内联元素</h1><h2 id="文本相关"><a href="#文本相关" class="headerlink" title="文本相关"></a>文本相关</h2><pre><code>    &lt;b&gt;
+        加粗
+    &lt;strong&gt;
+        加粗
+    &lt;em&gt;
+        强调
+    &lt;i&gt;
+        斜体
+    &lt;big&gt;
+        大号字
+    &lt;small&gt;
+        小号字
+    &lt;sup&gt;
+        上标
+    &lt;sub&gt;
+        下标
+    &lt;ins&gt;
+        下划线
+    &lt;del&gt;
+        删除线</code></pre><h2 id="代码相关-1"><a href="#代码相关-1" class="headerlink" title="代码相关"></a>代码相关</h2><pre><code>    &lt;code&gt;
+        显示单行代码
+    &lt;kbd&gt;
+        键盘输入字
+    &lt;tt&gt;
+        打字机字
+    &lt;samp&gt;
+        样本字
+    &lt;var&gt;
+        变量字
+        与 &lt;pre&gt; 及 &lt;code&gt; 标签配合使用</code></pre><h2 id="引用相关-1"><a href="#引用相关-1" class="headerlink" title="引用相关"></a>引用相关</h2><pre><code>    &lt;abbr&gt;
+        缩写
+    &lt;acronym&gt;
+        首字母缩写
+        HTML5 中不支持 &lt;acronym&gt; 标签。请使用 &lt;abbr&gt; 标签
+    &lt;bdo&gt;
+        文字方向
+        dir
+            ltr
+                从左向右
+            rtl
+                从右向左
+    &lt;blockquote&gt;
+        长引用
+        前后添加了换行，并增加了外边距。
+    &lt;q&gt;
+        短引用
+        自动加双引号
+    &lt;cite&gt;
+        引用、引证
+        如书籍或杂志的标题
+    &lt;dfn&gt;
+        项目</code></pre><h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><h3 id="-5"><a href="#-5" class="headerlink" title=""></a><span></h3><h3 id="-6"><a href="#-6" class="headerlink" title=""></a><a></h3><pre><code>        href
+            http://domain.com
+                跳转外链
+            /index.html
+                跳转到本地域名页面
+            #someid
+                跳转到锚点，id属性或name属性
+            mailto:someone@microsoft.com?cc=someoneelse@microsoft.com&amp;bcc=andsomeoneelse2@microsoft.com
+            &amp;subject=Summer%20Party&amp;body=party!&quot;
+                邮件
+        target
+            _blank
+                新窗口打开
+            _top
+            _parent
+            _self</code></pre><h3 id="-7"><a href="#-7" class="headerlink" title=""></a><img></h3><pre><code>        src
+            本地路径或网络路径
+        alt
+            最好加上，显示不出图片时显示的内容
+        width
+            最好加上，图片加载前就会先预留位置
+        height
+            最好加上，图片加载前就会先预留位置</code></pre><h3 id="-8"><a href="#-8" class="headerlink" title=""></a><map></h3><pre><code>        &lt;area&gt;
+            带有可点击区域的图像映射
+            shape
+                rect
+                    矩形
+                circle
+                    圆形
+                poly
+            coords
+                可点击区域坐标
+                &quot;129,161,10&quot;
+                    圆形
+                &quot;0,0,110,260&quot;
+                    矩形
+            href
+            target</code></pre><h3 id="-9"><a href="#-9" class="headerlink" title=""></a><td></h3><pre><code>        表格单元格</code></pre><p>#空元素</p>
+<h2 id="-10"><a href="#-10" class="headerlink" title=""></a><br /></h2><pre><code>    换行</code></pre></div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/html/">html</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#主体结构"><span class="toc-number">1.</span> <span class="toc-text">主体结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-number">1.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">1.3.</span> <span class="toc-text">&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    js脚本&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id&#x3D;&quot;-3&quot;&gt;&lt;a href&#x3D;&quot;#-3&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;&quot;&gt;&lt;&#x2F;a&gt;&lt;noscript&gt;&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    浏览器不支持 JavaScript 时显示内容&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id&#x3D;&quot;-4&quot;&gt;&lt;a href&#x3D;&quot;#-4&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;&quot;&gt;&lt;&#x2F;a&gt;&lt;body&gt;&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    主体，可见区域&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h1 id&#x3D;&quot;块元素&quot;&gt;&lt;a href&#x3D;&quot;#块元素&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;块元素&quot;&gt;&lt;&#x2F;a&gt;块元素&lt;&#x2F;h1&gt;&lt;h2 id&#x3D;&quot;代码相关&quot;&gt;&lt;a href&#x3D;&quot;#代码相关&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;代码相关&quot;&gt;&lt;&#x2F;a&gt;代码相关&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    &lt;pre&gt;
+        代码格式化&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id&#x3D;&quot;引用相关&quot;&gt;&lt;a href&#x3D;&quot;#引用相关&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;引用相关&quot;&gt;&lt;&#x2F;a&gt;引用相关&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    &lt;address&gt;
+        地址信息&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id&#x3D;&quot;列表相关&quot;&gt;&lt;a href&#x3D;&quot;#列表相关&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表相关&quot;&gt;&lt;&#x2F;a&gt;列表相关&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    &lt;ul&gt;
+        无序列表
+        type
+            disc
+                黑圆点
+            circle
+                白圆点
+            square
+                黑方块
+    &lt;ol&gt;
+        有序列表
+        type
+            默认123顺序
+            a
+            A
+            I
+            i
+    &lt;li&gt;
+        列表项
+    &lt;dl&gt;
+        定义列表
+    &lt;dt&gt;
+        定义项目
+    &lt;dd&gt;
+        定义的描述&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id&#x3D;&quot;表单相关&quot;&gt;&lt;a href&#x3D;&quot;#表单相关&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;表单相关&quot;&gt;&lt;&#x2F;a&gt;表单相关&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    &lt;form&gt;
+        子元素
+            &lt;label&gt;
+            &lt;input&gt;
+                type
+                    text
+                    password
+                    checkbox
+                    radio
+                    reset
+                    submit
+                    hidden
+            &lt;select&gt;
+                &lt;option&gt;
+            &lt;textarea&gt;
+                rows
+                cols
+            &lt;fieldset&gt;
+                组合表单中的相关数据
+                &lt;legend&gt;
+                    框上的说明文字
+            &lt;button&gt;
+                type
+                    button
+                    submit
+        属性
+            action
+            method
+            accept-charset
+                字符集
+            autocomplete
+                是否自动完成表单
+            enctype
+                数据的编码
+                application&#x2F;x-www-form-urlencoded
+            novalidate
+                不验证表单
+            target&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id&#x3D;&quot;其他&quot;&gt;&lt;a href&#x3D;&quot;#其他&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;其他&quot;&gt;&lt;&#x2F;a&gt;其他&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    &lt;h1&gt; ~ &lt;h6&gt;
+        标题
+    &lt;p&gt;
+        段落
+    &lt;table&gt;
+        表格
+        &lt;caption&gt;
+            标题
+        &lt;thead&gt;
+            页尾
+            valign
+                垂直对齐
+            align
+                水平对齐
+        &lt;tbody&gt;
+            主体
+            valign
+                垂直对齐
+            align
+                水平对齐
+        &lt;tfoot&gt;
+            页脚
+            valign
+                垂直对齐
+            align
+                水平对齐
+        &lt;col&gt;
+            为表格中一个或多个列定义属性值
+            align
+                水平对齐
+            char
+                根据哪个字符来对齐与 col 元素相关的内容
+            charoff
+                第一个对齐字符的偏移量
+            span
+                横跨的列数
+            valign
+                垂直对齐
+            width
+        &lt;colgroup&gt;
+            用于对表格中的列进行组合，以便对其进行格式化
+        &lt;tr&gt;
+            行
+            每行不同数量的单元格可以实现单元格合并
+            &lt;th&gt;
+                表头，加粗
+                子主题 2
+                rowspan
+                    跨列
+            &lt;td&gt;
+                单元格
+                rowspan
+                    跨列
+        属性
+            frame
+                box
+                    四周带线
+                above
+                    上边带线
+                below
+                    下边带线
+                hsides
+                    上下两边带线
+                vsides
+                    左右两边带线
+            cellpadding
+                单元格内边距
+            border
+    &lt;hr &#x2F;&gt;
+        水平线
+    &lt;div&gt;
+    &lt;iframe&gt;
+        在网页内显示网页
+        指定name，可在&lt;a&gt;中跳转iframe&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h1 id&#x3D;&quot;内联元素&quot;&gt;&lt;a href&#x3D;&quot;#内联元素&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;内联元素&quot;&gt;&lt;&#x2F;a&gt;内联元素&lt;&#x2F;h1&gt;&lt;h2 id&#x3D;&quot;文本相关&quot;&gt;&lt;a href&#x3D;&quot;#文本相关&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;文本相关&quot;&gt;&lt;&#x2F;a&gt;文本相关&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    &lt;b&gt;
+        加粗
+    &lt;strong&gt;
+        加粗
+    &lt;em&gt;
+        强调
+    &lt;i&gt;
+        斜体
+    &lt;big&gt;
+        大号字
+    &lt;small&gt;
+        小号字
+    &lt;sup&gt;
+        上标
+    &lt;sub&gt;
+        下标
+    &lt;ins&gt;
+        下划线
+    &lt;del&gt;
+        删除线&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id&#x3D;&quot;代码相关-1&quot;&gt;&lt;a href&#x3D;&quot;#代码相关-1&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;代码相关&quot;&gt;&lt;&#x2F;a&gt;代码相关&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    &lt;code&gt;
+        显示单行代码
+    &lt;kbd&gt;
+        键盘输入字
+    &lt;tt&gt;
+        打字机字
+    &lt;samp&gt;
+        样本字
+    &lt;var&gt;
+        变量字
+        与 &lt;pre&gt; 及 &lt;code&gt; 标签配合使用&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id&#x3D;&quot;引用相关-1&quot;&gt;&lt;a href&#x3D;&quot;#引用相关-1&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;引用相关&quot;&gt;&lt;&#x2F;a&gt;引用相关&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    &lt;abbr&gt;
+        缩写
+    &lt;acronym&gt;
+        首字母缩写
+        HTML5 中不支持 &lt;acronym&gt; 标签。请使用 &lt;abbr&gt; 标签
+    &lt;bdo&gt;
+        文字方向
+        dir
+            ltr
+                从左向右
+            rtl
+                从右向左
+    &lt;blockquote&gt;
+        长引用
+        前后添加了换行，并增加了外边距。
+    &lt;q&gt;
+        短引用
+        自动加双引号
+    &lt;cite&gt;
+        引用、引证
+        如书籍或杂志的标题
+    &lt;dfn&gt;
+        项目&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id&#x3D;&quot;其他-1&quot;&gt;&lt;a href&#x3D;&quot;#其他-1&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;其他&quot;&gt;&lt;&#x2F;a&gt;其他&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;-5&quot;&gt;&lt;a href&#x3D;&quot;#-5&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;&quot;&gt;&lt;&#x2F;a&gt;&lt;span&gt;&lt;&#x2F;h3&gt;&lt;h3 id&#x3D;&quot;-6&quot;&gt;&lt;a href&#x3D;&quot;#-6&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;&quot;&gt;&lt;&#x2F;a&gt;&lt;a&gt;&lt;&#x2F;h3&gt;&lt;pre&gt;&lt;code&gt;        href
+            http:&#x2F;&#x2F;domain.com
+                跳转外链
+            &#x2F;index.html
+                跳转到本地域名页面
+            #someid
+                跳转到锚点，id属性或name属性
+            mailto:someone@microsoft.com?cc&#x3D;someoneelse@microsoft.com&amp;bcc&#x3D;andsomeoneelse2@microsoft.com
+            &amp;subject&#x3D;Summer%20Party&amp;body&#x3D;party!&quot;
+                邮件
+        target
+            _blank
+                新窗口打开
+            _top
+            _parent
+            _self&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id&#x3D;&quot;-7&quot;&gt;&lt;a href&#x3D;&quot;#-7&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;&quot;&gt;&lt;&#x2F;a&gt;&lt;img&gt;&lt;&#x2F;h3&gt;&lt;pre&gt;&lt;code&gt;        src
+            本地路径或网络路径
+        alt
+            最好加上，显示不出图片时显示的内容
+        width
+            最好加上，图片加载前就会先预留位置
+        height
+            最好加上，图片加载前就会先预留位置&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id&#x3D;&quot;-8&quot;&gt;&lt;a href&#x3D;&quot;#-8&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;&quot;&gt;&lt;&#x2F;a&gt;&lt;map&gt;&lt;&#x2F;h3&gt;&lt;pre&gt;&lt;code&gt;        &lt;area&gt;
+            带有可点击区域的图像映射
+            shape
+                rect
+                    矩形
+                circle
+                    圆形
+                poly
+            coords
+                可点击区域坐标
+                &quot;129,161,10&quot;
+                    圆形
+                &quot;0,0,110,260&quot;
+                    矩形
+            href
+            target&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id&#x3D;&quot;-9&quot;&gt;&lt;a href&#x3D;&quot;#-9&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;&quot;&gt;&lt;&#x2F;a&gt;&lt;td&gt;&lt;&#x2F;h3&gt;&lt;pre&gt;&lt;code&gt;        表格单元格&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;p&gt;#空元素&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;-10&quot;&gt;&lt;a href&#x3D;&quot;#-10&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;&quot;&gt;&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;&lt;&#x2F;h2&gt;&lt;pre&gt;&lt;code&gt;    换行&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</span></a></li></ol></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/html/html5/">&lt; html5 标签</a><a class="next" href="/2020/04/19/html/dtd/">html 文档类型定义 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

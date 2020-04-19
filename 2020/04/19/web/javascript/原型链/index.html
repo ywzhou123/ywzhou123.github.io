@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>原型链 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">原型链</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/web/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/">2020-04-19</a></span><span class="p-category"><i class="fa fa-folder"></i><a href="/categories/js/">js</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="一、创建对象方法"><a href="#一、创建对象方法" class="headerlink" title="一、创建对象方法"></a>一、创建对象方法</h1><h2 id="1、字面量"><a href="#1、字面量" class="headerlink" title="1、字面量"></a>1、字面量</h2><pre><code class="js">var a={}
+a.attr1=1
+var b={name:2}
+var c=new Object({name:c}) 显示的构造函数</code></pre>
+<h2 id="2、构造函数"><a href="#2、构造函数" class="headerlink" title="2、构造函数"></a>2、构造函数</h2><pre><code class="javascript">
+var M=function (name){
+    this.name=name;
+}
+var o3=new M(&#39;o3&#39;)</code></pre>
+<h2 id="3、create函数（ES5"><a href="#3、create函数（ES5" class="headerlink" title="3、create函数（ES5)"></a>3、create函数（ES5)</h2><pre><code class="javascript">
+var p ={name:&#39;P&#39;}
+var o4=Object.create(p)
+o4.name返回{}
+// o4本身没有name属性，只能通过原型链找到
+o4.__proto__.name</code></pre>
+<h2 id="4、组合式-构造函数-原型"><a href="#4、组合式-构造函数-原型" class="headerlink" title="4、组合式 构造函数+原型"></a>4、组合式 构造函数+原型</h2><pre><code class="javascript">
+function Person(name,age){
+    this.name = name;
+    this.age = age;
+}
+Person.prototype.say = function(){
+    console.log(&quot;My name is &quot;+this.name+&quot;. I&#39;m &quot;+this.age+&quot; years old.&quot;);
+}
+var p1 = new Person(&#39;Peter&#39;,20);</code></pre>
+<h1 id="二、原型对象"><a href="#二、原型对象" class="headerlink" title="二、原型对象"></a>二、原型对象</h1><p><code>__proto__</code></p>
+<h1 id="三、构造函数"><a href="#三、构造函数" class="headerlink" title="三、构造函数"></a>三、构造函数</h1><p>prototype属性    -&gt; 原型对象<br>constructor构造器    -&gt; 原型对象<br>使用new创建实例</p>
+<h1 id="四、实例"><a href="#四、实例" class="headerlink" title="四、实例"></a>四、实例</h1><p>通过new构造函数生成<br><code>__proto__</code>    -&gt; 上级原型</p>
+<h1 id="五、原型链"><a href="#五、原型链" class="headerlink" title="五、原型链"></a>五、原型链</h1><p>通过原型链向上找原型对象</p>
+<h1 id="六、instanceof原理"><a href="#六、instanceof原理" class="headerlink" title="六、instanceof原理"></a>六、instanceof原理</h1><blockquote>
+<p>判断一个对象是否属于某个类</p>
+</blockquote>
+<h2 id="1、实例-instanceof-构造函数"><a href="#1、实例-instanceof-构造函数" class="headerlink" title="1、实例 instanceof 构造函数"></a>1、实例 instanceof 构造函数</h2><p>实际是判断实例的<strong>proto</strong>和构造函数的prototype是否指向同一个引用</p>
+<pre><code class="js">o3 instanceof M true
+o3 instanceof Object true</code></pre>
+<h2 id="2、原因"><a href="#2、原因" class="headerlink" title="2、原因"></a>2、原因</h2><pre><code class="js">o3.__proto__===M.prototype true
+M.prototype.__proto__===Object.prototype true</code></pre>
+<h2 id="3、通过原型属性上的构造器判断是谁的实例"><a href="#3、通过原型属性上的构造器判断是谁的实例" class="headerlink" title="3、通过原型属性上的构造器判断是谁的实例"></a>3、通过原型属性上的构造器判断是谁的实例</h2><pre><code class="js">o3.__proto__.constructor===M true
+o3.__proto__.constructor===Object false</code></pre>
+<h1 id="七、new"><a href="#七、new" class="headerlink" title="七、new"></a>七、new</h1><p>新对象被创建，继承构造函数foo的prototype<br>foo被执行，参数被传入，同时上下文this被指定为这个新实例<br>new工作原理：</p>
+<pre><code class="javascript">var new2 = function(func){
+    var o=Object.create(func.prototype);
+    var k = func.call(o) // call转移上下文this
+    if(typeof k === &#39;object&#39;){
+        return k
+    } else{
+        return o
+    }
+}
+o6=new2(M)
+o6 instanceof M // true
+o6 instanceof Object // true
+o6.__proto__===M.prototype // true</code></pre>
+</div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/js/">js</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、创建对象方法"><span class="toc-number">1.</span> <span class="toc-text">一、创建对象方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、字面量"><span class="toc-number">1.1.</span> <span class="toc-text">1、字面量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、构造函数"><span class="toc-number">1.2.</span> <span class="toc-text">2、构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、create函数（ES5"><span class="toc-number">1.3.</span> <span class="toc-text">3、create函数（ES5)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、组合式-构造函数-原型"><span class="toc-number">1.4.</span> <span class="toc-text">4、组合式 构造函数+原型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、原型对象"><span class="toc-number">2.</span> <span class="toc-text">二、原型对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、构造函数"><span class="toc-number">3.</span> <span class="toc-text">三、构造函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、实例"><span class="toc-number">4.</span> <span class="toc-text">四、实例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、原型链"><span class="toc-number">5.</span> <span class="toc-text">五、原型链</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、instanceof原理"><span class="toc-number">6.</span> <span class="toc-text">六、instanceof原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、实例-instanceof-构造函数"><span class="toc-number">6.1.</span> <span class="toc-text">1、实例 instanceof 构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、原因"><span class="toc-number">6.2.</span> <span class="toc-text">2、原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、通过原型属性上的构造器判断是谁的实例"><span class="toc-number">6.3.</span> <span class="toc-text">3、通过原型属性上的构造器判断是谁的实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、new"><span class="toc-number">7.</span> <span class="toc-text">七、new</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">&lt; es6语法</a><a class="next" href="/2020/04/19/web/javascript/%E5%8F%98%E9%87%8F/">变量 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

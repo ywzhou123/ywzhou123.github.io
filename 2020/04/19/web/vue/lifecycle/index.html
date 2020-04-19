@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>Vue 生命周期 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">Vue 生命周期</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/web/vue/lifecycle/">2020-04-19</a></span><span class="p-category"><i class="fa fa-folder"></i><a href="/categories/Vue/">Vue</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><p>所有的生命周期钩子自动绑定 <code>this</code> 上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着<strong>你不能使用箭头函数来定义一个生命周期方法</strong> (例如 <code>created: () =&gt; this.fetchTodos()</code>)。这是因为箭头函数绑定了父上下文，因此 <code>this</code> 与你期待的 Vue 实例不同，<code>this.fetchTodos</code> 的行为未定义。</p>
+<a id="more"></a>
+
+<p><img src="../../../images/vue_life.png" alt=""></p>
+<h2 id="beforeCreate："><a href="#beforeCreate：" class="headerlink" title="beforeCreate："></a>beforeCreate：</h2><p>​    在实例初始化之后，*<em>数据观测(data observer) *</em> 和 event/watcher事件配置 之前被调用，<br>​    注意是 之前，此时data、watcher、methods统统滴没有。<br>​    这个时候的vue实例还什么都没有，<br>​    但是<code>$route</code>对象是存在的，可以根据路由信息进行重定向之类的操作。</p>
+<h2 id="created："><a href="#created：" class="headerlink" title="created："></a>created：</h2><p>​    在实例已经创建完成之后被调用。<br>​    在这一步，实例已完成以下配置：<br>​        数据观测(data observer) ，<br>​        属性和方法的运算，<br>​        watch/event 事件回调。<br>​    然而，挂载阶段还没开始，$el属性目前不可见。<br>​    此时 this.$data 可以访问，<br>​    watcher、events、methods也出现了，<br>​    若根据后台接口动态改变data和methods的场景下，可以使用。</p>
+<h2 id="beforeMount："><a href="#beforeMount：" class="headerlink" title="beforeMount："></a>beforeMount：</h2><p>​    在挂载开始之前被调用，相关的 render 函数 首次被调用。<br>​    但是render正在执行中，此时DOM还是无法操作的。<br>​    我打印了此时的vue实例对象，相比于created生命周期，<br>​    此时只是多了一个$el的属性，然而其值为undefined。<br>​    使用场景我上文已经提到了，页面渲染时所需要的数据，应尽量在这之前完成赋值。</p>
+<h2 id="mounted："><a href="#mounted：" class="headerlink" title="mounted："></a>mounted：</h2><p>​    在挂载之后被调用。<br>​    在这一步 创建<code>vm.$el</code>并替换el，并挂载到实例上。</p>
+<blockquote>
+<p>（官方文档中的 “如果root实例挂载了一个文档内元素，当mounted被调用时<code>vm.$el</code>也在文档内” 这句话存疑）</p>
+</blockquote>
+<p>​     此时元素已经渲染完成了，依赖于DOM的代码就放在这里吧~比如监听DOM事件。</p>
+<h2 id="beforeUpdate："><a href="#beforeUpdate：" class="headerlink" title="beforeUpdate："></a>beforeUpdate：</h2><p>   <code>$vm.data</code>更新之后，虚拟DOM重新渲染 和打补丁之前被调用。<br>    你可以在这个钩子中进一步地修改<code>$vm.data</code>，这不会触发附加的重渲染过程。</p>
+<h2 id="updated："><a href="#updated：" class="headerlink" title="updated："></a>updated：</h2><p>​    虚拟DOM重新渲染 和打补丁之后被调用。<br>​    当这个钩子被调用时，组件DOM的data已经更新，<br>​    所以你现在可以执行依赖于DOM的操作。<br>​    但是不要在此时修改data，否则会继续触发<code>beforeUpdate</code>、<code>updated</code>这两个生命周期，进入死循环！</p>
+<h2 id="beforeDestroy："><a href="#beforeDestroy：" class="headerlink" title="beforeDestroy："></a>beforeDestroy：</h2><p>​    实例被销毁之前调用。在这一步，实例仍然完全可用。<br>​    实例要被销毁了，赶在被销毁之前搞点事情吧哈哈~</p>
+<h2 id="destroyed："><a href="#destroyed：" class="headerlink" title="destroyed："></a>destroyed：</h2><p>​    Vue实例销毁后调用。<br>​    此时，Vue实例指示的所有东西已经解绑定，<br>​    所有的事件监听器都已经被移除，<br>​    所有的子实例也已经被销毁。<br>​    这时候能做的事情已经不多了，<br>​    只能加点儿提示toast之类的东西吧。</p>
+<blockquote>
+<p>注：beforeMount、mounted、beforeUpdate、updated、beforeDestroy、destroyed这几个钩子函数，<br>在服务器端渲染期间不被调用。</p>
+</blockquote>
+</div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/vue/">vue</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#beforeCreate："><span class="toc-number">1.</span> <span class="toc-text">beforeCreate：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#created："><span class="toc-number">2.</span> <span class="toc-text">created：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#beforeMount："><span class="toc-number">3.</span> <span class="toc-text">beforeMount：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mounted："><span class="toc-number">4.</span> <span class="toc-text">mounted：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#beforeUpdate："><span class="toc-number">5.</span> <span class="toc-text">beforeUpdate：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#updated："><span class="toc-number">6.</span> <span class="toc-text">updated：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#beforeDestroy："><span class="toc-number">7.</span> <span class="toc-text">beforeDestroy：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#destroyed："><span class="toc-number">8.</span> <span class="toc-text">destroyed：</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/style/svg/">&lt; Svg 基础语法</a><a class="next" href="/2020/04/19/web/vue/template/">Vue Template 标签指令及属性 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

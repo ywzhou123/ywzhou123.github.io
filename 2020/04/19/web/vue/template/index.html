@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>Vue Template 标签指令及属性 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">Vue Template 标签指令及属性</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/web/vue/template/">2020-04-19</a></span><span class="p-category"><i class="fa fa-folder"></i><a href="/categories/Vue/">Vue</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h2 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h2><p>更新元素的 textContent。</p>
+<pre><code class="vue">    &lt;span v-text=&quot;msg&quot;&gt;&lt;/span&gt;
+    &lt;span&gt;{{msg}}&lt;/span&gt;</code></pre>
+<h2 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h2><p>更新元素的 innerHTML 。<br>在网站上动态渲染任意 HTML 是非常危险的，因为容易导致 XSS 攻击</p>
+<pre><code class="vue">&lt;div v-html=&quot;html&quot;&gt;&lt;/div&gt;</code></pre>
+<h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h2><p>切换元素的 display CSS 属性<br>当条件变化时该指令触发过渡效果。</p>
+<h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h2><p>根据表达式的值的真假条件渲染元素。<br>当条件变化时该指令触发过渡效果。</p>
+<pre><code class="vue">&lt;div v-if=&quot;Math.random() &gt; 0.5&quot;&gt;
+    Now you see me
+&lt;/div&gt;
+&lt;div v-else&gt;
+    Now you don&#39;t
+&lt;/div&gt;</code></pre>
+<h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h2><p>基于源数据多次渲染元素或模板块。<br>作用在<code>&lt;template&gt;</code>标签上时，key属性只能写在子标签上</p>
+<pre><code class="vue">&lt;div v-for=&quot;(item, index) in items&quot;  :key=&quot;item.id&quot;&gt;&lt;/div&gt;
+&lt;div v-for=&quot;(val, key) in object&quot;&gt;&lt;/div&gt;
+&lt;div v-for=&quot;(val, key, index) in object&quot;&gt;&lt;/div&gt;</code></pre>
+<h2 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h2><p>缩写：@<br>绑定事件监听器。</p>
+<ul>
+<li>.stop - 调用 event.stopPropagation()。</li>
+<li>.prevent - 调用 event.preventDefault()。</li>
+<li>.capture - 添加事件侦听器时使用 capture 模式。</li>
+<li>.self - 只当事件是从侦听器绑定的元素本身触发时才触发回调。</li>
+<li>.{keyCode | keyAlias} - 只当事件是从特定键触发时才触发回调。</li>
+<li>.native - 监听组件根元素的原生事件。</li>
+<li>.once - 只触发一次回调。</li>
+<li>.left - (2.2.0) 只当点击鼠标左键时触发。</li>
+<li>.right - (2.2.0) 只当点击鼠标右键时触发。</li>
+<li>.middle - (2.2.0) 只当点击鼠标中键时触发。</li>
+<li>.passive - (2.3.0) 以 { passive: true } 模式添加侦听器</li>
+</ul>
+<p>在监听原生 DOM 事件时，方法以事件为唯一的参数。</p>
+<pre><code class="vue">    &lt;!-- 方法处理器 --&gt;
+    &lt;button v-on:click=&quot;doThis&quot;&gt;&lt;/button&gt;
+    &lt;!-- 内联语句 --&gt;
+    &lt;button v-on:click=&quot;doThat(&#39;hello&#39;, $event)&quot;&gt;&lt;/button&gt;
+    &lt;!-- 缩写 --&gt;
+    &lt;button @click=&quot;doThis&quot;&gt;&lt;/button&gt;
+    &lt;!-- 停止冒泡 --&gt;
+    &lt;button @click.stop=&quot;doThis&quot;&gt;&lt;/button&gt;
+    &lt;!-- 阻止默认行为 --&gt;
+    &lt;button @click.prevent=&quot;doThis&quot;&gt;&lt;/button&gt;
+    &lt;!-- 阻止默认行为，没有表达式 --&gt;
+    &lt;form @submit.prevent&gt;&lt;/form&gt;
+    &lt;!--  串联修饰符 --&gt;
+    &lt;button @click.stop.prevent=&quot;doThis&quot;&gt;&lt;/button&gt;
+    &lt;!-- 键修饰符，键别名 --&gt;
+    &lt;input @keyup.enter=&quot;onEnter&quot;&gt;
+    &lt;!-- 键修饰符，键代码 --&gt;
+    &lt;input @keyup.13=&quot;onEnter&quot;&gt;
+    &lt;!-- 点击回调只会触发一次 --&gt;
+    &lt;button v-on:click.once=&quot;doThis&quot;&gt;&lt;/button&gt;
+    &lt;!-- 对象语法 (2.4.0+) --&gt;
+    &lt;button v-on=&quot;{ mousedown: doThis, mouseup: doThat }&quot;&gt;&lt;/button&gt;
+在子组件上监听自定义事件
+    &lt;my-component @my-event=&quot;handleThis&quot;&gt;&lt;/my-component&gt;
+    &lt;!-- 内联语句 --&gt;
+    &lt;my-component @my-event=&quot;handleThis(123, $event)&quot;&gt;&lt;/my-component&gt;
+    &lt;!-- 组件中的原生事件 --&gt;
+    &lt;my-component @click.native=&quot;onClick&quot;&gt;&lt;/my-component&gt;</code></pre>
+<h2 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h2><p>缩写：:<br>动态地绑定一个或多个特性</p>
+<ul>
+<li><p>.prop - 被用于绑定 DOM 属性 (property)。(差别在哪里？)</p>
+</li>
+<li><p>.camel - (2.1.0+) 将 kebab-case 特性名转换为 camelCase. (从 2.1.0 开始支持)</p>
+</li>
+<li><p>.sync (2.3.0+) 语法糖，会扩展成一个更新父组件绑定值的 v-on 侦听器。</p>
+<pre><code class="vue">      &lt;!-- 绑定一个属性 --&gt;
+      &lt;img v-bind:src=&quot;imageSrc&quot;&gt;
+
+      &lt;!-- 内联字符串拼接 --&gt;
+      &lt;img :src=&quot;&#39;/path/to/images/&#39; + fileName&quot;&gt;
+
+      &lt;!-- class 绑定 --&gt;
+      &lt;div :class=&quot;{ red: isRed }&quot;&gt;&lt;/div&gt;
+      &lt;div :class=&quot;[classA, classB]&quot;&gt;&lt;/div&gt;
+      &lt;div :class=&quot;[classA, { classB: isB, classC: isC }]&quot;&gt;
+
+      &lt;!-- style 绑定 --&gt;
+      &lt;div :style=&quot;{ fontSize: size + &#39;px&#39; }&quot;&gt;&lt;/div&gt;
+      &lt;div :style=&quot;[styleObjectA, styleObjectB]&quot;&gt;&lt;/div&gt;
+
+      &lt;!-- 绑定一个有属性的对象 --&gt;
+      &lt;div v-bind=&quot;{ id: someProp, &#39;other-attr&#39;: otherProp }&quot;&gt;&lt;/div&gt;
+
+      &lt;!-- 通过 prop 修饰符绑定 DOM 属性 --&gt;
+      &lt;div v-bind:text-content.prop=&quot;text&quot;&gt;&lt;/div&gt;
+
+      &lt;!-- prop 绑定。“prop”必须在 my-component 中声明。--&gt;
+      &lt;my-component :prop=&quot;someThing&quot;&gt;&lt;/my-component&gt;
+
+      &lt;!-- 通过 $props 将父组件的 props 一起传给子组件 --&gt;
+      &lt;child-component v-bind=&quot;$props&quot;&gt;&lt;/child-component&gt;
+
+      &lt;!-- XLink --&gt;
+      &lt;svg&gt;&lt;a :xlink:special=&quot;foo&quot;&gt;&lt;/a&gt;&lt;/svg&gt;
+      &lt;svg :view-box.camel=&quot;viewBox&quot;&gt;&lt;/svg&gt;</code></pre>
+</li>
+</ul>
+<h2 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h2><p>在表单控件或者组件上创建双向绑定。<br>限制<code>&lt;input&gt;&lt;select&gt;&lt;textarea&gt;</code>components</p>
+<ul>
+<li>.lazy - 取代 input 监听 change 事件, 即在输入框失焦时change值</li>
+<li>.number - 输入字符串转为有效的数字</li>
+<li>.trim - 输入首尾空格过滤</li>
+</ul>
+<p>使用model自定义value和input，</p>
+<pre><code class="js">        const component = {
+            model: {
+                prop: &#39;value1&#39;,
+                event:&#39;change&#39;
+            },
+            props:[&#39;value1&#39;]
+            methods:{
+                handleInput(e){
+                    this.$emit(&#39;change&#39;, e.target.value)
+                }
+            }
+        }</code></pre>
+<h2 id="v-pre"><a href="#v-pre" class="headerlink" title="v-pre"></a>v-pre</h2><p>跳过这个元素和它的子元素的编译过程。<br>跳过大量没有指令的节点会加快编译。</p>
+<pre><code class="vue">&lt;span v-pre&gt;{{ this will not be compiled }}&lt;/span&gt;</code></pre>
+<h2 id="v-cloak"><a href="#v-cloak" class="headerlink" title="v-cloak"></a>v-cloak</h2><p>这个指令保持在元素上直到关联实例结束编译。<br>基本用不到。</p>
+<h2 id="v-once"><a href="#v-once" class="headerlink" title="v-once"></a>v-once</h2><p>只渲染元素和组件一次。<br>适用于静态组件，不会再去对比dom是否需要更新它。</p>
+<pre><code class="vue">    &lt;!-- 单个元素 --&gt;
+    &lt;span v-once&gt;This will never change: {{msg}}&lt;/span&gt;
+    &lt;!-- 有子元素 --&gt;
+    &lt;div v-once&gt;
+        &lt;h1&gt;comment&lt;/h1&gt;
+        &lt;p&gt;{{msg}}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;!-- 组件 --&gt;
+    &lt;my-component v-once :comment=&quot;msg&quot;&gt;&lt;/my-component&gt;
+    &lt;!-- `v-for` 指令--&gt;
+    &lt;ul&gt;
+        &lt;li v-for=&quot;i in list&quot; v-once&gt;{{i}}&lt;/li&gt;
+    &lt;/ul&gt;</code></pre>
+<h2 id="key"><a href="#key" class="headerlink" title="key"></a>key</h2><p>主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。</p>
+<pre><code class="vue">    &lt;ul&gt;
+        &lt;li v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;...&lt;/li&gt;
+    &lt;/ul&gt;</code></pre>
+<p>可以用于强制替换元素/组件而不是重复使用它。</p>
+<pre><code class="vue">    &lt;transition&gt;
+        &lt;span :key=&quot;text&quot;&gt;{{ text }}&lt;/span&gt;
+    &lt;/transition&gt;</code></pre>
+<p>当 text 发生改变时，<code>&lt;span&gt;</code> 会随时被更新，因此会触发过渡。</p>
+<h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>给元素或子组件注册引用信息。<br>注册在父组件的 $refs 对象上。</p>
+<pre><code class="vue">    &lt;!-- `vm.$refs.p` will be the DOM node --&gt;
+    &lt;p ref=&quot;p&quot;&gt;hello&lt;/p&gt;
+
+        &lt;!-- `vm.$refs.child` will be the child component instance --&gt;
+        &lt;child-component ref=&quot;child&quot;&gt;&lt;/child-component&gt;</code></pre>
+<h2 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h2><p>用于标记往哪个具名插槽中插入子组件内容。</p>
+<h2 id="slot-scope"><a href="#slot-scope" class="headerlink" title="slot-scope"></a>slot-scope</h2><p>用于将元素或组件表示为作用域插槽。<br>不支持动态绑定。</p>
+<h2 id="is"><a href="#is" class="headerlink" title="is"></a>is</h2><p>用于动态组件且基于 DOM 内模板的限制来工作。</p>
+<pre><code class="vue">    &lt;!-- 当 `currentView` 改变时，组件也跟着改变 --&gt;
+    &lt;component v-bind:is=&quot;currentView&quot;&gt;&lt;/component&gt;
+
+        &lt;!-- 这样做是有必要的，因为 `&lt;my-row&gt;` 放在一个 --&gt;
+        &lt;!-- `&lt;table&gt;` 内可能无效且被放置到外面 --&gt;
+        &lt;table&gt;
+            &lt;tr is=&quot;my-row&quot;&gt;&lt;/tr&gt;
+        &lt;/table&gt;</code></pre>
+</div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/vue/">vue</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#v-text"><span class="toc-number">1.</span> <span class="toc-text">v-text</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-html"><span class="toc-number">2.</span> <span class="toc-text">v-html</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-show"><span class="toc-number">3.</span> <span class="toc-text">v-show</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-if"><span class="toc-number">4.</span> <span class="toc-text">v-if</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-for"><span class="toc-number">5.</span> <span class="toc-text">v-for</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-on"><span class="toc-number">6.</span> <span class="toc-text">v-on</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-bind"><span class="toc-number">7.</span> <span class="toc-text">v-bind</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-model"><span class="toc-number">8.</span> <span class="toc-text">v-model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-pre"><span class="toc-number">9.</span> <span class="toc-text">v-pre</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-cloak"><span class="toc-number">10.</span> <span class="toc-text">v-cloak</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-once"><span class="toc-number">11.</span> <span class="toc-text">v-once</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#key"><span class="toc-number">12.</span> <span class="toc-text">key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ref"><span class="toc-number">13.</span> <span class="toc-text">ref</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#slot"><span class="toc-number">14.</span> <span class="toc-text">slot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#slot-scope"><span class="toc-number">15.</span> <span class="toc-text">slot-scope</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#is"><span class="toc-number">16.</span> <span class="toc-text">is</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/vue/lifecycle/">&lt; Vue 生命周期</a><a class="next" href="/2020/04/19/web/vue/options/">Vue 选项 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>
