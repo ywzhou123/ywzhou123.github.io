@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>css3属性 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">css3属性</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/style/css/css3%E5%B1%9E%E6%80%A7/">2020-04-19</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="一、框模型"><a href="#一、框模型" class="headerlink" title="一、框模型"></a>一、框模型</h1><h2 id="1、-border-radius"><a href="#1、-border-radius" class="headerlink" title="1、    border-radius"></a>1、    border-radius</h2><p>圆角边框<br>IE9以下不支持<br>border-radius: 1-4 length|% / 1-4 length|%;<br>border-top-left-radius:2em;<br>border-top-right-radius:2em;<br>border-bottom-right-radius:2em;<br>border-bottom-left-radius:2em;</p>
+<h2 id="2、-box-shadow"><a href="#2、-box-shadow" class="headerlink" title="2、    box-shadow"></a>2、    box-shadow</h2><p>阴影<br>IE9以下不支持<br>box-shadow: h-shadow v-shadow blur spread color inset;<br>水平位置 垂直位置 模糊距离 阴影的尺寸 阴影的颜色 内部阴影</p>
+<h2 id="3、-border-image"><a href="#3、-border-image" class="headerlink" title="3、    border-image"></a>3、    border-image</h2><p>使用图片来绘制边框<br>IE不支持<br>Safari 5加前缀 -webkit-<br>Opera加前缀 -o-<br>border-image:url(border.png) 30 30 round;<br>border-image-source<br>图片的路径<br>border-image-slice<br>图片边框向内偏移<br>border-image-width<br>图片边框的宽度<br>border-image-outset<br>边框图像区域超出边框的量<br>border-image-repeat<br>是否应平铺</p>
+<h1 id="二、背景和边框"><a href="#二、背景和边框" class="headerlink" title="二、背景和边框"></a>二、背景和边框</h1><h2 id="1、-background-size"><a href="#1、-background-size" class="headerlink" title="1、    background-size"></a>1、    background-size</h2><p>IE9以下不支持<br>背景图像尺寸<br>background-origin<br>IE9以下不支持<br>规定背景图片的定位区域<br>background-origin: padding-box|border-box|content-box;<br>background-clip<br>规定背景的绘制区域<br>background-clip: border-box|padding-box|content-box;</p>
+<h2 id="2、文本效果"><a href="#2、文本效果" class="headerlink" title="2、文本效果"></a>2、文本效果</h2><p>text-shadow<br>IE10以下不支持<br>向文本添加阴影<br>word-wrap<br>IE10以下不支持<br>允许对长单词进行拆分，并换行<br>hanging-punctuation<br>规定标点字符是否位于线框之外<br>punctuation-trim<br>规定是否对标点字符进行修剪<br>text-align-last<br>设置如何对齐最后一行<br>text-emphasis<br>向元素的文本应用重点标记<br>text-justify<br>当 text-align 设置为 “justify” 时所使用的对齐方法<br>text-outline<br>文本的轮廓<br>text-overflow<br>当文本溢出包含元素时<br>word-break<br>规定非中日韩文本的换行规则</p>
+<h2 id="3、-font-face-字体"><a href="#3、-font-face-字体" class="headerlink" title="3、@font-face 字体"></a>3、@font-face 字体</h2><p>IE9以下不支持<br>可以使用客户端未安装的字体，需要时自动从服务器下载</p>
+<style>
+## 4、@font-face
+```css
+{
+font-family: myFirstFont;
+src: url('Sansation_Light.ttf'),
+url('Sansation_Light.eot'); /* IE9+ */
+}
+
+div {
+font-family:myFirstFont;
+}
+```
+# 三、变形与动画
+## 1、transform 2/3D转换
+transform: none|transform-functions;
+对元素进行旋转、缩放、移动或倾斜
+matrix(n,n,n,n,n,n)
+2D 拉伸、旋转、移动
+matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)
+3D 转换，使用 16 个值的 4x4 矩阵
+translate(x,y)
+2D 移动
+translate3d(x,y,z)
+3D 移动
+translateX(x)
+水平移动
+translateY(y)
+垂直移动
+translateZ(z)
+scale(x,y)
+2D 缩放（以中心点）
+scale3d(x,y,z)
+3D 缩放
+scaleX(x)
+水平缩放
+scaleY(y)
+垂直缩放
+scaleZ(z)
+rotate(angle)
+2D 旋转，传入角度angle: 0~360deg
+rotate3d(x,y,z,angle)
+3D 旋转
+rotateX(angle)
+沿着 X 轴的 3D 旋转。90deg就是条线了
+rotateY(angle)
+沿着 Y 轴的 3D 旋转。90deg就是条线了
+rotateZ(angle)
+沿着 Z 轴的 3D 旋转，和2D旋转效果一样
+skew(x-angle,y-angle)
+沿着 X 和 Y 轴的 2D 倾斜转换
+skewX(angle)
+沿着 X 轴的 2D 倾斜转换
+skewY(angle)
+perspective(n)
+为 3D 转换元素定义透视视图。
+transform-origin : x-axis y-axis z-axis;
+设置旋转元素的基点位置
+x-axis
+left
+center
+right
+length
+%
+y-axis
+top
+center
+bottom
+length
+%
+z-axis
+length
+必须与 transform 属性一同使用
+默认以元素中心旋转 （50% 50% 0）
+transform-style : flat|preserve-3d;
+被嵌套元素如何在 3D 空间中显示。
+perspective : number|none;
+3D 元素的透视效果。
+子元素会获得透视效果，而不是元素本身
+number 元素距离视图的距离，以像素计。
+perspective-origin : x-axis y-axis;
+3D 元素的底部位置。
+子元素会获得透视效果，而不是元素本身
+backface-visibility: visible|hidden;
+定义元素在不面对屏幕时是否可见。
+兼容性
+IE 9 需要前缀 -ms-
+Chrome 和 Safari -webkit-
+Opera -o-
+Firefox -moz-
+## 2、transition 过渡
+transition : property duration timing-function delay;
+简写属性
+多项过渡用逗号分隔，可分别设置下面各属性
+transition-property : none|all|property;
+应用过渡的 CSS 属性的名称。
+transition-duration : time;
+定义过渡效果花费的时间。
+transition-timing-function : cubic-bezier(n,n,n,n);
+规定过渡效果的时间曲线。
+linear
+均度运动
+等于 cubic-bezier(0,0,1,1)
+ease
+快慢快
+cubic-bezier(0.25,0.1,0.25,1)
+ease-in
+慢速开始
+cubic-bezier(0.42,0,1,1)
+ease-out
+慢速结束
+cubic-bezier(0,0,0.58,1)
+ease-in-out
+慢速开始和结束
+cubic-bezier(0.42,0,0.58,1)
+cubic-bezier(n,n,n,n)
+自定义各阶段的速度，值0-1
+transition-delay
+规定过渡效果何时开始。
+兼容性
+IE10 以下不支持
+Chrome 25 以及更早的版本，需要前缀 -webkit-
+示例
+transition-duration: 1.2s
+transition-delay: 3s;
+transition-property: width;
+transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+background: linear-gradient(to right, #00fcd5, #00c6ff);
+背景渐变色
+transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s;
+透明度
+transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s, transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s;
+## 3、animation 动画
+@keyframes animationname {keyframes-selector {css-styles;}}
+创建动画
+animationname
+动画的名称
+keyframes-selector
+动画时长的百分比
+0-100%
+from（与 0% 相同）
+to（与 100% 相同）
+animation : name duration timing-function delay iteration-count direction;
+简写属性，将动画与 div 元素绑定
+animation-name : keyframename|none;
+规定 @keyframes 动画的名称。
+animation-duration : time;
+完成一个周期所花费的时间
+animation-timing-function : value;
+速度曲线
+linear
+匀速
+ease
+慢快慢
+ease-in
+慢速开始
+ease-out
+慢速结束
+ease-in-out
+慢速开始和结束
+cubic-bezier(n,n,n,n)
+自定义，0-1
+animation-delay : time;
+何时开始
+animation-iteration-count : n|infinite;
+被播放的次数
+infinite 无限次播放
+animation-direction : normal|alternate;
+是否在下一周期逆向地播放
+alternate 轮流反向播放
+animation-play-state : paused|running;
+是否正在运行或暂停
+animation-fill-mode : none | forwards | backwards | both;
+动画时间之外的状态
+forwards
+动画完成后，保持最后一个属性值
+backwards
+在动画显示之前，应用第一个关键帧中定义的属性值
+兼容性
+Chrome 和 Safari 需要前缀 -webkit-
+@-webkit-keyframes
+IE10 以下不支持
+## 4、示例
+```css
+position: relative;
+animation: mymove 5s infinite;
+@keyframes mymove
+{
+from {top:0px;}
+to {top:200px;}
+}
+// 从上到下移动
+@keyframes mymove
+{
+0% {top:0px; left:0px; background:red;}
+25% {top:0px; left:100px; background:blue;}
+50% {top:100px; left:100px; background:yellow;}
+75% {top:100px; left:0px; background:green;}
+100% {top:0px; left:0px; background:red;}
+}
+```
+# 四、多列布局
+columns
+设置 column-width 和 column-count 的简写属性
+column-width
+列的宽度
+column-count
+将元素下的内容分成几列
+column-gap
+规定列之间的间隔
+column-rule
+设置列之间的宽度、样式和颜色规则
+column-rule-color
+column-rule-style
+column-rule-width
+column-fill
+如何填充列
+column-span
+元素应该横跨的列数
+兼容性
+Firefox 需要前缀 -moz-
+Chrome 和 Safari 需要前缀 -webkit-
+IE10 以下不支持
+# 五、用户界面
+resize
+兼容性
+IE Opera 不支持
+规定是否可由用户调整元素尺寸
+box-sizing
+兼容性
+Firefox 需要前缀 -moz-
+设置使用哪种盒模型
+outline
+兼容性
+IE 不支持
+对轮廓进行偏移，并在超出边框边缘的位置绘制轮廓
+轮廓不占用空间
+轮廓可能是非矩形
+outline-offset
+偏移距离</div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、框模型"><span class="toc-number">1.</span> <span class="toc-text">一、框模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、-border-radius"><span class="toc-number">1.1.</span> <span class="toc-text">1、    border-radius</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、-box-shadow"><span class="toc-number">1.2.</span> <span class="toc-text">2、    box-shadow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、-border-image"><span class="toc-number">1.3.</span> <span class="toc-text">3、    border-image</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、背景和边框"><span class="toc-number">2.</span> <span class="toc-text">二、背景和边框</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、-background-size"><span class="toc-number">2.1.</span> <span class="toc-text">1、    background-size</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、文本效果"><span class="toc-number">2.2.</span> <span class="toc-text">2、文本效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、-font-face-字体"><span class="toc-number">2.3.</span> <span class="toc-text">3、@font-face 字体</span></a></li></ol></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/style/css/css%E5%B1%9E%E6%80%A7/">&lt; css属性</a><a class="next" href="/2020/04/19/style/css/%E5%B8%83%E5%B1%80/">css布局 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

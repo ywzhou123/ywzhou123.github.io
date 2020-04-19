@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>闭包 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">闭包</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/web/js/%E9%97%AD%E5%8C%85/">2020-04-19</a></span><span class="p-category"><i class="fa fa-folder"></i><a href="/categories/js/">js</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="一、什么是闭包"><a href="#一、什么是闭包" class="headerlink" title="一、什么是闭包"></a>一、什么是闭包</h1><p>闭包就是一个函数引用另外一个函数的变量，<br>因为变量被引用着所以不会被回收，<br>因此可以用来封装一个私有变量。</p>
+<p>当一个函数的返回值是另外一个函数，<br>而返回的那个函数如果调用了其父函数内部的其它变量，<br>如果返回的这个函数在外部被执行，就产生了闭包。</p>
+<pre><code class="javascript">function f1(){
+　　　　var n=999;
+
+　function f2(){
+　　　　　　alert(n++);
+　　　　}
+　　　　return f2;
+　　}
+　　var result=f1();
+　　result(); // 999
+　　nAdd();
+　　result(); // 1000</code></pre>
+<p>在外部调用result函数，可以不断怎家内部的n值，实际上函数f1中的局部变量n一直保存在内存中，并没有在f1调用后被自动清除。<br>原因: f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。</p>
+<h2 id="三、示例"><a href="#三、示例" class="headerlink" title="三、示例"></a>三、示例</h2><pre><code class="js">(function(x){
+delete x;
+alert(x);
+})(1+5);</code></pre>
+<p>函数参数无法delete删除<br>delete只能删除通过for in访问的属性<br>删除失败也不会报错，所以代码运行会弹出“1”</p>
+<pre><code class="js">var count=10; //全局作用域 标记为flag1
+function add(){
+    var count=0; //函数全局作用域 标记为flag2
+    return function(){ // 这就是s
+        count+=1; //函数的内部作用域，内部没有定义，变量提升，向上查找到flag2标记的count，打印0+1
+        alert(count);
+    }
+}
+var s = add()
+s();//输出1
+s();//输出2</code></pre>
+<h1 id="四、作用"><a href="#四、作用" class="headerlink" title="四、作用"></a>四、作用</h1><h2 id="1、读取函数内部的变量"><a href="#1、读取函数内部的变量" class="headerlink" title="1、读取函数内部的变量"></a>1、读取函数内部的变量</h2><h2 id="2、使变量的值始终保持在内存中"><a href="#2、使变量的值始终保持在内存中" class="headerlink" title="2、使变量的值始终保持在内存中"></a>2、使变量的值始终保持在内存中</h2><h2 id="3、用闭包模拟私有方法"><a href="#3、用闭包模拟私有方法" class="headerlink" title="3、用闭包模拟私有方法"></a>3、用闭包模拟私有方法</h2><p>下面的示例展现了如何使用闭包来定义公共函数，且其可以访问私有函数和变量。这个方式也称为 模块模式（module pattern）：</p>
+<pre><code class="javascript">var Counter = (function() {
+    var privateCounter = 0;
+    function changeBy(val) {
+        privateCounter += val;
+    }
+    return {
+        increment: function() {
+            changeBy(1);
+        },
+        decrement: function() {
+            changeBy(-1);
+        },
+        value: function() {
+            return privateCounter;
+        }
+    }
+})();
+
+alert(Counter.value()); /* 提示 0 */
+Counter.increment();
+Counter.increment();
+alert(Counter.value()); /* 提示 2 */
+Counter.decrement();
+alert(Counter.value()); /* 提示 1 */</code></pre>
+<h2 id="4、在循环中创建闭包"><a href="#4、在循环中创建闭包" class="headerlink" title="4、在循环中创建闭包"></a>4、在循环中创建闭包</h2><pre><code class="javascript">
+function showHelp(help) {
+    document.getElementById(&#39;help&#39;).innerHTML = help;
+}
+
+function makeHelpCallback(help) {
+    return function() {
+        showHelp(help);
+    };
+}
+
+function setupHelp() {
+var helpText = [
+    {&#39;id&#39;: &#39;email&#39;, &#39;help&#39;: &#39;Your e-mail address&#39;},
+    {&#39;id&#39;: &#39;name&#39;, &#39;help&#39;: &#39;Your full name&#39;},
+    {&#39;id&#39;: &#39;age&#39;, &#39;help&#39;: &#39;Your age (you must be over 16)&#39;}
+];
+
+for (var i = 0; i &lt; helpText.length; i++) {
+    var item = helpText[i];
+    document.getElementById(item.id).onfocus = makeHelpCallback(item.help);
+    }
+}
+
+setupHelp();
+</code></pre>
+<h1 id="六、注意"><a href="#六、注意" class="headerlink" title="六、注意"></a>六、注意</h1><p>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</p>
+<blockquote>
+<p>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</p>
+</blockquote>
+</div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/js/">js</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、什么是闭包"><span class="toc-number">1.</span> <span class="toc-text">一、什么是闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#三、示例"><span class="toc-number">1.1.</span> <span class="toc-text">三、示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、作用"><span class="toc-number">2.</span> <span class="toc-text">四、作用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、读取函数内部的变量"><span class="toc-number">2.1.</span> <span class="toc-text">1、读取函数内部的变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、使变量的值始终保持在内存中"><span class="toc-number">2.2.</span> <span class="toc-text">2、使变量的值始终保持在内存中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、用闭包模拟私有方法"><span class="toc-number">2.3.</span> <span class="toc-text">3、用闭包模拟私有方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、在循环中创建闭包"><span class="toc-number">2.4.</span> <span class="toc-text">4、在循环中创建闭包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、注意"><span class="toc-number">3.</span> <span class="toc-text">六、注意</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/js/%E6%A8%A1%E5%9D%97%E5%8C%96/">&lt; 模块化</a><a class="next" href="/2020/04/19/web/js/this%E5%AF%B9%E8%B1%A1/">es6语法 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

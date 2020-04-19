@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>模块化 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">模块化</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/web/js/%E6%A8%A1%E5%9D%97%E5%8C%96/">2020-04-19</a></span><span class="p-category"><i class="fa fa-folder"></i><a href="/categories/js/">js</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h1><p>模块化开发就是封装细节，提供使用接口，彼此之间互不影响，每个模块都是实现某一特定的功能。模块化开发的基础就是函数</p>
+<h1 id="模块化封装方法"><a href="#模块化封装方法" class="headerlink" title="模块化封装方法"></a>模块化封装方法</h1><h2 id="1、函数"><a href="#1、函数" class="headerlink" title="1、函数"></a>1、函数</h2><p>就是普通的function<br>缺点：<br>“污染”了全局变量<br>变量名冲突<br>模块之间无直接关系</p>
+<h2 id="2、对象"><a href="#2、对象" class="headerlink" title="2、对象"></a>2、对象</h2><p>所有的模块成员都放到这个对象里面</p>
+<pre><code class="js">varobj = {
+    age : 0,
+    func1 : function (){
+        //...
+    },
+    func2 : function (){
+        //...
+    }
+};
+
+</code></pre>
+<p>变量可以被外面随意改变而导致不安全</p>
+<h2 id="3、闭包-立即执行函数-IIFE"><a href="#3、闭包-立即执行函数-IIFE" class="headerlink" title="3、闭包 立即执行函数 IIFE"></a>3、闭包 立即执行函数 IIFE</h2><p>立即执行函数<br>不暴露私有成员<br>外部代码无法读取内部变量。</p>
+<pre><code class="js">var oj= (function(){
+　　　  var _age= 0;
+　　　　var func1= function(){
+　　　　　　//...
+　　　　};
+　　　　var func2= function(){
+　　　　　　//...
+　　　　};
+　　　　return {
+　　　　　　m1 : func1,
+　　　　　　m2 : func2
+　　　　};
+})();
+</code></pre>
+<h2 id="4、放大模式"><a href="#4、放大模式" class="headerlink" title="4、放大模式"></a>4、放大模式</h2><p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块</p>
+<pre><code class="js">var obj =(function (mod){
+　　　　mod.func3= function () {
+　　　　　　//...
+　　　　};
+　　　　returnmod;//方便方法连续调用
+})(obj);
+</code></pre>
+<p>为obj模块添加了一个新方法func3 ()，然后返回新的obj模块，方便方法连续调用。</p>
+<h2 id="5、宽放大模式"><a href="#5、宽放大模式" class="headerlink" title="5、宽放大模式"></a>5、宽放大模式</h2><p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上面的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用”宽放大模式”。</p>
+<pre><code class="js">　　var obj =( function (mod){
+　　　　//...
+　　　　returnmod;
+　　})(window.obj|| {});//确保对象不为空
+
+</code></pre>
+<h2 id="6、输入全局变量"><a href="#6、输入全局变量" class="headerlink" title="6、输入全局变量"></a>6、输入全局变量</h2><p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p>
+<pre><code class="js">(function(window, undefined ) {
+……
+})(window );</code></pre>
+<p>这是jQuery框架的源码，将window对象作为参数传入，这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。</p>
+<blockquote>
+<p>目前，通行的JavaScript模块规范共有两种：CommonJS和AMD</p>
+</blockquote>
+</div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/js/">js</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#模块化"><span class="toc-number">1.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模块化封装方法"><span class="toc-number">2.</span> <span class="toc-text">模块化封装方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、函数"><span class="toc-number">2.1.</span> <span class="toc-text">1、函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、对象"><span class="toc-number">2.2.</span> <span class="toc-text">2、对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、闭包-立即执行函数-IIFE"><span class="toc-number">2.3.</span> <span class="toc-text">3、闭包 立即执行函数 IIFE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、放大模式"><span class="toc-number">2.4.</span> <span class="toc-text">4、放大模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、宽放大模式"><span class="toc-number">2.5.</span> <span class="toc-text">5、宽放大模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、输入全局变量"><span class="toc-number">2.6.</span> <span class="toc-text">6、输入全局变量</span></a></li></ol></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/js/%E5%8F%98%E9%87%8F/">&lt; 变量</a><a class="next" href="/2020/04/19/web/js/%E9%97%AD%E5%8C%85/">闭包 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

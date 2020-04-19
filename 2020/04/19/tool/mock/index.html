@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>MockJs | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">MockJs</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/tool/mock/">2020-04-19</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><p>// <a href="http://mockjs.com" target="_blank" rel="noopener">http://mockjs.com</a></p>
+<p>/<strong>———————————————————————————– */<br>// String<br>    ‘name|min-max’: string<br>        “string|1-10”: “★”//随机1－10个星<br>        “string|3”: “★★★” //3个3星，即9星<br>/</strong>———————————————————————————– <em>/<br>// Number<br>    ‘name|+1’: number<br>        “number|+1”: 202 //数字递增<br>    ‘name|min-max’: number<br>        “number|1-100”: 100 //1-100内随机<br>    ‘name|min-max.dmin-dmax’: number<br>        “number|1-100.1-10”: 1 //整数位1-100内随机，小数位数随机1-10位<br>        “number|123.1-10”: 1 //整数位固定123，小数位数随机1-10位<br>        “number|123.3”: 1  //整数位固定123，小数位数随机3位<br>        “number|123.10”: 1.123 //固定123.123，小数位后7位数随机<br>/*</em>———————————————————————————– <em>/<br>// Boolean<br>    ‘name|1’: boolean<br>        “boolean|1”: true //随机true或false<br>/*</em>———————————————————————————– <em>/<br>// Object<br>    ‘name|count’: object<br>        “object|2”: {       //随机2项<br>            “310000”: “上海市”,<br>            “320000”: “江苏省”,<br>            “330000”: “浙江省”,<br>            “340000”: “安徽省”<br>        }<br>        “object|2-4”: {       //随机2-4项<br>            “110000”: “北京市”,<br>            “120000”: “天津市”,<br>            “130000”: “河北省”,<br>            “140000”: “山西省”<br>        }<br>/*</em>———————————————————————————– <em>/<br>// Array<br>    ‘name|1’: array<br>        “array|1”: [ //随机获取一个成员<br>            “AMD”,<br>            “CMD”,<br>            “UMD”<br>        ]<br>        “array|+1”: [ //按次序轮流获取一个成员<br>            “AMD”,<br>            “CMD”,<br>            “UMD”<br>        ]<br>        “array|1-10”: [<br>            {<br>                “name|+1”: [<br>                    “Hello”,·<br>                    “Mock.js”,<br>                    “!”<br>                ]<br>            }<br>        ]<br>    ‘name|min-max’: array  //随机复制次数数组成员，仍返回数组<br>            “array|1-10”: [<br>                “Mock.js”<br>            ]<br>            “array|1-10”: [<br>                “Hello”,<br>                “Mock.js”,<br>                “!”<br>            ]<br>    ‘name|count’: array //复制指定次数数组成员，仍返回数组<br>        “array|3”: [<br>            “Mock.js”<br>        ]<br>        “array|3”: [<br>            “Hello”,<br>            “Mock.js”,<br>            “!”<br>        ]<br>/*</em>———————————————————————————– <em>/<br>// Function<br>/*</em>———————————————————————————– */<br>// RegExp<br>    ‘regexp’: /[a-z][A-Z][0-9]/  //匹配一个小写一个大写一个数字，”rL7”<br>    ‘regexp’: /\w\W\s\S\d\D/    //“L;\ne0y”<br>    ‘regexp’: /\d{5,10}/        //5-10位整数，”1397379”<br>    ‘regexp|3’: /\d{5,10}-/    //“517305176-531837-967646851-07321438-“<br>    ‘regexp|1-5’: /\d{5,10}-/  //“197685-57124-“</p>
+<p>/**———————————————————————————– */<br>// Path<br>    //数据占位符定义</p>
+<pre><code>    Basic
+        boolean
+            &#39;@boolean()&#39; //随机true或false
+        natural
+            &#39;@natural()&#39;    //随机自然数，4010302377033728
+            &#39;@natural(10000)&#39; //随机自然数，最小10000
+            &#39;@natural(60, 100)&#39; //随机60-100
+        integer
+            &#39;@integer()&#39;    //随机正负整数
+            &#39;@integer(10000)&#39;
+            &#39;@integer(60, 100)&#39;
+        float
+            &#39;@float()&#39;          //随机浮点数
+            &#39;@float(0)&#39;         //排除负数
+            &#39;@float(60, 100)&#39;   //指定范围
+            &#39;@float(60, 100, 3)&#39;    //小数位最小3位
+            &#39;@float(60, 100, 3, 5)&#39; //小数位随机3-5位
+        character
+            &#39;@character()&#39;  //随机单个字符，大小写字母及符号
+            &#39;@character(&quot;lower&quot;)&#39;   //随机单个小写字母
+            &#39;@character(&quot;upper&quot;)&#39;   //随机单个大写字母
+            &#39;@character(&quot;number&quot;)&#39;  //随机单个数字
+            &#39;@character(&quot;symbol&quot;)&#39;  //随机单个符号
+            &#39;@character(&quot;aeiou&quot;)&#39;   //随机指定范围内的单个字符
+        string
+            &#39;@string()&#39;
+            &#39;@string(5)&#39;
+            &#39;@string(7, 10)&#39;
+            &#39;@string(&quot;lower&quot;, 5)&#39;
+            &#39;@string(&quot;upper&quot;, 5)&#39;
+            &#39;@string(&quot;number&quot;, 5)&#39;
+            &#39;@string(&quot;symbol&quot;, 5)&#39;
+            &#39;@string(&quot;aeiou&quot;, 1, 3)&#39;
+        range
+            &#39;@range(10)&#39;        //[0,1,2,3,4,5,6,7,8,9]
+            &#39;@range(3, 7)&#39;      //[3,4,5,6]
+            &#39;@range(1, 10, 2)&#39;  //[1,3,5,7,9]
+    Date
+        date
+            &#39;@date()&#39;               //&quot;2010-02-10&quot;
+            &#39;@date(&quot;yyyy-MM-dd&quot;)&#39;   //&quot;2014-11-30&quot;
+            &#39;@date(&quot;yy-MM-dd&quot;)&#39;     //&quot;98-02-03&quot;
+            &#39;@date(&quot;y-MM-dd&quot;)&#39;      //&quot;78-09-02&quot;
+            &#39;@date(&quot;y-M-d&quot;)&#39;        //&quot;94-4-21&quot;
+            &#39;@date(&quot;yyyy yy y MM M dd d&quot;)&#39;  //&quot;1990 90 90 05 5 22 22&quot;
+        time
+        datetime
+        now
+        Image
+        image
+        dataImage
+        Color
+        color
+        hex
+        rgb
+        rgba
+        hsl
+    Text
+        paragraph
+        sentence
+        word
+        title
+        cparagraph
+        csentence
+        cword
+        ctitle
+        Name
+        first
+        last
+        name
+        cfirst
+        clast
+        cname
+        Web
+        url
+        domain
+        protocol
+        tld
+        email
+        ip
+        Address
+        region
+        province
+        city
+        county
+        zip
+        Helper
+        capitalize
+        upper
+        lower
+        pick
+        shuffle
+        Miscellaneous
+        guid
+        id
+        increment</code></pre><p>/<strong>———————————————————————————– */<br>/</strong></p>
+<ul>
+<li>示例</li>
+<li>/<br>var example_json = {<br>  “successed”: true,<br>  “status”: 200,<br>  “data”: {<pre><code>  &quot;page&quot;: 0, 
+  &quot;pageSize&quot;: 20, 
+  &quot;total&quot;: 120, 
+  &quot;list|20&quot;: [
+      {
+          &quot;userID|+1&quot;: 29583, 
+          &quot;name|1&quot;: &quot;@cfirst@clast&quot;, 
+          &quot;mobile|1&quot;: &quot;13@integer(100000000,999999999)&quot;, 
+          &quot;departementName|1&quot;: &quot;@ctitle(2,4)部&quot;, 
+          &quot;positionName|1&quot;: &quot;@csentence(4)&quot;, 
+          &quot;email|1&quot;: &quot;@email()&quot;, 
+          &quot;manageScope|1-2&quot;: [
+              &quot;南昌&quot;
+          ], 
+          &quot;createTime&quot;: &quot;@date(\&quot;yyyy-MM-dd\&quot;) @time(\&quot;HH:mm:ss\&quot;)&quot;, 
+          &quot;sex|1&quot;: [
+              -1, 
+              1
+          ], 
+          &quot;address&quot;: &quot;@county(true)&quot;, 
+          &quot;cardId&quot;: &quot;@id()&quot;, 
+          &quot;originPlace&quot;: &quot;@city()&quot;, 
+          &quot;married|1&quot;: [
+              0, 
+              1, 
+              2
+          ], 
+          &quot;nation|1&quot;: [
+              0, 
+              1
+          ], 
+          &quot;isManager|1&quot;: false, 
+          &quot;cardNo&quot;: &quot;10001&quot;
+      }
+  ]</code></pre>  },<br>  “query”: {<pre><code>  &quot;pageSize&quot;: &quot;15&quot;, 
+  &quot;page&quot;: &quot;1&quot;, 
+  &quot;keys&quot;: &quot;&quot;, 
+  &quot;deptId&quot;: &quot;1&quot;, 
+  &quot;corNode&quot;: &quot;1&quot;</code></pre>  }<br>}</li>
+</ul>
+</div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/tool/immutable/">&lt; Immutable</a><a class="next" href="/2020/04/19/%E9%9D%A2%E8%AF%95/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">前端面试题 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

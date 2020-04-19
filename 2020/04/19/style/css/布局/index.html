@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>css布局 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">css布局</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/style/css/%E5%B8%83%E5%B1%80/">2020-04-19</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="一、盒模型"><a href="#一、盒模型" class="headerlink" title="一、盒模型"></a>一、盒模型</h1><blockquote>
+<p>来源：imooc.com 快乐动起来前端面试题视频</p>
+</blockquote>
+<h2 id="1、标准模型"><a href="#1、标准模型" class="headerlink" title="1、标准模型"></a>1、标准模型</h2><p>content-box padding border margin<br>width/height = content-box</p>
+<h2 id="2、IE模型"><a href="#2、IE模型" class="headerlink" title="2、IE模型"></a>2、IE模型</h2><p>content-box padding border margin<br>width/height = content-box + border + padding</p>
+<h2 id="3、指定模型"><a href="#3、指定模型" class="headerlink" title="3、指定模型"></a>3、指定模型</h2><p>box-sizing: content-box // 标准<br>box-sizing: border-box // IE</p>
+<h2 id="4、获取元素宽高"><a href="#4、获取元素宽高" class="headerlink" title="4、获取元素宽高"></a>4、获取元素宽高</h2><p>dom.style.width/height<br>dom.currenStyle.width/height<br>只支持ie<br>window.getComputedStyle(dom).width/height<br>兼容性更好<br>dom.getBoundingClientRect().width/height</p>
+<h2 id="5、边距重叠-BFC"><a href="#5、边距重叠-BFC" class="headerlink" title="5、边距重叠(BFC)"></a>5、边距重叠(BFC)</h2><h3 id="5-1、现象"><a href="#5-1、现象" class="headerlink" title="5.1、现象"></a>5.1、现象</h3><p>父子元素</p>
+<p>父元素上边距与子元素上边距重叠<br>兄弟元素</p>
+<p>上面元素的下边和下面元素的上边取最大值作为边距<br>这是因为没有内边距或边框把外边距分隔开<br>对外框设置padding或border解决<br>自身</p>
+<p>空元素，它有外边距，但是没有边框或填充<br>外边距合并<br>上边距合并<br>上下边距相撞</p>
+<h3 id="5-2、特点"><a href="#5-2、特点" class="headerlink" title="5.2、特点"></a>5.2、特点</h3><blockquote>
+<p>只有普通文档流中块框的垂直外边距才会发生外边距合并</p>
+</blockquote>
+<blockquote>
+<p>行内框、浮动框或绝对定位之间的外边距不会合并</p>
+</blockquote>
+<h3 id="5-3、解决"><a href="#5-3、解决" class="headerlink" title="5.3、解决"></a>5.3、解决</h3><blockquote>
+<p>设置padding或border</p>
+</blockquote>
+<blockquote>
+<p>float</p>
+</blockquote>
+<blockquote>
+<p>overflow: hidden/auto</p>
+</blockquote>
+<h1 id="二、布局模型"><a href="#二、布局模型" class="headerlink" title="二、布局模型"></a>二、布局模型</h1><h2 id="1、流动模型"><a href="#1、流动模型" class="headerlink" title="1、流动模型"></a>1、流动模型</h2><p>文档默认的布局模型<br>块元素独占一行，从上向下垂直分布<br>内联元素从左向右水平分布</p>
+<h2 id="2、浮动模型"><a href="#2、浮动模型" class="headerlink" title="2、浮动模型"></a>2、浮动模型</h2><p>脱离文档流<br>使用float: left/right;让元素浮动<br>让块元素水平分布<br>多个框浮动时，宽度不够时会换行，高度不够时会卡住<br>清除<br>clear<br>left right both none<br>侧面是否允许其他的浮动元素<br>图片左float，段落右float，可增加一个空元素<br>进行clear，所容器元素框可以包含它们<br>overflow<br>hidden auto<br>防止浮动元素底下的元素溢出<br>但是容易出现滚动条或截断内容</p>
+<h3 id="2-2、浮动元素引起的问题"><a href="#2-2、浮动元素引起的问题" class="headerlink" title="2.2、浮动元素引起的问题"></a>2.2、浮动元素引起的问题</h3><blockquote>
+<p>父元素的高度无法被撑开，影响与父元素同级的元素<br>与浮动元素同级的非浮动元素会跟随其后<br>若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构</p>
+</blockquote>
+<h2 id="3、层模型"><a href="#3、层模型" class="headerlink" title="3、层模型"></a>3、层模型</h2><h3 id="3-1、绝对定位"><a href="#3-1、绝对定位" class="headerlink" title="3.1、绝对定位"></a>3.1、绝对定位</h3><p>元素脱离文档流<br>position: absolute<br>使用left、right、top、bottom属性定位<br>相对于其最接近的一个具有定位属性的父包含块<br>没有则相对于浏览器窗口</p>
+<h3 id="3-2、相对定位"><a href="#3-2、相对定位" class="headerlink" title="3.2、相对定位"></a>3.2、相对定位</h3><p>position: relative<br>使用left、right、top、bottom属性定位<br>相对于元素自身原来的位置定位<br>原来的位置仍然被保留着</p>
+<h3 id="3-3、固定定位"><a href="#3-3、固定定位" class="headerlink" title="3.3、固定定位"></a>3.3、固定定位</h3><p>元素脱离文档流<br>position: fixed<br>相对网页窗口进行定位<br>位置固定，不会随着滚动条滚动而变化</p>
+<h1 id="三、-对齐"><a href="#三、-对齐" class="headerlink" title="三、    对齐"></a>三、    对齐</h1><h2 id="1、水平居中"><a href="#1、水平居中" class="headerlink" title="1、水平居中"></a>1、水平居中</h2><h3 id="1-1、行内元素"><a href="#1-1、行内元素" class="headerlink" title="1.1、行内元素"></a>1.1、行内元素</h3><p>给父元素设置 text-align:center</p>
+<h3 id="1-2、块状元素"><a href="#1-2、块状元素" class="headerlink" title="1.2、块状元素"></a>1.2、块状元素</h3><p>####（1）定宽</p>
+<pre><code>width:200px;/*定宽*/
+margin:0 auto;/* margin-left 与 margin-right 设置为 auto */
+</code></pre><p>####（2）不定宽<br>方法一：table标签</p>
+<pre><code>&lt;table&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;ul&gt;
+&lt;li&gt;我是第一行文本&lt;/li&gt;
+&lt;li&gt;我是第二行文本&lt;/li&gt;
+&lt;li&gt;我是第三行文本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+table{
+margin:0 auto;
+}</code></pre><p>方法二：转为行内元素</p>
+<p>子元素设为行内元素inline-block，然后父元素设置 text-align:center</p>
+<h4 id="3）浮云元素"><a href="#3）浮云元素" class="headerlink" title="(3）浮云元素"></a>(3）浮云元素</h4><p>宽度不固定时</p>
+<p>给父元素设置 float:left; position:relative; 和 left:50%;<br>子元素设置 float:left; position:relative; 和 left: -50%;<br>宽度固定时<br>width:500px ;<br>position:relative;<br>left:50%;<br>margin-left: -250px;</p>
+<h4 id="4-绝对定位元素"><a href="#4-绝对定位元素" class="headerlink" title="(4)绝对定位元素"></a>(4)绝对定位元素</h4><p>position: absolute;<br>margin: 0 auto;<br>left: 0;<br>right: 0;</p>
+<h2 id="2、垂直居中"><a href="#2、垂直居中" class="headerlink" title="2、垂直居中"></a>2、垂直居中</h2><h3 id="2-1、父元素高度确定"><a href="#2-1、父元素高度确定" class="headerlink" title="2.1、父元素高度确定"></a>2.1、父元素高度确定</h3><p>####（1）单行文本<br>父元素的 height 和 line-height 高度一致</p>
+<pre><code>height:100px;
+line-height:100px;</code></pre><h4 id="（2）块级元素"><a href="#（2）块级元素" class="headerlink" title="（2）块级元素"></a>（2）块级元素</h4><p>父元素高度固定时<br>父元素的height与line-height值相同<br>子元素设置：<br>vertical-align:middle;<br>display:inline|inline-block;</p>
+<p>父元素高度不固定时<br>父元素的padding-top和padding-bottom一样</p>
+<h1 id="四、布局示例"><a href="#四、布局示例" class="headerlink" title="四、布局示例"></a>四、布局示例</h1><h2 id="1、三栏，左右固定，中间自适应"><a href="#1、三栏，左右固定，中间自适应" class="headerlink" title="1、三栏，左右固定，中间自适应"></a>1、三栏，左右固定，中间自适应</h2><p>float<br>左、右浮动，设置left和rign即可，但中间内容撑高后会有问题<br>position: fixd<br>左右绝对定位<br>flex<br>中间flex:1自适应<br>tab<br>表格<br>grid<br>栅格，兼容性太高<br>dispaly: grid</p>
+</div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、盒模型"><span class="toc-number">1.</span> <span class="toc-text">一、盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、标准模型"><span class="toc-number">1.1.</span> <span class="toc-text">1、标准模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、IE模型"><span class="toc-number">1.2.</span> <span class="toc-text">2、IE模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、指定模型"><span class="toc-number">1.3.</span> <span class="toc-text">3、指定模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、获取元素宽高"><span class="toc-number">1.4.</span> <span class="toc-text">4、获取元素宽高</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、边距重叠-BFC"><span class="toc-number">1.5.</span> <span class="toc-text">5、边距重叠(BFC)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1、现象"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1、现象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2、特点"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2、特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3、解决"><span class="toc-number">1.5.3.</span> <span class="toc-text">5.3、解决</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、布局模型"><span class="toc-number">2.</span> <span class="toc-text">二、布局模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、流动模型"><span class="toc-number">2.1.</span> <span class="toc-text">1、流动模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、浮动模型"><span class="toc-number">2.2.</span> <span class="toc-text">2、浮动模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2、浮动元素引起的问题"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2、浮动元素引起的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、层模型"><span class="toc-number">2.3.</span> <span class="toc-text">3、层模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1、绝对定位"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1、绝对定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2、相对定位"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2、相对定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3、固定定位"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3、固定定位</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、-对齐"><span class="toc-number">3.</span> <span class="toc-text">三、    对齐</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、水平居中"><span class="toc-number">3.1.</span> <span class="toc-text">1、水平居中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1、行内元素"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1、行内元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2、块状元素"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2、块状元素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3）浮云元素"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">(3）浮云元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-绝对定位元素"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">(4)绝对定位元素</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、垂直居中"><span class="toc-number">3.2.</span> <span class="toc-text">2、垂直居中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1、父元素高度确定"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.1、父元素高度确定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）块级元素"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">（2）块级元素</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、布局示例"><span class="toc-number">4.</span> <span class="toc-text">四、布局示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、三栏，左右固定，中间自适应"><span class="toc-number">4.1.</span> <span class="toc-text">1、三栏，左右固定，中间自适应</span></a></li></ol></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/style/css/css3%E5%B1%9E%E6%80%A7/">&lt; css3属性</a><a class="next" href="/2020/04/19/style/css/%E9%80%89%E6%8B%A9%E5%99%A8/">css选择器 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

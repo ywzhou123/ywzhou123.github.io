@@ -1,0 +1,1054 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>es扩展方法 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">es扩展方法</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/web/es/es%E6%89%A9%E5%B1%95%E6%96%B9%E6%B3%95/">2020-04-19</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><p>// 扩展<br>///////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>//   字符串<br>    // Unicode表示法<br>        // 只限于\u0000——\uFFFF之间的字符<br>            “\u0061” // “a”<br>            “\uD842\uDFB7” // “𠮷”<br>            “\u20BB7” // “ 7”<br>        // 将码点放入大括号，就能正确解读该字符<br>            “\u{20BB7}” // “𠮷”<br>            “\u{41}\u{42}\u{43}” // “ABC”<br>            let hello = 123;<br>            hell\u{6F}; // 123<br>            ‘\u{1F680}’ === ‘\uD83D\uDE80’ // true<br>        // JavaScript共有6种方法可以表示一个字符<br>            ‘\z’ === ‘z’  // true<br>            ‘\172’ === ‘z’ // true<br>            ‘\x7A’ === ‘z’ // true<br>            ‘\u007A’ === ‘z’ // true<br>            ‘\u{7A}’ === ‘z’ // true</p>
+<p>/*———————————————————- */<br>    // codePointAt() 返回32位的UTF-16字符的码点<br>        // 对于那些需要4个字节储存的字符,JavaScript会认为它们是两个字符<br>            var s = “𠮷”;<br>            s.length // 2<br>            s.charAt(0) // ‘’<br>            s.charAt(1) // ‘’<br>            s.charCodeAt(0) // 55362<br>            s.charCodeAt(1) // 57271</p>
+<pre><code>    // 𠮷的十进制码点134071（即十六进制的20BB7）
+        var s = &#39;𠮷a&#39;;  
+        s.codePointAt(0) // 134071 
+        s.codePointAt(1) // 57271  
+        s.charCodeAt(2) // 97
+        s.codePointAt(0).toString(16) // &quot;20bb7&quot; 
+        s.charCodeAt(2).toString(16) // &quot;61&quot;
+
+    // 解决charCodeAt()参数为2的问题
+        var s = &#39;𠮷a&#39;; 
+        for (let ch of s) {   
+            console.log(ch.codePointAt(0).toString(16)); 
+        } 
+        // 20bb7 
+        // 61
+
+    // 测试一个字符由两个字节还是由四个字节组成
+        function is32Bit(c) {   
+            return c.codePointAt(0) &gt; 0xFFFF; 
+        }  
+        is32Bit(&quot;𠮷&quot;) // true 
+        is32Bit(&quot;a&quot;) // false</code></pre><p>/*———————————————————- */<br>    // String.fromCodePoint() 识别大于0xFFFF的码点<br>        // 解决String.fromCharCode不能识别大于0xFFFF的码点<br>            String.fromCharCode(0x20BB7) // “ஷ”<br>            String.fromCodePoint(0x20BB7) // “𠮷”<br>            String.fromCodePoint(0x78, 0x1f680, 0x79) === ‘x\uD83D\uDE80y’ // true</p>
+<p>/*———————————————————- */<br>    // 遍历器接口for…of<br>      for (let codePoint of ‘foo’) {<br>          console.log(codePoint)<br>      }<br>      // “f”<br>      // “o”<br>      // “o”</p>
+<pre><code>  var text = String.fromCodePoint(0x20BB7);  
+  for (let i = 0; i &lt; text.length; i++) {   
+      console.log(text[i]); 
+  } 
+  // &quot; &quot; 
+  // &quot; &quot;  
+
+  for (let i of text) {   
+      console.log(i); 
+  } 
+  // &quot;𠮷&quot;</code></pre><p>/*———————————————————- */<br>    // at()<br>        // ES5<br>            ‘abc’.charAt(0) // “a”<br>            ‘𠮷’.charAt(0) // “\uD842”<br>        // ES6<br>            ‘abc’.at(0) // “a”<br>            ‘𠮷’.at(0) // “𠮷”</p>
+<p>/*———————————————————- */<br>    // normalize()<br>        // Ǒ:（\u01D1）<br>            // O（\u004F）和ˇ（\u030C）合成（\u004F\u030C），JavaScript不能识别<br>            ‘\u01D1’===’\u004F\u030C’ //false<br>            ‘\u01D1’.length // 1<br>            ‘\u004F\u030C’.length // 2<br>        // 将字符的不同表示方法统一为同样的形式, 不能识别三个或三个以上字符的合成<br>            ‘\u01D1’.normalize() === ‘\u004F\u030C’.normalize() // true</p>
+<p>/*———————————————————- */<br>    // includes(), startsWith(), endsWith()<br>        // JavaScript只有indexOf方法来确定字符包含关系<br>            var s = ‘Hello world!’;<br>            s.startsWith(‘Hello’) // true<br>            s.endsWith(‘!’) // true<br>            s.includes(‘o’) // true<br>        // 第二个参数，表示开始搜索的位置<br>            var s = ‘Hello world!’;<br>            s.startsWith(‘world’, 6) // true<br>            s.endsWith(‘Hello’, 5) // true<br>            s.includes(‘Hello’, 6) // false</p>
+<p>/*———————————————————- */<br>    // repeat()<br>        // 返回一个新字符串，表示将原字符串重复n次<br>            ‘x’.repeat(3) // “xxx”<br>            ‘hello’.repeat(2) // “hellohello”<br>            ‘na’.repeat(0) // “”<br>        // 小数，会被取整<br>            ‘na’.repeat(2.9) // “nana”<br>        // 0到-1之间的小数，则等同于0<br>            ‘na’.repeat(Infinity) // RangeError<br>            ‘na’.repeat(-1) // RangeError<br>            ‘na’.repeat(-0.9) // “”<br>        // 参数NaN等同于0<br>            ‘na’.repeat(NaN) // “”<br>        // 字符串，则会先转换成数字<br>            ‘na’.repeat(‘na’) // “”<br>            ‘na’.repeat(‘3’) // “nanana”</p>
+<p>/*———————————————————- */<br>    // padStart()，padEnd()<br>        // 字符串补全长度的功能<br>            ‘x’.padStart(5, ‘ab’) // ‘ababx’<br>            ‘x’.padStart(4, ‘ab’) // ‘abax’<br>            ‘x’.padEnd(5, ‘ab’) // ‘xabab’<br>            ‘x’.padEnd(4, ‘ab’) // ‘xaba’<br>            ‘xxx’.padStart(2, ‘ab’) // ‘xxx’<br>            ‘xxx’.padEnd(2, ‘ab’) // ‘xxx’<br>        // 截去超出位数的补全字符串<br>            ‘abc’.padStart(10, ‘0123456789’) // ‘0123456abc’<br>        // 默认用空格补全<br>            ‘x’.padStart(4) // ‘   x’<br>            ‘x’.padEnd(4) // ‘x   ‘<br>            ‘1’.padStart(10, ‘0’) // “0000000001”<br>            ‘12’.padStart(10, ‘0’) // “0000000012”<br>            ‘123456’.padStart(10, ‘0’) // “0000123456”<br>            ‘12’.padStart(10, ‘YYYY-MM-DD’) // “YYYY-MM-12”<br>            ‘09-12’.padStart(10, ‘YYYY-MM-DD’) // “YYYY-09-12”</p>
+<p>/*———————————————————- */<br>    // 模板字符串<br>        // 传统写法<br>            $(‘#result’).append(<br>                ‘There are <b>‘ + basket.count + ‘</b> ‘ +<br>                ‘items in your basket, ‘ +<br>                ‘<em>‘ + basket.onSale +<br>                ‘</em> are on sale!’<br>            );<br>        // 用反引号（<code>）标识
+            $(&#39;#result&#39;).append(</code><br>                There are <b>${basket.count}</b> items in your basket, <em>${basket.onSale}</em>  are on sale!<br>            <code>);
+        // 普通字符串</code>In JavaScript ‘\n’ is a line-feed.<code>// 多行字符串</code>In JavaScript this is<br>            not legal.<code>console.log(</code>string text line 1<br>            string text line 2<code>);  
+        // 字符串中嵌入变量
+            var name = &quot;Bob&quot;, time = &quot;today&quot;;</code>Hello ${name}, how are you ${time}?<code>// 空格和换行，都是被保留的，使用trim方法消除换行
+            $(&#39;#list&#39;).html(</code><br>                <ul><br>                    <li>first</li><br>                    <li>second</li><br>                </ul><br>            <code>.trim());
+        // ${}中可以进行运算、引用对象属性、调用函数
+            var x = 1; 
+            var y = 2;</code>${x} + ${y} = ${x + y}<code>// &quot;1 + 2 = 3&quot;</code>${x} + ${y * 2} = ${x + y * 2}<code>// &quot;1 + 4 = 5&quot;  
+            var obj = {x: 1, y: 2};</code>${obj.x + obj.y}<code>// 3  
+            function fn() {   
+                return &quot;Hello World&quot;; 
+            }</code>foo ${fn()} bar<code>// foo Hello World bar
+        //   嵌套
+            const tmpl = addrs =&gt;</code><br>                <table><br>                    ${addrs.map(addr =&gt; <code>&lt;tr&gt;&lt;td&gt;${addr.first}&lt;/td&gt;&lt;/tr&gt;     
+                        &lt;tr&gt;&lt;td&gt;${addr.last}&lt;/td&gt;&lt;/tr&gt;</code>).join(‘’)}<br>                </table><br>            <code>;
+            const data = [     
+                { first: &#39;&lt;Jane&gt;&#39;, last: &#39;Bond&#39; },     
+                { first: &#39;Lars&#39;, last: &#39;&lt;Croft&gt;&#39; }, 
+            ];  
+            console.log(tmpl(data)); 
+            // &lt;table&gt; 
+            // 
+            //   &lt;tr&gt;&lt;td&gt;&lt;Jane&gt;&lt;/td&gt;&lt;/tr&gt; 
+            //   &lt;tr&gt;&lt;td&gt;Bond&lt;/td&gt;&lt;/tr&gt; 
+            // 
+            //   &lt;tr&gt;&lt;td&gt;Lars&lt;/td&gt;&lt;/tr&gt; 
+            //   &lt;tr&gt;&lt;td&gt;&lt;Croft&gt;&lt;/td&gt;&lt;/tr&gt; 
+            // 
+            // &lt;/table&gt;
+        // 引用模板字符串本身
+            let str = &#39;return &#39; + &#39;</code>Hello ${name}!`’;<br>            let func = new Function(‘name’, str);<br>            func(‘Jack’) // “Hello Jack!”   </p>
+<pre><code>        let str = &#39;(name) =&gt; `Hello ${name}!`&#39;; 
+        let func = eval.call(null, str); 
+        func(&#39;Jack&#39;) // &quot;Hello Jack!&quot;
+    // 通过jsx函数，将一个DOM字符串转为React对象
+        jsx`   
+            &lt;div&gt;     
+                &lt;input       
+                    ref=&#39;input&#39;       
+                    onChange=&#39;${this.handleChange}&#39;       
+                    defaultValue=&#39;${this.state.value}&#39; 
+                /&gt;       
+                ${this.state.value}    
+            &lt;/div&gt; 
+        `</code></pre><p>/*———————————————————- */<br>    // String.raw()<br>        // 用来充当模板字符串的处理函数,返回一个斜杠都被转义的字符串<br>            String.raw<code>Hi\n${2+3}!</code>; // “Hi\n5!”<br>            String.raw<code>Hi\u000A!</code>; // ‘Hi\u000A!’<br>        // 斜杠已经转义不会做任何处理<br>            String.raw<code>Hi\\n</code> // “Hi\n”<br>        // raw属性的值应该是一个数组<br>            String.raw({ raw: ‘test’ }, 0, 1, 2); // ‘t0e1s2t’<br>            // 等同于<br>            String.raw({ raw: [‘t’,’e’,’s’,’t’] }, 0, 1, 2);</p>
+<p>///////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>//   正则<br>    // RegExp构造函数<br>      new RegExp(/abc/ig, ‘i’).flags // “i”<br>        // ES5不允许此时使用第二个参数<br>        // ES6可以，且会忽略原有的修饰符</p>
+<p>/*———————————————————- */<br>    // 字符串的正则方法<br>      String.prototype.match;   //调用 RegExp.prototype[Symbol.match]<br>      String.prototype.replace; //调用 RegExp.prototype[Symbol.replace]<br>      String.prototype.search;  //调用 RegExp.prototype[Symbol.search]<br>      String.prototype.split;   //调用 RegExp.prototype[Symbol.split]</p>
+<p>/*———————————————————- */<br>    // u修饰符<br>      // Unicode模式<br>        /^\uD83D/u.test(‘\uD83D\uDC2A’); // false<br>        /^\uD83D/.test(‘\uD83D\uDC2A’); // true<br>          // \uD83D\uDC2A是一个四个字节的UTF-16编码，代表一个字符<br>          // 加了u修饰符以后，ES6就会识别其为一个字符<br>      // 点字符<br>        var s = ‘𠮷’;<br>        /^.$/.test(s); // false<br>        /^.$/u.test(s); // true<br>      // Unicode字符表示法<br>        /\u{61}/.test(‘a’); // false<br>        /\u{61}/u.test(‘a’); // true<br>        /\u{20BB7}/u.test(‘𠮷’); // true<br>      // 量词<br>        /a{2}/.test(‘aa’); // true<br>        /a{2}/u.test(‘aa’); // true<br>        /𠮷{2}/.test(‘𠮷𠮷’); // false<br>        /𠮷{2}/u.test(‘𠮷𠮷’); // true<br>        /^\u{3}$/.test(‘uuu’); // true<br>        // 没有u修饰符，所以大括号被解读为量词혀ꑍߐĀ⠰蕶<br>        // 加上u修饰符，就会被解读为Unicode表达式<br>      // 预定义模式<br>        /^\S$/.test(‘𠮷’); // false<br>        /^\S$/u.test(‘𠮷’); // true<br>        // \S是预定义模式，匹配所有不是空格的字符<br>        function codePointLength(text) {<br>          var result = text.match(/[\s\S]/gu);<br>          return result ? result.length : 0;<br>        }<br>        var s = ‘𠮷𠮷’;<br>        s.length // 4<br>        codePointLength(s) // 2 正确返回字符串长度的函数</p>
+<p>/*———————————————————- */<br>      // i修饰符<br>        /[a-z]/i.test(‘\u212A’) // false<br>        /[a-z]/iu.test(‘\u212A’) // true<br>        //   \u004B与\u212A都是大写的K<br>        //   不加u修饰符，就无法识别非规范的K字符</p>
+<p>/*———————————————————- */<br>    // y修饰符<br>      // 粘连修饰符，必须从下一位置开始<br>      // g只要求剩余位置中存在即可<br>      // y修饰符号隐含了头部匹配的标志^<br>        var s = ‘aaa_aa_a’;<br>        var r1 = /a+/g;<br>        var r2 = /a+/y;<br>        r1.exec(s) // [“aaa”]<br>        r2.exec(s) // [“aaa”]<br>        r1.exec(s) // [“aa”]<br>        r2.exec(s) // null</p>
+<pre><code>  //g
+    const REGEX = /a/g;  // 指定从2号位置（y）开始匹配 
+    REGEX.lastIndex = 2;  // 匹配成功 
+    const match = REGEX.exec(&#39;xaya&#39;);  // 在3号位置匹配成功 
+    match.index // 3  // 下一次匹配从4号位开始 
+    REGEX.lastIndex // 4  // 4号位开始匹配失败 
+    REGEX.exec(&#39;xaxa&#39;) // null
+
+  //y
+    const REGEX = /a/y;  // 指定从2号位置开始匹配 
+    REGEX.lastIndex = 2;  // 不是粘连，匹配失败 
+    REGEX.exec(&#39;xaya&#39;) // null  指定从3号位置开始匹配 
+    REGEX.lastIndex = 3;  // 3号位置是粘连，匹配成功 
+    const match = REGEX.exec(&#39;xaxa&#39;); 
+    match.index // 3 
+    REGEX.lastIndex // 4
+
+  // 没有找到匹配 
+    &#39;x##&#39;.split(/#/y) // [ &#39;x##&#39; ]  
+  // 找到两个匹配 
+    &#39;##x&#39;.split(/#/y) // [ &#39;&#39;, &#39;&#39;, &#39;x&#39; ]
+    &#39;#x#&#39;.split(/#/y) // [ &#39;&#39;, &#39;x#&#39; ]  
+    &#39;##&#39;.split(/#/y) // [ &#39;&#39;, &#39;&#39;, &#39;&#39; ]
+
+  const REGEX = /a/gy; 
+  &#39;aaxa&#39;.replace(REGEX, &#39;-&#39;) // &#39;--xa&#39;
+  &#39;a1a2a3&#39;.match(/a\d/y) // [&quot;a1&quot;] 
+  &#39;a1a2a3&#39;.match(/a\d/gy) // [&quot;a1&quot;, &quot;a2&quot;, &quot;a3&quot;]</code></pre><p>/*———————————————————- */<br>    // sticky属性,表示是否设置了y修饰符<br>      var r = /hello\d/y;<br>      r.sticky // true</p>
+<p>/*———————————————————- */<br>    // flags属性,返回正则表达式的修饰符<br>      /abc/ig.flags // ‘gi’</p>
+<p>/<em>———————————————————- */<br>    // RegExp.escape()<br>      function escapeRegExp(str) {<br>        return str.replace(/[-[]/{}()\</em>+?.\^$|]/g, ‘\$&amp;’);<br>      }<br>      let str = ‘/path/to/resource.html?search=query’;<br>      escapeRegExp(str);<br>      // “/path/to/resource.html?search=query”</p>
+<p>/*———————————————————- */<br>    // 后行断言<br>      /\d+(?=%)/.exec(‘100% of US presidents have been male’);  // [“100”] 先行断言，只匹配百分号之前的数字<br>      /\d+(?!%)/.exec(‘that’s all 44 of them’) ;                // [“44”] 先行否定断言，只匹配不在百分号之前的数字<br>      /(?&lt;=$)\d+/.exec(‘Benjamin Franklin is on the $100 bill’);  // [“100”] 后行断言,只匹配美元符号之后的数字<br>      /(?&lt;!$)\d+/.exec(‘it’s is worth about €90’) ;               // [“90”] 后行断言,只匹配不在美元符号后面的数字<br>      /(?&lt;=(\d+)(\d+))$/.exec(‘1053’); // [“”, “1”, “053”]<br>      /^(\d+)(\d+)$/.exec(‘1053’); // [“1053”, “105”, “3”]<br>      /(?&lt;=(o)d\1)r/.exec(‘hodor’);  // null<br>      /(?&lt;=\1d(o))r/.exec(‘hodor’);  // [“r”, “o”]</p>
+<p>///////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>//   数值<br>    // 二进制和八进制表示法<br>      0b111110111 === 503 // true<br>      0o767 === 503 // true<br>      // 将0b和0o前缀的字符串数值转为十进制<br>        Number(‘0b111’)  // 7<br>        Number(‘0o10’)  // 8</p>
+<p>/*———————————————————- */<br>    // Number.isFinite(), 用来检查一个数值是否为有限的<br>      Number.isFinite(15); // true<br>      Number.isFinite(0.8); // true<br>      Number.isFinite(NaN); // false<br>      Number.isFinite(Infinity); // false<br>      Number.isFinite(-Infinity); // false<br>      Number.isFinite(‘foo’); // false<br>      Number.isFinite(‘15’); // false<br>      Number.isFinite(true); // false</p>
+<p>/*———————————————————- */<br>    // Number.isNaN() , 用来检查一个值是否为NaN<br>      Number.isNaN(NaN) // true<br>      Number.isNaN(15) // false<br>      Number.isNaN(‘15’) // false<br>      Number.isNaN(true) // false<br>      Number.isNaN(9/NaN) // true<br>      Number.isNaN(‘true’/0) // true<br>      Number.isNaN(‘true’/‘true’) // true</p>
+<p>/*———————————————————- */<br>    // Number.parseInt(), Number.parseFloat()<br>      // 全局方法parseInt()和parseFloat()，移植到Number对象上面<br>        Number.parseInt(‘12.34’) // 12<br>        Number.parseFloat(‘123.45#’) // 123.45<br>      // 逐步减少全局性方法，使得语言逐步模块化<br>        Number.parseInt === parseInt // true<br>        Number.parseFloat === parseFloat // true</p>
+<p>/*———————————————————- */<br>    // Number.isInteger() , 判断一个值是否为整数<br>      Number.isInteger(25) // true<br>      Number.isInteger(25.0) // true<br>      Number.isInteger(25.1) // false<br>      Number.isInteger(“15”) // false<br>      Number.isInteger(true) // false</p>
+<p>/*———————————————————- */<br>    // Number.EPSILON<br>      // 一个极小的常量,实质是一个可以接受的误差范围<br>        Number.EPSILON // 2.220446049250313e-16<br>        Number.EPSILON.toFixed(20) // ‘0.00000000000000022204’<br>      // 浮点数计算是不精确的<br>      // 误差能够小于Number.EPSILON，我们就可以认为得到了正确结果<br>        0.1 + 0.2 - 0.3 // 5.551115123125783e-17<br>        5.551115123125783e-17.toFixed(20) // ‘0.00000000000000005551’<br>        5.551115123125783e-17 &lt; Number.EPSILON // true<br>      function withinErrorMargin (left, right) {<br>        return Math.abs(left - right) &lt; Number.EPSILON;<br>      }<br>      withinErrorMargin(0.1 + 0.2, 0.3) // true<br>      withinErrorMargin(0.2 + 0.2, 0.3) // false</p>
+<p>/*———————————————————- */<br>    // Number.isSafeInteger(),安全整数范围<br>      // JS能够准确表示的整数范围在-2^53到2^53之间（不含两个端点）<br>      // Number.isSafeInteger()用来判断一个整数是否落在这个范围之内<br>      // Number.MAX_SAFE_INTEGER和Number.MIN_SAFE_INTEGER表示这个范围的上下限<br>        Number.MAX_SAFE_INTEGER === Math.pow(2, 53) - 1 // true<br>        Number.MAX_SAFE_INTEGER === 9007199254740991 // true<br>        Number.MIN_SAFE_INTEGER === -Number.MAX_SAFE_INTEGER // true<br>        Number.MIN_SAFE_INTEGER === -9007199254740991 // true</p>
+<pre><code>  Number.isSafeInteger(&#39;a&#39;) // false 
+  Number.isSafeInteger(null) // false 
+  Number.isSafeInteger(NaN) // false 
+  Number.isSafeInteger(Infinity) // false 
+  Number.isSafeInteger(-Infinity) // false  
+  Number.isSafeInteger(3) // true 
+  Number.isSafeInteger(1.2) // false 
+  Number.isSafeInteger(9007199254740990) // true 
+  Number.isSafeInteger(9007199254740992) // false  
+  Number.isSafeInteger(Number.MIN_SAFE_INTEGER - 1) // false 
+  Number.isSafeInteger(Number.MIN_SAFE_INTEGER) // true 
+  Number.isSafeInteger(Number.MAX_SAFE_INTEGER) // true 
+  Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 1) // false</code></pre><p>/*———————————————————- */<br>    // Math对象的扩展<br>      // Math.trunc() 去除一个数的小数部分，返回整数部分<br>        Math.trunc(4.1) // 4<br>        Math.trunc(4.9) // 4<br>        Math.trunc(-4.1) // -4<br>        Math.trunc(-4.9) // -4<br>        Math.trunc(-0.1234) // -0<br>        Math.trunc(‘123.456’) // 123 将其先转为数值<br>        Math.trunc(NaN);      // NaN<br>        Math.trunc(‘foo’);    // NaN<br>        Math.trunc();         // NaN</p>
+<pre><code>  // Math.sign() 判断一个数到底是正数、负数、还是零
+    Math.sign(-5) // -1 
+    Math.sign(5) // +1 
+    Math.sign(0) // +0 
+    Math.sign(-0) // -0 
+    Math.sign(NaN) // NaN 
+    Math.sign(&#39;foo&#39;); // NaN 
+    Math.sign();      // NaN
+
+  // Math.cbrt() 用于计算一个数的立方根
+    Math.cbrt(-1) // -1 
+    Math.cbrt(0)  // 0 
+    Math.cbrt(1)  // 1 
+    Math.cbrt(2)  // 1.2599210498948734
+    Math.cbrt(&#39;8&#39;) // 2 
+    Math.cbrt(&#39;hello&#39;) // NaN
+
+  // Math.clz32()  JavaScript的整数使用32位二进制形式表示,返回一个数的32位无符号整数形式有多少个前导0
+    Math.clz32(0) // 32 
+    Math.clz32(1) // 31 
+    Math.clz32(1000) // 22 
+    Math.clz32(0b01000000000000000000000000000000) // 1 
+    Math.clz32(0b00100000000000000000000000000000) // 2
+    Math.clz32(0) // 32 
+    //   1的二进制形式是0b1，只占1位，所以32位之中有31个前导0
+      Math.clz32(1) // 31 
+    //   左移运算符（&lt;&lt;）与Math.clz32方法直接相关
+      Math.clz32(1 &lt;&lt; 1) // 30 
+      Math.clz32(1 &lt;&lt; 2) // 29 
+      Math.clz32(1 &lt;&lt; 29) // 2
+    //   对于小数，Math.clz32方法只考虑整数部分
+      Math.clz32(3.2) // 30 
+      Math.clz32(3.9) // 30
+    Math.clz32() // 32 
+    Math.clz32(NaN) // 32 
+    Math.clz32(Infinity) // 32 
+    Math.clz32(null) // 32 
+    Math.clz32(&#39;foo&#39;) // 32 
+    Math.clz32([]) // 32 
+    Math.clz32({}) // 32 
+    Math.clz32(true) // 31
+
+  // Math.imul()  返回两个数以32位带符号整数形式相乘的结果，返回的也是一个32位的带符号整数
+    Math.imul(2, 4)   // 8 
+    Math.imul(-1, 8)  // -8 
+    Math.imul(-2, -2) // 4
+    //   对于那些很大的数的乘法，低位数值往往都是不精确的, 它们的乘积超过了2的53次方
+      (0x7fffffff * 0x7fffffff)|0 // 0
+    //   Math.imul方法可以返回正确的值1
+      Math.imul(0x7fffffff, 0x7fffffff) // 1
+
+  // Math.fround() 返回一个数的单精度浮点数形式
+    Math.fround(0)     // 0 
+    Math.fround(1)     // 1 
+    Math.fround(1.337) // 1.3370000123977661 
+    Math.fround(1.5)   // 1.5 
+    Math.fround(NaN)   // NaN
+
+  // Math.hypot()返回所有参数的平方和的平方根
+    Math.hypot(3, 4);        // 5     3的平方加上4的平方，等于5的平方
+    Math.hypot(3, 4, 5);     // 7.0710678118654755 
+    Math.hypot();            // 0 
+    Math.hypot(NaN);         // NaN 
+    Math.hypot(3, 4, &#39;foo&#39;); // NaN 
+    Math.hypot(3, 4, &#39;5&#39;);   // 7.0710678118654755 
+    Math.hypot(-3);          // 3
+
+  // Math.expm1() 返回ex-1，即Math.exp(x) - 1
+    Math.expm1(-1) // -0.6321205588285577 
+    Math.expm1(0)  // 0 
+    Math.expm1(1)  // 1.718281828459045
+
+  // Math.log1p() 返回1 + x的自然对数，即Math.log(1 + x)。如果x小于-1，返回NaN
+    Math.log1p(1)  // 0.6931471805599453 
+    Math.log1p(0)  // 0 
+    Math.log1p(-1) // -Infinity 
+    Math.log1p(-2) // NaN
+
+  // Math.log10() 返回以10为底的x的对数。如果x小于0，则返回NaN
+    Math.log10(2)      // 0.3010299956639812 
+    Math.log10(1)      // 0 
+    Math.log10(0)      // -Infinity 
+    Math.log10(-2)     // NaN 
+    Math.log10(100000) // 5
+
+  // Math.log2() 返回以2为底的x的对数。如果x小于0，则返回NaN
+    Math.log2(3)       // 1.584962500721156 
+    Math.log2(2)       // 1 
+    Math.log2(1)       // 0 
+    Math.log2(0)       // -Infinity 
+    Math.log2(-2)      // NaN 
+    Math.log2(1024)    // 10 
+    Math.log2(1 &lt;&lt; 29) // 29
+
+  Math.sinh(x) // 返回x的双曲正弦
+  Math.cosh(x) // 返回x的双曲余弦
+  Math.tanh(x) // 返回x的双曲正切
+  Math.asinh(x) // 返回x的反双曲正弦
+  Math.acosh(x) // 返回x的反双曲余弦
+  Math.atanh(x) // 返回x的反双曲正切</code></pre><p>/<em>———————————————————- */<br>    // 指数运算符<br>      2 *</em> 2 // 4<br>      2 ** 3 // 8</p>
+<pre><code>  let a = 2; 
+  a **= 2; 
+  // 等同于 
+  a = a * a; 
+
+  let b = 3; 
+  b **= 3; 
+  // 等同于 
+  b = b * b * b;</code></pre><p>///////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 数组<br>    // Array.from()<br>      //用于将两类对象转为真正的数组<br>        let arrayLike = {<br>          ‘0’: ‘a’,<br>          ‘1’: ‘b’,<br>          ‘2’: ‘c’,<br>          length: 3<br>        };<br>        let arr2 = Array.from(arrayLike); // [‘a’, ‘b’, ‘c’] ES6的写法 </p>
+<pre><code>  //querySelectorAll方法返回的是一个类似数组的对象(必须有length属性)
+    // NodeList对象 
+      let ps = document.querySelectorAll(&#39;p&#39;); 
+      Array.from(ps).forEach(function (p) {   
+        console.log(p); 
+      });  
+    // arguments对象 
+      function foo() {   
+        var args = Array.from(arguments);   
+        // ... 
+      }
+
+  //扩展运算符（...）也可以将某些数据结构转为数组
+    // arguments对象 
+      function foo() {   
+        var args = [...arguments]; 
+      }  
+    // NodeList对象 
+      [...document.querySelectorAll(&#39;div&#39;)] 
+
+  //部署了Iterator接口的数据结构，Array.from都能将其转为数组
+    Array.from(&#39;hello&#39;) // [&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]  
+    let namesSet = new Set([&#39;a&#39;, &#39;b&#39;]) 
+    Array.from(namesSet) // [&#39;a&#39;, &#39;b&#39;]
+
+  // from()第二个参数，作用类似于数组的map方法
+    Array.from(arrayLike, x =&gt; x * x); 
+    // 等同于 
+    Array.from(arrayLike).map(x =&gt; x * x);  
+    Array.from([1, 2, 3], (x) =&gt; x * x) // [1, 4, 9] 
+
+  //取出一组DOM节点的文本内容
+    let spans = document.querySelectorAll(&#39;span.name&#39;);  
+    // map() 
+    let names1 = Array.prototype.map.call(spans, s =&gt; s.textContent);  
+    // Array.from() 
+    let names2 = Array.from(spans, s =&gt; s.textContent) 
+
+  //将数组中布尔值为false的成员转为0
+    Array.from([1, , 2, , 3], (n) =&gt; n || 0) // [1, 0, 2, 0, 3] 
+
+  //返回各种数据的类型
+    function typesOf () {   
+      return Array.from(arguments, value =&gt; typeof value) 
+    } 
+    typesOf(null, [], NaN) // [&#39;object&#39;, &#39;object&#39;, &#39;number&#39;]
+
+  //// 
+  Array.from({ length: 2 }, () =&gt; &#39;jack&#39;) // [&#39;jack&#39;, &#39;jack&#39;]
+  function countSymbols(string) {   
+    return Array.from(string).length; 
+  }</code></pre><p>/*———————————————————- */<br>    // Array.of() 将一组值，转换为数组<br>      Array.of(3, 11, 8) // [3,11,8]<br>      Array.of(3) // [3]<br>      Array.of(3).length // 1</p>
+<p>/*———————————————————- */<br>    // fill() 使用给定值，填充一个数组<br>      //数组中已有的元素，会被全部抹去<br>        [‘a’, ‘b’, ‘c’].fill(7) // [7, 7, 7]<br>        new Array(3).fill(7) // [7, 7, 7]</p>
+<pre><code>  // 第二个和第三个参数，用于指定填充的起始位置和结束位置
+    [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;].fill(7, 1, 2) // [&#39;a&#39;, 7, &#39;c&#39;]</code></pre><p>/*———————————————————- */<br>    // includes() 返回一个布尔值，表示某个数组是否包含给定的值,代替indexOf()<br>      [1, 2, 3].includes(2);     // true<br>      [1, 2, 3].includes(4);     // false<br>      [1, 2, NaN].includes(NaN); // true</p>
+<pre><code>  // 第二个参数表示搜索的起始位置，默认为0
+    [1, 2, 3].includes(3, 3);  // false 
+    [1, 2, 3].includes(3, -1); // true</code></pre><p>/*———————————————————- */<br>    // copyWithin() 将指定位置的成员复制到其他位置，然后返回当前数组<br>      Array.prototype.copyWithin(target, start = 0, end = this.length)</p>
+<pre><code>  // 从3号位直到数组结束的成员（4和5）， 复制到从0号位开始的位置，结果覆盖了原来的1和2
+    [1, 2, 3, 4, 5].copyWithin(0, 3) // [4, 5, 3, 4, 5]
+  // 将3号位复制到0号位 
+    [1, 2, 3, 4, 5].copyWithin(0, 3, 4) // [4, 2, 3, 4, 5]  
+  // -2相当于3号位，-1相当于4号位 
+    [1, 2, 3, 4, 5].copyWithin(0, -2, -1) // [4, 2, 3, 4, 5]  
+  // 将3号位复制到0号位 
+    [].copyWithin.call({length: 5, 3: 1}, 0, 3) // {0: 1, 3: 1, length: 5}  
+  // 将2号位到数组结束，复制到0号位 
+    var i32a = new Int32Array([1, 2, 3, 4, 5]); 
+    i32a.copyWithin(0, 2); // Int32Array [3, 4, 5, 4, 5]  
+  // 对于没有部署TypedArray的copyWithin方法的平台 ,需要采用下面的写法 
+    [].copyWithin.call(new Int32Array([1, 2, 3, 4, 5]), 0, 3, 4); // Int32Array [4, 2, 3, 4, 5]</code></pre><p>/*———————————————————- */<br>    // find() 用于找出第一个符合条件的数组成员<br>      [1, 4, -5, 10].find((n) =&gt; n &lt; 0) // -5<br>      // find方法的回调函数可以接受三个参数，依次为当前的值、当前的位置和原数组<br>      [1, 5, 10, 15].find(function(value, index, arr) {<br>        return value &gt; 9;<br>      }) // 10</p>
+<p>/*———————————————————- */<br>    // findIndex() 返回第一个符合条件的数组成员的位置,所有成员都不符合条件，则返回-1<br>      [1, 5, 10, 15].findIndex(function(value, index, arr) {<br>        return value &gt; 9;<br>      }) // 2<br>      // 都可以发现NaN，弥补了数组的IndexOf方法的不足<br>        [NaN].indexOf(NaN) // -1<br>        [NaN].findIndex(y =&gt; Object.is(NaN, y)) // 0</p>
+<p>/*———————————————————- */<br>    // entries()，keys()和values() 用于遍历数组，返回一个遍历器对象<br>      for (let index of [‘a’, ‘b’].keys()) {<br>        console.log(index);<br>      }<br>      // 0<br>      // 1</p>
+<pre><code>  for (let elem of [&#39;a&#39;, &#39;b&#39;].values()) {   
+    console.log(elem); 
+  } 
+  // &#39;a&#39; 
+  // &#39;b&#39;  
+
+  for (let [index, elem] of [&#39;a&#39;, &#39;b&#39;].entries()) {   
+    console.log(index, elem); 
+  } 
+  // 0 &quot;a&quot; 
+  // 1 &quot;b&quot;
+
+  // 手动调用遍历器对象的next方法，进行遍历
+    let letter = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]; 
+    let entries = letter.entries(); 
+    console.log(entries.next().value); // [0, &#39;a&#39;] 
+    console.log(entries.next().value); // [1, &#39;b&#39;] 
+    console.log(entries.next().value); // [2, &#39;c&#39;]</code></pre><p>/*———————————————————- */<br>    // 空位<br>      // 返回一个具有3个空位的数组，空位不是undefined，一个位置的值等于undefined<br>        Array(3) // [, , ,]<br>      // 将数组的空位，转为undefined<br>        Array.from([‘a’,,’b’]); // [ “a”, undefined, “b” ]<br>        […[‘a’,,’b’]]; // [ “a”, undefined, “b” ]<br>        [,’a’,’b’,,].copyWithin(2,0); // [,”a”,,”a”]<br>        new Array(3).fill(‘a’); // [“a”,”a”,”a”]<br>        let arr = [, ,];<br>        for (let i of arr) {<br>          console.log(1);<br>        }<br>        // 1<br>        // 1</p>
+<pre><code>  // entries() 
+    [...[,&#39;a&#39;].entries()]; // [[0,undefined], [1,&quot;a&quot;]]  
+  // keys() 
+    [...[,&#39;a&#39;].keys()]; // [0,1]  
+  // values() 
+    [...[,&#39;a&#39;].values()]; // [undefined,&quot;a&quot;]  
+  // find() 
+    [,&#39;a&#39;].find(x =&gt; true); // undefined  
+  // findIndex() 
+    [,&#39;a&#39;].findIndex(x =&gt; true); // 0</code></pre><p>///////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 函数<br>    // 参数默认值<br>      // ES6允许为函数的参数设置默认值, 之前必须这样定义y = y || ‘World’;<br>        function log(x, y = ‘World’) {<br>          console.log(x, y);<br>        }<br>        log(‘Hello’) // Hello World<br>        log(‘Hello’, ‘China’) // Hello China<br>        log(‘Hello’, ‘’) // Hello</p>
+<pre><code>  // 参数变量x是默认声明的, 在函数体中，不能用let或const再次声明
+    function Point(x = 0, y = 0) {   
+      this.x = x;   
+      this.y = y; 
+    }  
+    var p = new Point(); 
+    p // { x: 0, y: 0 }
+
+  // 与解构赋值默认值结合使用
+    function foo({x, y = 5}) {   
+      console.log(x, y); 
+    }  
+    foo({}) // undefined, 5 
+    foo({x: 1}) // 1, 5 
+    foo({x: 1, y: 2}) // 1, 2 
+    foo() // TypeError: Cannot read property &#39;x&#39; of undefined
+
+  // 不能省略第二个参数
+    function fetch(url, { body = &#39;&#39;, method = &#39;GET&#39;, headers = {} }) {   
+      console.log(method); 
+    }  
+    fetch(&#39;http://example.com&#39;, {}) // &quot;GET&quot;  
+    fetch(&#39;http://example.com&#39;) // 报错
+
+  // 双重默认值
+    function fetch(url, { method = &#39;GET&#39; } = {}) {   
+      console.log(method); 
+    }  
+    fetch(&#39;http://example.com&#39;) // &quot;GET&quot;
+
+  // 不同的默认值定义方式
+    // 写法一 
+      function m1({x = 0, y = 0} = {}) {   
+        return [x, y]; 
+      }  
+    // 写法二 
+      function m2({x, y} = { x: 0, y: 0 }) {   
+        return [x, y]; 
+      }
+    // 函数没有参数的情况 
+      m1() // [0, 0] 
+      m2() // [0, 0]  
+    // x和y都有值的情况 
+      m1({x: 3, y: 8}) // [3, 8] 
+      m2({x: 3, y: 8}) // [3, 8]  
+    // x有值，y无值的情况 
+      m1({x: 3}) // [3, 0] 
+      m2({x: 3}) // [3, undefined]  
+    // x和y都无值的情况 
+      m1({}) // [0, 0]; 
+      m2({}) // [undefined, undefined]  
+      m1({z: 3}) // [0, 0] 
+      m2({z: 3}) // [undefined, undefined]
+
+  // 定义了默认值的参数，应该是函数的尾参数, 无法只省略该参数，而不省略它后面的参数
+    // 例一 
+      function f(x = 1, y) {   
+        return [x, y]; 
+      }  
+      f() // [1, undefined] 
+      f(2) // [2, undefined]) 
+      f(, 1) // 报错 
+      f(undefined, 1) // [1, 1]  
+    // 例二 
+      function f(x, y = 5, z) {   
+        return [x, y, z]; 
+      }  
+      f() // [undefined, 5, undefined] 
+      f(1) // [1, 5, undefined] 
+      f(1, ,2) // 报错 
+      f(1, undefined, 2) // [1, 5, 2]
+
+  // length属性，将返回没有指定默认值的参数个数
+    (function (a) {}).length // 1 
+    (function (a = 5) {}).length // 0 
+    (function (a, b, c = 5) {}).length // 2
+
+  // 如果设置了默认值的参数不是尾参数，那么length属性也不再计入后面的参数了
+    (function (a = 0, b, c) {}).length // 0 
+    (function (a, b = 1, c) {}).length // 1</code></pre><p>/*———————————————————- */<br>    // rest参数<br>      // ES6引入rest参数（形式为“…变量名”），用于获取函数的多余参数<br>      // rest参数之后不能再有其他参数<br>      // 函数的length属性，不包括rest参数<br>        function add(…values) {<br>          let sum = 0;<br>          for (var val of values) {<br>            sum += val;<br>          }<br>          return sum;<br>        }<br>        add(2, 5, 3) // 10<br>      // 代替arguments变量<br>        // arguments变量的写法<br>          function sortNumbers() {<br>            return Array.prototype.slice.call(arguments).sort();<br>          }<br>        // rest参数的写法<br>          const sortNumbers = (…numbers) =&gt; numbers.sort();</p>
+<p>/*———————————————————- */<br>    // 扩展运算符（…）<br>      // 将一个数组转为用逗号分隔的参数序列<br>        console.log(…[1, 2, 3]); // 1 2 3<br>        console.log(1, …[2, 3, 4], 5); // 1 2 3 4 5<br>        […document.querySelectorAll(‘div’)] // [<div>, <div>, <div>]</p>
+<pre><code>    function push(array, ...items) {   
+      array.push(...items); 
+    }  
+    function add(x, y) {   
+      return x + y; 
+    }  
+    var numbers = [4, 38]; 
+    add(...numbers) // 42
+
+  // 替代数组的apply方法
+    // ES5的写法 
+      function f(x, y, z) {   
+        // ... 
+      } 
+      var args = [0, 1, 2]; 
+      f.apply(null, args);  
+    // ES6的写法 
+      function f(x, y, z) {   
+        // ... 
+      } 
+      var args = [0, 1, 2]; 
+      f(...args);
+
+    // ES5的写法 
+      Math.max.apply(null, [14, 3, 77])  
+    // ES6的写法 
+      Math.max(...[14, 3, 77])  
+      Math.max(14, 3, 77);
+
+    // ES5的写法 
+      var arr1 = [0, 1, 2]; 
+      var arr2 = [3, 4, 5]; 
+      Array.prototype.push.apply(arr1, arr2);  
+    // ES6的写法 
+      var arr1 = [0, 1, 2]; 
+      var arr2 = [3, 4, 5]; 
+      arr1.push(...arr2);
+
+    // ES5 
+      new (Date.bind.apply(Date, [null, 2015, 1, 1])) 
+    // ES6 
+      new Date(...[2015, 1, 1]);
+
+  // 合并数组
+    // ES5 
+      [1, 2].concat(more); 
+    // ES6 
+      [1, 2, ...more];  
+      var arr1 = [&#39;a&#39;, &#39;b&#39;]; 
+      var arr2 = [&#39;c&#39;]; 
+      var arr3 = [&#39;d&#39;, &#39;e&#39;];  
+    // ES5的合并数组 
+      arr1.concat(arr2, arr3); // [ &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39; ]  
+    // ES6的合并数组 
+      [...arr1, ...arr2, ...arr3] // [ &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39; ]
+
+  // 与解构赋值结合, 用于数组赋值时只能放在参数的最后一位
+    // ES5 
+      a = list[0], rest = list.slice(1) 
+    // ES6 
+      [a, ...rest] = list
+    const [first, ...rest] = [1, 2, 3, 4, 5]; 
+    first // 1 
+    rest  // [2, 3, 4, 5]  
+    const [first, ...rest] = []; 
+    first // undefined 
+    rest  // []:  
+    const [first, ...rest] = [&quot;foo&quot;]; 
+    first  // &quot;foo&quot; 
+    rest   // []
+
+  // 函数的返回值
+    var dateFields = readDateFields(database); 
+    var d = new Date(...dateFields);
+
+  // 将字符串转为真正的数组
+    [...&#39;hello&#39;] // [ &quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot; ]
+    &#39;x\uD83D\uDE80y&#39;.length; // 4 
+    [...&#39;x\uD83D\uDE80y&#39;].length; // 3
+    let str = &#39;x\uD83D\uDE80y&#39;;  
+    str.split(&#39;&#39;).reverse().join(&#39;&#39;) // &#39;y\uDE80\uD83Dx&#39;  
+    [...str].reverse().join(&#39;&#39;) // &#39;y\uD83D\uDE80x&#39;
+
+  // Iterator接口的对象，都可以用扩展运算符转为真正的数组
+    var nodeList = document.querySelectorAll(&#39;div&#39;); 
+    var array = [...nodeList];
+
+    let arrayLike = {   
+      &#39;0&#39;: &#39;a&#39;,   
+      &#39;1&#39;: &#39;b&#39;,   
+      &#39;2&#39;: &#39;c&#39;,   
+      length: 3 
+    };  
+    // TypeError: Cannot spread non-iterable object. 
+    let arr = [...arrayLike];
+
+  // 变量go是一个Generator函数
+    var go = function*(){   
+      yield 1;   
+      yield 2;   
+      yield 3; 
+    };  
+    [...go()] // [1, 2, 3]
+
+    let map = new Map([   
+      [1, &#39;one&#39;],   
+      [2, &#39;two&#39;],   
+      [3, &#39;three&#39;], 
+    ]);  
+    let arr = [...map.keys()]; // [1, 2, 3]</code></pre><p>/*———————————————————- */<br>    // 严格模式<br>      // 函数参数使用了默认值、解构赋值、或者扩展运算符， 那么函数内部就不能显式设定为严格模式’use strict’;</p>
+<p>/*———————————————————- */<br>    // name属性<br>      // 返回该函数的函数名<br>        function foo() {}<br>        foo.name // “foo”<br>      // 匿名函数<br>        var func1 = function () {};<br>        // ES5<br>        func1.name // “”<br>        // ES6<br>        func1.name // “func1”<br>      // 具名函数<br>        const bar = function baz() {};<br>        // ES5<br>        bar.name // “baz”<br>        // ES6<br>        bar.name // “baz”<br>      // 构造函数实例<br>        (new Function).name // “anonymous”<br>      // bind返回的函数, 加上“bound ”前缀<br>        function foo() {};<br>        foo.bind({}).name // “bound foo”<br>        (function(){}).bind({}).name // “bound “</p>
+<p>/*———————————————————- */<br>    // 箭头函数 =&gt;<br>      // 箭头左边为参数，右边为返回值或代码块<br>        var f = v =&gt; v;<br>        //等同于<br>        var f = function(v) {<br>          return v;<br>        };</p>
+<pre><code>  // 不需要参数或需要多个参数用()表示
+    var f = () =&gt; 5; 
+    // 等同于 
+    var f = function () { return 5 };  
+
+    var sum = (num1, num2) =&gt; num1 + num2; 
+    // 等同于 
+    var sum = (num1, num2) =&gt; { return num1 + num2; }
+    var sum = function(num1, num2) {   return num1 + num2; };
+
+  // 直接返回一个对象，必须在对象外面加上括号
+    var getTempItem = id =&gt; ({ id: id, name: &quot;Temp&quot; });
+
+  // 与变量解构结合使用
+    const full = ({ first, last }) =&gt; first + &#39; &#39; + last;  
+    // 等同于 
+    function full(person) {   
+      return person.first + &#39; &#39; + person.last; 
+    }
+
+  // rest参数与箭头函数结合
+    const numbers = (...nums) =&gt; nums;  
+    numbers(1, 2, 3, 4, 5) // [1,2,3,4,5]  
+    const headAndTail = (head, ...tail) =&gt; [head, tail];  
+    headAndTail(1, 2, 3, 4, 5) // [1,[2,3,4,5]]
+
+    const isEven = n =&gt; n % 2 == 0; 
+    const square = n =&gt; n * n;
+
+  // 简化回调函数
+    // 正常函数写法 
+      [1,2,3].map(function (x) {   
+        return x * x; 
+      });  
+    // 箭头函数写法 
+      [1,2,3].map(x =&gt; x * x);
+    // 正常函数写法 
+      var result = values.sort(function (a, b) {   
+        return a - b; 
+      });  
+    // 箭头函数写法 
+      var result = values.sort((a, b) =&gt; a - b);</code></pre><p>/*———————————————————- */<br>    // 绑定 this<br>      // 函数绑定运算符是并排的两个双冒号（::），双冒号左边是一个对象，右边是一个函数，取代call、apply、bind调用<br>        foo::bar;<br>        // 等同于<br>        bar.bind(foo);  </p>
+<pre><code>    foo::bar(...arguments); 
+    // 等同于 
+    bar.apply(foo, arguments);  
+
+    const hasOwnProperty = Object.prototype.hasOwnProperty; 
+    function hasOwn(obj, key) {   
+      return obj::hasOwnProperty(key); 
+    }
+
+  // 左边为空，右边是一个对象的方法，则等于将该方法绑定在该对象上面
+    var method = obj::obj.foo; 
+    // 等同于 
+    var method = ::obj.foo;  
+
+    let log = ::console.log; 
+    // 等同于 
+    var log = console.log.bind(console);
+
+  // 采用链式写法
+    // 例一 
+      import { map, takeWhile, forEach } from &quot;iterlib&quot;;  
+      getPlayers() 
+      ::map(x =&gt; x.character()) 
+      ::takeWhile(x =&gt; x.strength &gt; 100) 
+      ::forEach(x =&gt; console.log(x));  
+    // 例二 
+      let { find, html } = jake;  
+      document.querySelectorAll(&quot;div.myClass&quot;) 
+      ::find(&quot;p&quot;) 
+      ::html(&quot;hahaha&quot;);</code></pre><p>/*———————————————————- */<br>    // 尾调用优化<br>      // 最后一步是调用另一个函数，只保留内层函数的调用帧才叫优化<br>        function f(x){<br>          return g(x);<br>        }<br>      // 函数调用自身，称为递归。如果尾调用自身，就称为尾递归<br>        function factorial(n) {<br>          if (n === 1) return 1;<br>          return n * factorial(n - 1);<br>        }<br>        factorial(5) // 120</p>
+<p>/<em>———————————————————- */<br>    // 参数尾逗号<br>      // 允许函数的最后一个参数有尾逗号<br>        function clownsEverywhere(<br>          param1,<br>          param2,<br>        ) { /</em> … */ }<br>        clownsEverywhere(<br>          ‘foo’,<br>          ‘bar’,<br>          );</p>
+<p>///////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>  // 对象<br>    // 属性的简洁表示法<br>      // 属性名为变量名, 属性值为变量的值<br>        var foo = ‘bar’;<br>        var baz = {foo};<br>        baz // {foo: “bar”}<br>        // 等同于<br>        var baz = {foo: foo};</p>
+<pre><code>    function f(x, y) {   
+      return {x, y}; 
+    }  
+    // 等同于  
+    function f(x, y) {   
+      return {x: x, y: y}; 
+    } 
+    f(1, 2) // Object {x: 1, y: 2}
+
+  // 方法也可以简写
+    var o = {   
+      method() {     
+        return &quot;Hello!&quot;;   
+      } 
+    };  
+    // 等同于  
+    var o = {   
+      method: function() {     
+        return &quot;Hello!&quot;;   
+      } 
+    };
+
+    var birth = &#39;2000/01/01&#39;;  
+    var Person = {    
+      name: &#39;张三&#39;,   
+      birth,    //等同于 birth: birth 
+      hello() { console.log(&#39;我的名字是&#39;, this.name); }  // 等同于hello: function ()...   
+    };
+
+  // 用于函数的返回值
+    function getPoint() {   
+      var x = 1;   
+      var y = 10;   
+      return {x, y}; 
+    }  
+    getPoint() // {x:1, y:10}
+
+  // CommonJS模块输出变量
+    var ms = {};  
+    function getItem (key) {   
+      return key in ms ? ms[key] : null; 
+    }  
+    function setItem (key, value) {   
+      ms[key] = value; 
+    }  
+    function clear () {   
+      ms = {}; 
+    }  
+    module.exports = { getItem, setItem, clear }; 
+    // 等同于 
+    module.exports = {   
+      getItem: getItem,   
+      setItem: setItem,   
+      clear: clear 
+    };
+
+  // 属性的赋值器（setter）和取值器（getter）
+    var cart = {   
+      _wheels: 4,    
+      get wheels () {     
+        return this._wheels;   
+      },    
+      set wheels (value) {     
+        if (value &lt; this._wheels) {       
+          throw new Error(&#39;数值太小了！&#39;);     
+        }     
+        this._wheels = value;   
+      } 
+    }
+
+  // 属性名总是字符串
+    var obj = {   
+      class () {} 
+    };  
+    // 等同于  
+    var obj = {   
+      &#39;class&#39;: function() {} 
+    };
+
+  // 某个方法的值是一个Generator函数，前面需要加上星号
+    var obj = {   
+      * m(){     
+        yield &#39;hello world&#39;;   
+      } 
+    };</code></pre><p>/*———————————————————- */<br>    // 属性名表达式 []<br>      // 定义对象的属性<br>        // 方法一<br>          obj.foo = true;<br>        // 方法二<br>          obj[‘a’ + ‘bc’] = 123;</p>
+<pre><code>  // 把表达式放在方括号内
+    var lastWord = &#39;last word&#39;;  
+    var a = {   
+      &#39;first word&#39;: &#39;hello&#39;,   
+      [lastWord]: &#39;world&#39; 
+    };  
+    a[&#39;first word&#39;] // &quot;hello&quot; 
+    a[lastWord]  // &quot;world&quot; 
+    a[&#39;last word&#39;]  // &quot;world&quot;
+
+  // 表达式还可以用于定义方法名
+    let obj = {   
+      [&#39;h&#39;+&#39;ello&#39;]() {     
+        return &#39;hi&#39;;   
+      } 
+    };  
+    obj.hello() // hi
+
+  // 属性名表达式与简洁表示法，不能同时使用
+    // 报错 
+      var foo = &#39;bar&#39;; 
+      var bar = &#39;abc&#39;; 
+      var baz = { [foo] };  
+    // 正确 
+      var foo = &#39;bar&#39;; 
+      var baz = { [foo]: &#39;abc&#39;};</code></pre><p>/*———————————————————- */<br>    // 方法的name属性<br>      // 对象方法也是函数，因此也有name属性<br>        var person = {<br>          sayName() {<br>            console.log(this.name);<br>          },<br>          get firstName() {<br>            return “Nicholas”;<br>          }<br>        };<br>        person.sayName.name   // “sayName”<br>        person.firstName.name // “get firstName”</p>
+<pre><code>  // bind方法创造的函数，name属性返回加上前缀“bound”
+  // Function构造函数创造的函数，name属性返回“anonymous”
+    (new Function()).name // &quot;anonymous&quot;
+    var doSomething = function() {   
+      // ... 
+    }; 
+    doSomething.bind().name // &quot;bound doSomething&quot;
+    const key1 = Symbol(&#39;description&#39;); 
+    const key2 = Symbol(); 
+    let obj = {
+      [key1]() {},   
+      [key2]() {}, 
+    }; 
+    obj[key1].name // &quot;[description]&quot; 
+    obj[key2].name // &quot;&quot;</code></pre><p>/*———————————————————- */<br>    // Object.is()<br>      // 用于解决相等运算符（==）和严格相等运算符（===）缺点<br>        Object.is(‘foo’, ‘foo’) // true<br>        Object.is({}, {}) // false<br>        +0 === -0 //true<br>        NaN === NaN // false<br>        Object.is(+0, -0) // false<br>        Object.is(NaN, NaN) // true</p>
+<p>/*———————————————————- */<br>    // Object.assign()<br>      // 用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）<br>        var target = { a: 1 };<br>        var source1 = { b: 2 };<br>        var source2 = { c: 3 };<br>        Object.assign(target, source1, source2);<br>        target // {a:1, b:2, c:3}</p>
+<pre><code>  // 如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性
+    var target = { a: 1, b: 1 };  
+    var source1 = { b: 2, c: 2 }; 
+    var source2 = { c: 3 };  
+    Object.assign(target, source1, source2); 
+    target // {a:1, b:2, c:3}
+
+  // 参数不是对象，则会先转成对象
+    typeof Object.assign(2) // &quot;object&quot;
+
+  // undefined和null无法转成对象
+    Object.assign(undefined) // 报错 
+    Object.assign(null) // 报错
+
+  // 只有一个参数，Object.assign会直接返回该参数
+  // 如果undefined和null不在首参数，就不会报错
+    let obj = {a: 1}; 
+    Object.assign(obj) === obj // true 
+    Object.assign(obj, undefined) === obj // true 
+    Object.assign(obj, null) === obj // true
+
+  // 数值、字符串和布尔值 不在首参数，不会产生效果，也不会报错
+  // 字符串会以数组形式，拷贝入目标对象
+    var v1 = &#39;abc&#39;; 
+    var v2 = true; 
+    var v3 = 10;  
+    var obj = Object.assign({}, v1, v2, v3); 
+    console.log(obj); // { &quot;0&quot;: &quot;a&quot;, &quot;1&quot;: &quot;b&quot;, &quot;2&quot;: &quot;c&quot; }
+
+  // 布尔值、数值、字符串分别转成对应的包装对象
+  // 内部属性[[PrimitiveValue]]不会被Object.assign拷贝
+    Object(true) // {[[PrimitiveValue]]: true} 
+    Object(10)  //  {[[PrimitiveValue]]: 10} 
+    Object(&#39;abc&#39;) // {0: &quot;a&quot;, 1: &quot;b&quot;, 2: &quot;c&quot;, length: 3, [[PrimitiveValue]]: &quot;abc&quot;}
+
+  //合并数组
+    Object.assign([1, 2, 3], [4, 5]) // [4, 5, 3]
+
+  // 常见用途
+    // 为对象添加属性
+      class Point {   
+        constructor(x, y) {     
+          Object.assign(this, {x, y});   
+        } 
+      }
+
+    // 为对象添加方法
+      Object.assign(SomeClass.prototype, {   
+        someMethod(arg1, arg2) {     
+          ···   
+        },   
+        anotherMethod() {    
+          ···   
+        } 
+      });  
+      // 等同于下面的写法 
+      SomeClass.prototype.someMethod = function (arg1, arg2) {   
+        ··· 
+      }; 
+      SomeClass.prototype.anotherMethod = function () {   
+        ··· 
+      };
+
+    // 克隆对象
+      // 只能克隆原始对象自身的值，不能克隆它继承的值
+        function clone(origin) {   
+          return Object.assign({}, origin); 
+        }
+      // 保持继承链
+        function clone(origin) {   
+          let originProto = Object.getPrototypeOf(origin);   
+          return Object.assign(Object.create(originProto), origin); 
+        }
+
+    // 合并多个对象，合并后返回一个新对象
+      const merge =   (target, ...sources) =&gt; Object.assign(target, ...sources);
+      const merge =   (...sources) =&gt; Object.assign({}, ...sources);
+
+    // 为属性指定默认值
+      // 如果两者有同名属性，则option的属性值会覆盖DEFAULTS的属性值
+      const DEFAULTS = {   
+        logLevel: 0,   
+        outputFormat: &#39;html&#39; 
+      };  
+      function processContent(options) {   
+        options = Object.assign({}, DEFAULTS, options); 
+      }</code></pre><p>/*———————————————————- */<br>    // 属性的可枚举性<br>      // 获取该属性的描述对象<br>      // Object.assign()，会忽略enumerable为false的属性，只拷贝对象自身的可枚举的属性<br>        let obj = { foo: 123 };<br>        Object.getOwnPropertyDescriptor(obj, ‘foo’)<br>        //  {<br>        //    value: 123,<br>        //    writable: true,<br>        //    enumerable: true,  // enumerable属性，称为”可枚举性“<br>        //    configurable: true<br>        //  }</p>
+<pre><code>  // toString和length属性的enumerable都是false， 因此for...in不会遍历到这两个继承自原型的属性
+  // 所有Class的原型的方法都是不可枚举的
+    Object.getOwnPropertyDescriptor(Object.prototype, &#39;toString&#39;).enumerable // false  
+    Object.getOwnPropertyDescriptor([], &#39;length&#39;).enumerable // false</code></pre><p>/*———————————————————- */<br>    // 属性的遍历<br>      // 遍历对象自身的和继承的可枚举属性（不含Symbol属性）<br>        for…in<br>      // 返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含Symbol属性）<br>        Object.keys(obj)<br>      // 返回一个数组，包含对象自身的所有属性,不含Symbol属性<br>        Object.getOwnPropertyNames(obj)<br>      // 返回一个数组，包含对象自身的所有Symbol属性<br>        Object.getOwnPropertySymbols(obj)<br>      // 返回一个数组，包含对象自身的所有属性<br>        Reflect.ownKeys(obj)<br>      // 遍历的次序规则<br>        // 首先遍历所有属性名为数值的属性，按照数字排序。<br>        // 其次遍历所有属性名为字符串的属性，按照生成时间排序。<br>        // 最后遍历所有属性名为Symbol值的属性，按照生成时间排序。<br>        Reflect.ownKeys({ [Symbol()]:0, b:0, 10:0, 2:0, a:0 }) // [‘2’, ‘10’, ‘b’, ‘a’, Symbol()]</p>
+<p>/*———————————————————- */<br>    // <strong>proto</strong><br>      // <strong>proto</strong>属性用来读取或设置当前对象的prototype对象<br>      // 无论从语义的角度，还是从兼容性的角度，都不要使用这个属性，而是使用下面的<br>        // es6的写法<br>          var obj = {<br>            method: function() { … }<br>          };<br>          obj.<strong>proto</strong> = someOtherObj;<br>        // es5的写法<br>          var obj = Object.create(someOtherObj);<br>          obj.method = function() { … };</p>
+<pre><code>  // Object.setPrototypeOf() 设置原型对象
+    // 格式 
+      Object.setPrototypeOf(object, prototype)  
+    // 用法 
+      var o = Object.setPrototypeOf({}, null);
+    // 将proto对象设为obj对象的原型，所以从obj对象可以读取proto对象的属性
+      let proto = {}; 
+      let obj = { x: 10 }; 
+      Object.setPrototypeOf(obj, proto);  
+      proto.y = 20; 
+      proto.z = 40;  
+      obj.x // 10 
+      obj.y // 20 
+      obj.z // 40
+
+  // Object.getPrototypeOf() 读取一个对象的prototype对象
+    function Rectangle() { }  
+    var rec = new Rectangle();  
+    Object.getPrototypeOf(rec) === Rectangle.prototype // true  
+    Object.setPrototypeOf(rec, Object.prototype); 
+    Object.getPrototypeOf(rec) === Rectangle.prototype // false</code></pre><p>/*———————————————————- */<br>    // Object.values()<br>      // ES5引入了Object.keys方法，返回一个数组，成员是参数对象自身的所有可遍历属性的键名<br>        var obj = { foo: “bar”, baz: 42 };<br>        Object.keys(obj) // [“foo”, “baz”]<br>      // Object.values方法返回一个数组，成员是参数对象自身的所有可遍历属性的键值<br>        let {keys, values, entries} = Object;<br>        let obj = { a: 1, b: 2, c: 3 };<br>        for (let key of keys(obj)) {<br>          console.log(key); // ‘a’, ‘b’, ‘c’<br>        }<br>        for (let value of values(obj)) {<br>          console.log(value); // 1, 2, 3<br>        }<br>        for (let [key, value] of entries(obj)) {<br>          console.log([key, value]); // [‘a’, 1], [‘b’, 2], [‘c’, 3]<br>        }<br>      // 过滤属性名为Symbol值的属性<br>        var obj = { foo: “bar”, baz: 42 };<br>        Object.values(obj) // [“bar”, 42]<br>        Object.values({ [Symbol()]: 123, foo: ‘abc’ }); // [‘abc’]<br>        Object.values(‘foo’) // [‘f’, ‘o’, ‘o’]<br>        Object.values(42) // []<br>        Object.values(true) // []</p>
+<p>/*———————————————————- */<br>    // Object.entries()<br>      // 返回一个数组，成员是参数对象自身的所有可遍历属性的键值对数组, Symbol值会被省略<br>        var obj = { foo: ‘bar’, baz: 42 };<br>        Object.entries(obj) // [ [“foo”, “bar”], [“baz”, 42] ]<br>      // 遍历对象的属性<br>        let obj = { one: 1, two: 2 };<br>        for (let [k, v] of Object.entries(obj)) {<br>          console.log(<code>${JSON.stringify(k)}: ${JSON.stringify(v)}</code>);<br>        }<br>        // “one”: 1<br>        // “two”: 2<br>      // 将对象转为真正的Map结构<br>        var obj = { foo: ‘bar’, baz: 42 };<br>        var map = new Map(Object.entries(obj));<br>        map // Map { foo: “bar”, baz: 42 }</p>
+<p>/*———————————————————- */<br>    // 对象的扩展运算符<br>      // 解构赋值<br>        // 解构赋值必须是最后一个参数<br>          let { x, y, …z } = { x: 1, y: 2, a: 3, b: 4 };<br>          x // 1<br>          y // 2<br>          z // { a: 3, b: 4 }<br>          let { x, y, …z } = null; // 运行时错误<br>          let { x, y, …z } = undefined; // 运行时错误<br>          let { …x, y, z } = obj; // 句法错误<br>          let { x, …y, …z } = obj; // 句法错误</p>
+<pre><code>    // 解构赋值的拷贝是浅拷贝
+    // 复合类型的值拷贝的是这个值的引用
+      let obj = { a: { b: 1 } }; 
+      let { ...x } = obj; 
+      obj.a.b = 2; 
+      x.a.b // 2
+
+    // 解构赋值不会拷贝继承自原型对象的属性
+      let o1 = { a: 1 }; 
+      let o2 = { b: 2 }; 
+      o2.__proto__ = o1; 
+      let o3 = { ...o2 }; 
+      o3 // { b: 2 }
+
+    // 解构赋值产生的变量y和z，只能读取对象自身的属性，所以只有变量z可以赋值成功
+      var o = Object.create({ x: 1, y: 2 }); 
+      o.z = 3;  
+      let { x, ...{ y, z } } = o; 
+      x // 1 
+      y // undefined 
+      z // 3
+
+    // 扩展某个函数的参数
+      function baseFunction({ a, b }) {   
+        // ... 
+      } 
+      function wrapperFunction({ x, y, ...restConfig }) {   
+        // 使用x和y参数进行操作   
+        // 其余参数传给原始函数   
+        return baseFunction(restConfig); 
+      }
+
+  // 扩展运算符
+    // 取出参数对象的所有可遍历属性，拷贝到当前对象之中
+      let z = { a: 3, b: 4 }; 
+      let n = { ...z }; 
+      n // { a: 3, b: 4 }
+
+      let aClone = { ...a }; 
+      // 等同于 
+      let aClone = Object.assign({}, a);
+
+    // 合并两个对象
+      let ab = { ...a, ...b }; 
+      // 等同于 
+      let ab = Object.assign({}, a, b);
+
+    // a对象的x属性和y属性，拷贝到新对象后会被覆盖掉
+      let aWithOverrides = { ...a, x: 1, y: 2 }; 
+      // 等同于 
+      let aWithOverrides = { ...a, ...{ x: 1, y: 2 } }; 
+      // 等同于 
+      let x = 1, y = 2, aWithOverrides = { ...a, x, y }; 
+      // 等同于 
+      let aWithOverrides = Object.assign({}, a, { x: 1, y: 2 });
+
+    // newVersion对象自定义了name属性， 其他属性全部复制自previousVersion对象
+      let newVersion = {   
+        ...previousVersion,   
+        name: &#39;New Name&#39; // Override the name property 
+      };
+
+    // 自定义属性放在扩展运算符前面，就变成了设置新对象的默认属性值
+      let aWithDefaults = { x: 1, y: 2, ...a }; 
+      // 等同于 
+      let aWithDefaults = Object.assign({}, { x: 1, y: 2 }, a); 
+      // 等同于 
+      let aWithDefaults = Object.assign({ x: 1, y: 2 }, a);
+
+    // 这个两个值会被忽略
+      let emptyObject = { ...null, ...undefined }; // 不报错</code></pre><p>/*———————————————————- */<br>    // Object.getOwnPropertyDescriptors()<br>      // 返回指定对象所有自身属性（非继承属性）的描述对象<br>        const obj = {<br>          foo: 123,<br>          get bar() { return ‘abc’ }<br>        };<br>        Object.getOwnPropertyDescriptors(obj)<br>        // { foo:<br>        //    { value: 123,<br>        //      writable: true,<br>        //      enumerable: true,<br>        //      configurable: true<br>        //    },<br>        //   bar:<br>        //    { get: [Function: bar],<br>        //      set: undefined,<br>        //      enumerable: true,<br>        //      configurable: true<br>        //   }<br>        // }  </p>
+<pre><code>  // 为了解决Object.assign()无法正确拷贝get属性和set属性的问题
+  // 因为Object.assign方法总是拷贝一个属性的值，而不会拷贝它背后的赋值方法或取值方法
+    const source = {   
+      set foo(value) {     
+        console.log(value);   
+      } 
+    };  
+    const target1 = {}; 
+    Object.assign(target1, source);  
+    Object.getOwnPropertyDescriptor(target1, &#39;foo&#39;) 
+    // { value: undefined, 
+    //   writable: true, 
+    //   enumerable: true, 
+    //   configurable: true }
+
+  // 可以实现正确拷贝
+    const source = {   
+      set foo(value) {     
+        console.log(value);   
+      } 
+    };  
+    const target2 = {}; 
+    Object.defineProperties(target2, Object.getOwnPropertyDescriptors(source)); 
+    Object.getOwnPropertyDescriptor(target2, &#39;foo&#39;) 
+    // { get: undefined, 
+    //   set: [Function: foo], 
+    //   enumerable: true, 
+    //   configurable: true }
+
+  // 简写
+    const shallowMerge = (target, source) =&gt; Object.defineProperties(   
+      target,   
+      Object.getOwnPropertyDescriptors(source) 
+    );
+
+  // 将对象属性克隆到一个新对象。这属于浅拷贝。
+    const clone = Object.create(
+      Object.getPrototypeOf(obj),   
+      Object.getOwnPropertyDescriptors(obj));  
+    // 或者  
+    const shallowClone = (obj) =&gt; Object.create(   
+      Object.getPrototypeOf(obj),   
+      Object.getOwnPropertyDescriptors(obj) 
+    );
+
+  // 一个对象继承另一个对象
+    const obj = Object.create(prot); 
+    obj.foo = 123;  
+    // 或者  
+    const obj = Object.assign(   
+      Object.create(prot),   
+      {foo: 123,} 
+    );  
+    //现在 
+    const obj = Object.create(   
+      prot,   
+      Object.getOwnPropertyDescriptors({foo: 123,}) 
+    );
+
+  // 用来实现Mixin（混入）模式
+  // 对象a和b被混入了对象c
+    let mix = (object) =&gt; ({   
+      with: (...mixins) =&gt; mixins.reduce(     
+        (c, mixin) =&gt; Object.create(       
+          c, Object.getOwnPropertyDescriptors(mixin)     
+        ), object) 
+      });  
+
+    // multiple mixins example 
+      let a = {a: &#39;a&#39;}; 
+      let b = {b: &#39;b&#39;}; 
+      let c = {c: &#39;c&#39;}; 
+      let d = mix(c).with(a, b);</code></pre></div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/es/es%E8%A7%A3%E6%9E%84%E6%96%B9%E6%B3%95/">&lt; es解构方法</a><a class="next" href="/2020/04/19/web/es/es%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">es数据结构 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

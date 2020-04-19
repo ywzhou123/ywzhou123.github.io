@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>es解构方法 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">es解构方法</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/web/es/es%E8%A7%A3%E6%9E%84%E6%96%B9%E6%B3%95/">2020-04-19</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><p>// 解构</p>
+<p>///////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 数组<br>var [a, b, c] = [1, 2, 3];</p>
+<p>let [foo, [[bar], baz]] = [1, [[2], 3]];<br>foo // 1<br>bar // 2<br>baz // 3</p>
+<p>let [ , , third] = [“foo”, “bar”, “baz”];<br>third // “baz”</p>
+<p>let [x, , y] = [1, 2, 3];<br>x // 1<br>y // 3</p>
+<p>let [head, …tail] = [1, 2, 3, 4];<br>head // 1<br>tail // [2, 3, 4]</p>
+<p>let [x, y, …z] = [‘a’];<br>x // “a”<br>y // undefined 解构不成功，变量的值就等于undefined<br>z // []</p>
+<p>//不完全解构<br>let [x, y] = [1, 2, 3];<br>x // 1<br>y // 2<br>let [a, [b], d] = [1, [2, 3], 4];<br>a // 1<br>b // 2<br>d // 4<br>let [x, y, z] = new Set([“a”, “b”, “c”]);<br>x // “a”</p>
+<p>function* fibs() {<br>var a = 0;<br>var b = 1;<br>while (true) {<br>yield a;<br>[a, b] = [b, a + b];<br>}<br>}<br>var [first, second, third, fourth, fifth, sixth] = fibs();<br>sixth // 5</p>
+<p>//允许指定默认值<br>var [foo = true] = [];<br>foo // true</p>
+<p>[x, y = ‘b’] = [‘a’]; // x=’a’, y=’b’<br>[x, y = ‘b’] = [‘a’, undefined]; // x=’a’, y=’b’<br>var [x = 1] = [undefined];<br>x // 1<br>var [x = 1] = [null]; //数组成员不严格等于undefined，默认值是不会生效<br>x // null<br>function f() {<br>console.log(‘aaa’);<br>}<br>let [x = f()] = [1];// 默认值是一个表达式，那么这个表达式是惰性求值的<br>// x能取到值，所以函数f根本不会执行</p>
+<p>let [x = 1, y = x] = []; // x=1; y=1<br>let [x = 1, y = x] = [2]; // x=2; y=2<br>let [x = 1, y = x] = [1, 2]; // x=1; y=2<br>let [x = y, y = 1] = []; // ReferenceError<br>// 可以引用解构赋值的其他变量<br>// 变量必须已经声明</p>
+<p>///////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 对象<br>//对象的属性没有次序，变量必须与属性同名<br>var { foo, bar } = { foo: “aaa”, bar: “bbb” };<br>foo // “aaa”<br>bar // “bbb”<br>var { foo: baz } = { foo: ‘aaa’, bar: ‘bbb’ }; //变量名与属性名不一致时的写法, foo是匹配的模式，真正被赋值的是变量baz<br>baz // “aaa”<br>foo // error: foo is not defined</p>
+<p>let obj = { first: ‘hello’, last: ‘world’ };<br>let { first: f, last: l } = obj;<br>f // ‘hello’<br>l // ‘world’</p>
+<p>//对于let和const来说，变量不能重新声明<br>let foo;<br>let {foo} = {foo: 1}; // SyntaxError: Duplicate declaration “foo”<br>let baz;<br>let {bar: baz} = {bar: 1}; // SyntaxError: Duplicate declaration “baz”<br>let foo;<br>({foo} = {foo: 1}); // 成功<br>let baz;<br>({bar: baz} = {bar: 1}); // 成功</p>
+<p>var obj = {<br>p: [<br>‘Hello’,<br>{ y: ‘World’ }<br>]<br>};<br>var { p: [x, { y }] } = obj;<br>x // “Hello”<br>y // “World”</p>
+<p>var node = {<br>loc: {<br>start: {<br>line: 1,<br>column: 5<br>}<br>}<br>};<br>var { loc: { start: { line }} } = node; //loc和start都是模式，不会被赋值<br>line // 1<br>loc // error: loc is undefined<br>start // error: start is undefined<br>let obj = {};<br>let arr = [];<br>({ foo: obj.prop, bar: arr[0] } = { foo: 123, bar: true });<br>obj // {prop:123}<br>arr // [true]</p>
+<p>//指定默认值<br>var {x = 3} = {};<br>x // 3<br>var {x, y = 5} = {x: 1};<br>x // 1<br>y // 5<br>var {x:y = 3} = {};<br>y // 3<br>var {x:y = 3} = {x: 5};<br>y // 5<br>var { message: msg = ‘Something went wrong’ } = {};<br>msg // “Something went wrong”<br>// 默认值生效的条件是，对象的属性值严格等于undefined<br>var {x = 3} = {x: undefined};<br>x // 3<br>var {x = 3} = {x: null};<br>x // null</p>
+<p>// 解构失败，变量的值等于undefined<br>var {foo} = {bar: ‘baz’};<br>foo // undefined</p>
+<p>// 对数组进行对象属性的解构<br>let { log, sin, cos } = Math;//将Math对象的对数、正弦、余弦三个方法，赋值到对应的变量上<br>var arr = [1, 2, 3];<br>var {0 : first, [arr.length - 1] : last} = arr;<br>first // 1<br>last // 3</p>
+<p>///////////////////////////////////////////////////////////////////////////////////////////////////////<br>// 字符串<br>// 字符串被转换成了一个类似数组的对象<br>const [a, b, c, d, e] = ‘hello’;<br>a // “h”<br>b // “e”<br>c // “l”<br>d // “l”<br>e // “o”<br>let {length : len} = ‘hello’;<br>len // 5</p>
+<p>///////////////////////////////////////////////////////////////////////////////////////////////////////<br>// 数值布尔<br>// 会先转为对象<br>let {toString: s} = 123;<br>s === Number.prototype.toString // true<br>let {toString: s} = true;<br>s === Boolean.prototype.toString // true<br>// undefined和null无法转为对象，所以对它们进行解构赋值，都会报错<br>let { prop: x } = undefined; // TypeError<br>let { prop: y } = null; // TypeError</p>
+<p>///////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 函数参数<br>function add([x, y]){<br>return x + y;<br>}<br>add([1, 2]); // 3<br>[[1, 2], [3, 4]].map(([a, b]) =&gt; a + b); // [ 3, 7 ]</p>
+<p>// 为函数参数设置默认值<br>function move({x = 0, y = 0} = {}) {<br>return [x, y];<br>}<br>move({x: 3, y: 8}); // [3, 8]<br>move({x: 3}); // [3, 0]<br>move({}); // [0, 0]<br>move(); // [0, 0]</p>
+<p>// 不是为变量x和y指定默认值<br>function move({x, y} = { x: 0, y: 0 }) {<br>return [x, y];<br>}<br>move({x: 3, y: 8}); // [3, 8]<br>move({x: 3}); // [3, undefined]<br>move({}); // [undefined, undefined]<br>move(); // [0, 0]<br>// undefined就会触发函数参数的默认值<br>[1, undefined, 3].map((x = ‘yes’) =&gt; x); // [ 1, ‘yes’, 3 ]</p>
+<p>///////////////////////////////////////////////////////////////////////////////////////////////////////<br>// 圆括号<br>// 不能使用<br>// 变量声明<br>// 全部报错,因为它们都是变量声明<br>var [(a)] = [1];<br>var {x: (c)} = {};<br>var ({x: c}) = {};<br>var {(x: c)} = {};<br>var {(x): c} = {};<br>var { o: ({ p: p }) } = { o: { p: 2 } };<br>// 函数参数<br>// 报错<br>function f([(z)]) { return z; }<br>// 赋值语句<br>// 全部报错<br>({ p: a }) = { p: 42 };<br>([a]) = [5];<br>[({ p: a }), { x: c }] = [{}, {}];<br>// 可以使用<br>// 赋值语句的非模式部分<br>[(b)] = [3]; // 正确<br>({ p: (d) } = {}); // 正确<br>[(parseInt.prop)] = [3]; // 正确</p>
+<p>///////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 用途<br>// 交换变量的值<br>[x, y] = [y, x];<br>// 从函数返回多个值<br>function example() { return [1, 2, 3]; } var [a, b, c] = example();<br>function example() { return { foo: 1, bar: 2 }; } var { foo, bar } = example();<br>// 函数参数的定义<br>// 参数是一组有次序的值<br>function f([x, y, z]) { … }<br>f([1, 2, 3]);<br>// 参数是一组无次序的值<br>function f({x, y, z}) { … }<br>f({z: 3, y: 2, x: 1});<br>// 提取JSON数据<br>var jsonData = {<br>id: 42,<br>status: “OK”,<br>data: [867, 5309]<br>};<br>let { id, status, data: number } = jsonData;<br>console.log(id, status, number); // 42, “OK”, [867, 5309]<br>// 函数参数的默认值<br>jQuery.ajax = function (url, {<br>async = true,<br>beforeSend = function () {},<br>cache = true,<br>complete = function () {},<br>crossDomain = false,<br>global = true, // … more config<br>}) {<br>// … do stuff<br>};<br>// 遍历Map结构<br>var map = new Map();<br>map.set(‘first’, ‘hello’);<br>map.set(‘second’, ‘world’);<br>for (let [key, value] of map) {<br>console.log(key + “ is “ + value);<br>}<br>// first is hello<br>// second is world<br>// 获取键名<br>for (let [key] of map) {<br>// …<br>}<br>// 获取键值<br>for (let [,value] of map) {<br>// …<br>}<br>// 输入模块的指定方法<br>const { SourceMapConsumer, SourceNode } = require(“source-map”);</p>
+</div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/es/es6%E8%AF%AD%E6%B3%95/">&lt; es6语法</a><a class="next" href="/2020/04/19/web/es/es%E6%89%A9%E5%B1%95%E6%96%B9%E6%B3%95/">es扩展方法 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

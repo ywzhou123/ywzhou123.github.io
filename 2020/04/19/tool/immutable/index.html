@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>Immutable | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">Immutable</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/tool/immutable/">2020-04-19</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><p>//<a href="https://facebook.github.io/immutable-js/" target="_blank" rel="noopener">https://facebook.github.io/immutable-js/</a><br>//Immutable 是一个可实现持久数据结构的 JavaScript 库。它性能很好，并且命名符合 JavaScript API 的语言习惯<br>//Immutable 中的 Map 和 List 对应原生 Object 和 Array<br>//npm install immutable</p>
+<p>import { Map, List, Seq, fromJS, is } from ‘immutable’;</p>
+<p>/*———————————————————————————————————— */<br>//设置和取值<br>    var map1 = Map({ a: 1, b: 2, c: 3 });<br>    var map2 = map1.set(‘b’, 50);<br>    map1.get(‘b’); // 2<br>    map2.get(‘b’); // 50</p>
+<pre><code>foo = fromJS({ a: { b: 1 } });
+bar = foo.setIn([&#39;a&#39;, &#39;b&#39;], 2); // 使用 setIn 赋值
+console.log(foo.getIn([&#39;a&#39;, &#39;b&#39;])); // 使用 getIn 取值，打印 1
+console.log(foo === bar); //  打印 false
+
+let a = Map({
+    select: &#39;users&#39;,
+    filter: Map({ name: &#39;Cam&#39; })
+})
+let b = a.set(&#39;select&#39;, &#39;people&#39;);
+a === b; // false
+a.get(&#39;filter&#39;) === b.get(&#39;filter&#39;); // true</code></pre><p>/*———————————————————————————————————— */<br>//key value 处理<br>    var alpha = Map({ a: 1, b: 2, c: 3, d: 4 });<br>    alpha.map((v, k) =&gt; k.toUpperCase()).join();<br>    // ‘A,B,C,D’</p>
+<p>/*———————————————————————————————————— */<br>//合并<br>    var map1 = Map({ a: 1, b: 2, c: 3, d: 4 });<br>    var map2 = Map({ c: 10, a: 20, t: 30 });<br>    var obj = { d: 100, o: 200, g: 300 };<br>    var map3 = map1.merge(map2, obj);<br>    // Map { a: 20, b: 2, c: 10, d: 100, t: 30, o: 200, g: 300 }</p>
+<pre><code>var myObject = { a: 1, b: 2, c: 3 };
+Seq(myObject).map(x =&gt; x * x).toObject();
+// { a: 1, b: 4, c: 9 }</code></pre><p>/*———————————————————————————————————— */<br>//和对象获取K值的区别，key会将num转为str<br>    var obj = { 1: “one” };<br>    Object.keys(obj); // [ “1” ]<br>    obj[“1”]; // “one”<br>    obj[1]; // “one”</p>
+<pre><code>var map = fromJS(obj); //对象转MAP
+map.get(&quot;1&quot;); // &quot;one&quot;
+map.get(1); // undefined</code></pre><p>/*———————————————————————————————————— */<br>//转换<br>    var deep = Map({ a: 1, b: 2, c: List.of(3, 4, 5) });<br>    deep.toObject() // { a: 1, b: 2, c: List [ 3, 4, 5 ] }<br>    deep.toArray() // [ 1, 2, List [ 3, 4, 5 ] ]<br>    deep.toJS() // { a: 1, b: 2, c: [ 3, 4, 5 ] }<br>    JSON.stringify(deep) // ‘{“a”:1,”b”:2,”c”:[3,4,5]}’</p>
+<p>/*———————————————————————————————————— */<br>//嵌套结构<br>    // mergeDeep, getIn, setIn, and updateIn<br>    var nested = fromJS({ a: { b: { c: [3, 4, 5] } } });<br>    // Map { a: Map { b: Map { c: List [ 3, 4, 5 ] } } }<br>    var nested2 = nested.mergeDeep({ a: { b: { d: 6 } } });<br>    // Map { a: Map { b: Map { c: List [ 3, 4, 5 ], d: 6 } } }<br>    nested2.getIn([‘a’, ‘b’, ‘d’]); // 6<br>    var nested3 = nested2.updateIn([‘a’, ‘b’, ‘d’], value =&gt; value + 1);<br>    // Map { a: Map { b: Map { c: List [ 3, 4, 5 ], d: 7 } } }<br>    var nested4 = nested3.updateIn([‘a’, ‘b’, ‘c’], list =&gt; list.push(6));<br>    // Map { a: Map { b: Map { c: List [ 3, 4, 5, 6 ], d: 7 } } }</p>
+<p>/*———————————————————————————————————— */<br>//比较对象的值<br>    var map1 = Map({ a: 1, b: 1, c: 1 });<br>    var map2 = Map({ a: 1, b: 1, c: 1 });<br>    assert(map1 !== map2); // two different instances<br>    assert(is(map1, map2)); // have equivalent values<br>    assert(map1.equals(map2)); // alternatively use the equals method</p>
+<p>/*———————————————————————————————————— */<br>//判断数据是否变化<br>    // import { is } from ‘immutable’;</p>
+<pre><code>shouldComponentUpdate(nextProps = {}, nextState = {}) {
+    const thisProps = this.props || {},
+        thisState = this.state || {};
+
+    if (Object.keys(thisProps).length !== Object.keys(nextProps).length ||
+        Object.keys(thisState).length !== Object.keys(nextState).length) {
+        return true;
+    }
+
+    for (const key in nextProps) {
+        if (thisProps[key] !== nextProps[key] || !is(thisProps[key], nextProps[key])) {
+            return true;
+        }
+    }
+
+    for (const key in nextState) {
+        if (thisState[key] !== nextState[key] || !is(thisState[key], nextState[key])) {
+            return true;
+        }
+    }
+    return false;
+};</code></pre><p>/*———————————————————————————————————— */<br>//列表对象<br>    var list1 = List.of(1, 2); //list1.get(0)取得1<br>    var list2 = list1.push(3, 4, 5);<br>    var list3 = list2.unshift(0);<br>    var list4 = list1.concat(list2, list3);</p>
+<pre><code>var list1 = List.of(1, 2, 3);
+var list2 = list1.withMutations(function(list) {
+    list.push(4).push(5).push(6);
+});
+assert(list1.size === 3);
+assert(list2.size === 6);</code></pre><p>/*———————————————————————————————————— */<br>//Cursor游标，访问深层对象<br>    import Cursor from ‘immutable/contrib/cursor’;</p>
+<pre><code>let data = fromJS({ a: { b: { c: 1 } } });
+// 让 cursor 指向 { c: 1 }
+let cursor = Cursor.from(data, [&#39;a&#39;, &#39;b&#39;], newData =&gt; {
+    // 当 cursor 或其子 cursor 执行 update 时调用
+    console.log(newData);
+});
+
+cursor.get(&#39;c&#39;); // 1
+cursor = cursor.update(&#39;c&#39;, x =&gt; x + 1);
+cursor.get(&#39;c&#39;); // 2</code></pre><p>/*———————————————————————————————————— */<br>//fromJS转成MAP，toJS转成对象<br>    const Apple = (state = initstate, action) =&gt; {<br>        switch (action.type) {<br>            case “EAT_APPLE”:<br>                //这里只对state中的apples数组对象中单个成员action.id的isEaten属性修改成true<br>                return fromJS(state).setIn([‘apples’, action.id, ‘isEaten’], true).toJS();<br>        }<br>    }</p>
+<p>/*———————————————————————————————————— */<br>//Map对象方法 updateIn()    set()   setIn()<br>    nextState = state.updateIn([action.from.id, ‘props’, ‘children’], c =&gt; c.splice(action.from.index, 1));<br>    nextState = nextState.updateIn([action.to.id, ‘props’, ‘children’], c =&gt; c.splice(action.to.index, 0, action.item));</p>
+<pre><code>nextState = state.setIn([action.id, &#39;props&#39;, key], value);
+nextState = state.
+set(action.item.id, action.item).
+updateIn([action.id, &#39;props&#39;, &#39;children&#39;], c =&gt; c.splice(action.index, 0, action.item.id));
+
+nextState = state.updateIn([action.parentId, &#39;props&#39;, &#39;children&#39;], c =&gt; c.splice(action.index, 1));</code></pre><p>/*———————————————————————————————————— */<br>//深度删除<br>    // @flow</p>
+<pre><code>const deepRemove = (state: any, id: string): any =&gt; {
+    const children = state.getIn([id, &#39;props&#39;, &#39;children&#39;]);
+    if (children) {
+        children.forEach(c =&gt; {
+            state = deepRemove(state, c);
+        });
+    }
+    return state.delete(id);
+};</code></pre><p>/*———————————————————————————————————— */<br>//state的用法<br>    getInitialState() {<br>            return {<br>                data: Map({ times: 0 })<br>            }<br>        },<br>        handleAdd() {<br>            this.setState(({ data }) =&gt; ({<br>                    data: data.update(‘times’, v =&gt; v + 1)<br>                })<br>            });<br>    }</p>
+<p>/*———————————————————————————————————— */<br>//实现一个类似带有添加和撤销功能的 Store<br>    import { Map, OrderedMap } from ‘immutable’;</p>
+<pre><code>let todos = OrderedMap();
+let history = []; // 普通数组，存放每次操作后产生的数据
+
+let TodoStore = createStore({
+    getAll() { return todos; }
+});
+
+Dispatcher.register(action =&gt; {
+    if (action.actionType === &#39;create&#39;) {
+        let id = createGUID();
+        history.push(todos); // 记录当前操作前的数据，便于撤销
+        todos = todos.set(id, Map({
+            id: id,
+            complete: false,
+            text: action.text.trim()
+        }));
+        TodoStore.emitChange();
+    } else if (action.actionType === &#39;undo&#39;) {
+        // 这里是撤销功能实现，
+        // 只需从 history 数组中取前一次 todos 即可
+        if (history.length &gt; 0) {
+            todos = history.pop();
+        }
+        TodoStore.emitChange();
+    }
+});</code></pre><p>/*———————————————————————————————————— */<br>//与 Redux 搭配使用<br>    //由于 Redux 中内置的 <code>combineReducers</code> 和 reducer 中的 <code>initialState</code> 都为原生的 Object 对象，所以不能和 Immutable 原生搭配使用。<br>    //幸运的是，Redux 并不排斥使用 Immutable，可以自己重写 <code>combineReducers</code> 或使用 redux-immutablejs 来提供支持。</p>
+<p>/*———————————————————————————————————— */<br>//优化写法，使用Record对象，可以省去fromJS()和toJS()进行数据转换，直接使用setIn updateIn等方法</p>
+<p>import { Record } from ‘immutable’;</p>
+<p>const recode=  Record({<br>    a:1,<br>    b:2,<br>    c:[1,2,3]<br>})</p>
+<p>const initstate= {<br>    recode: new recode(),<br>}</p>
+<p>initstate.recode.updateIn([‘a’],100)</p>
+</div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/tool/git/">&lt; git</a><a class="next" href="/2020/04/19/tool/mock/">MockJs &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

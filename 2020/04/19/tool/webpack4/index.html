@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>webpack4 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">webpack4</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/tool/webpack4/">2020-04-19</a></span><span class="p-category"><i class="fa fa-folder"></i><a href="/categories/web/">web</a>&nbsp;&bull;&nbsp;<a href="/categories/web/tool/">tool</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><p>// Webpack</p>
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 安装<br>// npm install webpack webpack-dev-server react react-dom babel babel-core babel-loader –save-dev<br>// open-browser-webpack-plugin html-webpack-plugin<br>// 命令<br>webpack<br>// 在开发环境构建一次<br>webpack -d<br>// 构建并生成源代码映射文件<br>webpack -p<br>// 在生产环境构建，压缩、混淆代码，移除无用代码<br>webpack –watch<br>// 快速增量构建，可和其他参数同用<br>webpack-dev-server –devtool –progress<br>webpack –display-error-details –colors –watch</p>
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 加载器 style-loader css-loader url-loader babel-loader sass-loader file-loader<br>/**————————————————————————————————————————– */<br>// jsx<br>// 用于加载.js或.jsx文件，支持react的jsx语法、ES6语法<br>// npm install react react-dom babel babel-core babel-loader babel-preset-react babel-preset-es2015 –save-dev<br>loaders:[<br>{<br>test: /.js[x]?$/,<br>exclude: /node_modules/,<br>loader: ‘babel-loader?presets[]=es2015&amp;presets[]=react’,<br>},<br>]<br>loaders:[<br>{<br>test: /.js[x]?$/,<br>exclude: /node_modules/,<br>loader: ‘babel-loader’,<br>query: {<br>presets: [‘es2015’, ‘react’]<br>}<br>},<br>]</p>
+<p>/**————————————————————————————————————————– */<br>// Image<br>// 用于加载图片文件，限制大小为8192字节<br>// npm install url-loader –save-dev<br>loaders:[<br>{ test: /.(png|jpg)$/, loader: ‘url-loader?limit=8192’ }<br>]<br>// js设置图片源地址<br>var img1 = document.createElement(“img”);<br>img1.src = require(“./small.png”);<br>document.body.appendChild(img1);</p>
+<p>// jsx设置图片源地址<br><img src="src/images/apple.jpg"></img></p>
+<p>/**————————————————————————————————————————– */<br>// css<br>// 用于加载.css样式文件<br>// npm install css-loader style-loader –save-dev<br>loaders:[<br>{ test: /.css$/, loader: ‘style-loader!css-loader’ },<br>]</p>
+<p>/**————————————————————————————————————————– */<br>// CSS Module<br>// css 模块加载器<br>loaders:[<br>{ test: /.js[x]?$/, exclude: /node_modules/, loader: ‘babel-loader?presets[]=es2015&amp;presets[]=react’ },<br>{ test: /.css$/, loader: ‘style-loader!css-loader?modules’ }<br>]<br>// .css文件中定义样式<br>// 使用css modules加载，默认CSS是本地作用域，即这里的.h1只能jsx里的组件标签有效<br>// 使用:global()取消，这里的.h2就对全局有效<br>.h1 {<br>color:red;<br>}<br>:global(.h2) {<br>color: blue;<br>}<br>// .jsx文件<br>// .h1是本地的，这里有效<br>// .h2是全局的，这里有效</p>
+<div>
+<h1 className={style.h1}>Hello World</h1>
+<h2 className="h2">Hello Webpack</h2>
+</div>
+// .html文件
+// .h1是本地的，这里无效
+// .h2是全局的，这里有效
+<html>
+<body>
+<h1 class="h1">Hello World</h1>
+<h2 class="h2">Hello Webpack</h2>
+<div id="example"></div>
+<script src="./bundle.js"></script>
+</body>
+</html>
+
+<p>/**————————————————————————————————————————– */<br>// bundle-loader 参见下面的代码分割<br>// 分割代码块， a.js将编译成1.bundle.js<br>// main.js<br>// Now a.js is requested, it will be bundled into another file<br>var load = require(‘bundle-loader!./a.js’);<br>// To wait until a.js is available (and get the exports)<br>// you need to async wait for it.<br>load(function(file) {<br>document.open();<br>document.write(‘<h1>‘ + file + ‘</h1>‘);<br>document.close();<br>});</p>
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 插件<br>// UglifyJs 压缩js<br>// 压缩打包后的bundle.js文件，变成无格式无空格的一行<br>var webpack = require(‘webpack’);<br>var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;</p>
+<p>module.exports = {<br>entry: ‘./main.js’,<br>output: {<br>filename: ‘bundle.js’<br>},<br>plugins: [<br>new uglifyJsPlugin({<br>compress: {<br>warnings: false<br>}<br>})<br>]<br>}<br>/**————————————————————————————————————————– */<br>// html-webpack-plugin 和 open-browser-webpack-plugin<br>// html-webpack-plugin 用于自动生成 <code>index.html</code> 页面<br>// open-browser-webpack-plugin 会在 Webpack 运行后会自动打开一个新的浏览器页面<br>var HtmlwebpackPlugin = require(‘html-webpack-plugin’);<br>var OpenBrowserPlugin = require(‘open-browser-webpack-plugin’);</p>
+<p>module.exports = {<br>entry: ‘./main.js’,<br>output: {<br>filename: ‘bundle.js’<br>},<br>plugins: [<br>new HtmlwebpackPlugin({<br>title: ‘Webpack-demos’,<br>filename: ‘index.html’<br>}),<br>new OpenBrowserPlugin({<br>url: ‘<a href="http://localhost:8080&#39;">http://localhost:8080&#39;</a><br>})<br>]<br>};</p>
+<p>/**————————————————————————————————————————– */<br>// CommonsChunkPlugin<br>// 将多个文件使用的常用代码块提取到一个单独文件<br>// main1.jsx<br>var React = require(‘react’);<br>var ReactDOM = require(‘react-dom’);<br>ReactDOM.render(</p>
+<h1>Hello World</h1>,
+document.getElementById('a')
+);
+// main2.jsx
+var React = require('react');
+var ReactDOM = require('react-dom');
+ReactDOM.render(
+<h2>Hello Webpack</h2>,
+document.getElementById('b')
+);
+
+<p>// 两个jsx文件作为入口文件，编译成bundle1.js和bundle2.js<br>// 这两个文件存有差异部分，相同部分将提取到init.js中<br>var CommonsChunkPlugin = require(“webpack/lib/optimize/CommonsChunkPlugin”);<br>module.exports = {<br>entry: {<br>bundle1: ‘./main1.jsx’,<br>bundle2: ‘./main2.jsx’<br>},<br>output: {<br>filename: ‘[name].js’<br>},<br>plugins: [<br>new CommonsChunkPlugin(‘init.js’)<br>]<br>}<br>/<strong>————————————————————————————————————————– */<br>// extract-text-webpack-plugin<br>// 独立出css样式,通过<link>引入<br>// $ npm install extract-text-webpack-plugin –save-dev<br>var ExtractTextPlugin = require(“extract-text-webpack-plugin”);<br>module.exports = {<br>// …省略各种代码<br>module: {<br>loaders: [<br>{test: /.js$/, loader: “babel”},<br>{test: /.css$/, loader: ExtractTextPlugin.extract(“style-loader”, “css-loader”)},<br>{test: /.(jpg|png|svg)$/, loader: “url?limit=8192”},<br>{test: /.scss$/, loader: “style!css!sass”}<br>]<br>},<br>plugins: [<br>new webpack.optimize.CommonsChunkPlugin(‘common.js’),<br>new ExtractTextPlugin(“[name].css”)<br>]<br>}<br>/</strong>————————————————————————————————————————– */<br>// HotModuleReplacementPlugin<br>// 热服务模块插件， 参见下面的 Hot Module<br>var webpack = require(‘webpack’);<br>var path = require(‘path’);<br>module.exports = {<br>entry: [<br>‘webpack/hot/dev-server’,<br>‘webpack-dev-server/client?<a href="http://localhost:8080&#39;">http://localhost:8080&#39;</a>,<br>‘./index.js’<br>],<br>plugins: [<br>new webpack.HotModuleReplacementPlugin()<br>],<br>}</p>
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// Hot Module<br>// 以热模式响应启用服务，并将服务嵌入到bundle中<br>// 修改代码不需要重启服务即可在网页上更新<br>webpack-dev-server –hot –inline</p>
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 代码分割<br>// 大型WebApp将所有代码放在一个文件中不是很有效率<br>// Webpack可以将代码分割成多个块，且可以按需要加载相应块<br>// require.ensure定义分割点，./a.js从bunle.js中分离出来并编译成一个单独的块文件<br>// main.js<br>require.ensure([‘./a’], function(require) {<br>var content = require(‘./a’);<br>document.open();<br>document.write(‘<h1>‘ + content + ‘</h1>‘);<br>document.close();<br>});<br>// 编译结果为两个文件<code>bundle.js</code> and <code>1.bundle.js</code><br>// a.js<br>module.exports = ‘Hello World’;</p>
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 环境标签<br>// 让某些代码只在开发环境中运行<br>document.write(‘<h1>Hello World</h1>‘);<br>if (<strong>DEV</strong>) {<br>document.write(new Date());<br>}</p>
+<p>// 自定义插件devFlagPlugin<br>// process.env.DEBUG 获取环境变量，赋值给<strong>DEV</strong>标签<br>var webpack = require(‘webpack’);<br>var devFlagPlugin = new webpack.DefinePlugin({<br><strong>DEV</strong>: JSON.stringify(JSON.parse(process.env.DEBUG || ‘false’))<br>});<br>module.exports = {<br>entry: ‘./main.js’,<br>output: {<br>filename: ‘bundle.js’<br>},<br>plugins: [devFlagPlugin]<br>};</p>
+<p>// 通过环境变量DEBUG来控制运行开发环境标签中的代码<br>// # Linux &amp; Mac<br>env DEBUG=true<br>webpack-dev-server</p>
+<p>// # Windows<br>$ set DEBUG=true<br>$ webpack-dev-server</p>
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 全局变量<br>// data.js<br>var data = ‘Hello World’;</p>
+<p>// 使用external来调用全局变量<br>externals: {<br>‘data’: ‘data’<br>}</p>
+<p>// require(‘data’)在这里就是全局变量了<br>// main.jsx<br>var data = require(‘data’);<br>var React = require(‘react’);<br>var ReactDOM = require(‘react-dom’);<br>ReactDOM.render(</p>
+<h1>{data}</h1>,
+document.body
+);
+
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>// 示例<br>// 创建项目<br>mkdir reactApp<br>cd reactApp/<br>npm init // 生成 package.json<br>// 依赖包及插件<br>npm install react –save<br>npm install react-dom –save<br>npm install babel-core –save-dev<br>npm install babel-loader –save-dev<br>npm install babel-preset-react<br>npm install babel-preset-es2015<br>// 创建文件<br>mkdir build<br>touch index.html<br>touch App.jsx<br>touch main.js<br>touch webpack.config.js</p>
+<p>// webpack.config.js<br>var config = {<br>entry: ‘./main.js’,<br>output: {<br>path:’./dist’,<br>filename: ‘index.js’,<br>},<br>resolve: {<br>extensions: [‘’, ‘.js’, ‘.jsx’]<br>},<br>devServer: {<br>inline: true,<br>port: 7777<br>},<br>module: {<br>loaders: [ {<br>test: /.js|jsx$/,<br>exclude: /node_modules/,<br>loader: ‘babel’,<br>query: {<br>presets: [‘es2015’, ‘react’]<br>}<br>}]<br>}<br>}<br>module.exports = config;</p>
+<p>// package.json<br>{<br>“name”: “runoob-react-test”,<br>“version”: “1.0.0”,<br>“description”: “react 测试”,<br>“author”: “”,<br>“license”: “ISC”,</p>
+<p>“main”: “index.js”,<br>“scripts”: {<br>“start”: “webpack-dev-server –hot”<br>},<br>“dependencies”: {<br>“react”: “^0.14.7”,<br>“react-dom”: “^0.14.7”<br>}<br>}<br>// App.jsx<br>import React from ‘react’;<br>class App extends React.Component {<br>render() {<br>return (</p>
+<div>
+Hello World!!!<br />
+欢迎来到教程学习！！！
+</div>
+);
+}
+}
+export default App;
+// main.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App.jsx';
+ReactDOM.render(<App />, document.getElementById('app'))
+// index.html
+<html>
+<head>
+<meta charset = "UTF-8">
+<title>React App - 菜鸟教程(runoob.com)</title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+<div id = "app"></div>
+<script src = "index.js"></script>
+</body>
+</html>
+
+
+<p>{/<em>启动服务</em>/}<br>npm start –hot<br>{/<em>访问页面</em>/}<br><a href="http://localhost:7777/" target="_blank" rel="noopener">http://localhost:7777/</a></p>
+</div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/webpack/">webpack</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">Hello World</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.1.</span> <span class="toc-text">Hello Webpack</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">Hello World</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">2.1.</span> <span class="toc-text">Hello Webpack</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text">‘ + file + ‘</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">4.</span> <span class="toc-text">Hello World</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">4.1.</span> <span class="toc-text">Hello Webpack</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">5.</span> <span class="toc-text">‘ + content + ‘</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">6.</span> <span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">7.</span> <span class="toc-text">{data}</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/vue/nuxt/">&lt; nuxt框架</a><a class="next" href="/2020/04/19/web/%E8%B7%A8%E7%AB%AF%E5%BC%80%E5%8F%91/taro/">taro框架 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

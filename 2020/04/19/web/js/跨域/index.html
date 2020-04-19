@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>跨域 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">跨域</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/web/js/%E8%B7%A8%E5%9F%9F/">2020-04-19</a></span><span class="p-category"><i class="fa fa-folder"></i><a href="/categories/js/">js</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="一、同源策略"><a href="#一、同源策略" class="headerlink" title="一、同源策略"></a>一、同源策略</h1><p>协议，域名，端口相同，同源策略是一种安全协议。<br>同源策略是客户端脚本（尤其是Javascript）的重要的安全度量标准。<br>目的是防止某个文档或脚本从多个不同源装载。</p>
+<h1 id="二、请求方法"><a href="#二、请求方法" class="headerlink" title="二、请求方法"></a>二、请求方法</h1><p>ajax<br>fetch<br>axios<br>fly</p>
+<h1 id="三、什么是跨域"><a href="#三、什么是跨域" class="headerlink" title="三、什么是跨域"></a>三、什么是跨域</h1><p>发送请求url的协议、域名、端口三者之间任意一与当前页面地址不同即为跨域。<br>即不满足同源策略时。</p>
+<h1 id="四、-解决方案"><a href="#四、-解决方案" class="headerlink" title="四、 解决方案"></a>四、 解决方案</h1><h2 id="1、jsonp"><a href="#1、jsonp" class="headerlink" title="1、jsonp"></a>1、jsonp</h2><p>无法发送post请求，确定jsonp的请求是否失败并不容易</p>
+<pre><code class="html">&lt;script&gt;
+$.ajax({
+    url:&quot;http://localhost:3000/users/userlist&quot;,
+    type:&quot;get&quot;,
+    dataType:&quot;jsonp&quot;,
+    success:function(e){
+        console.log(e);
+    }
+});
+&lt;/script&gt;</code></pre>
+<h2 id="2、iframe-hash"><a href="#2、iframe-hash" class="headerlink" title="2、iframe (#hash)"></a>2、iframe (#hash)</h2><h2 id="3、window-name"><a href="#3、window-name" class="headerlink" title="3、window.name"></a>3、window.name</h2><h2 id="4、window-postMessage-h5"><a href="#4、window-postMessage-h5" class="headerlink" title="4、window.postMessage (h5)"></a>4、window.postMessage (h5)</h2><p>window.postMessage 的功能是允许程序员跨域在两个窗口/frames间发送数据信息。基本上，它就像是跨域的AJAX，但不是浏览器跟服务器之间交互，而是在两个客户端之间通信。</p>
+<p><a href="https://www.html5tricks.com/html5-window-postmessage.html" target="_blank" rel="noopener">H5使用postMessage</a></p>
+<pre><code class="html">&lt;script&gt;
+function run(){
+    var frm=document.getElementById(&quot;frm&quot;);
+    frm.contentWindow.postMessage(&quot;跨域请求信息：智学无忧IT教育&quot;,&quot;http://localhost:3000&quot;);
+    }
+&lt;/script&gt;</code></pre>
+<pre><code class="js">// 父页面：增加一个postMessage来监听消息
+window.addEventListener(&#39;message&#39;, this.postMessageListener)
+/** iframe页面：关闭窗口 */
+close(removeTask, message){
+    let params = {
+        close: true,
+        removeData: removeTask,
+        message: message
+    }
+    parent.postMessage(, &#39;*&#39;)
+}</code></pre>
+<h2 id="5、cors-fetch"><a href="#5、cors-fetch" class="headerlink" title="5、cors (fetch)"></a>5、cors (fetch)</h2><h2 id="6、Proxy"><a href="#6、Proxy" class="headerlink" title="6、Proxy"></a>6、Proxy</h2><p>通过 nginx 等web服务代理</p>
+<p>Access-Control-Allow-Orign</p>
+</div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/js/">js</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、同源策略"><span class="toc-number">1.</span> <span class="toc-text">一、同源策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、请求方法"><span class="toc-number">2.</span> <span class="toc-text">二、请求方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、什么是跨域"><span class="toc-number">3.</span> <span class="toc-text">三、什么是跨域</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、-解决方案"><span class="toc-number">4.</span> <span class="toc-text">四、 解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、jsonp"><span class="toc-number">4.1.</span> <span class="toc-text">1、jsonp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、iframe-hash"><span class="toc-number">4.2.</span> <span class="toc-text">2、iframe (#hash)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、window-name"><span class="toc-number">4.3.</span> <span class="toc-text">3、window.name</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、window-postMessage-h5"><span class="toc-number">4.4.</span> <span class="toc-text">4、window.postMessage (h5)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、cors-fetch"><span class="toc-number">4.5.</span> <span class="toc-text">5、cors (fetch)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、Proxy"><span class="toc-number">4.6.</span> <span class="toc-text">6、Proxy</span></a></li></ol></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/js/%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD/">&lt; 异步加载</a><a class="next" href="/2020/04/19/web/js/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

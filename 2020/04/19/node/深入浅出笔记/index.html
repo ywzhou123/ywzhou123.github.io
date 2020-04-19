@@ -1,0 +1,517 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>Node深入浅出 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">Node深入浅出</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/node/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E7%AC%94%E8%AE%B0/">2020-04-19</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><p>//基础<br>    // 模块引用和定义<br>        var math = require(‘math’);<br>        // math.js<br>        module.exports.add = function () {<br>            varsum = 0, i = 0,<br>                args = arguments,<br>                l = args.length; while (i &lt; l) { sum += args[i++]; }<br>            return sum;<br>        };</p>
+<pre><code>// GYP项目生成工具
+// V8引擎C++库：实现js和C++互相调用
+// libuv库：实现跨平台的一层封装
+// NODE内部库
+// 其他库：zlib\openssl\http_parser
+
+// NPM:
+// npm -v
+// npm install express -g 
+// npm install &lt; tarball file&gt;
+// npm install &lt; tarball url &gt;    
+// npm install &lt;folder&gt;
+// --registry=http://registry.url
+
+//遍历目录
+    fs.readdir(path.join(__dirname, &#39;..&#39;), function (err, files) {
+        files.forEach(function (filename, index) {
+            fs.readFile(filename, &#39;utf8&#39;, function (err, file) { // TODO
+            });
+        });
+    });</code></pre><p>//网络编辑<br>    // net、dgram、http、https分别处理TCP、UDP、HTTP、HTTPS，适用于服务器端和客户端<br>        var net = require(‘net’);<br>        var server = net.createServer(function (socket) {<br>            //新的连接<br>            socket.on(‘data’, function (data) {<br>                socket.write(“你好”);<br>            });<br>            socket.on(‘end’, function () {<br>                console.log(‘连接断开’);<br>            });<br>            socket.write(“Node.js示例:\n”);<br>        });<br>        server.listen(8124, function () {<br>            console.log(‘server bound’);<br>        });<br>        //$ telnet 127.0.0.1 8124<br>        server.listen(‘/tmp/echo.sock’);<br>        //$ nc -U /tmp/echo.sock</p>
+<pre><code>//client.js
+    var net = require(&#39;net&#39;);
+    var client = net.connect({ port: 8124 }, function () { //&#39;connect&#39; listener
+        console.log(&#39;client connected&#39;);
+        client.write(&#39;world!\r\n&#39;);
+    });
+    // var client = net.connect({ path: &#39;/tmp/echo.sock&#39; });
+    client.on(&#39;data&#39;, function (data) {
+        console.log(data.toString()); client.end();
+    });
+    client.on(&#39;end&#39;, function () {
+        console.log(&#39;client disconnected&#39;);
+    });
+
+    // $ node client.js
+    // client connected
+    // Node.js示例:
+    //
+    // 你好
+    // client disconnected
+
+//服务器事件
+    listening: server.listen(port, listeningListener)
+    connection: net.createServer()
+    close: server.close()
+    error
+//连接事件
+    data
+    end
+    connect
+    drain
+    error
+    close
+    timeout
+
+//管道操作
+    var net = require(&#39;net&#39;);
+    var server = net.createServer(function (socket) {
+        socket.write(&#39;Echo server\r\n&#39;);
+        socket.pipe(socket);
+    });
+    server.listen(1337, &#39;127.0.0.1&#39;);
+
+//TCP默认启用Nagle算法，合并极小数据包，累积发送，有可能延迟发送，关闭方法如下：
+    socket.setNoDelay(true)
+
+
+//UDP服务器
+    var dgram = require(&quot;dgram&quot;);
+    var server = dgram.createSocket(&quot;udp4&quot;);
+    server.on(&quot;message&quot;, function (msg, rinfo) {
+        console.log(&quot;server got: &quot; + msg + &quot; from &quot; +
+            rinfo.address + &quot;:&quot; + rinfo.port);
+    });
+    server.on(&quot;listening&quot;, function () {
+        var address = server.address();
+        console.log(&quot;server listening &quot; + address.address + &quot;:&quot; + address.port);
+    });
+    //将接收所有网卡上41234端口上的消息。并触发listening事件
+    server.bind(41234);
+    // $ node server.js
+    // server listening 0.0.0.0:41234
+    // server got: Node.js from 127.0.0.1:58682
+
+//UDP客户端
+    //client.js
+    var dgram = require(&#39;dgram&#39;);
+    var message = new Buffer(&quot;Node.js&quot;);
+    var client = dgram.createSocket(&quot;udp4&quot;);
+    client.send(message, 0, message.length, 41234, &quot;localhost&quot;, function (err, bytes) {
+        client.close();
+    });
+    // socket.send(buf, offset, length, port, address, [callback])
+
+
+//HTTP服务器
+    var http = require(&#39;http&#39;);
+    http.createServer(function (req, res) {
+        //req.method: GET、POST、DELETE、PUT、CONNECT
+        //req.url: /
+        //req.httpVersion: 1.1
+        res.writeHead(200, { &#39;Content-Type&#39;: &#39;text/plain&#39; });
+        res.end(&#39;Hello World\n&#39;);
+    }).listen(1337, &#39;127.0.0.1&#39;);
+    console.log(&#39;Server running at http://127.0.0.1:1337/&#39;);
+
+//HTTP客户端
+    var options = {
+        hostname: &#39;127.0.0.1&#39;,
+        port: 1334,
+        path: &#39;/&#39;,
+        // host
+        // localAddress
+        // socketPath
+        // method
+        // headers
+        // auth
+    };
+    var req = http.request(options, function (res) {
+        console.log(&#39;STATUS: &#39; + res.statusCode);
+        console.log(&#39;HEADERS: &#39; + JSON.stringify(res.headers));
+        res.setEncoding(&#39;utf8&#39;);
+        res.on(&#39;data&#39;, function (chunk) {
+            console.log(chunk);
+        });
+    });
+    req.end();
+
+    // $ node client.js
+    // STATUS: 200
+    // HEADERS: { &quot;date&quot;:&quot;Sat, 06 Apr 2013 11:08:01 GMT&quot;, &quot;connection&quot;:&quot;keep-alive&quot;, &quot;transfer-encoding&quot;:&quot;chunked&quot; } 
+    // Hello World
+
+
+
+//WebSocket服务器
+
+
+//WebSocket客户端
+    var socket = new WebSocket(&#39;ws://127.0.0.1:12010/updates&#39;);
+    socket.onopen = function () {
+        setInterval(function () {
+            if (socket.bufferedAmount == 0)
+                socket.send(getUpdateData());
+        }, 50);
+    };
+    socket.onmessage = function (event) {
+        // TODO:event.data 
+    };</code></pre><p>//网络安全<br>    // crypto 加密解密<br>    // tls 类似于net,建立在TLS加密的TCP连接上<br>    // https 与http一致</p>
+<pre><code>//TLS服务
+    //证书和密钥
+        //生成私钥
+            $ openssl genrsa - out ca.key 1024
+        //生成csr文件
+            $ openssl req - new -key ca.key - out ca.csr
+        //通过私钥自签名生成证书
+            $ openssl x509 - req -in ca.csr - signkey ca.key - out ca.crt
+
+    //服务器端
+        var tls = require(&#39;tls&#39;); var fs = require(&#39;fs&#39;);
+        var options = {
+            key: fs.readFileSync(&#39;./keys/server.key&#39;), cert: fs.readFileSync(&#39;./keys/server.crt&#39;), requestCert: true,
+            ca: [fs.readFileSync(&#39;./keys/ca.crt&#39;)]
+        };
+        var server = tls.createServer(options, function (stream) {
+            console.log(&#39;server connected&#39;, stream.authorized ? &#39;authorized&#39; : &#39;unauthorized&#39;); stream.write(&quot;welcome!\n&quot;);
+            stream.setEncoding(&#39;utf8&#39;);
+            stream.pipe(stream);
+        });
+        server.listen(8000, function () {
+            console.log(&#39;server bound&#39;);
+        });
+
+        //测试证书是否正常
+            $ openssl s_client - connect 127.0.0.1:8000
+
+    //客户端
+        // 创建私钥
+            $ openssl genrsa - out client.key 1024
+        // 生成CSR
+            $ openssl req - new -key client.key - out client.csr
+        // 生成签名证书
+            $ openssl x509 - req - CA ca.crt - CAkey ca.key - CAcreateserial -in client.csr - out client.crt
+
+        var fs = require(&#39;fs&#39;);
+        var tls = require(&#39;tls&#39;);
+        var options = {
+            key: fs.readFileSync(&#39;./keys/client.key&#39;),
+            cert: fs.readFileSync(&#39;./keys/client.crt&#39;),
+            ca: [fs.readFileSync(&#39;./keys/ca.crt&#39;)]
+        };
+        var stream = tls.connect(8000, options, function () {
+            console.log(&#39;client connected&#39;, stream.authorized ? &#39;authorized&#39; : &#39;unauthorized&#39;);
+            process.stdin.pipe(stream);
+        });
+        stream.setEncoding(&#39;utf8&#39;);
+        stream.on(&#39;data&#39;, function (data) {
+            console.log(data);
+        });
+        stream.on(&#39;end&#39;, function () {
+            server.close();
+        });
+
+//HTTPS服务
+    //服务端
+        var https = require(&#39;https&#39;);
+        var fs = require(&#39;fs&#39;);
+        var options = {
+            key: fs.readFileSync(&#39;./keys/server.key&#39;),
+            cert: fs.readFileSync(&#39;./keys/server.crt&#39;)
+        };
+        https.createServer(options, function (req, res) {
+            res.writeHead(200);
+            res.end(&quot;hello world\n&quot;);
+        }).listen(8000);
+
+        // $ curl - k https://localhost:8000/ 
+        // hello world
+        // $ curl --cacert keys/ ca.crt https://localhost:8000/ 
+        // hello world
+
+    //客户端
+        var https = require(&#39;https&#39;);
+        var fs = require(&#39;fs&#39;); 2
+        var options = {
+            hostname: &#39;localhost&#39;,
+            port: 8000,
+            path: &#39;/&#39;,
+            method: &#39;GET&#39;,
+            key: fs.readFileSync(&#39;./keys/client.key&#39;),
+            cert: fs.readFileSync(&#39;./keys/client.crt&#39;),
+            ca: [fs.readFileSync(&#39;./keys/ca.crt&#39;)]
+        };
+        options.agent = new https.Agent(options);
+        var req = https.request(options, function (res) {
+            res.setEncoding(&#39;utf-8&#39;);
+            res.on(&#39;data&#39;, function (d) {
+                console.log(d);
+            });
+        }); req.end();
+        req.on(&#39;error&#39;, function (e) {
+            console.log(e);
+        });
+
+        // $ node client.js
+        // hello world</code></pre><p>//WEB应用<br>    //请求方法<br>        function (req, res) {<br>            switch (req.method) {<br>            case ‘POST’:<br>                update(req, res);<br>                break;<br>                case ‘DELETE’:<br>                    remove(req, res);<br>                    break;<br>                case ‘PUT’:<br>                    create(req, res);<br>                    break;<br>                case ‘GET’:<br>                default:<br>                    get(req, res);<br>            }<br>        }<br>    //路径解析<br>        function (req, res) {<br>            var pathname = url.parse(req.url).pathname;<br>            fs.readFile(path.join(ROOT, pathname), function (err, file) {<br>                if (err) {<br>                    10 res.writeHead(404);<br>                    res.end(‘ 不  关文件 - -‘);<br>                    return;<br>                } res.writeHead(200);<br>                res.end(file);<br>            });<br>        }<br>    //查询字符串<br>        var url = require(‘url’);<br>        var querystring = require(‘querystring’);<br>        // var query = querystring.parse(url.parse(req.url).query);<br>        var query = url.parse(req.url, true).query;<br>        // {<br>        //     foo: ‘bar’,<br>        //     baz: ‘val’<br>        // }<br>        //如果key出现多次，值会是一个数组<br>        //{<br>        // foo: [‘bar’, ‘baz’]<br>        //}<br>    //Cookie<br>        curl - v - H “Cookie: foo=bar; baz=val” “<a href="http://127.0.0.1:1337/path?foo=bar&amp;foo=baz&quot;" target="_blank" rel="noopener">http://127.0.0.1:1337/path?foo=bar&amp;foo=baz&quot;</a><br>        var parseCookie = function (cookie) {<br>            var cookies = {};<br>            if (!cookie) {<br>                return cookies;<br>            }<br>            var list = cookie.split(‘;’);<br>            for (var i = 0; i &lt; list.length; i++) {<br>                var pair = list[i].split(‘=’);<br>                cookies[pair[0].trim()] = pair[1];<br>            }<br>            return cookies;<br>        };<br>        function (req, res) {<br>            req.cookies = parseCookie(req.headers.cookie); hande(req, res);<br>        }<br>    //Session<br>        //方法一，cookie中保存口令<br>            var sessions = {};<br>            var key = ‘session_id’;<br>            var EXPIRES = 20 * 60 * 1000;<br>            var generate = function () {<br>                var session = {};<br>                session.id = (new Date()).getTime() + Math.random(); session.cookie = {<br>                    expire: (new Date()).getTime() + EXPIRES<br>                };<br>                sessions[session.id] = session;<br>                return session;<br>            };<br>            //请求到来时检查cookie中的口令与服务器端的数据<br>            function (req, res) {<br>                var id = req.cookies[key]; if (!id) {<br>                    req.session = generate();<br>                } else {<br>                    var session = sessions[id]; if (session) {<br>                        if (session.cookie.expire &gt; (new Date()).getTime()) {<br>                            //更新超时时间<br>                            session.cookie.expire = (new Date()).getTime() + EXPIRES; req.session = session;<br>                        } else {<br>                            // 超时了，删除旧的数据，并重新生成<br>                            delete sessions[id];<br>                            req.session = generate();<br>                        }<br>                    } else {<br>                        // 如果session过期或口令不对，重新生成session<br>                        req.session = generate();<br>                    }<br>                }<br>                handle(req, res);<br>            }</p>
+<pre><code>        //重启给客户端设置新的值
+        var writeHead = res.writeHead;
+        res.writeHead = function () {
+            var cookies = res.getHeader(&#39;Set-Cookie&#39;);
+            var session = serialize(&#39;Set-Cookie&#39;, req.session.id);
+            cookies = Array.isArray(cookies) ? cookies.concat(session) : [cookies, session]; res.setHeader(&#39;Set-Cookie&#39;, cookies);
+            return writeHead.apply(this, arguments);
+        };
+        //业务操作
+        var handle = function (req, res) {
+            if (!req.session.isVisit) {
+                res.session.isVisit = true; res.writeHead(200); res.end(&#39;       动  &#39;);
+            } else {
+                res.writeHead(200); res.end(&#39;动       &#39;);
+            }
+        };
+
+    //方法二，通过检查查询字符串
+        var getURL = function (_url, key, value) {
+            var obj = url.parse(_url, true); obj.query[key] = value;
+            return url.format(obj);
+        };
+        function (req, res) {
+            var redirect = function (url) {
+                res.setHeader(&#39;Location&#39;, url); res.writeHead(302);
+                res.end();
+            };
+            var id = req.query[key]; if (!id) {
+                var session = generate();
+                redirect(getURL(req.url, key, session.id));
+            } else {
+                var session = sessions[id]; if (session) {
+                    if (session.cookie.expire &gt; (new Date()).getTime()) {
+                        //更新超时时间
+                        session.cookie.expire = (new Date()).getTime() + EXPIRES; req.session = session;
+                        handle(req, res);
+                    } else {
+                        // 超时了，删除旧的数据，并重新生成 
+                        delete sessions[id];
+                        var session = generate(); redirect(getURL(req.url, key, session.id));
+                    }
+                } else {
+                    // 如果session过期或口令不对，重新生成session
+                    var session = generate(); 
+                    redirect(getURL(req.url, key, session.id));
+                }
+            }
+        }
+//Basic认证
+    //URL中没带认证内容时，响应一个401未授权的状态码
+        function (req, res) {
+            var auth = req.headers[&#39;authorization&#39;] || &#39;&#39;;
+            var parts = auth.split(&#39; &#39;);
+            var method = parts[0] || &#39;&#39;; // Basic
+            var encoded = parts[1] || &#39;&#39;; // dXNlcjpwYXNz
+            var decoded = new Buffer(encoded, &#39;base64&#39;).toString(&#39;utf-8&#39;).split(&quot;:&quot;);
+            var user = decoded[0]; // user
+            var pass = decoded[1]; // pass
+            if (!checkUser(user, pass)) {
+                res.setHeader(&#39;WWW-Authenticate&#39;, &#39;Basic realm=&quot;Secure Area&quot;&#39;);
+                res.writeHead(401);
+                res.end();
+            } else {
+                handle(req, res);
+            }
+        }
+
+
+//数据上传
+        // 判断报头是否带有内容
+        var hasBody = function (req) {
+            return &#39;transfer-encoding&#39; in req.headers || &#39;content-length&#39; in req.headers;
+        };
+        //处理data
+        function (req, res) {
+            if (hasBody(req)) {
+                var buffers = [];
+                req.on(&#39;data&#39;, function (chunk) {
+                    buffers.push(chunk);
+                });
+                req.on(&#39;end&#39;, function () {
+                    req.rawBody = Buffer.concat(buffers).toString();
+                    handle(req, res);
+                }); 8
+            } else {
+                handle(req, res);
+            }
+        }
+        //表单
+        &lt;form action=&quot;/upload&quot; method=&quot;post&quot;&gt;
+            &lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;username&quot; /&gt; &lt;br /&gt;
+            &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+        &lt;/form&gt;
+
+        var handle = function (req, res) {
+            if (req.headers[&#39;content-type&#39;] === &#39;application/x-www-form-urlencoded&#39;) {
+                req.body = querystring.parse(req.rawBody);
+            }
+            todo(req, res);
+        };
+        //判断编码信息
+        var mime = function (req) {
+            var str = req.headers[&#39;content-type&#39;] || &#39;&#39;; return str.split(&#39;;&#39;)[0];
+        };
+        var handle = function (req, res) {
+            if (mime(req) === &#39;application/json&#39;) {
+                try {
+                    req.body = JSON.parse(req.rawBody);
+                } catch (e) {
+                    // 异常内容 响应Bad request 
+                    res.writeHead(400);
+                    res.end(&#39;Invalid JSON&#39;);
+                    return;
+                }
+            }
+            todo(req, res);
+        };
+        var xml2js = require(&#39;xml2js&#39;);
+        var handle = function (req, res) {
+            if (mime(req) === &#39;application/xml&#39;) {
+                xml2js.parseString(req.rawBody, function (err, xml) {
+                    if (err) {
+                        // 异常内容 响应Bad request 
+                        res.writeHead(400);
+                        res.end(&#39;Invalid XML&#39;);
+                        return;
+                    }
+                    req.body = xml; todo(req, res);
+                });
+            }
+        };
+        //文件上传
+        function (req, res) {
+            if (hasBody(req)) {
+                var done = function () {
+                    handle(req, res);
+                };
+                if (mime(req) === &#39;application/json&#39;) {
+                    parseJSON(req, done);
+                } else if (mime(req) === &#39;application/xml&#39;) {
+                    parseXML(req, done);
+                } else if (mime(req) === &#39;multipart/form-data&#39;) {
+                    parseMultipart(req, done);
+                }
+            } else {
+                handle(req, res);
+            }
+        }
+        //基于流式处理解析报文，将接收到的文件写入到系统的临时文件夹中，并返回对应的路径
+        var formidable = require(&#39;formidable&#39;);
+        function (req, res) {
+            if (hasBody(req)) {
+                if (mime(req) === &#39;multipart/form-data&#39;) {
+                    var form = new formidable.IncomingForm();
+                    form.parse(req, function (err, fields, files) {
+                        req.body = fields;
+                        req.files = files;
+                        handle(req, res);
+                    });
+                }
+            } else {
+                handle(req, res);
+            }
+        }
+        //CSRF安全
+        var generateRandom = function (len) {
+            return crypto.randomBytes(Math.ceil(len * 3 / 4))
+                .toString(&#39;base64&#39;)
+                .slice(0, len);
+        };
+        var token = req.session._csrf || (req.session._csrf = generateRandom(24));
+        &lt;form id=&quot;test&quot; method=&quot;POST&quot; action=&quot;http://domain_a.com/guestbook&quot;&gt;
+            &lt;input type=&quot;hidden&quot; name=&quot;content&quot; value=&quot;vim是    上  的编辑器&quot; /&gt;
+            &lt;input type=&quot;hidden&quot; name=&quot;_csrf&quot; value=&quot;&lt;%=_csrf%&gt;&quot; /&gt;
+        &lt;/form&gt;
+        function (req, res) {
+            var token = req.session._csrf || (req.session._csrf = generateRandom(24));
+            var _csrf = req.body._csrf; if (token !== _csrf) {
+                res.writeHead(403);
+                res.end(&quot;禁止访问&quot;);
+            } else {
+                handle(req, res);
+            }
+        }
+//路由
+        var match = function (pathname, routes) {
+            for (var i = 0; i &lt; routes.length; i++) {
+                var route = routes[i];
+                // 正则 配
+                var reg = route[0].regexp;
+                var keys = route[0].keys;
+                var matched = reg.exec(pathname); if (matched) {
+                    //   具体 
+                    var params = {}; for (vari = 0, l = keys.length; i &lt; l; i++) {
+                        var value = matched[i + 1]; if (value) {
+                            params[keys[i]] = value;
+                        }
+                    }
+                    req.params = params;
+                    var action = route[1]; action(req, res); return true;
+                }
+            }
+            return false;
+        };
+
+        var routes = { &#39;all&#39;: [] };
+        var app = {};
+        app.use = function (path, action) {
+            routes.all.push([pathRegexp(path), action]);
+        };
+        [&#39;get&#39;, &#39;put&#39;, &#39;delete&#39;, &#39;post&#39;].forEach(function (method) {
+        routes[method] = [];
+            app[method] = function (path, action) {
+                routes[method].push([pathRegexp(path), action]);
+            };
+        });
+
+        app.post(&#39;/user/:username&#39;, addUser);
+        app.delete(&#39;/user/:username&#39;, removeUser);
+        app.put(&#39;/user/:username&#39;, updateUser);
+        app.get(&#39;/user/:username&#39;, getUser);
+//中间件
+        var middleware = function (req, res, next) {
+            // TODO
+            next();
+        }</code></pre></div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/js/apply/">&lt; apply 和 call</a><a class="next" href="/2020/04/19/tool/git/">git &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

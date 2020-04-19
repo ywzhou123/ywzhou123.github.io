@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>git | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">git</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/tool/git/">2020-04-19</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><p>#<a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">http://www.bootcss.com/p/git-guide/</a></p>
+<p>#<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a></p>
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h1 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h1><pre><code>git --version</code></pre><p>#——————————————————————————————————</p>
+<h1 id="账号"><a href="#账号" class="headerlink" title="账号"></a>账号</h1><pre><code>git config --global user.name &quot;Jiang Xin&quot;
+git config --global user.email jiangxin@ossxp.com</code></pre><p>#——————————————————————————————————</p>
+<h1 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h1><pre><code>git config --global alias.ci commit</code></pre><p>#——————————————————————————————————</p>
+<h1 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h1><pre><code>git config --global color.ui true</code></pre><p>#——————————————————————————————————</p>
+<h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><pre><code>git init demo
+# 自动创建demo目录并初始化一个空的版本库.git</code></pre><p>#——————————————————————————————————</p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><pre><code>git rev-parse --git-dir
+#   可在子目录中执行，向上查找.git目录
+#   /path/demo/.git
+git rev-parse --show-toplevel
+#   可在子目录中执行，显示工作区根目录
+#   /path/demo
+git rev-parse --show-prefix
+#   显示当前路径相对于工作区根目录的目录
+#   a/b/c/
+git rev-parse --show-cdup
+#   显示当前目录cd到工作区根目录的深度
+#   ../../.../</code></pre><p>#——————————————————————————————————</p>
+<h1 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h1><pre><code>cd demo
+echo &quot;Hello World.&quot; &gt; welcome.txt
+git add welcome.txt
+# 已在版本库中的文件修改后同样要git add后才能提交</code></pre><p>#——————————————————————————————————</p>
+<h1 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h1><pre><code>git ci -m &quot;init&quot;
+--allow-empty
+#   允许空白提交</code></pre><p>#——————————————————————————————————</p>
+<h1 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h1><pre><code>git clone git://git.kernel.org/pub/scm/git/git.git
+cd /path
+git clone demo demo-bak-1
+#   备份本地git库</code></pre><p>#——————————————————————————————————</p>
+<h1 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h1><pre><code>git log --stat</code></pre><p>#——————————————————————————————————</p>
+<h1 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h1><pre><code>git status
+git status -s
+#   精简格式
+# M位于第一列表示，版本库与暂存区文件有改动
+#   文件修改并 git add 之后
+# M位于第二列表示，工作区当前文件与暂存区文件有改动
+#   文件修改，在git add之前
+# 第一二列均有M，表示git add后又修改了文件</code></pre><p>#——————————————————————————————————</p>
+<h1 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h1><pre><code>echo &quot;Nice too meet you.&quot; &gt;&gt; welcome.txt
+git diff
+#   仅显示工作区最新改动，即工作区与暂存区相比
+git diff HEAD
+#   将工作区和HEAD（当前工作分支）相比
+git diff --cached
+#   将暂存区和版本库相比</code></pre><p>#——————————————————————————————————</p>
+<h1 id="远程"><a href="#远程" class="headerlink" title="远程"></a>远程</h1><pre><code>git remote –v
+#   查看版本库的网址
+git remote
+#   列出所有主机名</code></pre><p>#——————————————————————————————————</p>
+<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><pre><code>git fetch origin master
+#   将远程版本库的更新，更新到本地库。</code></pre><p>#——————————————————————————————————</p>
+<h1 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h1><pre><code>git remote add origin git@192.168.56.1:git-test.git
+#   添加远程仓库地址
+git push origin master
+#   将本地master分支推送到origin主机的master分支上</code></pre><p>#——————————————————————————————————</p>
+<h1 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h1><pre><code>git pull origin master:master
+#   将远程主机origin中的master分支跟新到本地分支master</code></pre><p>#——————————————————————————————————</p>
+<h1 id="重置"><a href="#重置" class="headerlink" title="重置"></a>重置</h1><pre><code>git reset --soft HEAD^
+git reset HEAD a/b/c
+#   将已经add到暂存队列中的文件取消暂存，然后通过checkout可以还原文件</code></pre><p>#——————————————————————————————————</p>
+<h1 id="检出"><a href="#检出" class="headerlink" title="检出"></a>检出</h1><pre><code>git checkout &lt;paths&gt;
+git checkout [&lt;branch&gt;]
+#   检出分支
+git checkout -- filename
+#   用暂存区中的文件来覆盖工作区的文件
+#   恢复到最后一次提交的改动</code></pre><p>#——————————————————————————————————</p>
+<h1 id="进度"><a href="#进度" class="headerlink" title="进度"></a>进度</h1><pre><code>git stach list
+#   查看保存的进度
+git stash pop
+#   恢复最近进度</code></pre><p>#——————————————————————————————————</p>
+<h1 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h1><pre><code>merge</code></pre><p>#——————————————————————————————————</p>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><pre><code>git branch
+#   显示当前分支
+git branch new-branch
+#   创建分支
+git checkout new-branch
+#   切换到新分支
+#   -b 可以在创建分支后自动切换到新分支
+git push origin new-branch
+#   合并到远程服务器
+git checkout master
+#   合并进master
+git merge new-branch
+#   合并进master
+git push
+#   合并进master
+#   master中也合并了new-branch中的更新
+git cherry-pick
+#   从历史提交中拣选到特性分支</code></pre><p>#——————————————————————————————————</p>
+<h1 id="里程碑"><a href="#里程碑" class="headerlink" title="里程碑"></a>里程碑</h1><pre><code>git tag -m &quot;Release 1.0&quot; v1.0
+#   创建里程碑
+git push origin refs/tags/v1.0</code></pre><p>#——————————————————————————————————</p>
+<h1 id="客户端工具"><a href="#客户端工具" class="headerlink" title="客户端工具"></a>客户端工具</h1><p>  windows<br>    TortoiseGit<br>  mac os x<br>    SourceTree</p>
+<p>#——————————————————————————————————</p>
+<h1 id="生成SSH公私匙"><a href="#生成SSH公私匙" class="headerlink" title="生成SSH公私匙"></a>生成SSH公私匙</h1><h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>  ssh-keygen -t rsa<br>    Generating public/private rsa key pair.<br>    Enter file in which to save the key (/home/git/.ssh/id_rsa):<br>    Created directory ‘/home/git/.ssh’.<br>    Enter passphrase (empty for no passphrase):<br>    Enter same passphrase again:<br>    Your identification has been saved in /home/git/.ssh/id_rsa.<br>    Your public key has been saved in /home/git/.ssh/id_rsa.pub.<br>    The key fingerprint is:<br>    2e:38:0f:26:72:8e:3b:1f:1e:7a:74:40:1e:b9:d2:2d <a href="mailto:git@minion-test-76.ewin.com">git@minion-test-76.ewin.com</a><br>    The keys randomart image is:</p>
+<p>   将公钥 ~/.ssh/id_rsa.pub 传给GIT管理员或将内容复制到GITLIB账号中。</p>
+<h1 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h1><p>  安装TortoiseGit<br>  使用puttygen.exe生成公钥和ppk<br>  将公钥文件传给GIT管理员或将内容复制到GITLIB账号中。<br>  将私匙保存在本地，添加到TortoiseGit设置中的远程账号中。</p>
+</div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本操作"><span class="toc-number">1.</span> <span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#版本"><span class="toc-number">2.</span> <span class="toc-text">版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#账号"><span class="toc-number">3.</span> <span class="toc-text">账号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#别名"><span class="toc-number">4.</span> <span class="toc-text">别名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#颜色"><span class="toc-number">5.</span> <span class="toc-text">颜色</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建"><span class="toc-number">6.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#目录"><span class="toc-number">7.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加"><span class="toc-number">8.</span> <span class="toc-text">添加</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#提交"><span class="toc-number">9.</span> <span class="toc-text">提交</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#克隆"><span class="toc-number">10.</span> <span class="toc-text">克隆</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#日志"><span class="toc-number">11.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#状态"><span class="toc-number">12.</span> <span class="toc-text">状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#比较"><span class="toc-number">13.</span> <span class="toc-text">比较</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#远程"><span class="toc-number">14.</span> <span class="toc-text">远程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更新"><span class="toc-number">15.</span> <span class="toc-text">更新</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#推送"><span class="toc-number">16.</span> <span class="toc-text">推送</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#拉取"><span class="toc-number">17.</span> <span class="toc-text">拉取</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重置"><span class="toc-number">18.</span> <span class="toc-text">重置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#检出"><span class="toc-number">19.</span> <span class="toc-text">检出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进度"><span class="toc-number">20.</span> <span class="toc-text">进度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#冲突"><span class="toc-number">21.</span> <span class="toc-text">冲突</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分支"><span class="toc-number">22.</span> <span class="toc-text">分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#里程碑"><span class="toc-number">23.</span> <span class="toc-text">里程碑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端工具"><span class="toc-number">24.</span> <span class="toc-text">客户端工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生成SSH公私匙"><span class="toc-number">25.</span> <span class="toc-text">生成SSH公私匙</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux"><span class="toc-number">26.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows"><span class="toc-number">27.</span> <span class="toc-text">windows</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/node/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E7%AC%94%E8%AE%B0/">&lt; Node深入浅出</a><a class="next" href="/2020/04/19/tool/immutable/">Immutable &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

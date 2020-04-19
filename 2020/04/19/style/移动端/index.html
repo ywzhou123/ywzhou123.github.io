@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>移动端H5开发 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">移动端H5开发</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/style/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">2020-04-19</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="一、移动端滚动插件"><a href="#一、移动端滚动插件" class="headerlink" title="一、移动端滚动插件"></a>一、移动端滚动插件</h1><p><a href="https://ustbhuangyi.github.io/better-scroll/doc/" target="_blank" rel="noopener">better-scroll</a></p>
+<p>#二、移动端弹性适配<br><a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">lib-flexible</a><br>淘宝弹性布局方案，UI按照iphone6尺寸（750px）进行设计,<br>html的font-size:75px；所以，项目中配置rem基准为75px;<br>配合webpack打包，自动将px转化成rem，使用px2rem-loader</p>
+<p>#三、VSCode插件cssrem<br>输入px单位自动转为rem单位</p>
+<p>“cssrem.rootFontSize”:75<br>// root font-size (unit: px), 默认为: 16；<br>“cssrem.fixedDigits” px转rem小数点最大长度，默认：6；<br>“cssrem.autoRemovePrefixZero” 自动移除0开头的前缀，默认：true；<br>“css.remoteStyleSheets”: []</p>
+<p>#四、解决点击延迟<br>fastclick<br>从点击屏幕上的元素到触发元素的 click 事件，移动浏览器会有大约 300 毫秒的等待时间，因为它想看看你是不是要进行双击（double tap）操作。</p>
+<p>#五、开发调试工具<br><a href="https://github.com/Tencent/vConsole/blob/dev/doc/tutorial_CN.md" target="_blank" rel="noopener">vConsole</a><br>一个轻量、可拓展、针对手机网页的前端开发者调试面板。</p>
+<p>#六、Webpack跨域</p>
+<pre><code>dev: {
+env: require(&#39;./dev.env&#39;),
+port: 8080,
+autoOpenBrowser: true,
+assetsSubDirectory: &#39;static&#39;,
+assetsPublicPath: &#39;/&#39;,
+cssSourceMap: false,
+proxyTable: {
+&#39;/api&#39;: {
+target: &#39;http://www.abc.com&#39;, //目标接口域名
+changeOrigin: true, //是否跨域
+secure: false, // 允许https请求
+pathRewrite: {
+&#39;^/api&#39;: &#39;/api&#39; //重写接口
+}
+}
+}</code></pre><p>#七、Meta标签设置</p>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+// 页面窗口自动调整到设备宽度，并禁止用户缩放页面
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+// 告诉IE使用最新的引擎渲染网页，chrome=1则可以激活Chrome Frame.
+<meta name="keywords" content="新闻 新闻中心 事实派 新闻频道,时事报道">
+<meta name="description" content="腾讯新闻，事实派。新闻中心,包含有时政新闻、国内新闻、国际新闻、社会新闻、时事评论、新闻图片、新闻专题、新闻论坛、军事、历史、的专业时事报道门户网站">
+<meta name="author" content="skeetershi" />
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+// 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 。
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+// 设置苹果工具栏颜色。
+<meta content="telephone=no，email=no" name="format-detection">
+// 忽略页面中的数字识别为电话，忽略email识别。
+<meta name="screen-orientation" content="portrait">
+// uc强制竖屏
+<meta name="full-screen" content="yes">
+// UC强制全屏
+<meta name="x5-orientation" content="portrait">
+// QQ强制竖屏
+<meta name="x5-fullscreen" content="true">
+// QQ强制全屏
+<meta name="renderer" content="webkit">//默认webkit内核
+<meta name="renderer" content="ie-comp">//默认IE兼容模式
+<meta name="renderer" content="ie-stand">//默认IE标准模式
+// 指定双核浏览器默认以何种方式渲染页面。PS：360浏览器支持
+
+<p>#八、video播放问题<br>自动播放属性autoplay，无法正常播放视频<br>解决方案：添加muted属性，静音</p>
+<p>安卓浏览器播放系统会自动接管<br>解决方案：webkit-playsinline playsinline</p>
+<p>有时候无法直接播放或有卡顿<br>解决方案：启用H5内核H5播放器 x5-video-player-type=”h5”</p>
+<p>无法铺满整个屏幕<br>解决方案：style=”width= 100%; height=100%; object-fit: fill”</p>
+<p>监听视频是否结束<br>myVideo.addEventListener(‘ended’, function () {<br>alert(“视频结束啦”);<br>}, false);</p>
+<p>参考资料<br><a href="https://www.jianshu.com/p/b20174503d3e" target="_blank" rel="noopener">https://www.jianshu.com/p/b20174503d3e</a><br><a href="https://www.cnblogs.com/baihuaxiu/p/6654496.html" target="_blank" rel="noopener">https://www.cnblogs.com/baihuaxiu/p/6654496.html</a></p>
+</div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、移动端滚动插件"><span class="toc-number">1.</span> <span class="toc-text">一、移动端滚动插件</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/style/css/%E9%80%89%E6%8B%A9%E5%99%A8/">&lt; css选择器</a><a class="next" href="/2020/04/19/style/%E5%93%8D%E5%BA%94%E5%BC%8F/">响应式 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

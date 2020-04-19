@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>响应式 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">响应式</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/style/%E5%93%8D%E5%BA%94%E5%BC%8F/">2020-04-19</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="一、实现响应式方式"><a href="#一、实现响应式方式" class="headerlink" title="一、实现响应式方式"></a>一、实现响应式方式</h1><p>什么是响应式<br>同一个网站兼容不同的大小的设备。如PC端、移动端（平板、横屏、竖排）的显示风格。</p>
+<h2 id="1、头部导入"><a href="#1、头部导入" class="headerlink" title="1、头部导入"></a>1、头部导入</h2><p>在link标签上用media属性指定媒体查询的内容，条件符合的则引入样式文件。</p>
+<pre><code>&lt;link media=&quot;screen and (min-width:620px)&quot;
+href=&quot;../css/index-large-screen.css&quot;
+type=&quot;text/css&quot; rel=&quot;stylesheet&quot;/&gt;</code></pre><h2 id="2、使用-media媒体查询"><a href="#2、使用-media媒体查询" class="headerlink" title="2、使用@media媒体查询"></a>2、使用@media媒体查询</h2><pre><code>/*媒体查询，宽屏*/
+@media screen and (min-width: 620px) {
+.header-wrapper .nav-list li{
+float: left;
+}
+.more-list button{
+display: none;
+}
+}
+/*媒体查询，窄屏*/
+@media screen and (max-width: 620px) {
+/*对展开列表定位、设置背景颜色*/
+.header-wrapper .nav-collapse{
+position: relative;
+top:40px;
+background-color: #3c3f41;
+}
+/*列表第一个元素除外列表上边距为1.2px*/
+.header-wrapper .nav-list li:not(:first-child){
+margin-top: 1.2px;
+}
+.more-list button{
+display:block;
+}
+}</code></pre><h2 id="3、使用BootStrap"><a href="#3、使用BootStrap" class="headerlink" title="3、使用BootStrap"></a>3、使用BootStrap</h2><pre><code>&lt;head&gt;
+&lt;link href=&quot;css/bootstrap.css&quot; rel=&quot;stylesheet&quot;/&gt;
+&lt;/head&gt;</code></pre><h2 id="4、使用em或rem做尺寸单位"><a href="#4、使用em或rem做尺寸单位" class="headerlink" title="4、使用em或rem做尺寸单位"></a>4、使用em或rem做尺寸单位</h2><p>用于文字大小的响应和弹性布局。</p>
+<h2 id="5、禁止页面缩放"><a href="#5、禁止页面缩放" class="headerlink" title="5、禁止页面缩放"></a>5、禁止页面缩放</h2><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no&quot; /&gt;
+
+</code></pre></div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、实现响应式方式"><span class="toc-number">1.</span> <span class="toc-text">一、实现响应式方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、头部导入"><span class="toc-number">1.1.</span> <span class="toc-text">1、头部导入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、使用-media媒体查询"><span class="toc-number">1.2.</span> <span class="toc-text">2、使用@media媒体查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、使用BootStrap"><span class="toc-number">1.3.</span> <span class="toc-text">3、使用BootStrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、使用em或rem做尺寸单位"><span class="toc-number">1.4.</span> <span class="toc-text">4、使用em或rem做尺寸单位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、禁止页面缩放"><span class="toc-number">1.5.</span> <span class="toc-text">5、禁止页面缩放</span></a></li></ol></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/style/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">&lt; 移动端H5开发</a><a class="next" href="/2020/04/19/web/js/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>事件 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">事件</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/web/js/%E4%BA%8B%E4%BB%B6/">2020-04-19</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="一、DOM事件类"><a href="#一、DOM事件类" class="headerlink" title="一、DOM事件类"></a>一、DOM事件类</h1><h2 id="1、DOM事件的级别"><a href="#1、DOM事件的级别" class="headerlink" title="1、DOM事件的级别"></a>1、DOM事件的级别</h2><h3 id="DOM0"><a href="#DOM0" class="headerlink" title="DOM0"></a>DOM0</h3><p>element.onclick=function(){}</p>
+<h3 id="DOM2"><a href="#DOM2" class="headerlink" title="DOM2"></a>DOM2</h3><p>element.addEventListener(‘click’,function(){},false)<br>参数3<br>false 默认 表示冒泡<br>true 表示捕获</p>
+<h3 id="DOM3"><a href="#DOM3" class="headerlink" title="DOM3"></a>DOM3</h3><p>element.addEventListener(‘keyup’,function(){},false)<br>比2增加了很多事件，如键盘鼠</p>
+<h2 id="2、DOM事件的模型"><a href="#2、DOM事件的模型" class="headerlink" title="2、DOM事件的模型"></a>2、DOM事件的模型</h2><p>冒泡 从下向上<br>捕获 从上向下</p>
+<h2 id="3、DOM事件流"><a href="#3、DOM事件流" class="headerlink" title="3、DOM事件流"></a>3、DOM事件流</h2><p>事件 -&gt; 捕获 -&gt; 目标元素 -&gt; 冒泡</p>
+<h2 id="4、捕获流程"><a href="#4、捕获流程" class="headerlink" title="4、捕获流程"></a>4、捕获流程</h2><p>window document html body … 目标元素 然后返回向上冒泡</p>
+<h2 id="5、Event对象常见应用"><a href="#5、Event对象常见应用" class="headerlink" title="5、Event对象常见应用"></a>5、Event对象常见应用</h2><p>event.preventDefault()<br>阻止默认行为，如a标签可以阻止跳转行为<br>event.stopPropagation()<br>阻止冒泡行为，子元素可以阻止父元素事件<br>event.stopImmediatePropagation()<br>优生级阻止<br>event.currentTarget<br>父包含多个子时，父的click事件时，currentTarget指父元素<br>event.target<br>元素</p>
+<h2 id="6、自定义事件"><a href="#6、自定义事件" class="headerlink" title="6、自定义事件"></a>6、自定义事件</h2><p>var eve = new Event(‘custome’,[object option])<br>ev.addEventListener(‘custome’,function(){<br>console.log(‘custome’)<br>})<br>ev.dispathEvent(eve) //事件触发</p>
+</div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、DOM事件类"><span class="toc-number">1.</span> <span class="toc-text">一、DOM事件类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、DOM事件的级别"><span class="toc-number">1.1.</span> <span class="toc-text">1、DOM事件的级别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM0"><span class="toc-number">1.1.1.</span> <span class="toc-text">DOM0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM2"><span class="toc-number">1.1.2.</span> <span class="toc-text">DOM2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM3"><span class="toc-number">1.1.3.</span> <span class="toc-text">DOM3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、DOM事件的模型"><span class="toc-number">1.2.</span> <span class="toc-text">2、DOM事件的模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、DOM事件流"><span class="toc-number">1.3.</span> <span class="toc-text">3、DOM事件流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、捕获流程"><span class="toc-number">1.4.</span> <span class="toc-text">4、捕获流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、Event对象常见应用"><span class="toc-number">1.5.</span> <span class="toc-text">5、Event对象常见应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、自定义事件"><span class="toc-number">1.6.</span> <span class="toc-text">6、自定义事件</span></a></li></ol></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/js/%E7%AE%97%E6%B3%95/">&lt; 算法</a><a class="next" href="/2020/04/19/tool/loadash/">Loadash工具库 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>

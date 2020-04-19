@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="月晴星飞的个人博客"><meta name="baidu-site-verification" content="2kzCiP25dA"><title>面向对象 | 月晴星飞</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?115872dc2cc8c5a96937ab18cbdd16fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"></head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">月晴星飞</a></h1></div><p class="m-desc">天行健，君子以自强不息；<br>地势坤，君子以厚德载物。</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">面向对象</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/19/web/js/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">2020-04-19</a></span><span class="p-category"><i class="fa fa-folder"></i><a href="/categories/js/">js</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="一、对象概念"><a href="#一、对象概念" class="headerlink" title="一、对象概念"></a>一、对象概念</h1><h2 id="1-1、对象"><a href="#1-1、对象" class="headerlink" title="1.1、对象"></a>1.1、对象</h2><h2 id="1-2-基本特征"><a href="#1-2-基本特征" class="headerlink" title="1.2 基本特征"></a>1.2 基本特征</h2><h3 id="1-2-1、封装"><a href="#1-2-1、封装" class="headerlink" title="1.2.1、封装"></a>1.2.1、封装</h3><p>封装最好理解了。封装是面向对象的特征之一，是对象和类概念的主要特性。封装，也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。</p>
+<h3 id="1-2-2、继承"><a href="#1-2-2、继承" class="headerlink" title="1.2.2、继承"></a>1.2.2、继承</h3><p>继承是指这样一种能力：它可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。通过继承创建的新类称为“子类”或“派生类”，被继承的类称为“基类”、“父类”或“超类”。<br>要实现继承，可以通过“继承”（Inheritance）和“组合”（Composition）来实现。</p>
+<h3 id="1-2-3、多态性"><a href="#1-2-3、多态性" class="headerlink" title="1.2.3、多态性"></a>1.2.3、多态性</h3><p>多态性（polymorphisn）是允许你将父对象设置成为和一个或更多的他的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作。简单的说，就是一句话：允许将子类类型的指针赋值给父类类型的指针。<br>实现多态，有两种方式，覆盖和重载。覆盖和重载的区别在于，覆盖在运行时决定，重载是在编译时决定。并且覆盖和重载的机制不同，例如在 Java 中，重载方法的签名必须不同于原先方法的，但对于覆盖签名必须相同。</p>
+<h1 id="二、如何创建对象"><a href="#二、如何创建对象" class="headerlink" title="二、如何创建对象"></a>二、如何创建对象</h1><h2 id="2-1、字面量方式"><a href="#2-1、字面量方式" class="headerlink" title="2.1、字面量方式"></a>2.1、字面量方式</h2><p>var obj = {}<br>obj.attr1 = 123;</p>
+<h2 id="2-2、嵌入式字面量"><a href="#2-2、嵌入式字面量" class="headerlink" title="2.2、嵌入式字面量"></a>2.2、嵌入式字面量</h2><p>var obj = {<br>attr1 : 123,<br>}</p>
+<h2 id="2-3、构造函数方式"><a href="#2-3、构造函数方式" class="headerlink" title="2.3、构造函数方式"></a>2.3、构造函数方式</h2><p>new Person()</p>
+<h2 id="2-4、原型方式"><a href="#2-4、原型方式" class="headerlink" title="2.4、原型方式"></a>2.4、原型方式</h2><p>function Person(){}<br>Person.prototype.say = function(){…};</p>
+<h2 id="2-5、构造函数-原型"><a href="#2-5、构造函数-原型" class="headerlink" title="2.5、构造函数+原型"></a>2.5、构造函数+原型</h2><p>function Person(name,age){<br>this.name = name;<br>this.age = age;<br>}<br>Person.prototype.say = function(){<br>console.log(“My name is “+this.name+”. I’m “+this.age+” years old.”);<br>}<br>var p1 = new Person(‘Peter’,20);</p>
+<h2 id="2-6、Object-create"><a href="#2-6、Object-create" class="headerlink" title="2.6、Object.create()"></a>2.6、Object.create()</h2><p>ES5提供</p>
+<h1 id="三、面向对象"><a href="#三、面向对象" class="headerlink" title="三、面向对象"></a>三、面向对象</h1><p>基本特征<br>封闭、继承、多态</p>
+<h2 id="1、类的声明"><a href="#1、类的声明" class="headerlink" title="1、类的声明"></a>1、类的声明</h2><pre><code class="javascript">// ES5
+function Animal() {
+this.name = &#39;name&#39;
+}
+// ES6
+class Animal2 {
+constructor(){
+this.name = &#39;name&#39;
+}
+}</code></pre>
+<h2 id="2、类的继承"><a href="#2、类的继承" class="headerlink" title="2、类的继承"></a>2、类的继承</h2><h3 id="借助构造函数实现继承"><a href="#借助构造函数实现继承" class="headerlink" title="借助构造函数实现继承"></a>借助构造函数实现继承</h3><pre><code class="javascript">
+function Parent1(){
+this.name = &#39;parent1&#39;
+}
+Parent1.prototype.say=function(){}
+function Child1(){
+Parent1.call(this)
+//将Parent1的this指向Child1实例化后的实例
+//但无法继承Parent1上原型对象上的方法say
+this.type = &#39;child1&#39;
+}
+new Child1()</code></pre>
+<h3 id="借助原型链继承"><a href="#借助原型链继承" class="headerlink" title="借助原型链继承"></a>借助原型链继承</h3><p>可以继承Parent2上原型对象上的方法</p>
+<pre><code class="javascript">function Parent2 () {
+this.name = &#39;parent2&#39;
+}
+function Child2 () {
+this.type = &#39;child2&#39;
+}
+Child2.prototype = new Parent2()
+new Child2()</code></pre>
+<blockquote>
+<p>缺点：实例化两个对象，一个改变，另一个也跟着变</p>
+</blockquote>
+<h3 id="组合方式（推荐）"><a href="#组合方式（推荐）" class="headerlink" title="组合方式（推荐）"></a>组合方式（推荐）</h3><p>解决以上两种方式的缺点</p>
+<pre><code class="javascript">function Parent3(){
+this.name = &#39;parent3&#39;
+}
+function Child3(){
+Parent3.call(this)
+this.type=&#39;child3&#39;
+}
+//Child3.prototype = new Parent3() //Parent3的构造函数会执行两次
+//Child3.prototype = Parent3.prototype //instanceof无法区分实例是父的还是子的
+//Child3.prototype = Object.create(Parent3.prototype) //隔离了父子的原型对象
+Child3.prototype.constructor = Child3 //设置自己的构造器，否则实例还是指向父
+</code></pre>
+</div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/js/">js</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、对象概念"><span class="toc-number">1.</span> <span class="toc-text">一、对象概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1、对象"><span class="toc-number">1.1.</span> <span class="toc-text">1.1、对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-基本特征"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 基本特征</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1、封装"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.2.1、封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2、继承"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2.2、继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-3、多态性"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.2.3、多态性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、如何创建对象"><span class="toc-number">2.</span> <span class="toc-text">二、如何创建对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1、字面量方式"><span class="toc-number">2.1.</span> <span class="toc-text">2.1、字面量方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2、嵌入式字面量"><span class="toc-number">2.2.</span> <span class="toc-text">2.2、嵌入式字面量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3、构造函数方式"><span class="toc-number">2.3.</span> <span class="toc-text">2.3、构造函数方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4、原型方式"><span class="toc-number">2.4.</span> <span class="toc-text">2.4、原型方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5、构造函数-原型"><span class="toc-number">2.5.</span> <span class="toc-text">2.5、构造函数+原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6、Object-create"><span class="toc-number">2.6.</span> <span class="toc-text">2.6、Object.create()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、面向对象"><span class="toc-number">3.</span> <span class="toc-text">三、面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、类的声明"><span class="toc-number">3.1.</span> <span class="toc-text">1、类的声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、类的继承"><span class="toc-number">3.2.</span> <span class="toc-text">2、类的继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#借助构造函数实现继承"><span class="toc-number">3.2.1.</span> <span class="toc-text">借助构造函数实现继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#借助原型链继承"><span class="toc-number">3.2.2.</span> <span class="toc-text">借助原型链继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合方式（推荐）"><span class="toc-number">3.2.3.</span> <span class="toc-text">组合方式（推荐）</span></a></li></ol></li></ol></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/04/19/web/js/%E8%B7%A8%E5%9F%9F/">&lt; 跨域</a><a class="next" href="/2020/04/19/web/js/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">数据类型 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+.v a { color: #0F9FB4; }
+.v a:hover { color: #216C73; }
+.v li { list-style: inherit; }
+.v .vwrap { border: 1px solid #223441; border-radius: 0; }
+.v .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.v .vbtn { border-radius: 0; color: #cecece; background: none; }
+.v .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.v .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.v .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.v code, .v pre,.v .vlist .vcard .vhead .vsys { background: #203240; }
+.v code, .v pre { color: #F0F0F0; font-size: 95%; }
+.v .vlist .vcard .vcontent.expand:before { background: linear-gradient(180deg,hsla(206,33%,19%,0),hsla(206,33%,19%,.9)); }
+.v .vlist .vcard .vcontent.expand:after { background: hsla(206,33%,19%,.9); }</style><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'YA2WYHPMXQdEAVaM1kpLwGYh-gzGzoHsz',
+  appKey:'Lw8DxQbBcfgYGtAFrU8kfpQA',
+  lang: 'zh-cn',
+  placeholder:'请留下您宝贵的评论...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">月晴星飞</a><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>
